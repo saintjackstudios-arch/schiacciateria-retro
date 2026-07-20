@@ -30,8 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — mai committare chiavi API
 .env*
+.env.local
+.env.production
+.env.development
 
 # vercel
 .vercel
@@ -43,4 +46,10 @@ next-env.d.ts
 # heavy assets
 public/**/*.pdf
 public/*.pdf
+
+# dev agent config — non necessario in produzione
+.agents/
+skills-lock.json
+AGENTS.md
+CLAUDE.md
 
