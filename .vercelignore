@@ -1,0 +1,11 @@
+# Escludi tutti i PDF (troppo pesanti per Vercel)
+public/**/*.pdf
+public/*.pdf
+
+# Escludi cartelle e file di sviluppo
+.agents/
+skills-lock.json
+AGENTS.md
+CLAUDE.md
+viale_real.jpg
+node_modules/
