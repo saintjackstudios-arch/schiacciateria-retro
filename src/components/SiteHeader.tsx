@@ -1,30 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Camera, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function SiteHeader() {
-  const [visible, setVisible] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const lastScrollRef = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const current = window.scrollY;
-      const last = lastScrollRef.current;
-      if (current > last + 4) {
-        setVisible(false);
-      } else if (current < last - 4) {
-        setVisible(true);
-      }
-      lastScrollRef.current = current;
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (drawerOpen) {
@@ -46,9 +29,7 @@ export default function SiteHeader() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[300] flex items-center justify-between px-6 h-16 md:h-20 md:px-12 bg-black/95 backdrop-blur-md border-b-2 border-white/10 transition-transform duration-300 ${
-          visible ? 'translate-y-0' : '-translate-y-full'
-        }`}
+        className="fixed top-0 left-0 w-full z-[300] flex items-center justify-between px-6 h-16 md:h-20 md:px-12 bg-black/95 backdrop-blur-md border-b-2 border-white/10 shadow-lg"
       >
         <Link href="/" className="flex items-center gap-3">
           <Image

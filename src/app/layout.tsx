@@ -4,17 +4,20 @@ import SiteHeader from "@/components/SiteHeader";
 import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://barretro.com'),
+  metadataBase: new URL('https://schiacciateriaretrotrieste.com'),
   title: {
     default: "Schiacciateria Retrò Trieste | Viale XX Settembre",
     template: "%s | Schiacciateria Retrò Trieste",
   },
   description: "Schiacciateria Retrò è il riferimento a Trieste, in Viale XX Settembre 16. Schiacciata artigianale, birre selezionate e il vero street food triestino. Vieni a trovarci!",
   keywords: ["bar Trieste", "schiacciateria Trieste", "street food Trieste", "Viale XX Settembre Trieste", "aperitivo Trieste", "schiacciata romana Trieste"],
+  verification: {
+    google: "VVCypvtM6nG-altOznc0SginVUV0yZhynG47rdqC02Y",
+  },
   openGraph: {
     type: 'website',
     locale: 'it_IT',
-    url: 'https://barretro.com',
+    url: 'https://schiacciateriaretrotrieste.com',
     siteName: 'Schiacciateria Retrò Trieste',
     title: "Schiacciateria Retrò Trieste | Viale XX Settembre",
     description: "La schiacciateria artigianale nel cuore di Trieste. Schiacciata, birra e l'autentico street food triestino in Viale XX Settembre 16.",
@@ -34,9 +37,12 @@ export const metadata: Metadata = {
     images: ['/logo_retro.png'],
   },
   icons: {
-    icon: '/logo_retro.png',
-    shortcut: '/logo_retro.png',
-    apple: '/logo_retro.png',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   robots: {
     index: true,
