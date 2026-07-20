@@ -94,28 +94,28 @@ const CENA_SCHIACCIATE: MenuItem[] = [
     name: 'Top de Gamma',
     ingredients: 'Mortadella, stracciatella e pistacchio',
     price: 8.5,
-    image: '/top_de_gamma.png',
+    image: '/top_de_gamma.webp',
     description: 'Il nostro bestseller assoluto. La mortadella profumata incontra la cremosità della stracciatella fresca e la nota croccante della granella di pistacchio.'
   },
   {
     name: 'Bona ma Leggera',
     ingredients: 'Prosciutto crudo, stracciatella, pomodorini e basilico',
     price: 9.0, // Special cena price
-    image: '/bona_ma_leggera.png',
+    image: '/bona_ma_leggera.webp',
     description: 'Il connubio perfetto tra sapidità del crudo di qualità e la freschezza mediterranea dei pomodorini freschi con basilico e stracciatella di burrata.'
   },
   {
     name: 'Fit',
     ingredients: 'Pomodorini, zucchine grigliate, rucola e stracchino',
     price: 10.0,
-    image: '/estiva_per_davvero.png',
+    image: '/estiva_per_davvero.webp',
     description: 'Leggera, vegetariana e freschissima. Le zucchine grigliate sposano la cremosità dello stracchino, rinfrescate da rucola e pomodorini.'
   },
   {
     name: 'Tre Volte Bon',
     ingredients: 'Prosciutto cotto, crema patate in tecia, crema al tartufo e provola',
     price: 10.0,
-    image: '/3_volte_bon.png',
+    image: '/3_volte_bon.webp',
     description: 'Per chi vuole osare con la tradizione. Il prosciutto cotto e la provola si fondono con la nostra leggendaria crema di patate in tecia e profumata crema al tartufo.'
   },
   {
