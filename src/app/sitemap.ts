@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getSortedPostsData } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://barretro.com';
+  const baseUrl = 'https://schiacciateriaretrotrieste.com';
 
   const posts = getSortedPostsData();
   const blogUrls = posts.map((post) => ({

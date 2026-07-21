@@ -105,7 +105,7 @@ export default function ContattiClient() {
                   </div>
                   <div>
                     <h3 className="font-display font-black text-xl uppercase italic mb-1">SCRIVICI</h3>
-                    <p className="text-lg font-bold text-zinc-600 text-sm break-all">info@barretro.com</p>
+                    <p className="text-lg font-bold text-zinc-600 text-sm break-all">info@schiacciateriaretrotrieste.com</p>
                   </div>
                 </div>
               </div>

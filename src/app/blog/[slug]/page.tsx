@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
     },
     alternates: {
-      canonical: `https://barretro.com/blog/${slug}`,
+      canonical: `https://schiacciateriaretrotrieste.com/blog/${slug}`,
     }
   };
 }
@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 "name": "Schiacciateria Retrò Trieste",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://barretro.com/logo_retro.png"
+                  "url": "https://schiacciateriaretrotrieste.com/logo_retro.png"
                 }
               }
             })

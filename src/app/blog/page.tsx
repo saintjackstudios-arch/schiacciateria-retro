@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Blog',
   description: 'Guide, storie e curiosità sulla cultura di Trieste: aperitivo, street food, movida e tutto quello che succede in Viale XX Settembre.',
   alternates: {
-    canonical: 'https://barretro.com/blog',
+    canonical: 'https://schiacciateriaretrotrieste.com/blog',
   }
 };
 

@@ -76,7 +76,7 @@ export default function CookiePage() {
               <Link href="/privacy" className="underline font-black hover:text-red-600 transition-colors">
                 Privacy Policy
               </Link>. Per qualsiasi informazione o per l&apos;esercizio dei tuoi diritti relativi ai tuoi dati, puoi contattarci scrivendo a{' '}
-              <a href="mailto:info@barretro.com" className="underline font-black hover:text-red-600 transition-colors">info@barretro.com</a>.
+              <a href="mailto:info@schiacciateriaretrotrieste.com" className="underline font-black hover:text-red-600 transition-colors">info@schiacciateriaretrotrieste.com</a>.
             </p>
           </section>
 

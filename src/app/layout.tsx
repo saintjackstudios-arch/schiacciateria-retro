@@ -80,7 +80,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Restaurant",
               "name": "Schiacciateria Retrò",
-              "image": "https://barretro.com/logo_retro.png",
+              "image": "https://schiacciateriaretrotrieste.com/logo_retro.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Viale XX Settembre",
@@ -105,7 +105,7 @@ export default function RootLayout({
                   "closes": "01:00"
                 }
               ],
-              "url": "https://barretro.com",
+              "url": "https://schiacciateriaretrotrieste.com",
               "description": "Schiacciateria Retrò è il locale artigianale di Trieste, situato in Viale XX Settembre 16. Propone schiacciata romana, birre selezionate e street food di qualità nel cuore della movida triestina."
             }) 
           }}

@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             <p className="font-bold">
               Schiacciateria Retrò di Marco Tarantino<br />
               Sede legale: Viale XX Settembre 16, 34132 Trieste (TS), Italia<br />
-              Email di contatto: <a href="mailto:info@barretro.com" className="underline hover:text-red-600 transition-colors font-black">info@barretro.com</a>
+              Email di contatto: <a href="mailto:info@schiacciateriaretrotrieste.com" className="underline hover:text-red-600 transition-colors font-black">info@schiacciateriaretrotrieste.com</a>
             </p>
           </section>
 
