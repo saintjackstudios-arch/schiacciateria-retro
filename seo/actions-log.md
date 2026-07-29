@@ -4,6 +4,30 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-07-29 (pomeriggio) — Risolte le 3 criticità dell'audit baseline
+
+**1. Soft-404 su `/gestione-menu`**
+- Verificato che il deploy delle 18:50 (fix orari + GA4) ha invalidato la cache CDN che serviva un 200 invece di 404. Confermato via `curl`: ora risponde correttamente 404.
+- Inviata comunque una richiesta a Google tramite lo strumento "Contenuti obsoleti" (search.google.com/search-console/remove-outdated-content) per accelerare la rimozione dall'indice.
+
+**2. Doppia indicizzazione homepage http/https**
+- Verificato in Search Console → Indicizzazione → Pagine → "Pagina con reindirizzamento": le 3 varianti (http, http://www, https://www) sono già correttamente escluse dall'indice da Google (rilevate 24-25/07). Non è un problema attivo — i clic storici nel report Rendimento sono dati pre-redirect.
+- Trovato un dettaglio secondario fuori dal mio controllo: `https://www` reindirizza con 307 (temporaneo) invece di un redirect permanente. È una configurazione DNS/registrar del dominio, non del codice né di Vercel — segnalato per chi gestisce il DNS, non urgente.
+
+**3. Le 9 pagine non indicizzate**
+- Analizzate le 4 categorie. Scoperta importante: **`/bevande`** (pagina birre/spritz, completa e con metadata SEO pronti) **esisteva ma non era linkata da nessuna parte del sito** — né nel menu desktop né in quello mobile. Pagina orfana, invisibile sia a Google che agli utenti che navigano normalmente.
+- **Fix applicato**: aggiunta `/bevande` al menu di navigazione (desktop + mobile) in [src/components/SiteHeader.tsx](../src/components/SiteHeader.tsx), tra "Menu" e "Blog". Testato in locale, compilazione TypeScript pulita, committato (`b5c4e27`) e deployato in produzione.
+
+**Richieste di indicizzazione inviate a Google** (Search Console → Controllo URL → Richiesta di indicizzazione):
+- Homepage (`https://schiacciateriaretrotrieste.com/`)
+- `/bevande`
+- `/blog`
+- `/blog/dove-cenare-trieste-all-aperto`
+
+- **Da fare:** ricontrollare tra qualche giorno se le pagine risultano indicizzate.
+
+---
+
 ## 2026-07-29 — Collegato Google Analytics 4
 
 - Creata nuova proprietà GA4 "Schiacciateria Retrò Trieste" sotto l'account Google Analytics SaintJack Studios (prima esisteva solo la proprietà dell'agenzia stessa, non del ristorante). Impostazioni: fuso orario Italia, valuta Euro, categoria "Cibi e bevande", dimensione "Piccole (1-10 dipendenti)", obiettivi "Comprendere il traffico" + "Generare lead".
