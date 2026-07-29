@@ -124,7 +124,7 @@ const ArtisanCardStack = () => {
         <p className="text-4xl font-black uppercase leading-none tracking-tighter mb-4">Artigianale</p>
         <div className="w-16 h-1 bg-yellow-400 mb-8" />
         <p className="text-sm md:text-base font-bold opacity-80 uppercase tracking-widest leading-tight">
-          Dalla farina di <br/> Fornaio Mapo <br/> al lievito madre
+          Vero lievito madre <br/> ricetta triestina <br/> fatto apposta per noi
         </p>
         <div className="absolute bottom-6 right-6 opacity-40 group-hover:opacity-100 transition-opacity">
            <ArrowRight className="w-6 h-6 text-yellow-400" />
@@ -574,16 +574,9 @@ export default function HomeClient() {
                   >
                     <Wheat className="w-12 h-12 text-yellow-400 mb-6" />
                     <h3 className="text-3xl font-display uppercase italic text-yellow-400 mb-4">Lievito Madre</h3>
-                    <p className="text-base font-bold opacity-80 uppercase tracking-widest leading-tight mb-8">
-                      Solo farina triestina di Fornaio Mapo. Un pane creato apposta per noi, come si faceva una volta.
+                    <p className="text-base font-bold opacity-80 uppercase tracking-widest leading-tight">
+                      Vero lievito madre e una ricetta tutta triestina. Un pane creato apposta per noi, come si faceva una volta — i dettagli sono top secret, ma il risultato parla da solo.
                     </p>
-                    <Link 
-                      href="https://www.fornaiomapo.it/" 
-                      target="_blank"
-                      className="text-xs font-black uppercase tracking-[0.2em] border-b-2 border-yellow-400 pb-1 hover:text-yellow-400 transition-colors"
-                    >
-                      Scopri Fornaio Mapo
-                    </Link>
                   </motion.div>
 
                   <motion.div 
@@ -1134,8 +1127,20 @@ export default function HomeClient() {
           {/* Hours */}
           <div className="flex flex-col gap-4">
             <p className="text-xs font-black uppercase tracking-[0.3em] text-yellow-400 mb-2">Orari</p>
-            <p className="text-sm font-bold text-zinc-400 uppercase tracking-wider">Lunedì – Domenica</p>
-            <p className="text-2xl font-black text-white">12:00 — 00:00</p>
+            <div className="flex flex-col gap-1 text-sm text-zinc-400">
+              <div className="flex justify-between gap-3">
+                <span className="font-bold uppercase tracking-wider">Lun – Gio</span>
+                <span className="font-black text-white">8:00 — 22:00</span>
+              </div>
+              <div className="flex justify-between gap-3">
+                <span className="font-bold uppercase tracking-wider">Ven – Sab</span>
+                <span className="font-black text-white">8:00 — 00:00</span>
+              </div>
+              <div className="flex justify-between gap-3">
+                <span className="font-bold uppercase tracking-wider">Domenica</span>
+                <span className="font-black text-white">8:00 — 21:00</span>
+              </div>
+            </div>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
               target="_blank"

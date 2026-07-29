@@ -124,11 +124,11 @@ export default function ContattiClient() {
                   <h3 className="font-display font-black text-2xl uppercase italic mb-4">ORARI DI APERTURA</h3>
                   <div className="grid grid-cols-2 gap-4 text-lg font-bold text-zinc-600">
                     <div>LUN - GIO</div>
-                    <div className="text-right">10:00 - 22:00</div>
+                    <div className="text-right">8:00 - 22:00</div>
                     <div>VEN - SAB</div>
-                    <div className="text-right">10:00 - 00:00</div>
+                    <div className="text-right">8:00 - 00:00</div>
                     <div>DOMENICA</div>
-                    <div className="text-right">11:00 - 21:00</div>
+                    <div className="text-right">8:00 - 21:00</div>
                   </div>
                 </div>
               </div>

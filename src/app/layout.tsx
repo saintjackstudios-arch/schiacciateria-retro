@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://schiacciateriaretrotrieste.com'),
@@ -95,14 +96,20 @@ export default function RootLayout({
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
-                  "opens": "10:00",
-                  "closes": "23:00"
+                  "opens": "08:00",
+                  "closes": "22:00"
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Friday","Saturday"],
-                  "opens": "10:00",
-                  "closes": "01:00"
+                  "opens": "08:00",
+                  "closes": "00:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Sunday"],
+                  "opens": "08:00",
+                  "closes": "21:00"
                 }
               ],
               "url": "https://schiacciateriaretrotrieste.com",
@@ -115,6 +122,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

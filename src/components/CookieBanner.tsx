@@ -21,6 +21,7 @@ export default function CookieBanner() {
 
   const handleConsent = (accepted: boolean) => {
     localStorage.setItem('barretro-cookie-consent', accepted ? 'accepted' : 'rejected');
+    window.dispatchEvent(new Event('cookie-consent-changed'));
     setIsVisible(false);
   };
 
