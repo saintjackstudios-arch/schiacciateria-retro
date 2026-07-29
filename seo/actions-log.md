@@ -12,7 +12,9 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 - Creato [src/components/Analytics.tsx](../src/components/Analytics.tsx): carica il tag Google Analytics **solo se l'utente ha accettato i cookie** dal banner esistente (localStorage `barretro-cookie-consent`). Il banner già prometteva "misuriamo le visite tramite Google Analytics" ma finora non c'era nulla di collegato — ora è vero.
 - Modificato [src/components/CookieBanner.tsx](../src/components/CookieBanner.tsx) per notificare il cambio di consenso in tempo reale (senza bisogno di ricaricare la pagina).
 - Testato in locale: tag NON si carica prima del consenso e con "Rifiuta"; si carica correttamente (`gtag('config', 'G-1GTNREENL7')` confermato nel dataLayer) dopo "Accetta tutto".
-- **Da fare:** deploy in produzione (il codice è solo locale finché non viene pushato/deployato). Dopo il deploy, verificare in GA4 → Report in tempo reale che arrivino dati reali.
+- Committato e pushato su `main` (commit `665b983`), deploy automatico Vercel completato con successo (Production, ~4 min).
+- Verificato **in produzione** su schiacciateriaretrotrieste.com: orari aggiornati nello schema.org, tag GA4 assente prima del consenso, `gtag('config', 'G-1GTNREENL7')` confermato nel dataLayer dopo aver simulato l'accettazione dei cookie.
+- **Da fare:** controllare tra qualche giorno in GA4 → Report in tempo reale/Panoramica che arrivino dati da utenti reali (non solo dal test).
 
 ## 2026-07-29 — Setup tracking SEO
 
