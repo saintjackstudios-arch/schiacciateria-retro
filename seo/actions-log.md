@@ -4,6 +4,30 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-07-31 — Controllo di verifica indicizzazione + crescita
+
+Verificate in Search Console (Controllo URL) le 4 pagine per cui era stata richiesta l'indicizzazione il 29/07:
+
+| Pagina | Stato |
+|---|---|
+| Homepage `/` | ✅ "URL is on Google" — indicizzata |
+| `/bevande` | ✅ indicizzata (era la pagina orfana trovata nell'audit) |
+| `/blog` | ✅ indicizzata |
+| `/blog/dove-cenare-trieste-all-aperto` | ✅ indicizzata |
+
+Tutte e 4 confermate indicizzate in meno di 48 ore dalla richiesta.
+
+**Andamento traffico (Search Console, cumulativo dal lancio):**
+
+| Metrica | 27/07 (baseline) | 29/07 (ultimo dato disponibile) |
+|---|---|---|
+| Clic totali | 51 | 66 (+15) |
+| Impressioni | 1.090 | 1.520 (+430) |
+| CTR medio | 4,7% | 4,3% |
+| Posizione media | 5,8 | 6,0 |
+
+Giorni nuovi: 28/07 → 5 clic, 231 impr, pos 5,7 · 29/07 → 10 clic, 200 impr, pos 7,2. Crescita continua, posizione sostanzialmente stabile (variazione nel rumore statistico normale per un sito con questo volume).
+
 ## 2026-07-29 (pomeriggio) — Risolte le 3 criticità dell'audit baseline
 
 **1. Soft-404 su `/gestione-menu`**
