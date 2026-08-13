@@ -81,17 +81,25 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Restaurant",
               "name": "Schiacciateria Retrò",
-              "image": "https://schiacciateriaretrotrieste.com/logo_retro.png",
+              "image": "https://schiacciateriaretrotrieste.com/images/menu_hero_schiacciata.webp",
+              "logo": "https://schiacciateriaretrotrieste.com/logo_retro.png",
+              "telephone": "+393756264680",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Viale XX Settembre",
+                "streetAddress": "Viale XX Settembre 16",
                 "addressLocality": "Trieste",
                 "addressRegion": "TS",
                 "postalCode": "34125",
                 "addressCountry": "IT"
               },
-              "servesCuisine": ["Fast Food", "Street Food", "Cucina Triestina"],
-              "priceRange": "€",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 45.6547,
+                "longitude": 13.775
+              },
+              "servesCuisine": ["Fast Food", "Street Food", "Cucina Triestina", "Buffet Triestino"],
+              "priceRange": "€-€€",
+              "sameAs": ["https://www.instagram.com/schiacciateria_retro_trieste/"],
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
@@ -113,7 +121,7 @@ export default function RootLayout({
                 }
               ],
               "url": "https://schiacciateriaretrotrieste.com",
-              "description": "Schiacciateria Retrò è il locale artigianale di Trieste, situato in Viale XX Settembre 16. Propone schiacciata romana, birre selezionate e street food di qualità nel cuore della movida triestina."
+              "description": "Schiacciateria Retrò è il locale artigianale di Trieste, situato in Viale XX Settembre 16. Propone schiacciata romana, buffet triestino, birre selezionate e street food di qualità nel cuore della movida triestina."
             }) 
           }}
         />

@@ -461,7 +461,14 @@ export default function MenuClient() {
                Posate
              </motion.div>
 
-             <div className="w-40 md:w-64 lg:w-[480px]" /> 
+             <motion.h1
+               initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
+               animate={{ scale: 1, opacity: 1, rotate: -3 }}
+               whileHover={{ scale: 1.05, rotate: -1 }}
+               className="pointer-events-auto bg-yellow-400 text-black px-4 py-2 md:px-10 md:py-5 font-display font-black uppercase italic text-3xl md:text-8xl leading-none border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] z-10"
+             >
+               Menu
+             </motion.h1>
 
              <motion.div 
                initial={{ x: 100, opacity: 0, rotate: 15 }}

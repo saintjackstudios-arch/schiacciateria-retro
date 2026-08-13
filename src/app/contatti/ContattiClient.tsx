@@ -77,10 +77,18 @@ export default function ContattiClient() {
                 <div className="bg-yellow-400 border-4 border-black p-3 -rotate-3">
                   <MapPin className="w-8 h-8" />
                 </div>
-                <div>
-                  <h3 className="font-display font-black text-2xl uppercase italic mb-2">PUNTO DI RITROVO</h3>
-                  <p className="text-lg font-bold text-zinc-600">Viale XX Settembre 16, <br /> 34125 Trieste (TS)</p>
-                </div>
+<div>
+                    <h3 className="font-display font-black text-2xl uppercase italic mb-2">PUNTO DI RITROVO</h3>
+                    <p className="text-lg font-bold text-zinc-600">Viale XX Settembre 16, <br /> 34125 Trieste (TS)</p>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
+                      target="_blank"
+                      rel="noopener"
+                      className="mt-4 inline-flex items-center gap-2 bg-red-600 text-white font-display font-black uppercase italic text-sm px-4 py-2 border-2 border-black shadow-[4px_4px_0px_#000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                    >
+                      <MapPin className="w-4 h-4" /> INDICAZIONI STRADALI
+                    </a>
+                  </div>
               </div>
             </div>
           </motion.div>
@@ -96,7 +104,10 @@ export default function ContattiClient() {
                   </div>
                   <div>
                     <h3 className="font-display font-black text-xl uppercase italic mb-1">CHIAMACI</h3>
-                    <p className="text-lg font-bold text-zinc-600">+39 040 000 0000</p>
+                    <a
+                      href="tel:+393756264680"
+                      className="text-lg font-bold text-zinc-600 hover:text-red-600 transition-colors"
+                    >+39 375 626 4680</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
@@ -136,10 +147,10 @@ export default function ContattiClient() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex gap-4 pt-4">
-            <a href="https://www.instagram.com/retroxxsettembre" target="_blank" className="flex-1 h-20 border-4 border-black bg-white hover:bg-yellow-400 transition-colors flex items-center justify-center gap-3 font-display font-black uppercase text-xl italic shadow-[6px_6px_0px_#000]">
-              <Camera className="w-8 h-8" /> <span>@RETROXXSETTEMBRE</span>
+            <a href="https://www.instagram.com/schiacciateria_retro_trieste" target="_blank" className="flex-1 h-20 border-4 border-black bg-white hover:bg-yellow-400 transition-colors flex items-center justify-center gap-3 font-display font-black uppercase text-xl italic shadow-[6px_6px_0px_#000]">
+              <Camera className="w-8 h-8" /> <span>@SCHIACCIATERIA_RETRO_TRIESTE</span>
             </a>
-            <a href="https://wa.me/390400000000" target="_blank" className="flex-1 h-20 border-4 border-black bg-white hover:bg-red-600 hover:text-white transition-colors flex items-center justify-center gap-3 font-display font-black uppercase text-xl italic shadow-[6px_6px_0px_#000]">
+            <a href="https://wa.me/393756264680" target="_blank" className="flex-1 h-20 border-4 border-black bg-white hover:bg-red-600 hover:text-white transition-colors flex items-center justify-center gap-3 font-display font-black uppercase text-xl italic shadow-[6px_6px_0px_#000]">
               <MessageSquare className="w-8 h-8" /> <span>WHATSAPP</span>
             </a>
           </motion.div>

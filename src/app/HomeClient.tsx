@@ -1119,10 +1119,11 @@ export default function HomeClient() {
           <div className="flex flex-col gap-4">
             <p className="text-xs font-black uppercase tracking-[0.3em] text-yellow-400 mb-2">Link rapidi</p>
             <Link href="/menu" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Menu</Link>
+            <Link href="/buffet-triestino" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Buffet Triestino</Link>
             <Link href="/blog" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Blog</Link>
             <Link href="/chi-siamo" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Chi Siamo</Link>
             <Link href="/contatti" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Contatti</Link>
-            <a href="https://www.instagram.com/retroxxsettembre" target="_blank" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider flex items-center gap-2"><Camera className="w-4 h-4" /> Instagram</a>
+            <a href="https://www.instagram.com/schiacciateria_retro_trieste" target="_blank" className="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-wider flex items-center gap-2"><Camera className="w-4 h-4" /> Instagram</a>
           </div>
           {/* Hours */}
           <div className="flex flex-col gap-4">

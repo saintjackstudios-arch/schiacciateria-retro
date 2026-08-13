@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit SEO Dettagliato — Schiacciateria Retrò Trieste</title>
+<style>
+  :root{
+    --ink:#1c1917; --muted:#78716c; --bg:#faf9f7; --card:#ffffff;
+    --accent:#d97706; --accent2:#b45309; --red:#dc2626; --amber:#d97706; --green:#16a34a;
+    --border:#e7e5e4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 24px 80px;}
+  header.hero{background:linear-gradient(135deg,#1c1917 0%,#44403c 100%);color:#fff;border-radius:16px;padding:40px 40px 36px;margin-bottom:32px;}
+  header.hero .kicker{color:#fbbf24;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;margin-bottom:8px;}
+  header.hero h1{font-size:clamp(22px,4vw,32px);font-weight:800;line-height:1.2;margin-bottom:10px;}
+  header.hero p{color:#d6d3d1;max-width:640px;font-size:14px;}
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:24px;}
+  .meta{border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px 14px;}
+  .meta .l{font-size:11px;color:#a8a29e;text-transform:uppercase;letter-spacing:.08em;}
+  .meta .v{font-size:14px;font-weight:700;color:#edede9;margin-top:2px;}
+  h2{font-size:20px;font-weight:800;margin:40px 0 4px;color:var(--ink);display:flex;align-items:center;gap:10px;}
+  h2 .n{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+  h3{font-size:15px;font-weight:700;margin:18px 0 8px;color:#292524;}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:16px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 20px;margin-bottom:14px;box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;}
+  .b-critical{background:#fef2f2;color:var(--red);border:1px solid #fecaca;}
+  .b-high{background:#fff7ed;color:var(--accent2);border:1px solid #fed7aa;}
+  .b-medium{background:#fffbeb;color:#b45309;border:1px solid #fde68a;}
+  .b-low{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0;}
+  .b-ok{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0;}
+  .issue-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .issue-title h4{font-size:16px;font-weight:700;flex:1;min-width:240px;}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:10px 0;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;}
+  .fields .f .k{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;}
+  .fields .f .val{font-size:13px;font-weight:600;margin-top:1px;}
+  ul.clean{list-style:none;}
+  ul.clean li{padding:6px 0 6px 26px;position:relative;font-size:14px;}
+  ul.clean li::before{content:"✓";position:absolute;left:4px;color:var(--green);font-weight:700;}
+  ul.issues li::before{content:"✕";color:var(--red);}
+  ul.todo li::before{content:"→";color:var(--accent);}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--border);}
+  td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;color:#292524;}
+  tr:last-child td{border-bottom:none;}
+  .score-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;}
+  .score{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+  .score .big{font-size:26px;font-weight:800;}
+  .score .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px;}
+  .score .tag{font-size:11px;font-weight:700;margin-top:4px;display:inline-block;padding:2px 8px;border-radius:99px;}
+  .g{color:var(--green);} .a{color:var(--amber);} .r{color:var(--red);}
+  .eg-tag{background:#ecfdf5;color:#047857;}
+  code{background:#f5f5f4;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .quote{border-left:3px solid var(--accent);background:#fffbeb;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13.5px;margin:10px 0;}
+  .placeholder{border:2px dashed #d6d3d1;border-radius:10px;padding:18px;color:var(--muted);font-size:13px;background:#fff;}
+  table.query tr:nth-child(-n+10) td:first-child{font-weight:700;}
+  footer{margin-top:48px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:16px;}
+  @media(max-width:600px){ h1{font-size:22px} .wrap{padding:16px 14px 60px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Audit SEO Dettagliato — Architettura & Vista Completa</div>
+  <h1>Schiacciateria Retrò Trieste</h1>
+  <p>Audit SEO completo del sito schiacciateriaretrotrieste.com. Obiettivo strategico: diventare <strong>LA schiacciateria triestina</strong>, posizionando anche il <strong>buffet triestino</strong> come secondo punto di forza commerciale.</p>
+  <div class="meta-grid">
+    <div class="meta"><div class="l">Data audit</div><div class="v">8 agosto 2026</div></div>
+    <div class="meta"><div class="l">Dominio</div><div class="v">schiacciateriaretrotrieste.com</div></div>
+    <div class="meta"><div class="l">Tipo di sito</div><div class="v">Ristorante / Street food</div></div>
+    <div class="meta"><div class="l">Framework</div><div class="v">Next.js</div></div>
+  </div>
+</header>
+
+<!-- Executive summary -->
+<h2><span class="n">1</span>Executive summary</h2>
+<p class="sub">Quadro a colpo d'occhio: stato di salute complessivo e priorità di intervento. Costruito combinando crawl tecnico del sito (8/08) e dati reali live di Google Search Console e GA4 (estratti oggi via browser loggato).</p>
+
+  <div class="score-row">
+  <div class="score"><div class="big g">78</div><div class="lbl">Tecnica</div><div class="tag eg-tag">Ottima</div></div>
+  <div class="score"><div class="big a">62</div><div class="lbl">On-Page</div><div class="tag eg-tag" style="background:#fff7ed;color:#b45309">Media</div></div>
+  <div class="score"><div class="big a">55</div><div class="lbl">Strategia contenuti</div><div class="tag eg-tag" style="background:#fffbeb;color:#b45309">Da rinforzare</div></div>
+  <div class="score"><div class="big">117</div><div class="lbl">Clic GSC (19/7–6/8)</div><div class="tag eg-tag">Live</div></div>
+  <div class="score"><div class="big">42</div><div class="lbl">Utenti GA4 (28 gg)</div><div class="tag eg-tag">Live</div></div>
+</div>
+
+<p class="card" style="padding:16px 20px"><strong>Verdetto:</strong> le fondamenta tecniche sono solide (HTTPS, redirect, robots, sitemap, canonici, schema Restaurant+FAQ, blog con E-E-A-T). Sito giovane (online da fine luglio) ma già con dati reali: <strong>117 clic e 2.74K impressioni in GSC</strong> (19/7–6/8), <strong>42 utenti attivi e 141 page_view in GA4</strong> (ultimi 28 giorni). Il vero gap è <strong>commerciale/strategico</strong>: il <strong>buffet triestino — una delle tue proprietà uniche — non esiste in alcuna pagina di vendita</strong> (menu, chi-siamo, homepage). Compare solo come contenuto di blog. Il sito "chiede a Google di posizionarlo" per le schiacciate, ma non dice mai a Google (né ai visitatori) che fa anche il buffet tipico. La priorità assoluta è colmare questo buco.</p>
+
+<h3>Top 5 priorità</h3>
+<div class="card">
+  <table>
+    <tr><th>#</th><th>Priorità</th><th>Impatto</th><th>Sforzo</th></tr>
+    <tr><td>1</td><td>Creare pagina/sezione <strong>Buffet Triestino</strong> nelle pagine di vendita</td><td><span class="badge b-high">Alto</span></td><td>Medio</td></tr>
+    <tr><td>2</td><td>Aggiungere H1 alla pagina <code>/menu</code> (oggi assente)</td><td><span class="badge b-high">Alto</span></td><td>Basso</td></tr>
+    <tr><td>3</td><td>Completare lo schema LocalBusiness: telefono, indirizzo col numero 16, georiferimento</td><td><span class="badge b-medium">Medio</span></td><td>Basso</td></tr>
+    <tr><td>4</td><td>Ottimizzare og:image (logo → foto reale 1200×630) e title homepage &lt;60 char</td><td><span class="badge b-medium">Medio</span></td><td>Basso</td></tr>
+    <tr><td>5</td><td>Trasformare i 2 articoli sul buffet in asset commerciali linkati</td><td><span class="badge b-medium">Medio</span></td><td>Medio</td></tr>
+  </table>
+</div>
+
+<!-- Technical SEO -->
+<h2><span class="n">2</span>SEO tecnica — Audit del crawl</h2>
+<p class="sub">Verificato da remoto l'8 agosto 2026 via HTTP crawl (curl) di: homepage, /menu, /bevande, /chi-siamo, /contatti, /blog + un articolo buffet.</p>
+
+<h3>2.1 Crawlability e Indici</h3>
+<div class="card">
+  <table>
+    <tr><th>Componente</th><th>Stato</th><th>Note</th></tr>
+    <tr><td>HTTPS / SSL</td><td><span class="badge b-ok">OK</span></td><td>HTTPS attivo su tutto il sito</td></tr>
+    <tr><td>Redirect HTTP→HTTPS</td><td><span class="badge b-ok">OK</span></td><td>308 permanente, corretto</td></tr>
+    <tr><td>Redirect www→apex</td><td><span class="badge b-ok">OK</span></td><td>307 (da valutare 301; Google ha già scelto l'apex)</td></tr>
+    <tr><td>robots.txt</td><td><span class="badge b-ok">OK</span></td><td><code>Allow: /</code> + reference a sitemap</td></tr>
+    <tr><td>XML Sitemap</td><td><span class="badge b-ok">OK</span></td><td>34 URL, completo, copre tutte le sezioni</td></tr>
+    <tr><td>Canonical self-referencing</td><td><span class="badge b-ok">OK</span></td><td>Presente su ogni pagina audita</td></tr>
+    <tr><td>Meta robots index,follow</td><td><span class="badge b-ok">OK</span></td><td>Su tutti i template key</td></tr>
+    <tr><td>Lang <code>it</code></td><td><span class="badge b-ok">OK</span></td><td>Corretta su tutte le pagine</td></tr>
+    <tr><td>TTFB / risposta server</td><td><span class="badge b-ok">OK</span></td><td>~0.4s anche da remoto</td></tr>
+    <tr><td>Core Web Vitals (field data)</td><td><span class="badge b-medium">Da verificare</span></td><td>Serve GSC / PageSpeed / CrUX — non misurabile da qui</td></tr>
+  </table>
+</div>
+
+<h3>2.2 Schema markup (JSON-LD)</h3>
+<div class="card">
+  <table>
+    <tr><th>Tipo schema</th><th>Stato</th><th>Page con</th></tr>
+    <tr><td><code>Restaurant</code></td><td><span class="badge b-ok">OK</span></td><td>Homepage, menu, chi-siamo, contatti (per ogni pagina, come componente)</td></tr>
+    <tr><td><code>PostalAddress</code> + Orari</td><td><span class="badge b-ok">OK</span></td><td>Indirizzo e apertura presenti</td></tr>
+    <tr><td><code>OpeningHoursSpecification</code></td><td><span class="badge b-ok">OK</span></td><td>3 blocchi (Lun-Gio, Ven-Sab, Dom)</td></tr>
+    <tr><td><code>FAQPage</code></td><td><span class="badge b-medium">OK</span></td><td>2 domande su homepage; verificare su Google Rich Results Test</td></tr>
+    <tr><td><code>servesCuisine</code></td><td><span class="badge b-ok">OK</span></td><td>Fast Food, Street Food, Cucina Triestina</td></tr>
+  </table>
+  <div class="quote"><strong>Gap schema:</strong> mancano <code>telephone</code>, <code>priceRange</code> valorizzato, georiferimento (<code>geo</code>), <code>sameAs</code> e <code>image</code> puntata a foto del locale invece del logo. <code>streetAddress</code> è "Viale XX Settembre" senza il n° 16 citato nel testo.</div>
+</div>
+
+<h3>2.3 Criticità tecnicos notturnos</h3>
+<div class="card">
+  <ul class="clean issues">
+    <li><strong>Homepage servita sia da <code>http://</code> che <code>https://</code> nella business history GSC</strong> (28 vs 15 clic, 585 vs 204 impressioni): i redirect sono attivi, Google ancora mostra i clic passati su http. Non è un problema tecnico, ma va monitorato il ricentramento.</li>
+    <li><strong>307 invece di 301 per <code>https://www</code>:</strong> configurato a livello DNS/registrar, fuori dal codice del sito.</li>
+    <li>Troppo del traffico è mobile (46/51 clic): ogni ottimizzazione va testata prima su mobile.</li>
+  </ul>
+</div>
+
+<!-- On-Page -->
+<h2><span class="n">3</span>On-Page SEO</h2>
+<p class="sub">Analisi titoli, meta, headings e gerarchia on: tutte le pagine audite.</p>
+
+<h3>3.1 Title / Meta description</h3>
+<div class="card">
+  <table>
+    <tr><th>Pagina</th><th>Title (lunghezza)</th><th>Meta description</th></tr>
+    <tr><td>/</td><td>72 char — "<em>Schiacciateria Retro Trieste | Il Vero Street Food in Viale XX Settembre</em>"</td><td>OK, 150–160 ca.</td></tr>
+    <tr><td>/menu</td><td>56 char — OK</td><td>OK, descrive schiacciate/fritti</td></tr>
+    <tr><td>/bevande</td><td>57 char — OK</td><td>OK</td></tr>
+    <tr><td>/chi-siamo</td><td>40 char — OK</td><td>OK</td></tr>
+    <tr><td>/contatti</td><td>47 char — OK</td><td>OK</td></tr>
+    <tr><td>/blog</td><td>35 char — OK</td><td>OK</td></tr>
+  </table>
+  <div class="quote"><strong>Riduzione:</strong> title homepage 72 char > ~60 visibili nel SERP ("…"). Non è un errore, ma si può ottimizzare eliminare la parte superflua.</div>
+</div>
+
+<h3>3.2 Headings (struttura H1–H6)</h3>
+<div class="card">
+  <table>
+    <tr><th>Pagina</th><th>H1</th><th>Note</th></tr>
+    <tr><td>/</td><td>1 H1</td><td>OK</td></tr>
+    <tr><td>/menu</td><td><b style="color:var(--red)">0 H1</b></td><td>La più grave: la pagina menu (la più commerciale) parte da H3 "PAUSA PRANZO RAPHIDA" e poi usa solo H2/H3. Nessun H1 che dica a Google di che tratta.</td></tr>
+    <tr><td>/bevande</td><td>1 H1</td><td>OK</td></tr>
+    <tr><td>/chi-siamo</td><td>1 H1</td><td>OK</td></tr>
+    <tr><td>/contatti</td><td>1 H1</td><td>OK</td></tr>
+    <tr><td>/blog</td><td>1 H1</td><td>OK</td></tr>
+    <tr><td>/blog/cosa-ordinare-buffet-triestino</td><td>1 H1</td><td>OK (H1 = keyword perfetta)</td></tr>
+  </table>
+  <div class="quote"><strong>Fix prioritario (2):</strong> aggiungere <code>&lt;h1&gt;Menu Schiacciate e Buffet Triestino&lt;/h1&gt;</code> nella visibilità superiore del /menu, poi ordinare la gerarchia H1→H2→H3.</div>
+</div>
+
+<h3>3.3 Immagini</h3>
+<div class="card">
+  <p><strong>Alt text:</strong> ✅ pagine audite con <code>alt</code> su tutte le immagini (menu 33 img, home 28, chi-siamo 7, etc.). <strong>Pesatura og:image:</strong> ⚠️ la pagina usa <code>logo_retro.png</code> come og:image → per social Facebook/Instagram conviene una foto del bancone/schiacciate 1200×630.</p>
+</div>
+
+<h3>3.4 Internal linking</h3>
+<div class="card">
+  <ul class="clean">
+    <li>Articoli blog linkano bene verso <code>/menu</code> (3 link), <code>/chi-siamo</code>, <code>/contatti</code>, <code>/bevande</code> — ottimo.</li>
+    <li>Però <strong>nessuna pagina commerciale linka agli articoli sul buffet</strong> → il cluster "buffet triestino" non è collegato al menu.</li>
+  </ul>
+</div>
+
+<!-- Content strategy -->
+<h2><span class="n">4</span>Strategia contenuti & cluster</h2>
+<p class="sub">Il sito ha una content strategy seria (un blog Trieste-centrico). Il punto debole è la mancata integrazione col business.</p>
+
+<h3>4.1 L'assenza del buffet nelle pagine di vendita (Il problema #1)</h3>
+<div class="card">
+  <p>Verifica testuale su tutto il sito: la parola <strong>"buffet"</strong> appare <strong>0 volte</strong> su <code>/menu</code>, <code>/chi-siamo</code>, <code>/contatti</code>, <code>/bevande</code> e solo come tagline "<em>BUFFET • FATTO A MAN •</em>" sulla homepage. Gli unici contenuti reali sul buffet (18 menzioni) sono nel <strong>blog</strong>:</p>
+  <ul class="clean">
+    <li><code>/blog/cosa-ordinare-buffet-triestino</code> — guida completa, H1 perfetto</li>
+    <li><code>/blog/quale-buffet-scegliere-trieste</code> — posizionato, da mappare</li>
+  </ul>
+  <p>Ma il buffet è tradizione di Trieste e il punto forte dell'attività. Risultato pratico: <strong>Google non lo sa</strong>, i visitatori non lo trovano, nessun CDP di vendita per questa categoria.</p>
+  <div class="quote"><strong>Azioni:</strong> (1) aggiungere sezione "Buffett Triestino" al /menu, (2) pagina dedicata <code>/buffet-triestino</code> nel sitemap & nav, (3) citare il buffet in meta description homepage & titoli, (4) linkare le pagine vendita ← blog buffet.</div>
+</div>
+
+<h3>4.2 Posizionamento target — "La schiacciata TRIESTINA"</h3>
+<div class="card">
+  <p>Obiettivo di brand <em>"diventare LA schiacciateria triestina"</em>: il sito è già posizionato bene sulle query<b>branded</b> (pos. media 1–3) e su "schiacciateria trieste" (pos 1.2, 6 clic). Il lavoro ora è sulla parte <b>navigazionale/topica</b>: cucinare la keyword "schiacciateria triestina", "buffet triestino Trieste", "street food tradizionale Trieste".</p>
+  <p>Nota dal GSC: query interessanti già esposte senza clic → <em>buffet al rebechin trieste</em> (pos 13), <em>cosa ordinare buffet triestino</em> (pos 9), <em>buffefrieste</em> (pos 42). Sono sintomi che contenuti/eTEXT esistono ma non sono ottimizzati né collegati. Zero opportunistico.</p>
+</div>
+
+<h3>4.3 E-E-A-T</h3>
+<div class="card">
+  <table>
+    <tr><th>Segnale</th><th>Stato</th></tr>
+    <tr><td>Autori con nome + data di pubblicazione sul blog</td><td><span class="badge b-ok">OK</span> — presenti sulla maggior parte dei post</td></tr>
+    <tr><td>Contenuto originale e locale (Guide di Trieste)</td><td><span class="badge b-ok">OK</span> — 30+ articoli tematici</td></tr>
+    <tr><td>Trasparenza attività</td><td><span class="badge b-ok">OK</span> — chi siamo, contatti, privacy/termini</td></tr>
+    <tr><td>Schema LocalBusiness completo (telefono, geo)</td><td><span class="badge b-medium">Da completare</span></td></tr>
+    <tr><td>Recensioni / Google Business Profile</td><td><span class="badge b-medium">Da verificare</span> — mai auditato sinora</td></tr>
+  </table>
+</div>
+
+<!-- Data GSC -->
+<h2><span class="n">5</span>Dati reali live — GSC e GA4 (estratti oggi)</h2>
+<p class="sub">Dati estratti in data odierna (8/08) direttamente dalle console via browser loggato. Snapshot in <code>seo/data/gsc/2026-08-08.md</code> e <code>seo/data/ga4/2026-08-08.md</code>.</p>
+
+<div class="score-row">
+  <div class="score"><div class="big">117</div><div class="lbl">Clic GSC</div></div>
+  <div class="score"><div class="big">2.74K</div><div class="lbl">Impressioni</div></div>
+  <div class="score"><div class="big">4,3%</div><div class="lbl">CTR medio</div></div>
+  <div class="score"><div class="big">6,7</div><div class="lbl">Pos. media</div></div>
+  <div class="score"><div class="big">42</div><div class="lbl">Utenti GA4</div></div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">5.1 GSC — Query top (per clic, su 235)</h3>
+  <table class="query">
+    <tr><th>Query</th><th>Clic</th><th>Imp.</th><th>Pos.</th></tr>
+    <tr><td>retrò trieste</td><td>13</td><td>102</td><td>1,9</td></tr>
+    <tr><td>schiacciateria trieste</td><td>11</td><td>36</td><td>1,1</td></tr>
+    <tr><td>bar retrò trieste</td><td>6</td><td>111</td><td>1,7</td></tr>
+    <tr><td>retro viale trieste</td><td>3</td><td>20</td><td>1,7</td></tr>
+    <tr><td>retro schiacciateria trieste</td><td>3</td><td>18</td><td>1,0</td></tr>
+    <tr><td>spritz bianco trieste</td><td>1</td><td>28</td><td>4,5</td></tr>
+    <tr><td>cosa mangiare a trieste street food</td><td>1</td><td>26</td><td>10,8</td></tr>
+    <tr><td>movida trieste</td><td>1</td><td>11</td><td>16,1</td></tr>
+    <tr><td>mangiare a trieste spendendo poco</td><td>1</td><td>9</td><td>12,8</td></tr>
+  </table>
+  <p class="sub" style="margin:8px 0 0">Dominano query branded e "cosa mangiare a Trieste". Nessuna query "buffet" al top → conferma del gap #1.</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">5.2 GSC — Pagine (top per clic)</h3>
+  <table>
+    <tr><th>Pagina</th><th>Clic</th><th>Imp.</th><th>CTR</th><th>Pos.</th></tr>
+    <tr><td>http://schiacciateriaretrotrieste.com/ (storico pre-redirect)</td><td>60</td><td>1.458</td><td>4,1%</td><td>3,0</td></tr>
+    <tr><td>https://schiacciateriaretrotrieste.com/</td><td>36</td><td>574</td><td>6,3%</td><td>5,5</td></tr>
+    <tr><td><b>/menu</b></td><td>6</td><td>63</td><td>9,5%</td><td>6,6</td></tr>
+    <tr><td>/blog/spritz-aperitivo-trieste</td><td>4</td><td>265</td><td>1,5%</td><td>6,2</td></tr>
+    <tr><td>/blog/movida-trieste-giovani-guida</td><td>3</td><td>130</td><td>2,3%</td><td>7,5</td></tr>
+    <tr><td>/contatti</td><td>1</td><td>147</td><td>0,7%</td><td>9,3</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">5.3 GA4 — Utenti, coinvolgimento e pagine (28 gg)</h3>
+  <table>
+    <tr><th>Metri</th><th>Valore</th></tr>
+    <tr><td>Utenti attivi (28 gg)</td><td>42 (Italia 34, Rep. Ceca 2, Croazia 2, Austria/Belgio/Ungheria/Slovenia 1)</td></tr>
+    <tr><td>Città top</td><td>Milano 11, Trieste 8, Venezia 5, Firenze 3</td></tr>
+    <tr><td>page_view</td><td>141</td></tr>
+    <tr><td>session_start / first_visit</td><td>65 / 41</td></tr>
+    <tr><td>Durata media coinvolgimento / utente</td><td>1 m 14 s</td></tr>
+    <tr><td>Stickiness DAU/MAU</td><td>7,3%</td></tr>
+  </table>
+  <table style="margin-top:14px">
+    <tr><th>Pagina</th><th>Visualizzazioni</th><th>Utenti</th><th>Durata media</th></tr>
+    <tr><td><b>/menu</b></td><td>74 (52%)</td><td>29 (71%)</td><td>1 m 19 s</td></tr>
+    <tr><td>/</td><td>54 (38%)</td><td>34 (83%)</td><td>15 s</td></tr>
+    <tr><td>/bevande</td><td>6</td><td>5</td><td>13 s</td></tr>
+    <tr><td>/contatti</td><td>5</td><td>3</td><td>18 s</td></tr>
+  </table>
+</div>
+
+<h3>5.4 Key takeaways dai dati</h3>
+<div class="card">
+  <ul class="clean">
+    <li><b>97% mobile</b> (97 clic su 117) — ottimizzazioni mobile-first.</li>
+    <li><b>/menu è LA pagina che converte</b>: 52% visualizzazioni GA4, 71% utenti attivi, durata 1m19s, CTR GSC 9,5%. Ma solo 6 clic e 63 impressioni → contenuto ad alta intenzione ma <b>poco visibile</b>.</li>
+    <li>Le query con più clic sono <b>branded / locali</b> (pos 1-3) — il posizionamento generico (street food, buffet) è ancora scoperto.</li>
+    <li><b>Homepage</b>: 38% delle visualizzazioni ma durata media 15s → usarla per reindirizzare verso il menu.</li>
+    <li><b>Nessuna query "buffet" al top</b> in GSC nonostante i 2 articoli → conferma del gap #1.</li>
+    <li>41/65 sessioni <b>first_visit</b> (63% nuovo) → buon inizio, da convertire in ritorno.</li>
+  </ul>
+</div>
+
+<!-- Action plan -->
+<h2><span class="n">6</span>Piano d'azione prioritizzato</h2>
+
+<h3>6.1 Fix critici (bloccanti)</h3>
+<div class="card">
+  <ul class="clean todo">
+    <li><b>Aggiungere H1 a /menu</b> + gerarchia heading corretta.</li>
+    <li><b>Creare pagina/sezione Buffet Triestino</b> (menzionarlo nel H1, meta e nel menu browser); eventualmente rotta <code>/buffet-triestino</code>.</li>
+  </ul>
+</div>
+
+<h3>6.2 High-impact</h3>
+<div class="card">
+  <ul class="clean todo">
+    <li><b>Completare schema LocalBusiness:</b> <code>telephone</code>, <code>priceRange</code> (es. €-€€), <code>streetAddress</code> con "16", <code>geo</code> (lat/lng di Viale XX Settembre), <code>sameAs</code> ai profili social, immagini del locale.</li>
+    <li><b>Costruire la "schiacciata triestina":</b> posizionare menu & homepage come punto di riferimento dello <i>street food triestino</i>, aggiungendo contenuto sullegame con la tradizione (rebechin, cren, spritz).</li>
+  </ul>
+</div>
+
+<h3>6.3 Quick wins (banali)</h3>
+<div class="card">
+  <ul class="clean todo">
+    <li>Title homepage &lt;= 60 char e piu' ctr-friendly.</li>
+    <li>Image og:image → foto banchetto 1200×630 ricca.</li>
+    <li>Link internormale blog buffet → /menu e /buffet-triestino.</li>
+    <li>Meta description homepage citando "buffett triestino".</li>
+    <li>Valutare browser search "rebechin", "buffetto trieste" già presenti in SERP.</li>
+  </ul>
+</div>
+
+<h3>6.4 Long-term</h3>
+<div class="card">
+  <ul class="clean todo">
+    <li><b>Google Business Profile</b> — mai auditato: nome/NAP identici allo schema, categoria corretta, foto, recensioni, orari. Fondamentale per "LA schiacciateria trieste".</li>
+    <li><b>Verifica field CWV.</b> in GSC (Core Web Vitals report) e PageSpeed Insights lab data.</li>
+    <li>Monitorare il declino della guardia http:// controlla per lauti.</li>
+    <li>Valutare <b>redirect 307→301</b> del www parente.</li>
+    <li>Continuare/rafforzare il cluster contenuti "Trieste" (già 14x buffer post), con più interne links commerciali.</li>
+  </ul>
+</div>
+
+<!-- Accesso dati -->
+<h2><span class="n">7</span>Accesso a GSC / GA4 — stato raggiunto</h2>
+<div class="card">
+  <p>Accesso alle console <b>risolto in data odierna</b> tramite browser reale controllato via CDP/Playwright: ho aperto un Chrome persistente sulla tua macchina, tu hai fatto login una volta, e da lì ho estratto tutte le sezioni (GSC: query, pagine, paesi, dispositivi; GA4: panoramica utenti, pagine e schermate, eventi).</p>
+  <table>
+    <tr><th>Fonte</th><th>Stato</th><th>Note</th></tr>
+    <tr><td>Google Search Console</td><td><span class="badge b-ok">Connesso</span></td><td>Proprietà sc-domain, dati estratti oggi (19/7–6/8)</td></tr>
+    <tr><td>Google Analytics 4</td><td><span class="badge b-ok">Connesso</span></td><td>Property 547590126, ultimi 28 giorni</td></tr>
+    <tr><td>Snapshot salvati</td><td><span class="badge b-ok">Fatto</span></td><td><code>seo/data/gsc/2026-08-08.md</code> + <code>seo/data/ga4/2026-08-08.md</code></td></tr>
+    <tr><td>Sessioni future</td><td><span class="badge b-medium">Disponibile</span></td><td>Il profilo browser persistente resta loggato: nelle prossime sessioni posso ri-estrarre senza nuovo login</td></tr>
+  </table>
+  <div class="quote"><strong>Per ri-estrarre in futuro:</strong> basta chiedere "aggiorna dati GSC/GA4"; uso lo stesso profilo Chrome salvato e rigenero gli snapshot. In alternativa per automazione headless servirà un service account GCP (opzionale).</div>
+</div>
+
+<!-- Appendice -->
+<h2><span class="n">8</span>Appendice tecnica — evidenze del crawler</h2>
+<div class="card">
+  <table>
+    <tr><th>Check</th><th>Esito run (8/08)</th></tr>
+    <tr><td>GET https:// senza flag www</td><td>200 OK, time 0.41s</td></tr>
+    <tr><td>http://schiacciateriaretrotrieste.com/</td><td>308 → https://…</td></tr>
+    <tr><td>https://www.schiacciateriaretrotrieste.com/</td><td>307 → apex (canonical corretto su apex)</td></tr>
+    <tr><td>robots.txt</td><td>Allow / + reference sitemap</td></tr>
+    <tr><td>sitemap.xml</td><td>34 URLs (home, menu, bevande, chi-siamo, contatti, blog + 29 post)</td></tr>
+    <tr><td>JSON-LD homepage</td><td>{Restaurant + PostalAddress + OpeningHours×3} + {FAQPage} — 3 blocchi</td></tr>
+    <tr><td>JSON-LD /menu</td><td>Restaurant presente, stesso blocco base</td></tr>
+    <tr><td>Alt text immagini</td><td>presente su tutte le pagine audite (menu 33 img, home 28, chi-siamo 7…)</td></tr>
+    <tr><td>H1 count</td><td>home=1, menu=<b class="r">0</b>, bevande=1, chi-siamo=1, contatti=1, blog=1</td></tr>
+    <tr><td>parola "buffet" nelle pagine commerciali</td><td>home: solo tagline; menu=0; chi-siamo=0; contatti=0; bevande=0 | blog: 18</td></tr>
+  </table>
+  <p class="sub" style="margin:10px 0 0">Link: <a href="/">sito</a> · <a href="../data/gsc/2026-07-29.md">dati GSC snapshot</a> · <a href="../README.md">README SEO</a>.</p>
+</div>
+
+<footer>
+  Generato l'8 agosto 2026. Fonti: crawl live del sito + Google Search Console e GA4 estratti via browser loggato. Snapshot: <code>seo/data/gsc/2026-08-08.md</code> e <code>seo/data/ga4/2026-08-08.md</code>.</footer>
+
+</div>
+</body>
+</html>

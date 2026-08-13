@@ -21,6 +21,7 @@ export default function SiteHeader() {
   const navLinks = [
     { href: '/',          label: 'Home',      rotate: '-rotate-1' },
     { href: '/menu',      label: 'Menu',      rotate: 'rotate-1'  },
+    { href: '/buffet-triestino', label: 'Buffet Triestino', rotate: '-rotate-1' },
     { href: '/bevande',   label: 'Bevande',   rotate: '-rotate-1' },
     { href: '/blog',      label: 'Blog',      rotate: '-rotate-2' },
     { href: '/chi-siamo', label: 'Chi Siamo', rotate: 'rotate-1'  },
@@ -51,7 +52,7 @@ export default function SiteHeader() {
             </Link>
           ))}
           <a
-            href="https://www.instagram.com/retroxxsettembre"
+                    href="https://www.instagram.com/schiacciateria_retro_trieste"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors flex items-center gap-2"
@@ -163,7 +164,7 @@ export default function SiteHeader() {
                   transition={{ delay: 0.06 * navLinks.length, type: 'spring', stiffness: 300, damping: 24 }}
                 >
                   <a
-                    href="https://www.instagram.com/retroxxsettembre"
+            href="https://www.instagram.com/schiacciateria_retro_trieste"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setDrawerOpen(false)}
