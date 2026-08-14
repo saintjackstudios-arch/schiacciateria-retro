@@ -905,7 +905,7 @@ export default function HomeClient() {
                 {/* Map Side */}
                 <div className="flex-[1.5] w-full order-1 lg:order-2">
                    <div className="relative aspect-video border-8 border-black shadow-[20px_20px_0px_0px_#eab308] overflow-hidden bg-zinc-100 group">
-                      <iframe 
+                      <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2816.7898957093745!2d13.770899076582029!3d45.64942097107611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b6b1076f62439%3A0xc3f6f1406859549f!2sBar%20Retr%C3%B2%20-%20Schiacciateria%20Triestina%2C%20Viale%20Venti%20Settembre%2C%2016%2C%2034132%20Trieste%20TS!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
                         className="absolute inset-0 w-full h-full pointer-events-none"
                         style={{ border: 0 }}
@@ -913,46 +913,57 @@ export default function HomeClient() {
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                       />
-                      
+
                       {/* Hide Google UI - Neo Brutalist Sticker */}
                       <div className="absolute top-2 left-2 px-3 py-1 bg-yellow-400 text-black font-display text-[10px] uppercase border-2 border-black z-[5] pointer-events-none rotate-[-2deg] shadow-[2px_2px_0px_#000]">
                         NAVIGATORE ATTIVO
                       </div>
                       <div className="absolute top-0 left-0 w-[200px] h-[55px] bg-[#fdfaf3] pointer-events-none z-[4]" />
-                      
-                      
+
+
                       {/* --- CUSTOM POP MARKER --- */}
-                      <motion.div 
+                      <motion.div
                         initial={{ scale: 0, rotate: -45 }}
                         whileInView={{ scale: 1, rotate: -5 }}
                         viewport={{ once: true }}
-                        transition={{ 
-                          type: "spring", 
-                          stiffness: 260, 
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
                           damping: 20,
-                          delay: 0.5 
+                          delay: 0.5
                         }}
-                        className="absolute top-1/2 left-1/2 -ml-10 -mt-20 z-10 pointer-events-none"
+                        className="absolute top-1/2 left-1/2 -ml-10 -mt-10 md:-mt-20 z-10 pointer-events-none"
                       >
                         <div className="relative">
                           {/* Main Pin Shape */}
                           <div className="bg-yellow-400 border-4 border-black p-4 shadow-[8px_8px_0px_#000] flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
                              <MapPin className="w-10 h-10 text-black fill-black/20" />
                           </div>
-                          
-                          {/* Comic Style Bubble */}
-                          <motion.div 
+
+                          {/* Comic Style Bubble: a lato del pin su mobile (il riquadro aspect-video è troppo
+                              basso per stare sopra senza uscire dal bordo), sopra-a-destra da tablet in su */}
+                          <motion.div
                             animate={{ y: [0, -5, 0] }}
                             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                            className="absolute -top-12 -right-16 bg-red-600 text-white px-4 py-2 border-4 border-black font-display uppercase italic text-lg shadow-[6px_6px_0px_#000] rotate-12 whitespace-nowrap"
+                            className="absolute top-2 -right-6 md:top-auto md:-top-12 md:-right-16 bg-red-600 text-white px-3 py-1.5 md:px-4 md:py-2 border-4 border-black font-display uppercase italic text-sm md:text-lg shadow-[6px_6px_0px_#000] rotate-12 whitespace-nowrap"
                           >
                              SEMO QUA!
                           </motion.div>
-                          
+
                           {/* Decorative Elements */}
                           <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-black border-2 border-white rounded-full" />
                         </div>
                       </motion.div>
+
+                      {/* Tap-to-navigate overlay: mappa e segnaposto sono decorativi (pointer-events-none),
+                          questo link li rende cliccabili ovunque e riusa lo stesso evento directions_click */}
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Apri indicazioni stradali su Google Maps"
+                        className="absolute inset-0 z-20"
+                      />
                     </div>
                  </div>{/* end Map Side */}
               </div>{/* end flex-row */}

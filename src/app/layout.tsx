@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
+import MobileDirectionsBar from "@/components/MobileDirectionsBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://schiacciateriaretrotrieste.com'),
@@ -126,11 +127,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#fdfaf3] text-[#111111]">
+      <body className="min-h-full flex flex-col bg-[#fdfaf3] text-[#111111] pb-16 md:pb-0">
         <SiteHeader />
         {children}
         <CookieBanner />
         <Analytics />
+        <MobileDirectionsBar />
       </body>
     </html>
   );
