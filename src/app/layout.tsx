@@ -90,13 +90,13 @@ export default function RootLayout({
                 "streetAddress": "Viale XX Settembre 16",
                 "addressLocality": "Trieste",
                 "addressRegion": "TS",
-                "postalCode": "34132",
+                "postalCode": "34125",
                 "addressCountry": "IT"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 45.6547,
-                "longitude": 13.775
+                "latitude": 45.65193,
+                "longitude": 13.77987
               },
               "servesCuisine": ["Fast Food", "Street Food", "Cucina Triestina", "Buffet Triestino"],
               "priceRange": "€-€€",
@@ -106,19 +106,19 @@ export default function RootLayout({
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
                   "opens": "08:00",
-                  "closes": "22:00"
+                  "closes": "01:00"
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Friday","Saturday"],
                   "opens": "08:00",
-                  "closes": "00:00"
+                  "closes": "02:00"
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Sunday"],
-                  "opens": "08:00",
-                  "closes": "21:00"
+                  "opens": "17:00",
+                  "closes": "23:30"
                 }
               ],
               "url": "https://schiacciateriaretrotrieste.com",

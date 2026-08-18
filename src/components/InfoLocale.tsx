@@ -4,12 +4,12 @@ const TEL = '+393756264680';
 const TEL_DISPLAY = '+39 375 626 4680';
 const WHATSAPP = 'https://wa.me/393756264680';
 const MAPS_URL =
-  'https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste';
+  'https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste';
 
 const ORARI = [
-  { giorni: 'Lun – Gio', ore: '8:00 — 22:00' },
-  { giorni: 'Ven – Sab', ore: '8:00 — 00:00' },
-  { giorni: 'Domenica', ore: '8:00 — 21:00' },
+  { giorni: 'Lun – Gio', ore: '8:00 — 01:00' },
+  { giorni: 'Ven – Sab', ore: '8:00 — 02:00' },
+  { giorni: 'Domenica', ore: '17:00 — 23:30' },
 ];
 
 // Orari, telefono e indirizzo erano presenti solo dentro il JSON-LD: invisibili
@@ -44,7 +44,7 @@ export default function InfoLocale({ titolo = 'QUANDO E DOVE' }: { titolo?: stri
               ))}
             </div>
             <p className="mt-5 text-xs font-bold uppercase tracking-widest text-zinc-500">
-              Aperti tutti i giorni, anche a pranzo
+              Aperti tutti i giorni · la domenica solo dal pomeriggio
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function InfoLocale({ titolo = 'QUANDO E DOVE' }: { titolo?: stri
                   Dove siamo
                 </h3>
                 <p className="text-sm md:text-base font-bold text-zinc-600 leading-snug">
-                  Viale XX Settembre 16<br />34132 Trieste (TS)
+                  Viale XX Settembre 16<br />34125 Trieste (TS)
                 </p>
               </div>
             </div>

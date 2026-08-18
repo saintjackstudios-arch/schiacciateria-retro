@@ -895,7 +895,7 @@ export default function HomeClient() {
                       </p>
                       
                       <a 
-                        href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste"
                         target="_blank"
                         className="inline-flex items-center gap-4 bg-yellow-400 text-black px-10 py-5 text-2xl font-display uppercase italic border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
                       >
@@ -908,7 +908,7 @@ export default function HomeClient() {
                 <div className="flex-[1.5] w-full order-1 lg:order-2">
                    <div className="relative aspect-video border-8 border-black shadow-[20px_20px_0px_0px_#eab308] overflow-hidden bg-zinc-100 group">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2816.7898957093745!2d13.770899076582029!3d45.64942097107611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b6b1076f62439%3A0xc3f6f1406859549f!2sBar%20Retr%C3%B2%20-%20Schiacciateria%20Triestina%2C%20Viale%20Venti%20Settembre%2C%2016%2C%2034132%20Trieste%20TS!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.9450573326767!2d13.779871100000001!3d45.65192510000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b6b129a22afdf%3A0x44aeb9deb325cae3!2sRetr%C3%B3%20XX%20settembre%20-%20Schiacciateria%20Triestina!5e0!3m2!1sit!2sit!4v1787077712675!5m2!1sit!2sit"
                         className="absolute inset-0 w-full h-full pointer-events-none"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -960,7 +960,7 @@ export default function HomeClient() {
                       {/* Tap-to-navigate overlay: mappa e segnaposto sono decorativi (pointer-events-none),
                           questo link li rende cliccabili ovunque e riusa lo stesso evento directions_click */}
                       <a
-                        href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste"
                         target="_blank"
                         rel="noopener"
                         aria-label="Apri indicazioni stradali su Google Maps"
@@ -1125,7 +1125,7 @@ export default function HomeClient() {
             <Image src="/logo_retro.png" alt="Barretrò" width={64} height={90} className="w-12 h-auto brightness-110" />
             <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Schiacciateria Retrò</p>
             <p className="text-sm text-zinc-500 leading-relaxed">
-              Viale XX Settembre 16<br />34132 Trieste (TS)
+              Viale XX Settembre 16<br />34125 Trieste (TS)
             </p>
             <a
               href="tel:+393756264680"
@@ -1158,19 +1158,19 @@ export default function HomeClient() {
             <div className="flex flex-col gap-1 text-sm text-zinc-400">
               <div className="flex justify-between gap-3">
                 <span className="font-bold uppercase tracking-wider">Lun – Gio</span>
-                <span className="font-black text-white">8:00 — 22:00</span>
+                <span className="font-black text-white">8:00 — 01:00</span>
               </div>
               <div className="flex justify-between gap-3">
                 <span className="font-bold uppercase tracking-wider">Ven – Sab</span>
-                <span className="font-black text-white">8:00 — 00:00</span>
+                <span className="font-black text-white">8:00 — 02:00</span>
               </div>
               <div className="flex justify-between gap-3">
                 <span className="font-bold uppercase tracking-wider">Domenica</span>
-                <span className="font-black text-white">8:00 — 21:00</span>
+                <span className="font-black text-white">17:00 — 23:30</span>
               </div>
             </div>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
+              href="https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste"
               target="_blank"
               className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.2em] text-yellow-400 hover:text-white transition-colors"
             >

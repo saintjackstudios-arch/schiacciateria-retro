@@ -79,7 +79,7 @@ export default function ContattiClient() {
                 </div>
 <div>
                     <h3 className="font-display font-black text-2xl uppercase italic mb-2">PUNTO DI RITROVO</h3>
-                    <p className="text-lg font-bold text-zinc-600">Viale XX Settembre 16, <br /> 34132 Trieste (TS)</p>
+                    <p className="text-lg font-bold text-zinc-600">Viale XX Settembre 16, <br /> 34125 Trieste (TS)</p>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste"
                       target="_blank"
@@ -135,11 +135,11 @@ export default function ContattiClient() {
                   <h3 className="font-display font-black text-2xl uppercase italic mb-4">ORARI DI APERTURA</h3>
                   <div className="grid grid-cols-2 gap-4 text-lg font-bold text-zinc-600">
                     <div>LUN - GIO</div>
-                    <div className="text-right">8:00 - 22:00</div>
+                    <div className="text-right">8:00 - 01:00</div>
                     <div>VEN - SAB</div>
-                    <div className="text-right">8:00 - 00:00</div>
+                    <div className="text-right">8:00 - 02:00</div>
                     <div>DOMENICA</div>
-                    <div className="text-right">8:00 - 21:00</div>
+                    <div className="text-right">17:00 - 23:30</div>
                   </div>
                 </div>
               </div>

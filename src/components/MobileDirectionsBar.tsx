@@ -3,7 +3,7 @@
 import { MapPin, Phone } from 'lucide-react';
 
 const MAPS_URL =
-  'https://www.google.com/maps/dir/?api=1&destination=Bar+Retro+Schiacciateria+Triestina+Viale+Venti+Settembre+16+Trieste';
+  'https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste';
 const TEL = 'tel:+393756264680';
 
 // Barra fissa solo mobile: la maggior parte del traffico cerca gia' il locale per nome
