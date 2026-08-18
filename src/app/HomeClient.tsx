@@ -458,14 +458,14 @@ export default function HomeClient() {
         
         {/* Background Image - Pixel Perfect & High Quality */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/hero_aggressive.jpg" 
-            alt="Barretrò Aggressive Fast Food" 
-            fill 
+          <Image
+            src="/hero_aggressive.jpg"
+            alt="Barretrò Aggressive Fast Food"
+            fill
             quality={100}
-            unoptimized={true}
+            sizes="100vw"
             className="object-cover object-center border-b-[12px] border-yellow-400"
-            priority
+            preload
           />
           {/* Subtle Overlays for Readability */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent pointer-events-none opacity-80" />
@@ -552,10 +552,11 @@ export default function HomeClient() {
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     className="relative aspect-[3/4] md:aspect-auto h-full border-4 border-black shadow-[12px_12px_0px_#000] overflow-hidden min-h-[400px]"
                   >
-                    <Image 
-                      src="/images/schiacciata_vera_stack.webp" 
-                      alt="La Vera Schiacciata - La Stack" 
-                      fill 
+                    <Image
+                      src="/images/schiacciata_vera_stack.webp"
+                      alt="La Vera Schiacciata - La Stack"
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
                       quality={90}
                       className="object-cover"
                     />
@@ -590,10 +591,11 @@ export default function HomeClient() {
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     className="relative aspect-[3/4] md:aspect-auto h-full border-4 border-black shadow-[12px_12px_0px_#000] overflow-hidden min-h-[400px]"
                   >
-                    <Image 
-                      src="/images/schiacciata_vera_pingpong.webp" 
-                      alt="La Vera Schiacciata - Ping Pong" 
-                      fill 
+                    <Image
+                      src="/images/schiacciata_vera_pingpong.webp"
+                      alt="La Vera Schiacciata - Ping Pong"
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
                       quality={90}
                       className="object-cover"
                     />
@@ -640,13 +642,13 @@ export default function HomeClient() {
                    }}
                    className="relative z-0 overflow-hidden"
                  >
-                    <Image 
-                      src="/images/ingredienti_esplosi_highres.webp" 
-                      alt="Anatomia della Schiacciata Barretrò" 
+                    <Image
+                      src="/images/ingredienti_esplosi_highres.webp"
+                      alt="Anatomia della Schiacciata Barretrò"
                       width={1200}
                       height={1600}
                       className="w-full h-auto object-contain"
-                      priority
+                      preload
                     />
                  </div>
                        {/* Stracciatella Comic Bubble (Top layer - left) */}
@@ -1123,8 +1125,22 @@ export default function HomeClient() {
             <Image src="/logo_retro.png" alt="Barretrò" width={64} height={90} className="w-12 h-auto brightness-110" />
             <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Schiacciateria Retrò</p>
             <p className="text-sm text-zinc-500 leading-relaxed">
-              Viale Venti Settembre, 16<br />34132 Trieste (TS)
+              Viale XX Settembre 16<br />34132 Trieste (TS)
             </p>
+            <a
+              href="tel:+393756264680"
+              className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-yellow-400 hover:text-white transition-colors"
+            >
+              <Phone className="w-4 h-4" /> +39 375 626 4680
+            </a>
+            <a
+              href="https://wa.me/393756264680"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" /> WhatsApp
+            </a>
           </div>
           {/* Nav */}
           <div className="flex flex-col gap-4">

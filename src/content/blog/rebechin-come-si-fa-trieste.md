@@ -1,6 +1,6 @@
 ---
 title: "Rebechin come si fa a Trieste: La tradizione dello spuntino incontra lo Street Food"
-date: "2026-10-30"
+date: "2026-07-27"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Cos'è il rebechin triestino e come si fa? Scopri le origini della merenda storica e come Schiacciateria Retrò l'ha trasformata nelle sue moderne Tartine."
@@ -30,4 +30,4 @@ Nel nostro [Menu](/menu) troverai l'evoluzione perfetta del rebechin: la formula
 - La **Romanaccia**: per chi vuole spingere sui sapori con Carbocrema e guanciale.
 - O le varianti estive con Mortadella e burratina fresca.
 
-Il Rebechin oggi si fa in Viale XX Settembre. Unisciti a noi per il rito triestino per eccellenza!
+Il Rebechin oggi si fa in Viale XX Settembre. Unisciti a noi per il [rito triestino per eccellenza](/buffet-triestino)!

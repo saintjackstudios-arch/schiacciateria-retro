@@ -1,6 +1,6 @@
 ---
 title: "Cosa fare a Trieste la sera: Shopping, Passeggiate e Cibo"
-date: "2026-09-05"
+date: "2026-06-02"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Non sai cosa fare a Trieste la sera? Scopri l'itinerario perfetto: dallo shopping in Viale alla birra tra amici, ecco come vivono la serata i veri triestini."

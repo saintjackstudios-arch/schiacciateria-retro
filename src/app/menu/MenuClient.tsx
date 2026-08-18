@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import InfoLocale from '@/components/InfoLocale';
 
 // ─── DATA STRUCTURES ──────────────────────────────────────────────────────────
 
@@ -439,12 +440,13 @@ export default function MenuClient() {
       {/* ── Hero ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-black border-b-8 border-black w-full aspect-[1024/571] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/menu_hero_schiacciata.webp" 
-            alt="Menu Hero Background" 
-            fill 
+          <Image
+            src="/images/menu_hero_schiacciata.webp"
+            alt="Menu Hero Background"
+            fill
+            sizes="100vw"
             className="object-cover"
-            priority
+            preload
             quality={100}
           />
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/felt.png')]" />
@@ -672,6 +674,9 @@ export default function MenuClient() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* ── Orari + contatti ───────────────────────────────── */}
+      <InfoLocale />
 
       {/* ── Allergeni ──────────────────────────────────────── */}
       <div className="bg-zinc-900 text-white py-8 px-5 text-center mt-12">

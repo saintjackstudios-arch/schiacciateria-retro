@@ -1,6 +1,6 @@
 ---
 title: "Bar Trieste per studenti universitari: Lo Spritz a 2,50€ e le Tartine"
-date: "2026-10-25"
+date: "2026-07-22"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Sei uno studente universitario a Trieste? Scopri il punto di ritrovo in Viale XX Settembre che salva il portafoglio e le serate."

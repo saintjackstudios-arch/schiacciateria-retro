@@ -1,6 +1,6 @@
 ---
 title: "Migliori pub Trieste centro: La guida alle birre artigianali"
-date: "2026-10-10"
+date: "2026-07-07"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Cerchi i migliori pub in centro a Trieste per bere un'ottima birra artigianale? Scopri l'alternativa in Viale XX Settembre dedicata agli intenditori."

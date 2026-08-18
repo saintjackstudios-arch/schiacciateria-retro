@@ -1,6 +1,6 @@
 ---
 title: "Tradizioni Triestine: Cos'è il Kren e come ordinare il caffè a Trieste"
-date: "2026-11-20"
+date: "2026-08-17"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Se vieni a Trieste devi imparare le regole non scritte: scopri cos'è il kren, come lo si usa in cucina, e il glossario essenziale per ordinare un 'Capo in B'."
@@ -18,7 +18,7 @@ La domanda sorge spontanea nei visitatori: **cos'è il kren e come si usa nella 
 Il [Kren](https://it.wikipedia.org/wiki/Kren) (termine di origine tedesca) è la radice del rafano grattugiata. Ha un odore pungente e un sapore intenso, leggermente balsamico, simile al wasabi giapponese. A Trieste, il Kren è un'istituzione religiosa. 
 Tradizionalmente viene grattugiato fresco direttamente sopra fette di prosciutto cotto caldo o sui misti di carne bollita (la famosa *caldaia* dei [buffet triestini storici](/blog/cosa-ordinare-buffet-triestino)). 
 
-Noi di **Schiacciateria Retrò** lo adoriamo. Nel nostro [Menu](/menu) troverai la schiacciata **Bela Trieste**, dove abbiamo preso la sacra trinità triestina (Prosciutto cotto di qualità, Senape e Kren) e l'abbiamo inserita nel cuore croccante della nostra schiacciata romana fumante. Un morso di pura tradizione mitteleuropea!
+Noi di **Schiacciateria Retrò** lo adoriamo. Nel nostro [Menu](/menu) troverai la schiacciata **Bela Trieste**, dove abbiamo preso la sacra trinità triestina (Prosciutto cotto di qualità, Senape e Kren) e l'abbiamo inserita nel cuore croccante della nostra schiacciata romana fumante. Un morso di pura tradizione mitteleuropea, la stessa che trovi al completo nel nostro [buffet triestino](/buffet-triestino)!
 
 ## Come ordinare il caffè a Trieste (Senza farsi odiare)
 

@@ -1,8 +1,25 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== 'production';
+
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: https://lh3.googleusercontent.com https://images.unsplash.com https://www.transparenttextures.com",
+  "frame-src https://www.google.com",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+].join('; ');
+
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
+    qualities: [75, 90, 100],
     remotePatterns: [
       {
         protocol: 'https',
@@ -17,6 +34,35 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/news/:slug',
+        destination: '/blog/:slug',
+        permanent: true,
+      },
+      {
+        source: '/news',
+        destination: '/blog',
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Content-Security-Policy', value: csp },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'geolocation=(), camera=(), microphone=()' },
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+        ],
+      },
+    ];
   },
 };
 

@@ -1,6 +1,6 @@
 ---
 title: "Locali Viale XX Settembre Trieste: La guida definitiva alla movida"
-date: "2026-10-15"
+date: "2026-07-12"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Se cerchi i migliori locali a Trieste vicino Viale XX Settembre, ecco la guida all'arteria pedonale più vivace della città per cibo, aperitivi e relax."

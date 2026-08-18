@@ -2,11 +2,33 @@ import { Metadata } from 'next';
 import BuffetClient from './BuffetClient';
 
 export const metadata: Metadata = {
-  title: "Buffet Triestino a Viale XX Settembre 16 | Schiacciateria Retrò",
+  title: "Buffet Triestino a Trieste",
   description: "Il vero buffet triestino alla Schiacciateria Retrò: fritti misti, patate in tecia, cotechino, polpette e i classici della tradizione triestina in Viale XX Settembre 16.",
   alternates: {
     canonical: "https://schiacciateriaretrotrieste.com/buffet-triestino",
-  }
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'it_IT',
+    url: 'https://schiacciateriaretrotrieste.com/buffet-triestino',
+    siteName: 'Schiacciateria Retrò Trieste',
+    title: "Buffet Triestino a Trieste | Schiacciateria Retrò",
+    description: "Il vero buffet triestino alla Schiacciateria Retrò: fritti misti, patate in tecia, cotechino, polpette e i classici della tradizione triestina in Viale XX Settembre 16.",
+    images: [
+      {
+        url: '/images/tavolata_ignorante.webp',
+        width: 1200,
+        height: 669,
+        alt: 'Buffet Triestino da Schiacciateria Retrò',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Buffet Triestino a Trieste | Schiacciateria Retrò",
+    description: "Fritti misti, patate in tecia, cotechino e polpette: il vero buffet triestino in Viale XX Settembre 16.",
+    images: ['/images/tavolata_ignorante.webp'],
+  },
 };
 
 export default function BuffetPage() {

@@ -1,6 +1,6 @@
 ---
 title: "Cosa mangiare a Trieste di tipico: Dai bolliti allo Street Food"
-date: "2026-08-30"
+date: "2026-05-27"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Scopri cosa mangiare a Trieste di tipico: un viaggio dai sapori forti della caldaia e del kren fino alle moderne evoluzioni dello street food locale."
@@ -13,7 +13,7 @@ Se sei appena arrivato in città e ti stai chiedendo **cosa mangiare a Trieste d
 
 ## La Tradizione dei Buffet e della "Caldaia"
 
-A differenza di altre città, lo spuntino tipico triestino non si faceva in osteria o al bar, ma nel *Buffet*. In questi locali storici trionfa la **"Caldaia"**, un enorme pentolone fumante da cui si estraggono tagli di carne bollita eccezionali: porzina (coppa di maiale), salsicce di Vienna e cragno.
+A differenza di altre città, lo spuntino tipico triestino non si faceva in osteria o al bar, ma nel [*Buffet*](/buffet-triestino). In questi locali storici trionfa la **"Caldaia"**, un enorme pentolone fumante da cui si estraggono tagli di carne bollita eccezionali: porzina (coppa di maiale), salsicce di Vienna e cragno.
 
 Queste carni saporite vengono tradizionalmente servite in panino o al piatto, e sono accompagnate da due elementi che gridano "[Trieste](https://it.wikipedia.org/wiki/Trieste)": la senape e il **[Kren](https://it.wikipedia.org/wiki/Kren)**. Il kren è una radice di rafano grattugiata fresca, dal sapore estremamente pungente (simile al wasabi), capace di liberare le vie respiratorie e sgrassare il palato. È il condimento principe anche per l'ottimo [prosciutto cotto](https://it.wikipedia.org/wiki/Prosciutto_cotto) caldo, spesso cotto in crosta di pane.
 

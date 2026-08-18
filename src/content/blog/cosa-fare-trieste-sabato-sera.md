@@ -1,6 +1,6 @@
 ---
 title: "Cosa fare a Trieste sabato sera: L'itinerario del Weekend"
-date: "2026-09-20"
+date: "2026-06-17"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Scopri la routine perfetta del fine settimana: ecco cosa fare a Trieste sabato sera, dall'aperitivo fino alla movida notturna."

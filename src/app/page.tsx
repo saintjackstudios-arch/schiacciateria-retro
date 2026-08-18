@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import HomeClient from './HomeClient';
 
 export const metadata: Metadata = {
-  title: { absolute: "Schiacciateria Retrò Trieste | Il Vero Street Food in Viale XX Settembre" },
-  description: "Vieni a provare la vera schiacciata artigianale a Trieste. Ingredienti premium, birre selezionate e l'atmosfera inconfondibile di Barretrò. Ti aspettiamo!",
+  title: { absolute: "Schiacciateria Retrò Trieste | Buffet e Street Food" },
+  description: "Schiacciata artigianale, buffet triestino e street food nel cuore di Trieste, Viale XX Settembre. Ingredienti premium, birre selezionate. Vieni a trovarci!",
   alternates: {
     canonical: "https://schiacciateriaretrotrieste.com",
   }

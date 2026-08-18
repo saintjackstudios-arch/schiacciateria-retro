@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     description: "La schiacciateria artigianale nel cuore di Trieste. Schiacciata, birra e l'autentico street food triestino in Viale XX Settembre 16.",
     images: [
       {
-        url: '/logo_retro.png',
-        width: 128,
-        height: 181,
-        alt: 'Logo Schiacciateria Retrò Trieste',
+        url: '/hero_aggressive.jpg',
+        width: 1200,
+        height: 669,
+        alt: 'Schiacciata artigianale Schiacciateria Retrò Trieste',
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Schiacciateria Retrò Trieste | Viale XX Settembre",
     description: "La schiacciateria artigianale nel cuore di Trieste. Schiacciata, birra e l'autentico street food triestino.",
-    images: ['/logo_retro.png'],
+    images: ['/hero_aggressive.jpg'],
   },
   icons: {
     icon: [
@@ -90,7 +90,7 @@ export default function RootLayout({
                 "streetAddress": "Viale XX Settembre 16",
                 "addressLocality": "Trieste",
                 "addressRegion": "TS",
-                "postalCode": "34125",
+                "postalCode": "34132",
                 "addressCountry": "IT"
               },
               "geo": {

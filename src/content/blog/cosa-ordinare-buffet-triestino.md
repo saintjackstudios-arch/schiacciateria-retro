@@ -1,6 +1,6 @@
 ---
 title: "Cosa ordinare in un buffet triestino: Dal fritto alle Polpette in Tecia"
-date: "2026-09-10"
+date: "2026-06-07"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Guida definitiva al buffet triestino: scopri i segreti delle patate in tecia, dei fritti e della nostra pazzesca evoluzione moderna da Schiacciateria Retrò."
@@ -30,4 +30,4 @@ Noi di **Schiacciateria Retrò** (in [Viale XX Settembre](/blog/viale-xx-settemb
 Nel nostro [Menu](/menu), nella sezione "FRITO DEI EVERY DAY", troverai le nostre leggendarie **Polpette di Patate in Tecia**.
 Immagina il sapore intenso, croccante e saporito delle vere patate ripassate in padella con cipolla e pancetta, racchiuso all'interno di una polpetta fritta dorata e bollente, da mangiare con le mani passeggiando o bevendo una birra.
 
-È l'evoluzione moderna perfetta del buffet triestino, senza tradirne mai il sapore originale. Se vuoi scoprire dove lo street food incontra la storia, passa a trovarci in Viale. E non dimenticare di ordinare anche una porzione di pollo e melanzane fritte!
+È l'evoluzione moderna perfetta del [buffet triestino](/buffet-triestino), senza tradirne mai il sapore originale. Se vuoi scoprire dove lo street food incontra la storia, passa a trovarci in Viale. E non dimenticare di ordinare anche una porzione di pollo e melanzane fritte!

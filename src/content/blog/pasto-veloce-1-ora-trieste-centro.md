@@ -1,6 +1,6 @@
 ---
 title: "Pasto veloce Trieste centro: La guida a chi ha solo 1 ora (o meno)"
-date: "2026-11-10"
+date: "2026-08-07"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Se hai i minuti contati, non devi per forza rinunciare al gusto. Ecco dove consumare un pasto veloce a Trieste in centro, sfizioso e senza file interminabili."

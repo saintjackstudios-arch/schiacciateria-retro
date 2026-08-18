@@ -1,6 +1,6 @@
 ---
 title: "Quale buffet scegliere a Trieste? L'alternativa contemporanea da Retrò"
-date: "2026-09-30"
+date: "2026-06-27"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Ami i sapori forti della tradizione ma cerchi un ambiente giovane? Scopri perché Schiacciateria Retrò è l'evoluzione moderna del classico buffet."
@@ -15,7 +15,7 @@ I buffet storici, con la loro celebre *caldaia* e l'arredamento di inizio Novece
 
 In [Viale XX Settembre](/blog/viale-xx-settembre-trieste) 16, la **Schiacciateria Retrò** ha raccolto l'eredità gastronomica dei buffet triestini e l'ha proiettata nel futuro, unendo la formula dello Street Food di altissima qualità ai sapori inconfondibili della nostra terra.
 
-Noi non siamo un buffet tradizionale, ma siamo **la migliore alternativa contemporanea**. Ecco perché:
+Noi non siamo un buffet tradizionale, ma siamo **[la migliore alternativa contemporanea](/buffet-triestino)**. Ecco perché:
 
 ### I grandi classici fritti, in chiave Street Food
 Se [ordini in un buffet triestino](/blog/cosa-ordinare-buffet-triestino), non possono mancare i fritti. Nel nostro [Menu](/menu), sotto la voce "FRITO DEI EVERY DAY", celebriamo questi sapori:

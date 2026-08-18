@@ -1,6 +1,6 @@
 ---
 title: "Cosa visitare a Trieste centro e cosa mangiare in un giorno"
-date: "2026-11-15"
+date: "2026-08-12"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Hai un solo giorno per vedere Trieste? Ecco l'itinerario perfetto: cosa visitare in centro, dove passeggiare e soprattutto cosa mangiare per non farti spennare."

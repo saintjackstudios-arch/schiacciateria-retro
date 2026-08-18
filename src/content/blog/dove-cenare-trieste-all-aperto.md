@@ -1,6 +1,6 @@
 ---
 title: "Dove cenare a Trieste all'aperto: La guida alle serate in Viale"
-date: "2026-08-20"
+date: "2026-05-17"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Scopri le zone migliori per godersi una cena sotto le stelle. Tra piazze affollate e viali pedonali, ecco dove cenare a Trieste all'aperto questa sera."

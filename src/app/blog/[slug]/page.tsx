@@ -20,6 +20,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: article.title,
       description: article.excerpt,
       type: 'article',
+      url: `https://schiacciateriaretrotrieste.com/blog/${slug}`,
+      siteName: 'Schiacciateria Retrò Trieste',
+      images: article.hero_image
+        ? [{ url: article.hero_image, alt: article.title }]
+        : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: article.hero_image ? [article.hero_image] : undefined,
     },
     alternates: {
       canonical: `https://schiacciateriaretrotrieste.com/blog/${slug}`,
@@ -137,6 +148,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 "name": article.author,
               },
               "datePublished": article.date,
+              "dateModified": article.dateModified || article.date,
               "publisher": {
                 "@type": "Organization",
                 "name": "Schiacciateria Retrò Trieste",

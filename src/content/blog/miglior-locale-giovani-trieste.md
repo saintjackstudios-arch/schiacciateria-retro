@@ -1,6 +1,6 @@
 ---
 title: "Miglior locale giovani Trieste: Il Viale XX Settembre è il vero cuore pulsante"
-date: "2026-10-05"
+date: "2026-07-02"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Se sei uno studente o cerchi la movida, scopri perché la zona di Viale XX Settembre e Schiacciateria Retrò sono l'epicentro dei giovani a Trieste."

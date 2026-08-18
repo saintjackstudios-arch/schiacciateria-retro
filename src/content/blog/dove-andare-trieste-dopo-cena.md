@@ -1,6 +1,6 @@
 ---
 title: "Dove andare a Trieste dopo cena: Dalla passeggiata alla birra notturna"
-date: "2026-08-25"
+date: "2026-05-22"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Hai finito di cenare e la notte è giovane? Scopri dove andare a Trieste dopo cena tra passeggiate, pub e locali perfetti per chiudere la serata."

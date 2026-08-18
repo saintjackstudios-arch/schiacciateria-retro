@@ -1,6 +1,6 @@
 ---
 title: "Quale locale scegliere per aperitivo a Trieste? Il Viale vince sulle Rive"
-date: "2026-09-25"
+date: "2026-06-22"
 author: "Davide"
 category: "GUIDA TRIESTE"
 excerpt: "Schiacciateria Retrò in Viale XX Settembre si conferma l'opzione più comoda, golosa ed economica per l'aperitivo giovanile in città."
@@ -24,7 +24,7 @@ Mentre in Piazza Unità uno [Spritz](https://it.wikipedia.org/wiki/Spritz) può 
 
 ### 2. Le Tartine e il Cibo
 Questo è il vero game-changer. Un buon aperitivo necessita di una base solida. Dimentica le noccioline vecchie o i buffet freddi. 
-La risposta alla domanda su [quale spritz ordinare a Trieste](/blog/miglior-spritz-trieste) va sempre abbinata al cibo. Noi offriamo le nostre famose **Tartine**: piccoli tranci di schiacciata romana, farciti al momento e serviti caldi. Dalla *Bela Trieste* col tradizionale [Kren](https://it.wikipedia.org/wiki/Kren) fino alla golosa *Romanaccia*.
+La risposta alla domanda su [quale spritz ordinare a Trieste](/blog/dove-bere-miglior-spritz-trieste) va sempre abbinata al cibo. Noi offriamo le nostre famose **Tartine**: piccoli tranci di schiacciata romana, farciti al momento e serviti caldi. Dalla *Bela Trieste* col tradizionale [Kren](https://it.wikipedia.org/wiki/Kren) fino alla golosa *Romanaccia*.
 
 ### 3. La formula Tagliere
 Se decidi che l'aperitivo deve trasformarsi in cena (la famosa formula "Apericena"), non devi nemmeno cambiare locale. Basta ordinare uno dei nostri enormi Taglieri Ignoranti. Salumi, formaggi e schiacciata, abbinati a un boccale di [birra artigianale](https://it.wikipedia.org/wiki/Birra_artigianale).
