@@ -6,7 +6,19 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ## 2026-08-18 (pomeriggio) — Esecuzione dei fix tecnici dell'audit follow-up
 
-Divisione del lavoro concordata: Marco si occupa del Google Business Profile (problema di identità/NAP su Google Maps, fuori dal codice), io dei fix tecnici sul sito. **Tutto è in locale, non ancora deployato: serve il via di Marco.**
+Divisione del lavoro concordata: Marco si occupa del Google Business Profile (problema di identità/NAP su Google Maps, fuori dal codice), io dei fix tecnici sul sito.
+
+**✅ PUBBLICATO il 18/08** su via esplicito di Marco — commit `ce45c0d`, push su `main`, deploy Vercel andato online in ~105 secondi.
+
+**Verificato sul sito vero dopo la pubblicazione** (non in locale):
+- Header di sicurezza tutti presenti in risposta: CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options ✓
+- **GA4 non è bloccato dalla CSP**: script caricato, `gtag` definito, 4 eventi in `dataLayer`, zero violazioni CSP in console con i cookie accettati ✓ (era il rischio più serio dell'intera sessione)
+- `/news` e `/news/*` → **308** verso `/blog` e `/blog/*` ✓ (Next.js emette 308, non 301: è il permanente che preserva il metodo, Google lo tratta allo stesso modo)
+- og:image diverse e corrette su `/`, `/menu`, `/buffet-triestino` e sui post ✓
+- Title homepage: `Schiacciateria Retrò Trieste | Buffet e Street Food` ✓
+- Date blog non più nel futuro: 2026-06-07, 2026-08-17, 2026-05-17 sui tre campioni controllati ✓
+- `postalCode` **34132** nello schema ✓ · telefono e WhatsApp cliccabili presenti su `/`, `/menu`, `/buffet-triestino` ✓
+- 5 pagine chiave tutte **200**, build di produzione pulita (45 pagine, TypeScript passa) ✓
 
 **Contenuti e struttura**
 - **Corrette 18 date `datePublished` nel futuro** sui post del blog. Erano date fino al 20/11/2026: uno schema `Article` con data futura è un segnale di bassa affidabilità e può bloccare i rich result. Riportate a date reali passate mantenendo l'ordine e la cadenza originali.
