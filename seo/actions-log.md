@@ -4,6 +4,36 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-18 (sera) — Aperte le schede Google Maps: identità risolta, e una mia correzione
+
+Marco ha chiesto di aprire i due CID trovati dall'audit. Fatto, e ha cambiato tre conclusioni.
+
+**Quale scheda è viva.** `cid=4949097406666230499` → **"Retró XX settembre - Schiacciateria Triestina"**: 4,6★ su **435 recensioni**, foto caricate 2 giorni prima, risposte del proprietario, sito e telefono corretti, categoria **solo "Bar"** (conferma l'audit). L'altro CID (`14120738940597654687`, quello dentro l'iframe della mappa) **non risolve più**, né in forma `?cid=` né `?ftid=`: è un identificatore morto rimasto incollato nel codice.
+**Nessun doppione da unificare**: cercando il locale per nome, Maps porta a una scheda sola. Il problema dei "due CID" era reale nel codice, non nella realtà di Google.
+
+**❌ Correzione di un mio errore, già pubblicato.** Nel batch precedente avevo allineato il CAP a **34132**, prendendolo dalla stringa della mappa incorporata nel sito. Sbagliato: la scheda reale dice **34125**, cioè il valore che lo schema aveva già e che avevo cambiato io. La stringa dell'iframe era vecchia di anni.
+**La lezione, che vale più dell'errore:** ho trattato un dato *dentro il codice del sito* come se fosse la fonte, invece di aprire la fonte. È la stessa regola che applichiamo alle pagine — non descrivere quello che non hai aperto — violata sul dato più facile da verificare.
+
+**Due problemi preesistenti trovati di conseguenza:**
+- **L'iframe della mappa in homepage puntava al luogo morto.** Sostituito con l'embed ufficiale della scheda viva (`0x477b6b129a22afdf:0x44aeb9deb325cae3`), preso dal pannello "Condividi → Incorpora una mappa" di Google.
+- **`geo` nello schema era fuori di ~490 metri** (`45.6547, 13.775` contro `45.65193, 13.77987` reali). Corretto, a 5 decimali.
+- Aggiornati anche i link "Indicazioni", che cercavano il locale col nome vecchio "Bar Retro Schiacciateria Triestina".
+
+**Orari: il sito era sbagliato tutti i giorni della settimana.**
+
+| | Google (scheda) | Sito (prima) |
+|---|---|---|
+| Lun – Gio | 08:00 – 01:00 | 08:00 – 22:00 |
+| Ven – Sab | 08:00 – 02:00 | 08:00 – 00:00 |
+| **Domenica** | **17:00** – 23:30 | **08:00** – 21:00 |
+
+La domenica il sito dichiarava l'apertura **nove ore prima** di quella reale. Su decisione di Marco il sito è stato allineato alla scheda Google, che è la fonte che vede il cliente finale. Tolta anche la frase "aperti anche a pranzo" dal blocco orari, falsa di domenica.
+*Nota tecnica:* nello schema una chiusura precedente all'apertura (08:00 → 01:00) è corretta — Google la interpreta come il giorno successivo.
+
+**✅ PUBBLICATO** — commit `f8d8ec9`, online in ~60 secondi. **Verificato sul sito vero:** `postalCode` 34125 ✓ · `geo` 45.65193/13.77987 ✓ · i tre blocchi di orari nello schema ✓ · orari visibili corretti su `/menu` ✓ · l'iframe punta al luogo vivo ✓.
+
+**Resta da confermare col cliente:** che gli orari della scheda Google siano quelli veri e aggiornati (allineati, ma nessuno li ha ancora verificati con il locale). Se il cliente li smentisce, vanno corretti **su entrambi i fronti**, scheda e sito.
+
 ## 2026-08-18 (pomeriggio) — Esecuzione dei fix tecnici dell'audit follow-up
 
 Divisione del lavoro concordata: Marco si occupa del Google Business Profile (problema di identità/NAP su Google Maps, fuori dal codice), io dei fix tecnici sul sito.
