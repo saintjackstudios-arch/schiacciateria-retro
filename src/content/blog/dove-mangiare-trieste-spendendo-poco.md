@@ -1,5 +1,5 @@
 ---
-title: "Dove mangiare a Trieste spendendo poco: L'arte del pasto veloce e di qualità"
+title: "Dove mangiare a Trieste spendendo poco"
 date: "2026-03-15"
 author: "Davide"
 category: "FOOD"

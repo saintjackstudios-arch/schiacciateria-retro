@@ -1,5 +1,5 @@
 ---
-title: "Dove bere il miglior spritz a Trieste: Dal classico bianco alle varianti alla frutta"
+title: "Dove bere il miglior spritz a Trieste"
 date: "2026-08-10"
 author: "Davide"
 category: "DRINKS"

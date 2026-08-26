@@ -14,7 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = await getPostData(slug);
   if (!article) return { title: 'Articolo non trovato' };
   return {
-    title: article.title,
+    // `absolute` toglie il suffisso "| Schiacciateria Retro Trieste" del layout:
+    // sono 31 caratteri su 60, e questi articoli non vengono cercati per nome.
+    title: { absolute: article.title },
     description: article.excerpt,
     openGraph: {
       title: article.title,

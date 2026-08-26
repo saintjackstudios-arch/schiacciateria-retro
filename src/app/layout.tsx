@@ -100,7 +100,15 @@ export default function RootLayout({
               },
               "servesCuisine": ["Fast Food", "Street Food", "Cucina Triestina", "Buffet Triestino"],
               "priceRange": "€-€€",
-              "sameAs": ["https://www.instagram.com/schiacciateria_retro_trieste/"],
+              "hasMenu": "https://schiacciateriaretrotrieste.com/menu",
+              // Profili verificati uno a uno il 26/08/2026: stesso indirizzo e stesso
+              // telefono su tutti. E' il filo che lega il sito alla scheda Google.
+              "sameAs": [
+                "https://www.instagram.com/schiacciateria_retro_trieste/",
+                "https://www.facebook.com/CaffeRetro2017/",
+                "https://maps.google.com/?cid=4949097406666230499",
+                "https://www.tripadvisor.it/Restaurant_Review-g187813-d15123470-Reviews-RETRO-Trieste_Province_of_Trieste_Friuli_Venezia_Giulia.html"
+              ],
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",

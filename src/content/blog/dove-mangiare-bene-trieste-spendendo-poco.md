@@ -1,5 +1,5 @@
 ---
-title: "Dove mangiare bene a Trieste spendendo poco: La rivoluzione della Schiacciata"
+title: "Dove mangiare bene a Trieste spendendo poco"
 date: "2026-08-02"
 author: "Davide"
 category: "GUIDA TRIESTE"

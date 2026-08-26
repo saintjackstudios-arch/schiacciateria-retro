@@ -1,5 +1,5 @@
 ---
-title: "Viale XX Settembre a Trieste: la strada pedonale che non ti aspetti"
+title: "Viale XX Settembre a Trieste: la strada pedonale"
 date: "2026-05-10"
 author: "Davide"
 category: "GUIDA TRIESTE"

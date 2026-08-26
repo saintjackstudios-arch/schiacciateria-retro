@@ -1,5 +1,5 @@
 ---
-title: "Quale locale scegliere per aperitivo a Trieste? Il Viale vince sulle Rive"
+title: "Quale locale scegliere per l'aperitivo a Trieste"
 date: "2026-06-22"
 author: "Davide"
 category: "GUIDA TRIESTE"

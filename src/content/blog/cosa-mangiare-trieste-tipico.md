@@ -1,5 +1,5 @@
 ---
-title: "Cosa mangiare a Trieste di tipico: Dai bolliti allo Street Food"
+title: "Cosa mangiare a Trieste di tipico"
 date: "2026-05-27"
 author: "Davide"
 category: "TRADIZIONI"

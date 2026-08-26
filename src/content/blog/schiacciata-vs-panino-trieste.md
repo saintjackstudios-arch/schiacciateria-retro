@@ -1,5 +1,5 @@
 ---
-title: "Schiacciata vs Panino: perché il fast food artigianale sta conquistando Trieste"
+title: "Schiacciata o panino: la differenza a Trieste"
 date: "2026-03-22"
 author: "Davide"
 category: "FOOD"

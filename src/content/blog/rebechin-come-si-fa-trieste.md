@@ -1,5 +1,5 @@
 ---
-title: "Rebechin come si fa a Trieste: La tradizione dello spuntino incontra lo Street Food"
+title: "Rebechin: come si fa a Trieste"
 date: "2026-07-27"
 author: "Davide"
 category: "TRADIZIONI"

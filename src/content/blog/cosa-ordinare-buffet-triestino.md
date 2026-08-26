@@ -1,5 +1,5 @@
 ---
-title: "Cosa ordinare in un buffet triestino: Dal fritto alle Polpette in Tecia"
+title: "Cosa ordinare in un buffet triestino"
 date: "2026-06-07"
 author: "Davide"
 category: "TRADIZIONI"

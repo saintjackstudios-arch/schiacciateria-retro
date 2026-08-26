@@ -1,5 +1,5 @@
 ---
-title: "Dove fare aperitivo a Trieste in centro: Guida ai locali e alle zone migliori"
+title: "Dove fare aperitivo a Trieste in centro"
 date: "2026-07-22"
 author: "Davide"
 category: "GUIDA TRIESTE"

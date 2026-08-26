@@ -1,5 +1,5 @@
 ---
-title: "Cosa fare a Trieste sabato sera: L'itinerario del Weekend"
+title: "Cosa fare a Trieste il sabato sera"
 date: "2026-06-17"
 author: "Davide"
 category: "GUIDA TRIESTE"

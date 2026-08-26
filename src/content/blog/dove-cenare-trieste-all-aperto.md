@@ -1,5 +1,5 @@
 ---
-title: "Dove cenare a Trieste all'aperto: La guida alle serate in Viale"
+title: "Dove cenare a Trieste all'aperto"
 date: "2026-05-17"
 author: "Davide"
 category: "GUIDA TRIESTE"
