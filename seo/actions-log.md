@@ -79,13 +79,38 @@ esiste più** («Profile non è disponibile»). Sembravano 12 link morti in home
 **Non lo sono:** aperto un reel, Instagram risolve per shortcode e reindirizza al
 profilo nuovo. Nessun intervento necessario. La maniglia nello schema era già giusta.
 
-#### 🟡 Da segnalare al titolare: due schede indicano il dominio sbagliato
+#### 🔴 Correzione: ho sbagliato, ed è Facebook soltanto
 
-Sia **Facebook** sia **TripAdvisor** riportano come sito web **`retrotrieste.it`**, non
-`schiacciateriaretrotrieste.com`. È una incoerenza di citazione: le due schede che ora
-dichiariamo «siamo noi» puntano a un indirizzo diverso da quello che le dichiara.
-Non è un intervento sul codice — si correggono dai pannelli di Facebook e TripAdvisor,
-e va fatto dal titolare.
+**Cosa avevo scritto e detto a Marco:** «sia Facebook sia TripAdvisor riportano come
+sito `retrotrieste.it`». **È falso per TripAdvisor.**
+
+**Da dove veniva l'errore.** L'ho preso dallo **snippet della ricerca web**, che per
+la pagina TripAdvisor riportava «Website: retrotrieste.it», e l'ho riferito come se
+l'avessi verificato. Quando ho aperto TripAdvisor avevo letto **solo indirizzo e
+telefono**: il campo «Sito web» non l'ho mai controllato prima di affermarlo.
+È esattamente l'errore descritto in [[verificare-prima-di-affermare-seo]], commesso
+il giorno stesso in cui l'ho applicato bene tre volte di fila.
+
+**Il dato vero**, controllato due volte con due motori diversi (browser reale e
+Playwright/WebKit, che hanno dato lo stesso risultato):
+
+| Scheda | Sito dichiarato | Esito |
+|---|---|---|
+| TripAdvisor | `https://schiacciateriaretrotrieste.com/` | ✅ **giusto, non va toccato** |
+| Facebook | `http://www.retrotrieste.it/` | 🔴 sbagliato |
+
+**Su Facebook il problema è peggiore di come l'avevo descritto.** Non è un dominio
+diverso: **`retrotrieste.it` non esiste più**. Non ha alcun record DNS —
+`dig +short retrotrieste.it` non risponde nulla, `curl` fallisce con
+*«Could not resolve host»*. Quindi l'unico link al sito su una pagina da **8.247
+follower** è **morto**: chi ci clicca vede un errore del browser.
+
+Va corretto dal pannello di Facebook, e lo fa il titolare.
+
+**Nota di metodo, perché si ripeta.** TripAdvisor ha **bloccato Playwright/Chromium**
+con una pagina «L'accesso è temporaneamente limitato». Quella pagina non è stata
+contata come dato — stesso errore già registrato sugli elenchi locali del 25/08.
+La verifica è passata solo cambiando motore (WebKit).
 
 ### ③ La sitemap: da 1 data per 34 pagine a 30 date distinte
 
