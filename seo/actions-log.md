@@ -4,6 +4,134 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-26 (8) — 🟢 PUBBLICATO. Chiusa la Fase 1: titoli, schema, date
+
+> **Correzione di data.** Le voci qui sotto sono etichettate *27/08*: è sbagliato.
+> `git log` dice che tutti quei commit sono del **26/08/2026** (15:46), come questi
+> (17:08). Stessa giornata. Le intestazioni restano com'erano per non riscrivere
+> il passato, ma la data buona è il 26.
+
+Marco: *«procedi»*, dopo aver chiesto le fasi spiegate senza gergo. Tre commit sul
+ramo `titoli-schema-date`, merge `--no-ff` su `main`, deploy Vercel in ~50 secondi.
+
+| Commit | Contenuto |
+|---|---|
+| `1429905` | 28 titoli accorciati + suffisso del marchio tolto dagli articoli |
+| `8b81352` | `hasMenu` e `sameAs` completo nello schema `Restaurant` |
+| `3ad7e1b` | `lastmod` reale, pagina per pagina, nella sitemap |
+
+### ① I titoli: 102 caratteri di media, ne restano 39
+
+Google ne mostra circa 60. **Tutti e 28** gli articoli erano sopra: il più lungo 116.
+
+La causa più grossa non erano i titoli: era il **template del layout**
+(`src/app/layout.tsx:12`), che appende `| Schiacciateria Retrò Trieste` a ogni
+pagina. **31 caratteri su 60**, spesi per un marchio che nessuno cerca su una query
+tipo *dove bere lo spritz a Trieste* — e sul proprio nome il sito è già primo.
+
+Tolto dai **soli articoli** con `title: { absolute: article.title }`; le pagine fisse
+lo mantengono. Poi riscritti i 28 titoli: ora **39 caratteri di media, il più lungo 49**.
+
+⚠️ **Effetto collaterale dichiarato prima di procedere:** `article.title` alimenta sia
+il `<title>` sia l'`<h1>` visibile (`src/app/blog/[slug]/page.tsx:17` e `:85`).
+Accorciare il titolo accorcia anche il titolone in cima all'articolo. Detto a Marco,
+approvato con «procedi». Se qualche parola non gli suona, si cambia: è testo pubblico,
+quindi le parole sono sue.
+
+I tre che già si posizionano:
+
+| Slug | Nuovo titolo | Prima → dopo | Posizione GSC |
+|---|---|---|---|
+| `spritz-aperitivo-trieste` | Spritz bianco a Trieste: la regola dell'aperitivo | 103 → 49 | **5,9** · 312 impr. |
+| `dove-bere-miglior-spritz-trieste` | Dove bere il miglior spritz a Trieste | 115 → 37 | 8,6 · 78 impr. |
+| `dove-fare-aperitivo-trieste-centro` | Dove fare aperitivo a Trieste in centro | 108 → 39 | 10,4 · 146 impr. |
+
+**Verificato sull'HTML prodotto dalla build**, non sul dev server: 28 pagine su 28
+sotto i 60 caratteri, zero con il marchio in coda.
+
+### ② Lo schema: dove sta il menu, e quali profili sono lo stesso locale
+
+`hasMenu` era **assente**. La pagina `/menu` esiste, ha 40 piatti con i prezzi, è
+collegata da 23 articoli su 28 — ma da nessuna parte era dichiarato, in forma
+leggibile da una macchina, che *quello* è il menu di *questo* locale.
+
+`sameAs` conteneva **solo Instagram**. Ora quattro profili, **verificati uno a uno
+aprendoli**, non cercandoli:
+
+| Profilo | URL | Cosa ho verificato |
+|---|---|---|
+| Instagram | `schiacciateria_retro_trieste` | 6.723 follower, rimanda a schiacciateriaretrotrieste.com |
+| Facebook | `CaffeRetro2017` | 8.247 follower, Viale XX Settembre 16, tel. 375 626 4680 |
+| Scheda Google | `maps.google.com/?cid=4949097406666230499` | apre «Retró XX settembre — Schiacciateria Triestina» |
+| TripAdvisor | `d15123470` | 4,3 su 24 recensioni, stesso indirizzo e stesso telefono |
+
+Il CID decimale è ricavato dall'esadecimale `0x44aeb9deb325cae3` già presente nel link
+Maps del sito (`src/app/HomeClient.tsx:1055`). È la forma canonica e stabile.
+
+**Questo è il filo che lega il sito alla scheda Google** su cui abbiamo lavorato tutto
+il giorno. Prima erano due cose che si somigliavano, non due facce della stessa.
+
+#### Falso allarme, registrato perché ci ho creduto per due minuti
+
+La ricerca web restituiva `instagram.com/retroxxsettembre` come profilo del locale, e
+il sito linka **12 reel** con quella maniglia. Il profilo `retroxxsettembre` **non
+esiste più** («Profile non è disponibile»). Sembravano 12 link morti in home.
+**Non lo sono:** aperto un reel, Instagram risolve per shortcode e reindirizza al
+profilo nuovo. Nessun intervento necessario. La maniglia nello schema era già giusta.
+
+#### 🟡 Da segnalare al titolare: due schede indicano il dominio sbagliato
+
+Sia **Facebook** sia **TripAdvisor** riportano come sito web **`retrotrieste.it`**, non
+`schiacciateriaretrotrieste.com`. È una incoerenza di citazione: le due schede che ora
+dichiariamo «siamo noi» puntano a un indirizzo diverso da quello che le dichiara.
+Non è un intervento sul codice — si correggono dai pannelli di Facebook e TripAdvisor,
+e va fatto dal titolare.
+
+### ③ La sitemap: da 1 data per 34 pagine a 30 date distinte
+
+`lastModified: new Date()` su **tutte** le voci: ogni build faceva dichiarare a 28
+articoli intoccati di essere cambiati quel giorno.
+
+E contraddiceva la pagina stessa. `street-food-trieste-guida`:
+
+| | Prima | Ora |
+|---|---|---|
+| `lastmod` nella sitemap | 2026-08-18 | **2026-04-28** |
+| `dateModified` nello schema `Article` | 2026-04-28 | 2026-04-28 |
+
+Due affermazioni incompatibili sulla stessa pagina. **Ora combaciano.**
+
+Come è fatto adesso (`src/app/sitemap.ts`):
+
+- **articoli** — dal frontmatter: `dateModified`, e se manca `date`. Automatico.
+- **pagine fisse** — costanti esplicite nella mappa `ULTIMA_MODIFICA`, ricavate dalla
+  storia git di ciascuna (`git log -1 --format=%cs -- <path>`). Da aggiornare a mano
+  quando la pagina cambia: la regola è scritta nel commento sopra la mappa.
+- **indice del blog** — la data dell'articolo più recente, calcolata da sola.
+
+Scartata l'idea di leggere le date da git a build time: su Vercel il `.git` può non
+esserci, e una data che a volte funziona è peggio di una scritta a mano.
+
+### ✅ Verificato in produzione, non solo in locale
+
+| Cosa | Come | Esito |
+|---|---|---|
+| Titoli | `<title>` scaricato da `/blog/spritz-aperitivo-trieste` | 49 car., senza marchio |
+| Schema | JSON-LD estratto dal DOM della home | `hasMenu` presente, `sameAs` con 4 URL |
+| Sitemap | `sitemap.xml` scaricata e parsata | 34 URL, **30 date distinte** |
+
+Il deploy è stato atteso con polling: i primi due tentativi servivano ancora la
+versione vecchia. Il terzo, la nuova.
+
+### Cosa resta della Fase 1
+
+**Niente.** Le sei voci sono chiuse: qualità immagini, preload, titoli, `hasMenu`,
+`sameAs`, `lastmod`. Il prossimo passo è la **Fase 2**, e la voce che pesa è mettere i
+**40 prezzi del menu** in `Menu`/`MenuItem`: nessuno dei quattro concorrenti espone i
+prezzi in forma leggibile da una macchina.
+
+---
+
 ## 2026-08-27 (7) — 🟢 PUBBLICATO. E il LCP è dimezzato
 
 **Online alle 15:4x del 27/08.** Marco: *«sì aggiungi le immagini e pubblica tutto»*. Deploy Vercel completato **60 secondi** dopo il push.
