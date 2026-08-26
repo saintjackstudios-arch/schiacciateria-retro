@@ -550,7 +550,7 @@ export default function MenuClient() {
             sizes="100vw"
             className="object-cover"
             preload
-            quality={100}
+            quality={75}
           />
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/felt.png')]" />
         </div>

@@ -56,7 +56,7 @@ export default function BuffetClient() {
             fill
             sizes="100vw"
             preload
-            quality={100}
+            quality={75}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
