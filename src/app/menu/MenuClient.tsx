@@ -408,21 +408,54 @@ function SectionTitle({ children, accent }: { children: React.ReactNode; accent?
   );
 }
 
+// ─── MENU SUGGERITO DALL'ORARIO ───────────────────────────────────────────────
+// Chi apre la pagina alle 20:30 non deve trovarsi davanti il menu del pranzo.
+// Si legge l'orario di TRIESTE, non quello del dispositivo: il servizio in corso
+// dipende dal locale, non da dove si trova chi guarda.
+
+const ORA_PASSAGGIO_A_CENA = 17;   // dalle 17:00 in poi si mostra la cena
+const ORA_FINE_SERATA = 5;         // fino alle 04:59 si è ancora nella serata precedente
+
+function menuSuggeritoDallOrario(): 'pranzo' | 'cena' {
+  try {
+    const parti = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Rome',
+      hour: '2-digit',
+      hourCycle: 'h23',
+      weekday: 'short',
+    }).formatToParts(new Date());
+
+    const ora = Number(parti.find((p) => p.type === 'hour')?.value);
+    const giorno = parti.find((p) => p.type === 'weekday')?.value;
+
+    if (Number.isNaN(ora)) return 'pranzo';
+
+    // La domenica il locale apre alle 17:00: il pranzo non esiste.
+    if (giorno === 'Sun') return 'cena';
+
+    return ora >= ORA_PASSAGGIO_A_CENA || ora < ORA_FINE_SERATA ? 'cena' : 'pranzo';
+  } catch {
+    // Fuso orario non disponibile: si resta sul comportamento di prima.
+    return 'pranzo';
+  }
+}
+
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 
 export default function MenuClient() {
   const [menuType, setMenuType] = useState<'pranzo' | 'cena'>('pranzo');
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
 
-  // Sync menu type with URL search params (e.g. ?type=pranzo or ?type=cena)
+  // All'apertura: se l'URL dice esplicitamente quale menu mostrare quello vince
+  // (un link condiviso deve mostrare quello che mostrava a chi l'ha mandato).
+  // Altrimenti decide l'orario del locale.
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const type = params.get('type');
-      if (type === 'pranzo' || type === 'cena') {
-        setMenuType(type);
-      }
+    const type = new URLSearchParams(window.location.search).get('type');
+    if (type === 'pranzo' || type === 'cena') {
+      setMenuType(type);
+      return;
     }
+    setMenuType(menuSuggeritoDallOrario());
   }, []);
 
   const changeMenuType = (type: 'pranzo' | 'cena') => {
@@ -434,69 +467,9 @@ export default function MenuClient() {
     }
   };
 
-  return (
-    <main className="min-h-screen bg-[#fdfaf3] selection:bg-yellow-400 selection:text-black font-sans pb-24 pt-16 md:pt-20">
-      
-      {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-black border-b-8 border-black w-full aspect-[1024/571] flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/menu_hero_schiacciata.webp"
-            alt="Menu Hero Background"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            preload
-            quality={100}
-          />
-          <div className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/felt.png')]" />
-        </div>
-
-        <div className="absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center">
-          <div className="flex items-center justify-between w-full max-w-[95vw] md:max-w-7xl px-2 md:px-24 mb-12 md:mb-0">
-             <motion.div 
-               initial={{ x: -100, opacity: 0, rotate: -15 }}
-               animate={{ x: 0, opacity: 1, rotate: -12 }}
-               whileHover={{ scale: 1.1, rotate: -8, y: -5 }}
-               className="pointer-events-auto bg-white text-black px-3 py-1.5 md:px-8 md:py-4 font-black uppercase text-xl md:text-7xl border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] -translate-y-16 md:-translate-y-48 -mr-12 md:mr-0"
-             >
-               Posate
-             </motion.div>
-
-             <motion.h1
-               initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
-               animate={{ scale: 1, opacity: 1, rotate: -3 }}
-               whileHover={{ scale: 1.05, rotate: -1 }}
-               className="pointer-events-auto bg-yellow-400 text-black px-4 py-2 md:px-10 md:py-5 font-display font-black uppercase italic text-3xl md:text-8xl leading-none border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] z-10"
-             >
-               Menu
-             </motion.h1>
-
-             <motion.div 
-               initial={{ x: 100, opacity: 0, rotate: 15 }}
-               animate={{ x: 0, opacity: 1, rotate: 12 }}
-               whileHover={{ scale: 1.1, rotate: 8, y: -5 }}
-               className="pointer-events-auto bg-white text-black px-3 py-1.5 md:px-8 md:py-4 font-black uppercase text-xl md:text-7xl border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] translate-y-12 md:translate-y-24 -ml-12 md:ml-0"
-             >
-               no servi
-             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Section Content ─────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-5 py-6 min-h-[70vh]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={menuType}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-          >
-            
-            {menuType === 'pranzo' ? (
-              // ☀️ LUNCH LAYOUT
+  // I due menu sono estratti in due variabili perché ognuno va scritto DUE volte:
+  // una a schermo e una nascosta, così nel file HTML ci sono sempre tutti e due.
+  const layoutPranzo = (
               <div key="pranzo-layout">
                 {/* Promo Banner */}
                 <div className="bg-yellow-400 border-4 border-black p-6 my-8 shadow-[8px_8px_0px_#000] -rotate-1">
@@ -528,8 +501,9 @@ export default function MenuClient() {
                   ))}
                 </div>
               </div>
-            ) : (
-              // 🌙 DINNER LAYOUT
+  );
+
+  const layoutCena = (
               <div key="cena-layout">
                 {/* Promo Banner */}
                 <div className="bg-black text-yellow-400 border-4 border-black p-6 my-8 shadow-[8px_8px_0px_#facc15] rotate-1">
@@ -561,7 +535,63 @@ export default function MenuClient() {
                   ))}
                 </div>
               </div>
-            )}
+  );
+
+  return (
+    <main className="min-h-screen bg-[#fdfaf3] selection:bg-yellow-400 selection:text-black font-sans pb-24 pt-16 md:pt-20">
+      
+      {/* ── Hero ───────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-black border-b-8 border-black w-full aspect-[1024/571] flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/menu_hero_schiacciata.webp"
+            alt="Menu Hero Background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            preload
+            quality={100}
+          />
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/felt.png')]" />
+        </div>
+
+        <h1 className="sr-only">Menu della Schiacciateria Retrò — Viale XX Settembre, Trieste</h1>
+
+        <div className="absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center">
+          <div className="flex items-center justify-between w-full max-w-[95vw] md:max-w-7xl px-2 md:px-24 mb-12 md:mb-0">
+             <motion.div 
+               initial={{ x: -100, opacity: 0, rotate: -15 }}
+               animate={{ x: 0, opacity: 1, rotate: -12 }}
+               whileHover={{ scale: 1.1, rotate: -8, y: -5 }}
+               className="pointer-events-auto bg-white text-black px-3 py-1.5 md:px-8 md:py-4 font-black uppercase text-xl md:text-7xl border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] -translate-y-16 md:-translate-y-48 -mr-12 md:mr-0"
+             >
+               Posate
+             </motion.div>
+
+             <motion.div 
+               initial={{ x: 100, opacity: 0, rotate: 15 }}
+               animate={{ x: 0, opacity: 1, rotate: 12 }}
+               whileHover={{ scale: 1.1, rotate: 8, y: -5 }}
+               className="pointer-events-auto bg-white text-black px-3 py-1.5 md:px-8 md:py-4 font-black uppercase text-xl md:text-7xl border-4 md:border-8 border-black shadow-[8px_8px_0px_#000] md:shadow-[18px_18px_0px_#000] translate-y-12 md:translate-y-24 -ml-12 md:ml-0"
+             >
+               no servi
+             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section Content ─────────────────────────────────── */}
+      <div className="max-w-4xl mx-auto px-5 py-6 min-h-[70vh]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={menuType}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+          >
+            
+            {menuType === 'pranzo' ? layoutPranzo : layoutCena}
 
             {/* ── Shared Sections (Drinks & Sfizi) ── */}
             <SectionTitle accent="Ogni giorno">Sfizi & Golosità</SectionTitle>
@@ -662,6 +692,13 @@ export default function MenuClient() {
 
           </motion.div>
         </AnimatePresence>
+        {/* Il menu dell'altro servizio resta SCRITTO nella pagina, solo nascosto a schermo.
+            Serve perché il sito viene generato in anticipo in un file HTML: se un menu non
+            è scritto lì dentro, per Google non esiste. Nascosto con l'attributo `hidden`
+            (display:none), che è il modo standard dei pannelli a schede: il contenuto viene
+            indicizzato e resta raggiungibile dall'interruttore Pranzo/Cena.
+            Nessuna animazione è toccata: quella lavora sul blocco visibile qui sopra. */}
+        <div hidden>{menuType === 'pranzo' ? layoutCena : layoutPranzo}</div>
 
         {/* Selected Item Modal */}
         <AnimatePresence>
