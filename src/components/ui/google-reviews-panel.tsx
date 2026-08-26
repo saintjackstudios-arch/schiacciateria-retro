@@ -146,7 +146,7 @@ export const GoogleReviewsPanel: React.FC<GoogleReviewsPanelProps> = ({
               <div className="flex gap-4">
                 <div className="relative w-10 h-10 rounded-full overflow-hidden bg-zinc-200 flex-shrink-0">
                   {review.avatar ? (
-                    <Image src={review.avatar} alt={review.author} fill className="object-cover" />
+                    <Image src={review.avatar} alt={review.author} fill sizes="40px" className="object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-zinc-500 font-bold bg-zinc-100 uppercase text-lg">
                       {review.author.charAt(0)}
@@ -184,7 +184,7 @@ export const GoogleReviewsPanel: React.FC<GoogleReviewsPanelProps> = ({
                     <div className="flex gap-1 overflow-x-auto pt-2 scrollbar-none">
                         {review.images.map((img, imgIdx) => (
                             <div key={imgIdx} className="relative w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden border border-zinc-100">
-                                <Image src={img} alt="Foto recensione" fill className="object-cover hover:scale-105 transition-transform" />
+                                <Image src={img} alt="Foto recensione" fill sizes="192px" className="object-cover hover:scale-105 transition-transform" />
                             </div>
                         ))}
                     </div>
