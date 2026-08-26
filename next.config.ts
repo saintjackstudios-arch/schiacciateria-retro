@@ -47,6 +47,11 @@ const nextConfig: NextConfig = {
         destination: '/blog',
         permanent: true,
       },
+      {
+        source: '/bevande',
+        destination: '/menu',
+        permanent: true,
+      },
     ];
   },
   async headers() {

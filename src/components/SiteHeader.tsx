@@ -22,7 +22,6 @@ export default function SiteHeader() {
     { href: '/',          label: 'Home',      rotate: '-rotate-1' },
     { href: '/menu',      label: 'Menu',      rotate: 'rotate-1'  },
     { href: '/buffet-triestino', label: 'Buffet Triestino', rotate: '-rotate-1' },
-    { href: '/bevande',   label: 'Bevande',   rotate: '-rotate-1' },
     { href: '/blog',      label: 'Blog',      rotate: '-rotate-2' },
     { href: '/chi-siamo', label: 'Chi Siamo', rotate: 'rotate-1'  },
     { href: '/contatti',  label: 'Contatti',  rotate: '-rotate-1' },

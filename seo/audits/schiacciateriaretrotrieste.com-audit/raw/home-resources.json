@@ -1,0 +1,212 @@
+[
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/image?url=%2Fimages%2Fingredienti_esplosi_highres.webp&w=1200&q=75",
+  "t": "link",
+  "s": 150176,
+  "d": 3838.800000000745,
+  "st": 960.3000000007451
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/image?url=%2Fhero_aggressive.jpg&w=640&q=100",
+  "t": "link",
+  "s": 106088,
+  "d": 3510.800000000745,
+  "st": 959.6000000014901
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/00nvzi6qb_-1r.js",
+  "t": "script",
+  "s": 72356,
+  "d": 2601.699999999255,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/image?url=%2Fimages%2Fschiacciata_vera_stack.webp&w=640&q=90",
+  "t": "img",
+  "s": 60150,
+  "d": 1796,
+  "st": 2459.699999999255
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0rt2h0tpi82dq.js",
+  "t": "script",
+  "s": 41728,
+  "d": 1558.1000000014901,
+  "st": 960.5
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0257pdz1-imal.js",
+  "t": "script",
+  "s": 41569,
+  "d": 1650.0999999977648,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0na3u6m4w4hv1.js",
+  "t": "script",
+  "s": 17718,
+  "d": 1008,
+  "st": 960.5
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0upycqm3ly2gw.css",
+  "t": "link",
+  "s": 16070,
+  "d": 1322.6000000014901,
+  "st": 960.3000000007451
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0d3shmwh5_nmn.js",
+  "t": "script",
+  "s": 13687,
+  "d": 957.1999999992549,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0dgq26a5_oy.a.js",
+  "t": "script",
+  "s": 11279,
+  "d": 821.5,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/image?url=%2Flogo_retro.png&w=128&q=75",
+  "t": "link",
+  "s": 10746,
+  "d": 1144.0999999977648,
+  "st": 959.6000000014901
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/14o9xs3evo~.w.js",
+  "t": "script",
+  "s": 10274,
+  "d": 749.7999999970198,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0~hw.ix54j.a..js",
+  "t": "script",
+  "s": 10112,
+  "d": 856.2999999970198,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0emxgdkc4i~_j.js",
+  "t": "script",
+  "s": 9270,
+  "d": 323.8999999985099,
+  "st": 4217.800000000745
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/133rq7uo7d2_0.js",
+  "t": "script",
+  "s": 8755,
+  "d": 656.1999999992549,
+  "st": 960.5
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/0x~_2zp_lruqr.js",
+  "t": "link",
+  "s": 7019,
+  "d": 578.1999999992549,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/turbopack-0y_svqpbzm.xa.js",
+  "t": "script",
+  "s": 4864,
+  "d": 227.09999999776483,
+  "st": 960.4000000022352
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/cookie-policy?_rsc=1bs3n",
+  "t": "fetch",
+  "s": 2635,
+  "d": 183.80000000074506,
+  "st": 5453.199999999255
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/?_rsc=nn07o",
+  "t": "fetch",
+  "s": 2182,
+  "d": 258.4000000022352,
+  "st": 3798.199999999255
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/?_rsc=1pn8p",
+  "t": "fetch",
+  "s": 1456,
+  "d": 208.69999999925494,
+  "st": 3798
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/menu?_rsc=1pn8p",
+  "t": "fetch",
+  "s": 1418,
+  "d": 197.39999999850988,
+  "st": 4002.300000000745
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/cookie-policy?_rsc=1pn8p",
+  "t": "fetch",
+  "s": 1386,
+  "d": 163.39999999850988,
+  "st": 5452.60000000149
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/menu?_rsc=19qte",
+  "t": "fetch",
+  "s": 1218,
+  "d": 204.09999999776483,
+  "st": 4008.60000000149
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/_next/static/chunks/07hzolt8irkfz.js",
+  "t": "script",
+  "s": 1192,
+  "d": 242.80000000074506,
+  "st": 960.5
+ },
+ {
+  "n": "https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@700&display=swap",
+  "t": "link",
+  "s": 1122,
+  "d": 571.3000000007451,
+  "st": 960.5
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/menu?_rsc=11buk",
+  "t": "fetch",
+  "s": 905,
+  "d": 188.80000000074506,
+  "st": 4003
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/cookie-policy?_rsc=h65qr",
+  "t": "fetch",
+  "s": 905,
+  "d": 168.80000000074506,
+  "st": 5453
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/cookie-policy?_rsc=1r34m",
+  "t": "fetch",
+  "s": 736,
+  "d": 157.80000000074506,
+  "st": 5292.5
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/menu?_rsc=1r34m",
+  "t": "fetch",
+  "s": 727,
+  "d": 203.89999999850988,
+  "st": 3795.800000000745
+ },
+ {
+  "n": "https://schiacciateriaretrotrieste.com/?_rsc=ivliq",
+  "t": "fetch",
+  "s": 710,
+  "d": 193.70000000298023,
+  "st": 3798.199999999255
+ }
+]

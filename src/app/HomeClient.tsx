@@ -462,7 +462,7 @@ export default function HomeClient() {
             src="/hero_aggressive.jpg"
             alt="Barretrò Aggressive Fast Food"
             fill
-            quality={100}
+            quality={75}
             sizes="100vw"
             className="object-cover object-center border-b-[12px] border-yellow-400"
             preload
@@ -648,7 +648,7 @@ export default function HomeClient() {
                       width={1200}
                       height={1600}
                       className="w-full h-auto object-contain"
-                      preload
+                      sizes="(max-width: 768px) 100vw, 600px"
                     />
                  </div>
                        {/* Stracciatella Comic Bubble (Top layer - left) */}

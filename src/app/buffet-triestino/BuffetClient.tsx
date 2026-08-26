@@ -13,7 +13,7 @@ const BUFFET_CLASSICI = [
   {
     name: 'Fritti misti',
     tag: 'Il mito',
-    desc: 'Calamari, gamberetti, verdurine e patatine: la frittura croccante che non può mancare a un vero buffet triestino.',
+    desc: 'Verdure impanate e fritte al momento — zucchine, melanzane — e le patatine: la frittura croccante che non può mancare a un vero buffet triestino.',
     color: '#facc15',
   },
   {
@@ -23,15 +23,9 @@ const BUFFET_CLASSICI = [
     color: '#ffffff',
   },
   {
-    name: 'Cotechino e kren',
-    tag: 'Storico',
-    desc: 'Il cotechino nostrano con kren (rafano) grattugiato: un classico che sa di Trieste e della sua storia.',
-    color: '#facc15',
-  },
-  {
     name: 'Polpette',
     tag: 'Fatte in casa',
-    desc: 'Polpette di carne cotte al forno o in umido, succose dentro e saporite fuori. Sempre presenti, sempre buone.',
+    desc: 'Polpette di carne cotte al forno o in umido, succose dentro e saporite fuori.',
     color: '#ffffff',
   },
   {
@@ -62,7 +56,7 @@ export default function BuffetClient() {
             fill
             sizes="100vw"
             preload
-            quality={100}
+            quality={75}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
@@ -93,7 +87,7 @@ export default function BuffetClient() {
             transition={{ delay: 0.3 }}
             className="pointer-events-auto max-w-2xl text-center text-white font-bold text-base md:text-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]"
           >
-            Fritti, tecia, cotechino e polpette come da tradizione — direttamente dal banco, ogni giorno.
+            Fritti, patate in tecia e tartine come da tradizione — direttamente dal banco, ogni giorno.
           </motion.p>
         </div>
       </section>
@@ -114,7 +108,7 @@ export default function BuffetClient() {
             <p>
               Il buffet non è un semplice banco di cibo: a Trieste è <strong>un&apos;istituzione</strong>. 
               Da noi trovi la tradizione del buffet triestino rivista in chiave Retrò: 
-              fritti appena fatti, patate in tecia, cotechino con kren e polpette fatte in casa.
+              fritti appena fatti, patate in tecia e tartine farcite di vari tipi.
             </p>
             <p>
               Ogni giorno la proposta cambia seguendo la stagione e la voglia del momento, 
@@ -126,7 +120,7 @@ export default function BuffetClient() {
             <Clock className="w-8 h-8 mb-3" />
             <h3 className="font-display font-black uppercase italic text-xl mb-2">La proposta del giorno</h3>
             <p className="text-black/80 font-bold text-sm leading-snug">
-              Le specialità cambiano ogni giorno. Chiedi al banco cosa c&apos;è di fresco in vetrina: te disemo mi!
+              Le specialità cambiano ogni giorno. Chiedi al banco cosa c&apos;è di fresco in vetrina.
             </p>
           </div>
         </div>
@@ -139,9 +133,6 @@ export default function BuffetClient() {
             <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter text-yellow-400">
               I classici del banco
             </h2>
-            <span className="bg-white text-black text-[10px] font-black uppercase px-3 py-1 border-2 border-black rotate-2 shrink-0">
-              Sempre in vetrina
-            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -172,15 +163,16 @@ export default function BuffetClient() {
 
       {/* ── BANCO & CULTURA ────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_6fr] gap-10 md:gap-12">
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="relative aspect-[4/3] border-8 border-black shadow-[14px_14px_0px_#000] overflow-hidden"
+            className="relative aspect-[4/3] md:aspect-auto md:min-h-[420px] border-8 border-black shadow-[14px_14px_0px_#000] overflow-hidden"
           >
             <Image
               src="/images/schiacciata_vera_stack.webp"
               alt="Il banco della Schiacciateria Retrò"
               fill
+              sizes="(max-width: 768px) 100vw, 465px"
               className="object-cover"
             />
             <span className="absolute top-3 left-3 bg-yellow-400 text-black text-[10px] md:text-xs font-black uppercase px-3 py-1 border-4 border-black -rotate-3 shadow-[4px_4px_0px_#000]">
@@ -188,7 +180,7 @@ export default function BuffetClient() {
             </span>
           </motion.div>
 
-          <div>
+          <div className="flex flex-col justify-center">
             <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter mb-8 border-b-[6px] border-black pb-4">
               No xe solo cibo. <br /> Xe <span className="text-yellow-400">Trieste.</span>
             </h2>
@@ -197,9 +189,6 @@ export default function BuffetClient() {
                 Il buffet triestino è cultura: nato come banco dove mangiare in piedi, veloce e genuino, 
                 è diventato un simbolo della città. Noi lo portiamo avanti con lo spirito Retrò — 
                 quello di sempre, ma con la birra artigianale e lo spritz a portata di mano.
-              </p>
-              <p>
-                Entra, da magnar e da bevar, e se no ti ga pressa resta pure a spassizzar.
               </p>
             </div>
 
