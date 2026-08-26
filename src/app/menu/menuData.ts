@@ -100,7 +100,7 @@ export const CENA_SCHIACCIATE: MenuItem[] = [
   {
     name: 'Bona ma Leggera',
     ingredients: 'Prosciutto crudo, stracciatella, pomodorini e basilico',
-    price: 9.0, // Special cena price
+    price: 10.0, // Special cena price
     image: '/bona_ma_leggera.webp',
     description: 'Il connubio perfetto tra sapidità del crudo di qualità e la freschezza mediterranea dei pomodorini freschi con basilico e stracciatella di burrata.'
   },
