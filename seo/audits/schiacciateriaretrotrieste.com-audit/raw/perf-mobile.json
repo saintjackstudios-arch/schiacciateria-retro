@@ -1,0 +1,70 @@
+{
+ "https://schiacciateriaretrotrieste.com/": {
+  "lcp": 5172,
+  "cls": 2.715625069759176e-05,
+  "lcpEl": "H1 ",
+  "ttfb": 326.30000000074506,
+  "dcl": 1248,
+  "load": 7036.800000000745,
+  "doc": 20459,
+  "res": {
+   "link": 754714,
+   "script": 242804,
+   "css": 0,
+   "img": 155912,
+   "fetch": 14278
+  },
+  "resTot": 1167708,
+  "nRes": 31
+ },
+ "https://schiacciateriaretrotrieste.com/menu": {
+  "lcp": 3852,
+  "cls": 0.0010246669322939814,
+  "lcpEl": "IMG image?url=%2Fimages%2Fmenu_hero_schiacciata.webp&w=1080&q=100",
+  "ttfb": 430.1000000014901,
+  "dcl": 1506.9000000022352,
+  "load": 5342.10000000149,
+  "doc": 12627,
+  "res": {
+   "link": 133090,
+   "script": 242804,
+   "css": 0,
+   "img": 383834,
+   "fetch": 10669
+  },
+  "resTot": 770397,
+  "nRes": 31
+ },
+ "https://schiacciateriaretrotrieste.com/buffet-triestino": {
+  "lcp": 3752,
+  "cls": 0.03940454640844247,
+  "lcpEl": "IMG image?url=%2Fimages%2Ftavolata_ignorante.webp&w=1080&q=100",
+  "ttfb": 227.80000000074506,
+  "dcl": 1647.3999999985099,
+  "load": 3728.39999999851,
+  "doc": 10684,
+  "res": {
+   "link": 356272,
+   "script": 239622,
+   "fetch": 10669
+  },
+  "resTot": 606563,
+  "nRes": 25
+ },
+ "https://schiacciateriaretrotrieste.com/blog/street-food-trieste-guida": {
+  "lcp": 1460,
+  "cls": 0.046840172957820954,
+  "lcpEl": "H1 ",
+  "ttfb": 262.6000000014901,
+  "dcl": 1454,
+  "load": 4176.800000000745,
+  "doc": 12050,
+  "res": {
+   "link": 439836,
+   "script": 233534,
+   "fetch": 20008
+  },
+  "resTot": 693378,
+  "nRes": 28
+ }
+}

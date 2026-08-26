@@ -1,0 +1,327 @@
+{
+ "summary": {
+  "health_score": 65,
+  "business_type": "Local Service — ristorazione con sede fisica (Trieste, IT)",
+  "audit_date": "2026-08-27",
+  "pages_crawled": 38,
+  "note": "Audit del sito ONLINE, precedente alle correzioni pronte in locale e non ancora pubblicate.",
+  "top_findings": [
+   "Immagini ricodificate a quality=100: fino al 73% di byte in eccesso, misurato sul sito",
+   "LCP della home 5.172 ms su mobile (soglia scarso: 4.000 ms); /menu 3.852 ms; /buffet 3.752 ms",
+   "24 titoli su 38 superano i 60 caratteri e vengono troncati nei risultati",
+   "40 piatti con prezzo in pagina e nessuno schema Menu; Restaurant senza hasMenu",
+   "Traffico quasi interamente branded: 168 clic in 3 mesi, query non-branded oltre la posizione 10"
+  ],
+  "quick_wins": [
+   "quality={100} -> {75} in 3 file (10 minuti, -72% sulla hero della home)",
+   "Togliere il preload da ingredienti_esplosi_highres.webp, 147 KB sotto la piega",
+   "Accorciare i 3 titoli degli articoli gia posizionati su spritz e aperitivo",
+   "Aggiungere hasMenu e completare sameAs (Facebook, scheda Google, TripAdvisor)",
+   "Linkare /contatti dagli articoli: oggi 0 su 28"
+  ]
+ },
+ "categories": [
+  {
+   "name": "Technical SEO",
+   "score": 82,
+   "what_works": [
+    "38/38 pagine rispondono 200, nessuna catena di redirect",
+    "Intestazioni di sicurezza complete (CSP, HSTS preload, XCTO, XFO, Referrer, Permissions)",
+    "Prerendering statico, TTFB 228-430 ms",
+    "Canonical auto-referenziale corretto su tutte le pagine indicizzabili",
+    "noindex applicato solo alle 3 pagine legali, correttamente escluse dalla sitemap",
+    "Nessuna pagina orfana"
+   ],
+   "findings": [
+    {
+     "title": "lastmod identico su tutti i 35 URL e in contraddizione con lo schema Article",
+     "severity": "Medium",
+     "description": "La sitemap dichiara 2026-08-18T18:42:57Z per ogni URL (data di build). Lo schema Article dello stesso articolo dichiara datePublished e dateModified 2026-04-28. Google riceve due affermazioni incompatibili e tende a ignorare il segnale.",
+     "recommendation": "In src/app/sitemap.ts usare lastModified: new Date(post.date) per gli articoli e una data reale per le pagine fisse."
+    },
+    {
+     "title": "Tre preload immagine nel head della home, uno sotto la piega",
+     "severity": "Medium",
+     "description": "ingredienti_esplosi_highres.webp (w=1200, 147 KB) e in preload ma compare al 48% del sorgente. Misurato: parte a 960 ms e impiega 3.839 ms, competendo con il CSS da cui dipende il disegno dell'h1 (elemento LCP).",
+     "recommendation": "Togliere il preload da HomeClient.tsx:651 e lasciarlo solo sull'immagine sopra la piega."
+    },
+    {
+     "title": "Schema Restaurant iniettato anche sulle pagine legali",
+     "severity": "Low",
+     "description": "Restaurant compare su tutte e 38 le pagine, incluse privacy, cookie policy e termini.",
+     "recommendation": "Limitare l'iniezione alle pagine che descrivono l'attivita."
+    }
+   ]
+  },
+  {
+   "name": "Content Quality",
+   "score": 58,
+   "what_works": [
+    "Nessuna duplicazione: su 378 coppie di articoli la somiglianza massima e 5,4%, zero coppie sopra il 10%",
+    "Nessuna frase di riempimento ripetuta fra articoli",
+    "Titoli e description tutti unici, nessuna description mancante",
+    "Ogni articolo nomina il locale (2,2 volte in media) e 23 su 28 linkano il menu",
+    "Autore e date dichiarati, schema Article su ogni articolo"
+   ],
+   "findings": [
+    {
+     "title": "Articoli corti: mediana 345 parole, 21 su 28 sotto le 500",
+     "severity": "High",
+     "description": "Il piu corto e 273 parole. Non sono duplicati ne testi rigirati: sono scritti da fuori, con 90 link a it.wikipedia.org nel sito. Manca il dato che solo il locale possiede.",
+     "recommendation": "Raccogliere materiale dal titolare (cosa finisce per primo, quanto si aspetta, cosa ordinano gli abituali) invece di aggiungere parole."
+    },
+    {
+     "title": "Traffico quasi interamente branded",
+     "severity": "High",
+     "description": "GSC 19/07-16/08: 168 clic, 3.980 impressioni, posizione media 6,1. Le prime 9 query per clic contengono tutte il nome del locale. Le query contenenti 'buffet' insieme: 0 clic, 11 impressioni, posizione 20,4.",
+     "recommendation": "Approfondire il gruppo spritz/aperitivo, l'unico non-branded con risultati veri (8 clic, 536 impressioni, un articolo in posizione 5,9), invece di aprire temi nuovi."
+    },
+    {
+     "title": "Pagina /bevande da 129 parole con 'LISTA IN ARRIVO'",
+     "severity": "Critical",
+     "description": "Segnaposto vuoto linkato dal menu di navigazione di ogni pagina, con meta description che prometteva birre non presenti. GSC: 0 clic, 4 impressioni, posizione 54.",
+     "recommendation": "[GIA CORRETTO IN LOCALE] Pagina eliminata con reindirizzamento permanente 308 verso /menu."
+    },
+    {
+     "title": "Piatti inesistenti sulla pagina buffet",
+     "severity": "Critical",
+     "description": "La pagina descriveva 'cotechino e kren' - parola che non compariva in nessun altro punto del sito - e un fritto misto con calamari e gamberetti, smentiti dal titolare.",
+     "recommendation": "[GIA CORRETTO IN LOCALE] Voci rimosse e sostituite con 'tartine', corroborata da descrizione della scheda, temi delle recensioni e bio Instagram."
+    },
+    {
+     "title": "Nessuna pagina autore per la firma degli articoli",
+     "severity": "Low",
+     "description": "Gli articoli sono firmati 'Davide' e lo schema dichiara un Person, ma nessuna pagina dice chi sia ne collega la firma a Chi Siamo.",
+     "recommendation": "Collegare la firma a una breve biografia che dichiari l'esperienza diretta."
+    }
+   ]
+  },
+  {
+   "name": "On-Page SEO",
+   "score": 70,
+   "what_works": [
+    "Un solo h1 per pagina su tutte e 38",
+    "Nessun titolo duplicato, nessuna description duplicata o mancante",
+    "Struttura delle intestazioni coerente",
+    "og:image presente su tutte le pagine",
+    "Titoli delle pagine principali di lunghezza corretta (home 51, contatti 47, chi siamo 40)"
+   ],
+   "findings": [
+    {
+     "title": "24 titoli su 38 superano i 60 caratteri",
+     "severity": "High",
+     "description": "Gli articoli usano il modello 'frase, due punti, seconda frase' e arrivano a 116 caratteri. Google ne mostra circa 60. L'articolo sullo spritz e in posizione 5,9 con 312 impressioni e 4 clic: CTR 1,3% dove in quinta posizione ci si aspetta il 5-8%.",
+     "recommendation": "Portare i titoli sotto i 60 caratteri tenendo davanti la parte che risponde alla ricerca."
+    },
+    {
+     "title": "Nessuno dei 28 articoli linka /contatti",
+     "severity": "Medium",
+     "description": "/menu e linkato da 23 articoli su 28, /buffet-triestino da 5, /contatti da 0. Chi si convince leggendo un articolo non ha un percorso verso indirizzo, telefono e WhatsApp.",
+     "recommendation": "Aggiungere un collegamento ai contatti in chiusura degli articoli con intento 'dove/quando', e linkare /buffet-triestino dai circa dodici articoli che parlano di buffet."
+    },
+    {
+     "title": "Sette description oltre i 165 caratteri",
+     "severity": "Low",
+     "description": "La piu lunga e 217 caratteri (/blog/dove-mangiare-trieste-spendendo-poco). Vengono troncate nei risultati.",
+     "recommendation": "Riportarle entro i 165 caratteri."
+    },
+    {
+     "title": "90 link a Wikipedia nel blog",
+     "severity": "Low",
+     "description": "Non e una penalizzazione, ma e la firma del testo scritto da fuori invece che dal banco.",
+     "recommendation": "Sostituire progressivamente i riferimenti enciclopedici con osservazioni dirette del locale."
+    }
+   ]
+  },
+  {
+   "name": "Schema / Structured Data",
+   "score": 62,
+   "what_works": [
+    "Restaurant completo: nome, immagine, logo, telefono, indirizzo con CAP 34125, coordinate, servesCuisine, priceRange, descrizione",
+    "openingHoursSpecification sui tre blocchi di orario, combaciante con la scheda Google",
+    "Article valido su tutti e 28 gli articoli, con autore ed editore",
+    "FAQPage sulla home, BreadcrumbList su /buffet-triestino"
+   ],
+   "findings": [
+    {
+     "title": "Restaurant senza hasMenu",
+     "severity": "High",
+     "description": "Nessun dato strutturato indica dove sia il menu del locale, benche la pagina esista con 40 piatti e prezzi e sia linkata da 23 articoli su 28.",
+     "recommendation": "Aggiungere \"hasMenu\": \"https://schiacciateriaretrotrieste.com/menu\"."
+    },
+    {
+     "title": "Nessuno schema Menu sulla pagina /menu",
+     "severity": "High",
+     "description": "40 piatti con nome, descrizione e prezzo in pagina e zero in formato leggibile. Nessuno dei quattro concorrenti confrontati espone un menu con i prezzi: e l'unico vantaggio informativo del locale.",
+     "recommendation": "Generare Menu/MenuSection/MenuItem dagli stessi dati che disegnano la pagina."
+    },
+    {
+     "title": "sameAs elenca solo Instagram",
+     "severity": "Medium",
+     "description": "Mancano la pagina Facebook (oltre 8.200 follower), la scheda Google (4,6 su 443 recensioni) e TripAdvisor. sameAs e il collegamento esplicito fra sito e scheda.",
+     "recommendation": "Completare sameAs con i profili esistenti."
+    },
+    {
+     "title": "Article senza image ne mainEntityOfPage",
+     "severity": "Medium",
+     "description": "image e richiesta da Google per i risultati arricchiti degli articoli. Il valore esiste gia nel frontmatter come hero_image ma non viene dichiarato.",
+     "recommendation": "Aggiungere image e mainEntityOfPage allo schema Article."
+    },
+    {
+     "title": "BreadcrumbList solo su una pagina",
+     "severity": "Low",
+     "description": "Presente su /buffet-triestino e su nessun articolo.",
+     "recommendation": "Estendere le briciole di pane agli articoli del blog."
+    },
+    {
+     "title": "NON aggiungere aggregateRating dalle recensioni Google",
+     "severity": "Info",
+     "description": "Dichiarare nei dati strutturati del proprio sito valutazioni raccolte da terzi viola le linee guida di Google e mette a rischio i risultati arricchiti dell'intero dominio.",
+     "recommendation": "Lasciare che le stelle arrivino dalla scheda, non dallo schema del sito."
+    }
+   ]
+  },
+  {
+   "name": "Performance (CWV)",
+   "score": 48,
+   "what_works": [
+    "CLS eccellente su tutte le pagine misurate: da 0,000 a 0,047 su una soglia di 0,100",
+    "TTFB fra 228 e 430 ms: il server non e il problema",
+    "Formati moderni serviti automaticamente (WebP/AVIF)",
+    "Caricamento pigro attivo sotto la piega",
+    "Articolo di blog con LCP 1.460 ms, in fascia buona"
+   ],
+   "findings": [
+    {
+     "title": "quality={100} sulle immagini principali",
+     "severity": "Critical",
+     "description": "Misurato sul sito con il solo parametro cambiato: hero_aggressive.jpg 191 KB a q=100 contro 53 KB a q=75 (-72%); tavolata_ignorante.webp 295 KB contro 80 KB (-73%); menu_hero_schiacciata.webp 77 KB contro 48 KB (-37%). Su /buffet-triestino l'immagine a q=100 e proprio l'elemento LCP.",
+     "recommendation": "quality={75} in HomeClient.tsx:465, BuffetClient.tsx:59, MenuClient.tsx:553, poi verifica visiva su una foto di piatto."
+    },
+    {
+     "title": "LCP della home a 5.172 ms su mobile",
+     "severity": "Critical",
+     "description": "Soglia 'scarso' a 4.000 ms. L'elemento LCP e l'h1, cioe testo: non puo essere disegnato prima che arrivi il CSS, che compete con 250 KB di immagini in preload a priorita massima. /menu 3.852 ms, /buffet-triestino 3.752 ms, entrambi in fascia 'da migliorare'.",
+     "recommendation": "Applicare 1.1 e 1.2 e rimisurare con lo stesso metodo."
+    },
+    {
+     "title": "Nessun dato di campo disponibile",
+     "severity": "Info",
+     "description": "CrUX e PageSpeed richiedono una chiave Google non configurata su questa postazione. Le misure sono di laboratorio: rete a 1,6 Mbps, 150 ms di latenza, CPU rallentata 4x.",
+     "recommendation": "Configurare una chiave Google per sostituire le stime con i dati dei visitatori reali."
+    }
+   ]
+  },
+  {
+   "name": "AI Search Readiness",
+   "score": 55,
+   "what_works": [
+    "robots.txt Allow: / per tutti, quindi GPTBot, ClaudeBot, PerplexityBot e Google-Extended passano",
+    "Contenuto nell'HTML, non costruito da JavaScript",
+    "Titoli degli articoli gia in forma di domanda reale",
+    "Restaurant con indirizzo, coordinate e orari: i dati che servono a una risposta su 'locali aperti adesso'"
+   ],
+   "findings": [
+    {
+     "title": "I prezzi non sono in nessun dato strutturato",
+     "severity": "High",
+     "description": "Le domande alle IA sono quasi sempre 'quanto costa' e 'cosa prendo'. Il sito ha 40 prezzi e nessuno leggibile a macchina.",
+     "recommendation": "Vedi lo schema Menu in Schema / Structured Data."
+    },
+    {
+     "title": "Articoli troppo corti per essere citati",
+     "severity": "Medium",
+     "description": "Con 345 parole di mediana gli articoli danno una risposta generica dove servirebbe un orario, un prezzo, una quantita.",
+     "recommendation": "Aggiungere dati verificabili invece di parole."
+    },
+    {
+     "title": "llms.txt assente, e non e un problema",
+     "severity": "Info",
+     "description": "Nessun motore ne fornitore di IA usa llms.txt per decidere cosa citare. Essere consigliati dalle IA dipende da quanto altri parlano del locale, che e la stessa materia del riquadro locale.",
+     "recommendation": "Non scriverlo al posto di un intervento vero."
+    }
+   ]
+  },
+  {
+   "name": "Images",
+   "score": 70,
+   "what_works": [
+    "Zero immagini senza alt su tutte e 38 le pagine (83 immagini in totale): il risultato migliore dell'audit",
+    "Formati moderni via /_next/image",
+    "Dimensioni responsive generate correttamente",
+    "Caricamento pigro attivo"
+   ],
+   "findings": [
+    {
+     "title": "Ricodifica a qualita 100",
+     "severity": "Critical",
+     "description": "Vedi Performance. Fino al 73% di byte in eccesso, misurato.",
+     "recommendation": "quality={75} nei tre file interessati."
+    },
+    {
+     "title": "Preload di un'immagine sotto la piega",
+     "severity": "Medium",
+     "description": "ingredienti_esplosi_highres.webp, 147 KB, al 48% della pagina.",
+     "recommendation": "Togliere il preload."
+    },
+    {
+     "title": "sizes mancante su alcune immagini fill",
+     "severity": "Low",
+     "description": "3_volte_bon.webp e piaza_granda.webp segnalate dal server di sviluppo. Senza sizes il browser scarica una variante piu grande del necessario.",
+     "recommendation": "Dichiarare sizes su tutte le immagini con fill."
+    }
+   ]
+  }
+ ],
+ "action_plan": {
+  "phases": [
+   {
+    "name": "Fase 1: Correzioni critiche",
+    "timeframe": "Questa settimana (circa 1h30)",
+    "items": [
+     "quality={100} -> {75} in 3 file (10 min)",
+     "Togliere il preload da ingredienti_esplosi_highres.webp (5 min)",
+     "Rimisurare LCP con lo stesso metodo (15 min)",
+     "Accorciare i 3 titoli degli articoli su spritz e aperitivo (20 min)",
+     "Aggiungere hasMenu e completare sameAs (15 min)",
+     "lastmod reale nella sitemap (15 min)"
+    ]
+   },
+   {
+    "name": "Fase 2: Interventi ad alto impatto",
+    "timeframe": "Prossime due settimane",
+    "items": [
+     "Schema Menu con i 40 piatti e i prezzi (1 ora)",
+     "Link a /contatti dagli articoli, oggi 0 su 28 (45 min)",
+     "image e mainEntityOfPage nello schema Article (20 min)",
+     "Accorciare le 7 description oltre i 165 caratteri (20 min)",
+     "sizes sulle immagini fill che ne sono prive (15 min)"
+    ]
+   },
+   {
+    "name": "Fase 3: Contenuti e autorevolezza",
+    "timeframe": "Mese prossimo",
+    "items": [
+     "Approfondire il gruppo spritz/aperitivo invece di aprire temi nuovi",
+     "Raccogliere dal titolare i dati che solo il locale possiede",
+     "Dare una biografia alla firma degli articoli"
+    ]
+   },
+   {
+    "name": "Fase 4: Monitoraggio",
+    "timeframe": "Continuo",
+    "items": [
+     "Rileggere gli elenchi locali il 24/09, da telefono a Trieste",
+     "Rileggere GSC a fine settembre: interessa solo se crescono le query non-branded",
+     "Fotografare i piatti con continuita (leva sulla scheda, non sul sito)",
+     "Rifare l'audit dopo la Fase 1 per misurare invece di stimare"
+    ]
+   }
+  ]
+ },
+ "artifacts": {
+  "findings_dir": "findings/",
+  "screenshots_dir": "screenshots/",
+  "raw_dir": "raw/"
+ }
+}
