@@ -1,5 +1,5 @@
 ---
-title: "Dove parcheggiare a Trieste per uscire la sera: Guida al parcheggio senza stress"
+title: "Dove parcheggiare a Trieste la sera"
 date: "2026-08-15"
 author: "Davide"
 category: "GUIDA TRIESTE"

@@ -1,5 +1,5 @@
 ---
-title: "Dove mangiare a Trieste vicino al Teatro Rossetti: Il pasto perfetto pre-spettacolo"
+title: "Dove mangiare vicino al Teatro Rossetti a Trieste"
 date: "2026-07-17"
 author: "Davide"
 category: "GUIDA TRIESTE"

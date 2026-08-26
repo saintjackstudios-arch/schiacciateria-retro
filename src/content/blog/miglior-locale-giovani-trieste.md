@@ -1,5 +1,5 @@
 ---
-title: "Miglior locale giovani Trieste: Il Viale XX Settembre è il vero cuore pulsante"
+title: "Il miglior locale per giovani a Trieste"
 date: "2026-07-02"
 author: "Davide"
 category: "GUIDA TRIESTE"

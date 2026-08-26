@@ -1,5 +1,5 @@
 ---
-title: "Street Food Trieste: Dal panino con porzina alla schiacciata romana artigianale"
+title: "Street food a Trieste: la guida ai posti veri"
 date: "2026-04-28"
 author: "Davide"
 category: "FOOD"

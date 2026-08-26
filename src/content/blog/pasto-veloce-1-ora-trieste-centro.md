@@ -1,5 +1,5 @@
 ---
-title: "Pasto veloce Trieste centro: La guida a chi ha solo 1 ora (o meno)"
+title: "Pasto veloce a Trieste centro: in un'ora"
 date: "2026-08-07"
 author: "Davide"
 category: "GUIDA TRIESTE"

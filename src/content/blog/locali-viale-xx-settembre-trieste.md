@@ -1,5 +1,5 @@
 ---
-title: "Locali Viale XX Settembre Trieste: La guida definitiva alla movida"
+title: "I locali di Viale XX Settembre a Trieste"
 date: "2026-07-12"
 author: "Davide"
 category: "GUIDA TRIESTE"

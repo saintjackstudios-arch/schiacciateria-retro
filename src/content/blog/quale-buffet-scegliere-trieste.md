@@ -1,5 +1,5 @@
 ---
-title: "Quale buffet scegliere a Trieste? L'alternativa contemporanea da Retrò"
+title: "Quale buffet scegliere a Trieste"
 date: "2026-06-27"
 author: "Davide"
 category: "TRADIZIONI"

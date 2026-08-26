@@ -1,5 +1,5 @@
 ---
-title: "Bar Trieste per studenti universitari: Lo Spritz a 2,50€ e le Tartine"
+title: "Bar a Trieste per studenti universitari"
 date: "2026-07-22"
 author: "Davide"
 category: "GUIDA TRIESTE"

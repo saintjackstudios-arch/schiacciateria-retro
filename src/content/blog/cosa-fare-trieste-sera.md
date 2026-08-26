@@ -1,5 +1,5 @@
 ---
-title: "Cosa fare a Trieste la sera: Shopping, Passeggiate e Cibo"
+title: "Cosa fare a Trieste la sera"
 date: "2026-06-02"
 author: "Davide"
 category: "GUIDA TRIESTE"

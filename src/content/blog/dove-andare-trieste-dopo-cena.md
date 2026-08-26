@@ -1,5 +1,5 @@
 ---
-title: "Dove andare a Trieste dopo cena: Dalla passeggiata alla birra notturna"
+title: "Dove andare a Trieste dopo cena"
 date: "2026-05-22"
 author: "Davide"
 category: "GUIDA TRIESTE"

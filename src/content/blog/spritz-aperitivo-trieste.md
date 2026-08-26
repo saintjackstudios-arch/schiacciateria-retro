@@ -1,5 +1,5 @@
 ---
-title: "La regola d'oro dell'aperitivo a Trieste: lo Spritz Bianco e il Rebechin"
+title: "Spritz bianco a Trieste: la regola dell'aperitivo"
 date: "2026-05-02"
 author: "Davide"
 category: "APERITIVO"

@@ -1,5 +1,5 @@
 ---
-title: "Cosa mangiare a Trieste in pausa pranzo: Leggero, Veloce e Gustoso"
+title: "Cosa mangiare a Trieste in pausa pranzo"
 date: "2026-06-12"
 author: "Davide"
 category: "GUIDA TRIESTE"

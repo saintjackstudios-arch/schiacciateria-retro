@@ -1,5 +1,5 @@
 ---
-title: "Dove vanno i giovani a Trieste? La guida definitiva alla movida in Viale XX Settembre"
+title: "Dove vanno i giovani a Trieste: guida alla movida"
 date: "2026-04-05"
 author: "Davide"
 category: "MOVIDA"

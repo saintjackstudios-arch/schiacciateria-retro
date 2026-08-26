@@ -1,5 +1,5 @@
 ---
-title: "Migliori pub Trieste centro: La guida alle birre artigianali"
+title: "I migliori pub in centro a Trieste"
 date: "2026-07-07"
 author: "Davide"
 category: "GUIDA TRIESTE"

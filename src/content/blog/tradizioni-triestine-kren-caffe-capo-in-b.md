@@ -1,5 +1,5 @@
 ---
-title: "Tradizioni Triestine: Cos'è il Kren e come ordinare il caffè a Trieste"
+title: "Tradizioni triestine: il kren e il caffè"
 date: "2026-08-17"
 author: "Davide"
 category: "TRADIZIONI"
