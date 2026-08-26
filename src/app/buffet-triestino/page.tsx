@@ -3,7 +3,7 @@ import BuffetClient from './BuffetClient';
 
 export const metadata: Metadata = {
   title: "Buffet Triestino a Trieste",
-  description: "Il vero buffet triestino alla Schiacciateria Retrò: fritti misti, patate in tecia, tartine e polpette, i classici della tradizione triestina in Viale XX Settembre 16.",
+  description: "Il vero buffet triestino da Schiacciateria Retrò: fritti misti, patate in tecia, tartine e polpette, i classici della tradizione in Viale XX Settembre 16.",
   alternates: {
     canonical: "https://schiacciateriaretrotrieste.com/buffet-triestino",
   },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://schiacciateriaretrotrieste.com/buffet-triestino',
     siteName: 'Schiacciateria Retrò Trieste',
     title: "Buffet Triestino a Trieste | Schiacciateria Retrò",
-    description: "Il vero buffet triestino alla Schiacciateria Retrò: fritti misti, patate in tecia, tartine e polpette, i classici della tradizione triestina in Viale XX Settembre 16.",
+    description: "Il vero buffet triestino da Schiacciateria Retrò: fritti misti, patate in tecia, tartine e polpette, i classici della tradizione in Viale XX Settembre 16.",
     images: [
       {
         url: '/images/tavolata_ignorante.webp',

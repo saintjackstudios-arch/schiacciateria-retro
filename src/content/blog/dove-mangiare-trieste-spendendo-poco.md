@@ -3,7 +3,7 @@ title: "Dove mangiare a Trieste spendendo poco"
 date: "2026-03-15"
 author: "Davide"
 category: "FOOD"
-excerpt: "Non serve svuotare il portafoglio per mangiare bene a Trieste. Tra antichi buffet, l'arte del 'rebechin' e la nuova ondata di schiacciaterie artigianali, ecco la guida definitiva per un pranzo low-cost."
+excerpt: "Non serve svuotare il portafoglio per mangiare bene a Trieste: tra antichi buffet, rebechin e nuove schiacciaterie, la guida al pranzo low-cost."
 hero_image: "/blog-images/dove-mangiare-poco.jpg"
 ---
 

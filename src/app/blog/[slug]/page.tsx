@@ -145,6 +145,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               "@type": "Article",
               "headline": article.title,
               "description": article.excerpt,
+              // Google chiede `image` per mostrare l'articolo con la foto accanto
+              // invece che solo testo. Il valore c'era gia' nel frontmatter, non
+              // era dichiarato. Assoluto: nello schema i percorsi relativi non valgono.
+              ...(article.hero_image
+                ? { "image": `https://schiacciateriaretrotrieste.com${article.hero_image}` }
+                : {}),
+              // Dice a quale pagina appartiene questo articolo. Senza, Google deve
+              // dedurlo, e su un sito con 28 articoli simili la deduzione costa.
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://schiacciateriaretrotrieste.com/blog/${slug}`
+              },
               "author": {
                 "@type": "Person",
                 "name": article.author,
@@ -172,12 +184,23 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <p className="text-sm text-zinc-400 font-bold mb-6">
               Viale XX Settembre 16 — Trieste
             </p>
-            <Link
-              href="/menu"
-              className="btn-western inline-flex items-center gap-3 px-6 py-3 text-sm"
-            >
-              VEDI IL MENU <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Due destinazioni, non una. Fino al 26/08/2026 il menu era linkato da
+                23 articoli su 28 e la pagina Contatti da ZERO: ventotto articoli su
+                dove mangiare a Trieste, e nessuno che dicesse come arrivarci. */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/menu"
+                className="btn-western inline-flex items-center gap-3 px-6 py-3 text-sm"
+              >
+                VEDI IL MENU <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contatti"
+                className="inline-flex items-center gap-3 px-6 py-3 text-sm font-black uppercase tracking-widest border-4 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
+              >
+                Dove siamo e orari <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
           <div className="mt-8">

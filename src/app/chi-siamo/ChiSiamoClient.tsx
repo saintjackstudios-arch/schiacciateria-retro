@@ -71,7 +71,7 @@ const TimelineItem = ({ year, title, subtitle, content, icon: Icon, image, rotat
 
       {image && (
         <div className="mt-8 relative aspect-video border-4 border-black group overflow-hidden">
-          <Image src={image} alt={title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+          <Image src={image} alt={title} fill sizes="(max-width: 768px) 100vw, 600px" className="object-cover group-hover:scale-110 transition-transform duration-700" />
         </div>
       )}
     </div>
@@ -164,7 +164,7 @@ export default function ChiSiamoClient() {
              <div className="absolute inset-0 bg-yellow-400 -rotate-1 border-4 border-black shadow-[16px_16px_0px_#000] group-hover:rotate-1 transition-transform" />
              <div className="relative p-12 md:p-24 text-center">
                 <div className="mb-8 relative w-full max-w-md mx-auto aspect-square border-4 border-black shadow-[8px_8px_0px_#000] rotate-2 overflow-hidden">
-                   <Image src="/triestube.jpeg" alt="Triestube Days" fill className="object-cover" />
+                   <Image src="/triestube.jpeg" alt="Triestube Days" fill sizes="(max-width: 448px) 100vw, 448px" className="object-cover" />
                 </div>
                 <h3 className="text-6xl md:text-9xl font-display uppercase italic font-black leading-none mb-8 text-black">
                    2009: <br className="md:hidden" /> TRIESTUBE

@@ -839,7 +839,7 @@ export default function HomeClient() {
                        <Image 
                          src={`/${item.image}`} 
                          alt={item.title} 
-                         fill 
+                         fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" 
                          className={cn(
                            "object-cover transition-transform duration-700 opacity-90 group-hover:opacity-100",
                            item.title === "LA FIT" 

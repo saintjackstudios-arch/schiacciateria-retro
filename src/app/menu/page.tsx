@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import MenuClient from './MenuClient';
+import { menuSchema } from './menuSchema';
 
 export const metadata: Metadata = {
   title: "Menu Schiacciate e Fritti",
@@ -32,5 +33,16 @@ export const metadata: Metadata = {
 };
 
 export default function MenuPage() {
-  return <MenuClient />;
+  return (
+    <>
+      {/* I 48 piatti con il prezzo, in forma leggibile da Google e dalle IA.
+          Sta qui e non dentro MenuClient perche' non deve dipendere da quale
+          menu e' visibile a schermo: pranzo o cena, la scheda e' sempre intera. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(menuSchema()) }}
+      />
+      <MenuClient />
+    </>
+  );
 }

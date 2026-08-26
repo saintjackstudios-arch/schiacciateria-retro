@@ -3,7 +3,7 @@ title: "Dove fare aperitivo a Trieste in centro"
 date: "2026-07-22"
 author: "Davide"
 category: "GUIDA TRIESTE"
-excerpt: "Dalle piazze affollate ai viali pedonali, ecco dove fare il vero aperitivo triestino in centro. Scopri cos'è l'Aperitivo Ignorante e perché i taglieri stanno conquistando la città."
+excerpt: "Dove fare il vero aperitivo triestino in centro: cos'è l'Aperitivo Ignorante e perché i taglieri stanno conquistando la città."
 hero_image: "/blog-images/aperitivo-centro.jpg"
 ---
 
