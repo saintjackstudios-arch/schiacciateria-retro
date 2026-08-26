@@ -3,7 +3,7 @@ title: "Dove vanno i giovani a Trieste: guida alla movida"
 date: "2026-04-05"
 author: "Davide"
 category: "MOVIDA"
-excerpt: "Se ti stai chiedendo dove si trova la vera energia della città, la risposta è una sola. Scopri perché il Viale è diventato il centro del divertimento giovanile a Trieste."
+excerpt: "Perché il Viale è diventato il centro del divertimento giovanile a Trieste, e dove si trova la vera energia della città."
 hero_image: "/blog-images/movida-trieste.jpg"
 ---
 
