@@ -13,7 +13,7 @@ La buona notizia è che Trieste ha una tradizione di "cibo veloce e goloso" che 
 
 ## 1. Il Buffet Triestino e il Panino con Porzina
 
-Il cuore storico dello street food (o meglio, del fast food tradizionale) a Trieste è il **Buffet**. Storicamente nati per sfamare i portuali a qualsiasi ora del giorno, i buffet triestini (come il mitico Buffet da Pepi o il Buffet Clai) sono istituzioni assolute. 
+Il cuore storico dello street food (o meglio, del fast food tradizionale) a Trieste è il **[Buffet](/buffet-triestino)**. Storicamente nati per sfamare i portuali a qualsiasi ora del giorno, i buffet triestini (come il mitico Buffet da Pepi o il Buffet Clai) sono istituzioni assolute. 
 
 Cosa ordinare per un pasto veloce? Senza dubbio il re indiscusso: **il panino con porzina**. 
 Si tratta di un panino ripieno di coppa di maiale lessata calda, arricchita con **senape** e abbondante **[kren](https://it.wikipedia.org/wiki/Armoracia_rusticana)** (la radice di rafano grattugiata fresca, che vi farà lacrimare gli occhi di gioia). È sapido, intenso, economico e profondamente triestino. A volte viene aggiunta anche una fetta di melanzana impanata e fritta. 
