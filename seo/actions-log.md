@@ -4,6 +4,135 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-26 (9) — 🟢 PUBBLICATA la Fase 2. E un prezzo sbagliato trovato per strada
+
+Marco: *«parti»*, poi *«10 euro, correggi la cena e pubblica»*. Cinque commit sul
+ramo `fase-2`, merge `--no-ff`, deploy Vercel in ~3 minuti (più lento del solito:
+atteso controllando lo stato del commit su GitHub, non a occhio).
+
+### ⓪ La premessa, verificata prima di scriverne una riga
+
+Il motivo per cui lo schema `Menu` stava in cima al piano era una frase dell'audit —
+*«nessuno dei quattro concorrenti espone i prezzi»* — **senza traccia dietro**: né
+quali quattro, né cosa fosse stato guardato. Dopo l'errore su TripAdvisor non si
+costruisce un'ora di lavoro su un'affermazione non verificata.
+
+Aperti uno per uno, con browser vero:
+
+| Locale | Sito | Prezzi leggibili da una macchina | Prezzi per una persona |
+|---|---|---|---|
+| Vecio Buffet Marascutti | sì | ❌ nessuno schema `Menu` | solo in un **PDF «SETTEMBRE 2025»** |
+| Buffet da Pepi 1897 | sì | ❌ | ❌ nessuno |
+| Buffet Siora Rosa | sì (dentro 040group.it) | ❌ | ❌ nessuno |
+| Rustiko Trieste | sì | ❌ nessun JSON-LD del tutto | ❌ |
+| Buffet Rudy | **nessun sito** (dominio inesistente) | — | — |
+| Buffet da Gildo | **nessun sito** | — | — |
+| **Schiacciateria Retrò** | sì | **48 piatti, 59 offerte** | 57 prezzi in pagina |
+
+**Premessa confermata, e più forte di come era scritta.** Il PDF di Marascutti ha
+pure i numeri rotti nell'estrazione (`9 ,00`, `12, 00`): l'unico concorrente che
+pubblica i prezzi lo fa nel modo meno leggibile possibile.
+
+### ① Schema `Menu` — 10 sezioni, 48 voci, 59 offerte
+
+Le voci sono state spostate da `MenuClient.tsx` a **`src/app/menu/menuData.ts`**,
+letto sia dal componente che disegna la pagina sia da `menuSchema.ts`. **Una fonte
+sola:** le due superfici non possono più divergere.
+
+⚠️ Il file NON è il vecchio `src/data/menu.ts` cancellato la settimana scorsa: quello
+era codice morto che nessuno importava. Questo è importato da entrambi, e c'è un
+commento in testa che lo dice, perché la confusione è prevedibile.
+
+Tre casi gestiti invece che appiattiti:
+- i **quattro burger** hanno due offerte, `Solo panino` e `Menu con patatine`
+- le **cinque birre alla spina** hanno un'offerta per formato (0,2 / 0,4 / 0,5 l)
+- la **«Birra a Rotazione»** dice «Chiedi al banco»: resta **senza offerta**. Non se
+  ne inventa una per far tornare il conteggio.
+- i **dieci condimenti** (`Cacio e Pepe 1,00 €`…) restano fuori: sono aggiunte, non piatti.
+
+### 🔴 Il prezzo doppio, trovato traducendo il menu
+
+**«Bona ma Leggera»: 10,00 € a pranzo, 9,00 € a cena.** Stesso piatto, stessi
+ingredienti, stessa pagina. Controllate tutte e cinque le schiacciate presenti in
+entrambi i menu: **era l'unica a cambiare**, le altre quattro combaciavano.
+
+Non l'ho corretta da solo. La differenza era **già online** e poteva avere una
+ragione che non conosco — ma dichiarata a Google e alle IA sarebbe diventata una
+risposta ripetibile: «dipende, 9 o 10». Chiesto a Marco, che ha risposto **10,00, e
+l'errore era nella cena**. Corretto, e ricontrollato: zero occorrenze di `€9,00` sulla
+voce, in produzione.
+
+**Regola che ne esce:** tradurre una pagina in dati strutturati è anche un revisore.
+Una contraddizione che a schermo la nota solo chi confronta, in forma leggibile
+diventa una dichiarazione. Le incongruenze si tirano fuori **prima** di pubblicarle,
+e si chiedono al titolare invece di sceglierle.
+
+### ② `/contatti`: da 0 articoli su 28 a 28 su 28
+
+Ventotto articoli su dove mangiare a Trieste e **nessuno** che dicesse come arrivarci.
+Aggiunto un secondo pulsante «Dove siamo e orari» nel riquadro di chiusura del
+**template** — una modifica invece di ventotto, e uniforme.
+
+**Non fatto di proposito:** collegare `/buffet-triestino` dagli articoli che nominano
+il buffet. Aperti i sei che lo nominano senza linkarlo: in **cinque** parlano dei
+buffet **degli altri** — «i vecchi buffet del centro», «gli antichi buffet», «i
+buffet freddi», «l'apericena a buffet in stile milanese». Un link alla nostra pagina
+su «i buffet freddi» sarebbe una trappola per chi legge. Resta un solo candidato
+sensato (la sezione «Il Buffet Triestino e il Panino con Porzina» nella guida allo
+street food), in attesa del parere di Marco. `/buffet-triestino` resta a 5 su 28.
+
+### ③ Schema `Article`: `image` e `mainEntityOfPage` — 28 su 28
+
+`image` è richiesta da Google per mostrare l'articolo con la foto accanto. Il valore
+era già nel frontmatter (`hero_image`) e non era dichiarato.
+
+### ④ Description sotto i 165 caratteri
+
+202→144, 180→126, 170→120, più la pagina del buffet 166→154. **Tagliate, non
+riscritte.** Il piano diceva «sette, la peggiore a 217»: ricontate sull'HTML servito
+erano **quattro** e la peggiore **202**.
+
+### ⑤ `sizes` su sette immagini `fill`
+
+Compresi due ritratti da **40 e 64 px** che il browser scaricava a piena risoluzione.
+Le tre marcate `unoptimized` restano senza: Next non genera varianti, `sizes` non
+farebbe nulla — dichiararlo sarebbe stato rumore.
+
+### ✅ Verificato in produzione
+
+| Cosa | Esito |
+|---|---|
+| `/menu` — schede invisibili | `Restaurant` + **`Menu`** ✓ |
+| `/menu` — contenuto dello schema | 10 sezioni · 48 piatti · 59 offerte · 1 senza prezzo (giusto) ✓ |
+| `/menu` — Bona ma Leggera | 10,00 in entrambe le sezioni, `€9,00` sparito ✓ |
+| 28 articoli — link a `/contatti` nel corpo | **28/28** ✓ |
+| 28 articoli — foto nello schema | **28/28** ✓ |
+| 28 articoli — description ≤ 165 | **28/28** ✓ |
+| immagini `fill` ottimizzate senza `sizes` | **0** ✓ |
+
+#### Due falsi allarmi miei, registrati perché li ho creduti
+
+1. **«28/28 per tutte e quattro le pagine».** Il primo conteggio dei link interni dava
+   28 su 28 anche a `/buffet-triestino` e `/chi-siamo`, che non avevo toccato:
+   **stavo contando il menu di navigazione**, presente su ogni pagina. Rifatto
+   restringendo a `<article>…</article>`. Terza variante in due giorni della regola
+   *un selettore che può pescare più elementi non è una verifica*.
+2. **«3 articoli con la description ancora lunga».** Misurando l'attributo grezzo,
+   `&#x27;` conta 6 caratteri invece di 1. Con l'unescape: **zero**. Le entità HTML
+   vanno sciolte prima di misurare un testo.
+
+### Cosa resta
+
+Fase 2 chiusa. Restano la **Fase 3** — l'unica che sposta davvero, e l'unica in cui
+serve Marco: gli articoli hanno mediana 345 parole e 90 link a Wikipedia, manca quello
+che si vede solo dal banco — e la **Fase 4**, rileggere gli elenchi locali il 24/09 e
+Search Console a fine mese.
+
+Sospeso in attesa del titolare: il sito indicato sulla **pagina Facebook**
+(`retrotrieste.it`, dominio inesistente), che Marco passa alla SMM.
+
+---
+
 ## 2026-08-26 (8) — 🟢 PUBBLICATO. Chiusa la Fase 1: titoli, schema, date
 
 > **Correzione di data.** Le voci qui sotto sono etichettate *27/08*: è sbagliato.
