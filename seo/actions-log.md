@@ -4,6 +4,65 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-27 (7) — 🟢 PUBBLICATO. E il LCP è dimezzato
+
+**Online alle 15:4x del 27/08.** Marco: *«sì aggiungi le immagini e pubblica tutto»*. Deploy Vercel completato **60 secondi** dopo il push.
+
+Tre commit separati sul ramo `seo/correzioni-sito-27-08`, poi merge su `main` con `--no-ff`:
+
+| Commit | Contenuto |
+|---|---|
+| `21e238c` | correzioni ai contenuti (buffet, menu, `/bevande`, `menu.ts`) |
+| `a6ef867` | prestazioni (qualità immagini + preload) |
+| `6775c3a` | audit SEO e registro |
+
+**Separati apposta:** se la qualità delle immagini non convincesse, si annulla `a6ef867` senza toccare i contenuti. Il primo tentativo li aveva accorpati ed è stato rifatto.
+
+### Prima di fissare il valore, ho guardato
+
+Scaricate `tavolata_ignorante.webp` a q=100, q=90 e q=75 a 1080px e confrontate a occhio. **Nessuna differenza percepibile** su sale, texture della mortadella e sfocato di fondo. 302 KB contro 82. Scelto 75, che è anche il valore predefinito di Next.
+
+### ✅ Il risultato, misurato in produzione con lo stesso metodo della baseline
+
+| Pagina | LCP prima | LCP dopo | |
+|---|---|---|---|
+| `/` | 5.172 ms | **2.552 ms** | **−51%** |
+| `/menu` | 3.852 ms | **1.716 ms** | **−55%** |
+| `/buffet-triestino` | 3.752 ms | **2.808 ms** | −25% |
+| `/blog/street-food…` | 1.460 ms | 1.396 ms | invariato |
+
+| Peso | Prima | Dopo | |
+|---|---|---|---|
+| `/` | 1.140 KB | **510 KB** | −55% |
+| `/buffet-triestino` | 592 KB | 444 KB | −25% |
+
+La home passa da **scarso** (oltre 4.000 ms) a **52 ms dalla soglia del buono**. `/menu` entra in fascia buona. CLS invariato ed eccellente ovunque (0,000–0,047).
+
+**`/menu` non cala di peso** (−4%) perché ora contiene entrambi i menu nell'HTML: più contenuto, e il LCP crolla lo stesso.
+
+⚠️ **Singole misure di laboratorio.** Il TTFB della home oscilla fra 326 e 423 ms fra una prova e l'altra: è rumore. La direzione è solida, i millisecondi esatti no. Restano dati di laboratorio, non di campo.
+
+**Costo: tre righe di `quality` e un attributo.**
+
+### Verifica in produzione
+
+- pagina buffet: **zero occorrenze** di *cotechino, calamari, gamberetti, «sempre in vetrina», «sempre presenti», «te disemo», «magnar», «spassizzar»* ✓ · «tartine» presente ✓
+- pagina menu: **tutti e 9 i piatti serali** presenti nell'HTML (Variante TS, Porca Zozza, J-Ax, Retro Smash, Tartu Smash, Saint Jack Smash, Kebab-ara, Goloso, Romano) ✓ · **un solo `h1`** col testo giusto ✓
+- `q=100` nell'HTML servito: **0 occorrenze** su home, menu e buffet ✓ · preload immagine: 2 per pagina (erano 3 sulla home) ✓
+- `/`, `/menu`, `/buffet-triestino`, `/blog`, `/contatti`, `/chi-siamo` → **200** ✓
+- `/bevande` → **308 verso `/menu`** ✓
+- sitemap: **34 URL**, zero occorrenze di `bevande` ✓
+
+### Pulizia di passaggio
+
+Rimossi da `.next/types/` alcuni file duplicati col nome tipo `routes.d 2.ts` e `routes.d 3.ts`, prodotti dalla sincronizzazione cloud della cartella. Facevano fallire `tsc --noEmit` con «Duplicate identifier» pur essendo solo copie in una cartella di cache. **Da tenere d'occhio: la cartella del progetto è sincronizzata e può generare doppioni.**
+
+### Cosa resta aperto dal piano d'azione
+
+Fase 1 chiusa a metà: fatti qualità immagini e preload. **Restano:** titoli degli articoli sotto i 60 caratteri, `hasMenu` e `sameAs` nello schema, `lastmod` reale nella sitemap. Poi la Fase 2, che ha dentro lo schema `Menu` coi 40 prezzi.
+
+---
+
 ## 2026-08-27 (6) — Audit SEO completo del sito. Punteggio 65/100
 
 Eseguito con la skill `seo-audit` sul **sito online**, cioè prima delle correzioni ferme in locale. È voluto: serve come misura di partenza.

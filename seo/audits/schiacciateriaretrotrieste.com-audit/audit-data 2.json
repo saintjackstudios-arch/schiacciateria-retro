@@ -18,43 +18,7 @@
    "Accorciare i 3 titoli degli articoli gia posizionati su spritz e aperitivo",
    "Aggiungere hasMenu e completare sameAs (Facebook, scheda Google, TripAdvisor)",
    "Linkare /contatti dagli articoli: oggi 0 su 28"
-  ],
-  "post_fix": {
-   "data": "2026-08-27, dopo il deploy",
-   "lcp_mobile": {
-    "/": {
-     "prima": 5172,
-     "dopo": 2552
-    },
-    "/menu": {
-     "prima": 3852,
-     "dopo": 1716
-    },
-    "/buffet-triestino": {
-     "prima": 3752,
-     "dopo": 2808
-    },
-    "/blog/street-food-trieste-guida": {
-     "prima": 1460,
-     "dopo": 1396
-    }
-   },
-   "peso_kb": {
-    "/": {
-     "prima": 1140,
-     "dopo": 510
-    },
-    "/buffet-triestino": {
-     "prima": 592,
-     "dopo": 444
-    },
-    "/menu": {
-     "prima": 752,
-     "dopo": 724
-    }
-   },
-   "nota": "Singole misure di laboratorio, stesse condizioni della baseline. CLS invariato ed eccellente. Interventi: quality 100->75 in 3 file e rimozione di un preload sotto la piega."
-  }
+  ]
  },
  "categories": [
   {
@@ -246,8 +210,7 @@
      "description": "CrUX e PageSpeed richiedono una chiave Google non configurata su questa postazione. Le misure sono di laboratorio: rete a 1,6 Mbps, 150 ms di latenza, CPU rallentata 4x.",
      "recommendation": "Configurare una chiave Google per sostituire le stime con i dati dei visitatori reali."
     }
-   ],
-   "score_post_fix": 72
+   ]
   },
   {
    "name": "AI Search Readiness",

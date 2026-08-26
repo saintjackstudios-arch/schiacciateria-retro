@@ -60,3 +60,36 @@ Le risorse più pesanti della home, in ordine, con quando partono e quanto ci me
 Le due correzioni insieme tolgono dalla home **circa 285 KB di traffico a priorità massima** (138 KB dalla qualità + 147 KB dal preload di troppo) e liberano la banda per il CSS. Sono tre righe di qualità e un attributo.
 
 **Non è una stima verificata:** va rimisurato dopo la pubblicazione, con lo stesso metodo, per sapere quanto vale davvero.
+
+---
+
+# ✅ Misure DOPO l'intervento — 27/08/2026, sito in produzione
+
+Stesso metodo, stesse condizioni (Chromium 412×915, 1,6 Mbps, 150 ms di latenza, CPU 4×), sito online dopo il deploy.
+
+| Pagina | LCP prima | LCP dopo | Variazione | Giudizio |
+|---|---|---|---|---|
+| `/` | 5.172 ms | **2.552 ms** | **−51%** | da 🔴 scarso a 🟢 al limite del buono |
+| `/menu` | 3.852 ms | **1.716 ms** | **−55%** | da 🟠 a 🟢 **buono** |
+| `/buffet-triestino` | 3.752 ms | **2.808 ms** | **−25%** | resta 🟠, molto più vicino alla soglia |
+| `/blog/street-food-trieste-guida` | 1.460 ms | 1.396 ms | invariato | 🟢 buono |
+
+Peso complessivo scaricato:
+
+| Pagina | Prima | Dopo | |
+|---|---|---|---|
+| `/` | 1.140 KB | **510 KB** | −55% |
+| `/buffet-triestino` | 592 KB | **444 KB** | −25% |
+| `/menu` | 752 KB | 724 KB | −4% |
+
+**CLS invariato ed eccellente** ovunque: 0,000 · 0,001 · 0,034 · 0,047.
+
+## Come leggere questi numeri
+
+- La home è a **2.552 ms contro una soglia «buono» di 2.500**: mancano 52 ms. Era a 5.172.
+- **`/menu` non cala di peso** (−4%) perché ora la pagina contiene **entrambi i menu** nell'HTML: più contenuto, ma il LCP crolla lo stesso da 3.852 a 1.716 ms perché l'immagine di testata è passata da q=100 a q=75.
+- Su `/buffet-triestino` l'elemento LCP **è** quell'immagine: 295 KB diventati 80.
+- ⚠️ **Sono singole misurazioni di laboratorio**, con la variabilità che comporta — il TTFB della home oscilla fra 326 e 423 ms fra una prova e l'altra, ed è rumore. La direzione e l'ordine di grandezza sono solidi; i millisecondi esatti no.
+- Restano dati **di laboratorio, non di campo**: per sapere cosa sperimentano i visitatori veri servirebbe CrUX, che richiede una chiave Google non configurata.
+
+**Costo dell'intervento:** tre righe di `quality` e un attributo `preload`.
