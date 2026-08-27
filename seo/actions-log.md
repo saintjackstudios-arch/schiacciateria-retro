@@ -4,6 +4,269 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-27 (12) — 🟢 PUBBLICATA la correzione dello spritz. E GA4 finalmente parla
+
+Marco: *«pubblica la correzione dello spritz e prenditi l'accesso per la
+schiacciateria»*, con lo screenshot del selettore GA4.
+
+### Online
+
+Ramo `correzione-spritz`, merge `--no-ff`, commit `3a384be`. Deploy Vercel
+`success` in ~1 minuto. **Verificato in produzione:**
+
+- titolo: «Spritz a Trieste: cosa ti arriva se ordini uno spritz» (53 caratteri)
+- «never orange» e «non è arancione»: **spariti da tutte e tre le pagine**
+- «spruzzato»: presente
+- H1 visibile allineato al titolo
+
+### GA4: la risposta alla domanda di Marco è **7**
+
+Proprietà **`547590126`** (Schiacciateria Retrò Trieste, account SaintJack
+Studios `399948947`). Ora tutti e cinque i siti hanno il numero in `siti.json`.
+
+**`directions_click` = 7. `phone_click` = 2.** Dal 01/07/2026, tutti ad agosto.
+
+| dettaglio | |
+|---|---|
+| da quale pagina | **home 5**, `/contatti` 2 |
+| da quale canale | Direct 3, Organic Search 2, **Organic Social 2** |
+| lingua del browser | italiano 4, **tedesco 2**, spagnolo 1 |
+| in che giorni | 14, 16, 17, 19, 20 agosto — **poi più niente** |
+
+⚠️ **È un minimo, non il totale:** il tag GA4 non parte finché la persona non
+accetta i cookie. GSC conta 241 clic da ricerca, GA4 ne vede 94 di sessione
+organica: **stiamo misurando circa il 40% delle persone.**
+
+### E il resto di GA4 dice cose che GSC non poteva dire
+
+- **`/menu` è la pagina più vista: 198 visualizzazioni contro 177 della home.**
+- **Il blog fa 13 visualizzazioni su 391 in totale.** In GSC risulta il 38% delle
+  impressioni; nella realtà **è il 3% di quello che la gente guarda**.
+- Utenti: luglio 15 → **agosto 114**.
+- Canali: Organic Search 94 sessioni, Direct 56, **Organic Social 24**, e
+  **2 sessioni da «AI Assistant»**.
+- Stranieri: **35 utenti su 129**, cioè il 27% — molto più del 7,8% che si vedeva
+  dalle impressioni in GSC.
+
+---
+
+## 2026-08-27 (13) — 🔴 Avevo torto sul tedesco, e l'esperimento era già stato fatto
+
+→ `seo/lingue-decisione.md`
+
+Marco ha smontato il ragionamento di stamattina: *«non è detto che adesso ci sono
+poche visualizzazioni dalla Germania. Se mettiamo un articolo che parla tedesco…
+non possono salire se stessa cosa»*.
+
+**Ha ragione, ed è un errore di ragionamento, non di dato.** Misuravo la domanda
+tedesca su un sito che non ha una parola di tedesco: il numero non poteva che
+essere zero. E **il tedesco non è la Germania, è l'Austria.**
+
+### I dati di Trieste, non i nostri
+
+Trieste 2025: oltre **2 milioni di presenze** (+11,3%); stranieri **60%** in
+regione; 2024: **441.000 presenze straniere**, e i primi sono **austriaci,
+tedeschi, statunitensi**. Arrivi austriaci **+24,9% dal 2019**; ricerche su
+Booking **dall'Austria +156%, dalla Germania +144%**. Crociere 2025: **131 scali,
+455.000 passeggeri**; nel 2026 fra le 22 compagnie c'è **TUI Cruises**, che è la
+compagnia del mercato tedesco.
+
+📌 **Olandese e russo non compaiono in nessuna classifica di Trieste.**
+
+### ⛔ Ma Villa Marittimi la pagina inglese ce l'ha già, e fa zero
+
+`villamarittimi.com/en`: risponde **200**, è **linkata dalla home**, è **nella
+sitemap**, ha lo hreflang, 832 parole, nessun noindex.
+**In 12 mesi: zero impressioni.** Su un sito che ne ha fatte 16.246.
+
+🔧 **Difetto trovato: lo hreflang è a senso unico.** `/en` punta alla home
+italiana, **la home non punta a `/en`**. Google richiede la reciprocità: senza,
+lo hreflang viene ignorato. Da correggere a prescindere.
+
+⚖️ Ma non si trasferisce tale e quale: Villa Marittimi vende **una villa per
+feste private**, mercato straniero quasi inesistente. Un locale dove si mangia ha
+dietro 455.000 crocieristi. **Non prova che le pagine in lingua non funzionano:
+prova che non basta pubblicarle.**
+
+### Proposta: due lingue, non cinque, con scadenza
+
+**Inglese + tedesco.** L'inglese non è la lingua degli inglesi, è la lingua di
+ripiego di tutti (sloveni, ungheresi, olandesi, spagnoli). Il tedesco è l'unica
+seconda lingua con un mercato che la giustifica da sola.
+
+**No a spagnolo, russo, olandese:** per due non c'è il dato, e per tutti e tre
+**nessuno di noi può rileggere quello che pubblichiamo in nome del cliente**. Un
+prezzo o un allergene sbagliato è un problema di Davide. **Anche la pagina tedesca
+va fatta rileggere da chi il tedesco lo parla, prima di pubblicare.**
+
+**Con scadenza:** due pagine, hreflang reciproco, in navigazione, e **si rilegge
+la Search Console dopo 8 settimane**. Se il tedesco fa zero come `/en` di Villa
+Marittimi, ci si ferma avendo speso due pagine.
+
+---
+
+## 2026-08-27 (11) — Sbloccate le recensioni: 100 su 444, con le critiche
+
+Marco: *«l'account di Saint Jack studios ha l'accesso come gestore»*. **Vero, ma
+non su quello che stavo usando.**
+
+### L'accesso: due account, non uno
+
+`marcosaintjack@gmail.com` (l'account principale del Chrome) **non ha accesso**
+alla scheda: `business.google.com/locations` elenca 0 attività, e nel riquadro di
+Google compare «Sei il proprietario di quest'attività?», la riga che Google mostra
+solo a chi non gestisce.
+
+✅ **L'accesso è su `saintjackstudios@gmail.com` = `authuser=1`**, come già
+scritto nel registro del 27/08 (voce menu). Link che funziona:
+
+    business.google.com/n/1334199882433553077/reviews?authuser=1
+
+### Come si leggono davvero
+
+Il pannello sta **dentro un iframe di Google Search**, ma l'iframe è leggibile da
+script. Da lì: espandere i «View full review», leggere `[aria-label="Review"]` e
+il voto da `"N out of 5 stars"`, scorrere il contenitore. **Carica 100 recensioni
+e si ferma.** L'ordinamento «Lowest rating» funziona col mouse ma non da script.
+
+⚠️ Quindi le 100 raccolte sono **le più recenti**, non le peggiori: le critiche
+più vecchie non ci sono. Per averle: aprire quel link e scegliere «Lowest rating».
+
+### Cosa è uscito
+
+→ `seo/materiale-clienti/recensioni-critiche-e-straniere.md`
+
+**Su 100:** 5★ 84 · 4★ 12 · 3★ 1 · 2★ 0 · **1★ 3**.
+
+- 🔴 **Una critica da 1★ di una settimana fa, in russo, senza risposta.** Servizio
+  1/5, 15 minuti di attesa, e «le patatine le servono in una lattina di
+  pomodoro». Davide risponde a tutti in poche ore; a questa no.
+- **Il caso Eleonora Graziano (3★)** è il più istruttivo: Davide le ha risposto
+  coi «14 gusti di cicchetti, 10 tipi di schiacciate», e **lei ha replicato che
+  non era quello il punto** — «poca scelta» voleva dire *non è una caffetteria*.
+  Era entrata aspettandosi caffè e brioche. **Problema di aspettativa, e
+  l'aspettativa si governa prima, sul sito e sulla scheda.**
+- **Il prezzo lo dichiarano i clienti:** 55 su 100 hanno indicato quanto hanno
+  speso. **27 dicono 10-20 €, 24 dicono 1-10 €.** Sul sito la cifra non c'è.
+- **Il tema numero uno non è il cibo, è il personale: 33 citazioni su 100**
+  (schiacciata 29, birra 23). E anche le due critiche col testo parlano di
+  servizio. Il sito non nomina nessuno che ci lavora.
+
+### Turisti e lingue
+
+→ `seo/turisti-e-lingue.md`
+
+Marco pensava che Google traducesse il sito da solo. **Non lo fa:** Chrome offre
+la traduzione al lettore *dopo* l'arrivo, ma Search indicizza la pagina nella
+lingua in cui è scritta. Chi cerca in inglese non ci trova.
+
+- **Zero recensioni in tedesco su 100** (spagnolo 3, inglese 2, croato 1, sloveno
+  1, russo 1). Germania: 24 visualizzazioni in sei settimane. **Contro la versione
+  tedesca non c'è solo il costo: non c'è la domanda.**
+- Nessuna delle otto straniere dice di aver trovato il locale dal sito. Lucija
+  (croata) è passata davanti — «siamo venuti a Trieste **per un'ora**» — e nomina
+  **il parcheggio**. Matias (spagnolo) arriva col metro di **All'Antico Vinaio**.
+  Joe H (inglese) lo posiziona come **craft beer**, non come schiacciata.
+- ⛔ **Sul titolo della scheda:** contiene già «Schiacciateria Triestina». Non
+  allargarlo: infilare parole chiave nel nome è contro le regole di Google e la
+  sanzione è la sospensione — di una scheda da **444 recensioni e 2.185
+  interazioni**.
+
+### GA4: la domanda di Marco è senza risposta, e il motivo è preciso
+
+*«Quante volte è stato cliccato l'evento delle indicazioni stradali?»*
+
+Non ho potuto contarlo. **L'API dei dati funziona** (verificata su Saint Jack e
+Villa Marittimi) **ma serve il numero della proprietà**, e quello di Schiacciateria
+non è in `strumenti/siti.json`. L'API che elenca le proprietà (**Admin API**) è
+**disabilitata nel progetto Cloud 455385472194**, e l'interfaccia di GA4 non apre
+il selettore delle proprietà sotto automazione.
+
+✅ Trovata e registrata quella di **Villa Marittimi (`538978354`)**, che pure
+mancava: aggiunta a `siti.json`.
+
+⚠️ **Due cose da sapere prima di promettere numeri a Davide:**
+
+1. **L'evento parte solo dopo il consenso ai cookie.** In
+   `src/components/Analytics.tsx` il tag GA4 non si carica finché la persona non
+   accetta (`if (!consented) return null`). Chi rifiuta o ignora il banner **non
+   viene contato**. Qualunque numero usciremo è un minimo, non il totale.
+2. Al 13/08, come già scritto nel registro esperimenti, `directions_click` aveva
+   **zero eventi** e non era ancora marcabile come evento chiave.
+
+---
+
+## 2026-08-27 (10) — 🟠 NON PUBBLICATO. Corretto lo spritz, letti i numeri veri
+
+Marco: *«lascia stare quella cagata dello spritz, non è mai arancione. Non so da
+dove cazzo è uscita»*. **Correzione fatta in locale, in attesa del via.**
+
+### Da dove era uscita
+
+Dal file stesso, riga 12 di `spritz-aperitivo-trieste.md`:
+
+> «Se su Reddit o sui forum di viaggio cerchi consigli su dove bere a Trieste, la
+> risposta unanime dei locals è sempre questa: "Never orange. Spritz bianco".»
+
+Un modo di dire dei forum di viaggio, ripetuto come se fosse una regola del
+locale. Nessuno l'aveva verificato con chi sta al banco.
+
+### Cosa è vero, dettato da Marco
+
+Nove volte su dieci chi a Trieste dice «uno spritz» intende quello bianco (vino
+bianco, acqua frizzante, fetta di limone). **Non vuol dire che l'arancione non si
+venda**: lo spruzzato e lo spritz Campari si fanno normalmente, basta chiederli.
+È un'abitudine di ordinazione, non un divieto.
+
+### E lo conferma una recensione
+
+Claudia Lorenzon, 6 mesi fa, 5 stelle: *«…non un ottimo Spritz…»*. Risposta del
+titolare: *«Cercheremo di migliorare anche lo spritz cosi da essere perfetti!!!»*
+Lo spritz al Retrò si beve, e il titolare sa che è migliorabile. Un articolo che
+dichiarava una regola assoluta sullo spritz era doppiamente esposto.
+
+### File toccati (3, nessuno pubblicato)
+
+| File | Cosa |
+|---|---|
+| `spritz-aperitivo-trieste.md` | titolo, excerpt, apertura, riga del Reddit **tolta**, FAQ |
+| `movida-trieste-giovani-guida.md` | la riga «non arancione» |
+| `dove-bere-miglior-spritz-trieste.md` | «per decenni esclusivamente» → «per generazioni di riferimento» |
+
+Verificato: `grep` su tutto `src/` non trova più «non è arancione» né «never
+orange». Frontmatter valido 28/28. Titolo 53 caratteri, excerpt 151.
+
+### Le recensioni: 8 su 444, e il perché
+
+→ `seo/materiale-clienti/recensioni-google.md`
+
+Google non lascia leggere l'elenco a un programma: dopo 8 recensioni il server
+smette di rispondere, e i pulsanti «Ordina» (che ha il filtro per stelle),
+«Cerca tra le recensioni» e i temi ricevono il clic ma non si aprono. Il canale
+dati diretto risponde `403`. TripAdvisor (24 recensioni) restituisce pagina
+bianca sia da programma sia dal browser di Marco.
+
+✅ **La via che funziona: la scheda da titolare**, dove l'elenco si filtra per
+stelle. Serve che entri Davide o Marco. Le 8 raccolte sono **tutte positive**:
+non sono un campione delle critiche e il file lo dice a chiare lettere.
+
+### I numeri di Search Console
+
+→ `seo/ricerche-non-brand.md`
+
+- Il sito ha **sei settimane** (primo commit 17/07/2026). Luglio 1.856
+  visualizzazioni / 83 clic → agosto **3.338 / 158**, posizione da 6,1 a 5,4.
+- **237 ricerche non di marca in prima pagina portano 9 clic.** Su «bar viale 20
+  settembre trieste» il sito è in posizione **1,2** con **zero** clic: sopra c'è
+  la mappa e il dito va lì.
+- Blog: 38% delle visualizzazioni, **11% dei clic**.
+- Estero 7,8%, ma Austria clicca al **14,3%** e Germania al **12,5%** contro il
+  4,4% italiano. **Stati Uniti: 24 visualizzazioni, 0 clic.** Ricerche in inglese
+  trovate in tutto: 18, quasi tutte «… near me».
+- Mobile 88%.
+
+---
+
 ## 2026-08-26 (9) — 🟢 PUBBLICATA la Fase 2. E un prezzo sbagliato trovato per strada
 
 Marco: *«parti»*, poi *«10 euro, correggi la cena e pubblica»*. Cinque commit sul
