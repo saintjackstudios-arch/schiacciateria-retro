@@ -7,9 +7,9 @@ excerpt: "Cerchi il miglior spritz in città? Scopri la differenza tra lo storic
 hero_image: "/blog-images/miglior-spritz.jpg"
 ---
 
-Se visiti la nostra città e ti stai chiedendo **dove bere il miglior spritz a Trieste**, devi prima conoscere una regola fondamentale: qui lo [Spritz](https://it.wikipedia.org/wiki/Spritz) non è necessariamente arancione. 
+Se visiti la nostra città e ti stai chiedendo **dove bere il miglior spritz a Trieste**, conviene sapere una cosa: qui chi ordina «uno [spritz](https://it.wikipedia.org/wiki/Spritz)» e basta di solito intende quello bianco. 
 
-La cultura dell'aperitivo mitteleuropeo ha radici antiche, e per decenni i triestini hanno bevuto esclusivamente lo storico *Spritz Bianco*, una miscela rinfrescante di vino locale e acqua frizzante (la "soda"). Ma oggi, la scena dei drink in città si è evoluta, e le varianti colorate e creative stanno letteralmente rubando la scena.
+La cultura dell'aperitivo mitteleuropeo ha radici antiche, e per generazioni a Trieste lo spritz di riferimento è stato quello *bianco*, una miscela rinfrescante di vino locale e acqua frizzante (la "soda"). Ma oggi, la scena dei drink in città si è evoluta, e le varianti colorate e creative stanno letteralmente rubando la scena.
 
 Se cerchi un posto dove la tradizione incontra l'innovazione, la risposta si trova in [Viale XX Settembre](/blog/viale-xx-settembre-trieste).
 

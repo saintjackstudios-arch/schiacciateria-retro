@@ -1,19 +1,19 @@
 ---
-title: "Spritz bianco a Trieste: la regola dell'aperitivo"
+title: "Spritz a Trieste: cosa ti arriva se ordini uno spritz"
 date: "2026-05-02"
 author: "Davide"
 category: "APERITIVO"
-excerpt: "Se ordini un Aperol a Trieste, ti perdi la vera esperienza locale. Scopri come bere, cosa mangiare (il famoso rebechin) e dove fare il vero aperitivo triestino."
+excerpt: "A Trieste chi ordina uno spritz quasi sempre intende quello bianco: vino, acqua frizzante e limone. Aperol e Campari si servono lo stesso, basta dirlo."
 hero_image: "/blog-images/spritz-trieste.jpg"
 ---
 
-L'**aperitivo a Trieste** non è solo un momento della giornata, è un rito sacro, un'istituzione sociale codificata da regole non scritte che ogni triestino rispetta fedelmente. Se sei un turista o un visitatore di passaggio e vuoi confonderti tra i locals, c'è una prima regola assoluta che devi imparare: **lo spritz triestino non è arancione**.
+C'è una cosa che conviene sapere prima di ordinare da bere a Trieste, e non è una regola: è un'abitudine. **Quando un triestino dice «ho voglia di uno spritz», nove volte su dieci intende lo spritz bianco** — vino bianco, acqua frizzante e una fetta di limone.
 
-Se su Reddit o sui forum di viaggio cerchi consigli su dove bere a Trieste, la risposta unanime dei locals è sempre questa: "Never orange. Spritz bianco". 
+Non vuol dire che l'arancione non esista. Lo spruzzato e lo spritz Campari si fanno e si bevono, e nessuno ti guarda storto se li chiedi: basta dirlo al banco. Vuol dire solo che, se ordini «uno spritz» e basta, quello che ti arriva è bianco.
 
 ## Cos'è il vero Spritz Triestino?
 
-Dimentica per un attimo il classico Aperol o Campari (che, sia chiaro, vengono serviti ovunque in città senza problemi). Quando a Trieste ordini uno "Spritz", il barista ti preparerà il tradizionale **Spritz Bianco**:
+Se al banco dici solo "uno spritz", quello che ti prepara il barista è il **Spritz Bianco**:
 - Mezzo bicchiere di vino bianco locale (spesso [Malvasia](https://www.quattrocalici.it/vitigni/malvasia-istriana/) o [Vitovska](https://www.quattrocalici.it/vitigni/vitovska/))
 - Acqua frizzante
 - Una fettina o scorza di limone
@@ -45,7 +45,7 @@ L'aperitivo triestino inizia presto (dalle 18:00) e spesso si consuma rigorosame
 ## FAQ — Spritz e Aperitivo a Trieste
 
 **Come si fa lo spritz triestino?**
-Lo spritz tradizionale di Trieste (Spritz Bianco) si prepara in modo molto semplice: vino bianco secco locale, acqua frizzante e una scorza di limone. Non contiene Aperol, Select o Campari (anche se queste varianti possono essere richieste specificandolo al barista).
+Lo spritz bianco si prepara con vino bianco secco locale, acqua frizzante e una scorza di limone: niente bitter. Se vuoi lo spruzzato o lo spritz Campari basta chiederlo, si fanno normalmente.
 
 **Dove fare il miglior aperitivo a Trieste?**
 Le zone migliori per l'aperitivo sono Viale XX Settembre (per un'atmosfera giovane e dinamica), Piazza Barbacan (per un mood alternativo), Via Torino (zona modaiola) e il Canal Grande. In Viale XX Settembre 16, Schiacciateria Retrò offre l'abbinamento perfetto tra bevande e schiacciata artigianale.
