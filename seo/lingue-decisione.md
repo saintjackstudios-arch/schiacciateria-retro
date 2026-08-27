@@ -70,7 +70,7 @@ lingua che non capiscono, e due di loro hanno chiesto le indicazioni stradali.
 
 ---
 
-## ⛔ Ma l'esperimento l'abbiamo già fatto, e ha dato zero
+## ⛔ Villa Marittimi: NON era un esperimento (correzione di Marco)
 
 **Villa Marittimi ha una pagina in inglese: `villamarittimi.com/en`.**
 
@@ -90,7 +90,18 @@ home italiana, ma **la home italiana non punta a `/en`**. Google richiede che il
 collegamento sia reciproco: quando manca, lo hreflang viene **ignorato**. Da
 sistemare a prescindere da tutto il resto.
 
-⚖️ **Però quel risultato non si trasferisce tale e quale.** Villa Marittimi vende
+### ⚠️ E Marco ha smontato anche questo, correttamente
+
+> «lascia perdere perché su villa marittimi non ha funzionato… **ho creato la
+> pagina e l'ho messa lì**, non so neanche se è collegata come dovrebbe, **non ci
+> ho fatto nessuna operazione di SEO, niente di niente**»
+
+Ha ragione: **non è un esperimento fallito, è un esperimento mai iniziato.** E lo
+hreflang rotto che ho trovato lo dimostra — la pagina non è mai stata collegata
+davvero. **Uno zero da una pagina abbandonata non dice niente su una pagina
+curata.**
+
+⚖️ **In più il mercato non c'entra niente col nostro.** Villa Marittimi vende
 **una villa per feste private**: uno straniero che organizza un diciottesimo a
 Trieste è un mercato quasi inesistente. Un locale dove si mangia è un'altra cosa:
 dietro ci sono **455.000 crocieristi e 441.000 presenze straniere** che devono
@@ -101,44 +112,97 @@ non basta pubblicarle.**
 
 ---
 
-## La mia proposta: due lingue, non cinque, e con una scadenza
+## ✅ La proposta, dopo due mie correzioni
 
-### ✅ Inglese e tedesco. Basta.
+> ⚠️ **Seconda correzione, 27/08 sera.** Avevo scritto a Marco che tante pagine
+> tradotte rischiavano lo *scaled content abuse* di Google. **Sbagliato, e l'ho
+> verificato leggendo il testo invece di ripeterlo a memoria.** In quella regola
+> la traduzione compare una volta sola:
+>
+> > «**Scraping** feeds, search results, or other content to generate many pages
+> > (including through automated transformations like synonymizing, **translating**,
+> > or other obfuscation techniques), where little value is provided to users»
+>
+> Parla di **prendere contenuto altrui** e passarlo al traduttore per fabbricare
+> pagine. Non di tradurre il proprio sito per i propri clienti. Dall'altra parte
+> Google **incoraggia** i siti multilingua e spiega come si fanno: *«Use different
+> URLs for each language version of a page»*, `hreflang`, sitemap, una lingua per
+> pagina.
+>
+> ➡️ **Il consiglio di differenziare ogni pagina resta, ma per qualità, non per
+> paura di una sanzione.**
 
-**L'inglese non è la lingua degli inglesi: è la lingua di ripiego di tutti.** Lo
-sloveno, l'ungherese, l'olandese e lo spagnolo che arrivano a Trieste cercano in
-inglese quando non trovano la loro lingua. Una pagina inglese li copre tutti.
+E cade anche l'altra obiezione che avevo messo: *«nessuno di noi può rileggere il
+russo»*. **Le lingue le scrivo e le rileggo io.** Valeva per un traduttore
+comprato a cui nessuno controlla il lavoro, non per questo caso. **Quello che
+resta da verificare non è la grammatica: sono i fatti** — prezzi, allergeni,
+orari — che comunque non si traducono, si copiano.
 
-**Il tedesco è l'unica seconda lingua con un mercato che la giustifica da sola:**
-Austria e Germania sono il primo e il secondo mercato straniero della città.
+### Le lingue, ordinate per segnale reale
 
-### ❌ Spagnolo, russo, olandese: no, e non per il costo
+Dai **42 paesi esteri** che hanno visto il sito in 12 mesi, più i dati della
+città:
 
-**Per l'olandese e il russo non c'è il dato:** non compaiono fra le nazionalità
-di Trieste. Lo spagnolo ha 3 recensioni ma **25 secondi di permanenza media**, la
-più bassa di tutte.
+| lingua | perché |
+|---|---|
+| **inglese** | 24 USA + 21 UK, ed è la lingua di ripiego di tutti gli altri |
+| **tedesco** | Austria e Germania sono il **primo mercato straniero di Trieste** |
+| **sloveno** | 76 impressioni, **6 clic** — il vicino che arriva in giornata |
+| **croato** | **102 impressioni**, il paese estero numero uno per volume |
+| **spagnolo** | 20 impressioni, e **3 recensioni** su 100 |
+| **ungherese** | 10 impressioni, e gli ungheresi crescono in tutta la regione |
+| **olandese** | 13 impressioni, 1 clic — **avevo detto di no anche qui, e sbagliavo** |
+| **francese** | 6 impressioni, ma la permanenza media più lunga del sito |
 
-E c'è un motivo più serio del traffico: **nessuno di noi legge il russo o
-l'olandese.** Pubblicheremmo, in nome di un cliente, un testo che non possiamo
-rileggere. Se un prezzo o un allergene esce sbagliato, il problema è di Davide,
-non nostro. Il tedesco lo stesso rischio ce l'ha — **quindi la pagina tedesca va
-fatta rileggere da qualcuno che il tedesco lo parla, prima di pubblicare.**
+### 🈶 Sull'Asia c'è un fatto strutturale
 
-### ⏱ E soprattutto: con una scadenza
+| paese | impressioni |
+|---|---|
+| Corea del Sud | 2 — **e 1 clic** |
+| Taiwan | 1 |
+| Vietnam / Malesia | 3 / 1 |
+| Giappone | **0** |
+| **Cina** | **0** |
 
-Il costo vero non è tradurre: è che **da quel giorno ogni pagina nuova va scritta
-tre volte per sempre**, e ogni prezzo che cambia va cambiato in tre posti.
+**Zero dalla Cina non è un caso: in Cina Google è bloccato.** I turisti cinesi
+cercano dove mangiare su Xiaohongshu, Dianping e WeChat. Una pagina in cinese su
+un sito indicizzato da Google non la vedrebbe quasi nessuno: la leva per loro non
+è il sito, è la scheda Google e semmai una presenza su Xiaohongshu, che è mondo
+da social media manager.
 
-Quindi si fa come un esperimento, non come un impegno:
+**Il coreano invece un clic su due impressioni ce l'ha.** Costa poco: secondo
+giro.
 
-1. **Due pagine sole**, una inglese e una tedesca. Non un sito tradotto.
-2. **Hreflang reciproco fatto bene** — l'errore di Villa Marittimi, non lo
-   ripetiamo.
-3. **Nel menu di navigazione**, non nascoste.
-4. **Si rilegge la Search Console dopo 8 settimane.** Se il tedesco fa zero come
-   `/en` di Villa Marittimi, ci fermiamo e abbiamo speso due pagine.
+### Come si fa, in pratica
 
----
+**Le prime due lingue costano l'80% del lavoro. Le altre sono quasi gratis**,
+perché quello che si costruisce una volta sola è la struttura:
+
+1. **URL separato per lingua** (`/en`, `/de`, `/sl`…), come chiede Google —
+   niente cambio di lingua via cookie.
+2. **`hreflang` reciproco fra tutte le versioni** + `x-default`. È l'errore da
+   non ripetere: su Villa Marittimi è a senso unico e per questo viene ignorato.
+3. **Selettore in navigazione**, non nascosto in fondo.
+4. **Il menu si genera da solo.** Sta già tutto in `src/app/menu/menuData.ts`:
+   i **nomi dei piatti non si traducono** («Top de Gamma» resta «Top de Gamma») e
+   **i prezzi nemmeno**. Si traducono solo ingredienti e descrizioni, che cambiano
+   una volta l'anno. ➡️ **Cambi un prezzo in un posto solo e cambia in tutte le
+   lingue insieme.**
+5. **Ogni pagina scritta per il suo lettore**, non clonata: al tedesco il
+   parcheggio e gli orari, all'americano la distanza dal porto e che non c'è
+   attesa, al croato il mordi-e-fuggi in giornata, allo spagnolo che *non è
+   All'Antico Vinaio*.
+6. **Verifica in Search Console dopo 8 settimane**, lingua per lingua.
+
+### Il messaggio di benvenuto
+
+Marco vuole un disclaimer scherzoso che dica che non è la nostra lingua madre.
+L'idea di accorciare la distanza è buona; **la scusa preventiva no**, perché fa
+venire il dubbio a chi non ce l'aveva.
+
+Girarlo in benvenuto: non *«scusate se sbagliamo i verbi»* ma *«questa pagina
+l'abbiamo scritta noi, non un ufficio traduzioni»*. Stessa simpatia, ma guadagna
+credito invece di perderlo. **Le parole le detta Marco.**
 
 ## Cosa deve esserci dentro, se le facciamo
 
