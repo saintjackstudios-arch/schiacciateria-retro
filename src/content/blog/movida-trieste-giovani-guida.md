@@ -22,7 +22,7 @@ Ma soprattutto, è vivo. Non nel senso delle grandi discoteche — Trieste non �
 La serata del Viale segue un ritmo abbastanza preciso, anche se nessuno lo ha mai scritto da nessuna parte:
 
 **Dalle 17:30 alle 19:00 — L'aperitivo**
-Si comincia con lo spritz. A Trieste lo spritz è bianco (vino bianco, acqua frizzante, limone) non arancione — e se sei in zona Viale lo sai già. Il rebechin — gli stuzzichini automatici — arriva insieme al bicchiere.
+Si comincia con lo spritz. Se dici solo «uno spritz», a Trieste ti arriva quello bianco: vino bianco, acqua frizzante, limone. L'arancione si fa lo stesso, basta chiederlo. Il rebechin — gli stuzzichini automatici — arriva insieme al bicchiere.
 
 **Dalle 19:00 alle 20:30 — Lo spuntino**
 Non tutti vanno a cena seduti. Molti passano da **Schiacciateria Retrò** per una schiacciata calda e continuano la serata in piedi. La schiacciata farcita al momento è diventata il carburante ufficiale della movida triestina.
