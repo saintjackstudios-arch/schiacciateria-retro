@@ -4,6 +4,66 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (21) — 🟢 PUBBLICATE la pagina tedesca `/de` e la correzione del `lang`
+
+Marco: *«non metterne nessuna. la traduzione mi sembra corretta. togli la
+traduzione che abbiamo fatto per il controllo, pubblica e chiedi
+l'indicizzazione»*.
+
+### ⛔ Le foto delle birre: NON si mettono, e non e' una dimenticanza
+
+Marco aveva chiesto perche' le schede delle birre non hanno la foto. La
+risposta e' che me n'ero dimenticato — ma andandole a guardare una per una
+prima di rispondere, **tre su cinque smentiscono il testo che avrebbero
+accanto**:
+
+| Birra | La scheda dice | La foto dice |
+|---|---|---|
+| Hell König Ludwig | Kellerbier, bassa fermentazione | nel bicchiere c'e' scritto **Weissbier** |
+| Non Filtrata König Ludwig | Kellerbier non filtrata | stesso bicchiere, **Weissbier** |
+| Pater Linus Triple | Abtei-Tripel · 7,5 % | etichetta **BLOND** · ~6,5 % |
+| Rye River IPA | 5,6 % | etichetta **6.5 % ABV**, e il nome e' «RETRO IPA» |
+| Warsteiner Herb | Pilsner doppio luppolo · 4,8 % | ✅ niente che la smentisca |
+
+**La Weissbier non e' una sfumatura** — e' birra di frumento ad alta
+fermentazione, un'altra birra della stessa fabbrica. E il grado alcolico e' un
+numero: 5,6 e 6,5 non possono stare tutti e due sulla stessa scheda.
+
+📌 **E' la seconda volta dopo la Porca Zozza.** Il repertorio di immagini di
+`menuData.ts` non e' mai stato confrontato col menu voce per voce. **Da fare, e
+prima che qualcuno metta queste foto da qualche parte.** O si rifanno le foto,
+o — se le foto sono giuste — sono gli stili e i gradi del menu a essere
+sbagliati, e allora il problema e' molto piu' grosso di una pagina.
+
+### Cancellato lo strumento di revisione
+
+Marco ha riletto la pagina coi riquadri italiani e ha detto *«la traduzione mi
+sembra corretta»*. Cancellati `src/app/(de)/de/traduzioneIT.ts` e
+`src/components/TraduzioneSotto.tsx`, il montaggio in fondo a `DeClient.tsx` e
+l'import di `next/dynamic`. **Verifica secca: l'HTML di `/de` e' tornato a
+102.826 byte, cioe' esattamente quanto pesava prima che lo strumento
+esistesse.** Zero occorrenze in `.next/static` e `.next/server`.
+
+### Online
+
+Ramo `lang-route-group`, merge `--no-ff` su `main`. Vanno in produzione insieme
+tre cose costruite oggi: i due layout per lingua, la landing tedesca, e la
+sitemap aggiornata.
+
+**Corretto anche il `lastmod` della home**, che era rimasto al 26/08: la home
+oggi e' cambiata davvero, perche' il suo hreflang adesso dichiara anche `/de`.
+Le altre 33 pagine NON le ho toccate: il `lang` nell'HTML e' cambiato, ma per
+chi legge non e' cambiato niente, e spostare 36 date per far sembrare tutto
+nuovo e' il modo piu' rapido per farsi ignorare le date vere.
+
+### Chiesta l'indicizzazione
+
+Solo `/de`. Home e `/en` erano gia' state messe in coda stamattina e Google
+scrive a chiare lettere che **richiedere la stessa pagina piu' volte non cambia
+la sua posizione in coda**: rifarlo oggi sarebbe stato solo consumare quota.
+
+---
+
 ## 2026-08-28 (20) — 🔍 Rimesso lo strumento di revisione, questa volta sul tedesco
 
 Marco: *«mettimi una specie di sottotitolo in italiano così controllo»*.

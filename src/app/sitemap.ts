@@ -19,7 +19,7 @@ const baseUrl = 'https://schiacciateriaretrotrieste.com';
  * data dal frontmatter (`dateModified`, e se manca `date`).
  */
 const ULTIMA_MODIFICA = {
-  home: '2026-08-26',              // menu orario + qualita immagini
+  home: '2026-08-28',              // hreflang: adesso dichiara anche /en e /de
   menu: '2026-08-26',              // entrambi i menu nell'HTML + hero
   buffetTriestino: '2026-08-26',   // correzioni ai piatti dettate dal titolare
   chiSiamo: '2026-07-21',
