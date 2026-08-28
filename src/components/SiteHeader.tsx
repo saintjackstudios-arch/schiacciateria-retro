@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Camera, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SelettoreLingua from '@/components/SelettoreLingua';
 
 export default function SiteHeader() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -58,6 +59,7 @@ export default function SiteHeader() {
           >
             <Camera className="w-3 h-3 md:w-4 md:h-4" /> Instagram
           </a>
+          <SelettoreLingua />
         </div>
 
         {/* Mobile hamburger */}
@@ -176,7 +178,8 @@ export default function SiteHeader() {
               </nav>
 
               {/* Footer drawer */}
-              <div className="relative z-10 border-t-4 border-black px-5 py-4">
+              <div className="relative z-10 border-t-4 border-black px-5 py-4 flex flex-col gap-4">
+                <SelettoreLingua variante="drawer" />
                 <p className="font-black uppercase text-xs tracking-widest text-black/50 text-center">
                   Che bon ara!
                 </p>

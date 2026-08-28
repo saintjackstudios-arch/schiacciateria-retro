@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   description: "Schiacciata artigianale, buffet triestino e street food nel cuore di Trieste, Viale XX Settembre. Ingredienti premium, birre selezionate. Vieni a trovarci!",
   alternates: {
     canonical: "https://schiacciateriaretrotrieste.com",
+    // L'altra meta' dell'hreflang: /en dichiara questa pagina, questa dichiara
+    // /en. Google tiene conto del rimando solo se le due pagine si nominano a
+    // vicenda — un rimando in una direzione sola viene ignorato.
+    // Quando aggiungiamo una lingua va aggiunta qui e in src/app/en/page.tsx.
+    languages: {
+      'it-IT': "https://schiacciateriaretrotrieste.com",
+      'en': "https://schiacciateriaretrotrieste.com/en",
+      'x-default': "https://schiacciateriaretrotrieste.com",
+    },
   }
 };
 

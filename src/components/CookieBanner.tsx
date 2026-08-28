@@ -3,9 +3,44 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+/**
+ * Il banner parla la lingua della pagina su cui sta.
+ *
+ * Non e' un vezzo: Analytics.tsx non fa partire GA4 finche' non c'e' il
+ * consenso. Un turista inglese che si trova davanti un riquadro in triestino
+ * non clicca niente — e allora la sua visita non la contiamo, proprio quella
+ * che questa pagina esiste per portare e per far vedere a Davide.
+ *
+ * Per aggiungere una lingua: una voce qui, con la stessa sigla usata in
+ * SelettoreLingua.tsx.
+ */
+const TESTI = {
+  it: {
+    badge: 'MOTO IMPORTANTE!',
+    titolo: 'Gavemo i cookie! 🍪',
+    testo:
+      'Utilizziamo i cookie per far funzionare il sito e capire quante badilate di visite riceviamo (tramite Google Analytics). Puoi scegliere se accettarli o rifiutarli!',
+    accetta: 'ACCETTA TUTTO',
+    rifiuta: 'RIFIUTA',
+    note: 'Scopri di più nelle note legali',
+  },
+  en: {
+    badge: 'RATHER IMPORTANT!',
+    titolo: 'We have cookies! 🍪',
+    testo:
+      'We use cookies to run the site and to count how many people come and see us (through Google Analytics). It is entirely up to you whether to accept them.',
+    accetta: 'ACCEPT ALL',
+    rifiuta: 'REJECT',
+    note: 'More in the legal notes',
+  },
+} as const;
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
+  const t = pathname === '/en' || pathname.startsWith('/en/') ? TESTI.en : TESTI.it;
 
   useEffect(() => {
     // Check if the user has already made a choice
@@ -43,7 +78,7 @@ export default function CookieBanner() {
             
             {/* Shouting starburst effect on top corner */}
             <div className="absolute -top-6 -right-6 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 border-2 border-black rotate-12 shadow-[3px_3px_0px_#000]">
-              MOTO IMPORTANTE!
+              {t.badge}
             </div>
 
             {/* Bubble Tail (SVG pointing down-left) */}
@@ -61,11 +96,10 @@ export default function CookieBanner() {
             {/* Text */}
             <div className="space-y-2 text-black">
               <h3 className="font-display font-black text-2xl uppercase italic tracking-tight leading-none">
-                Gavemo i cookie! 🍪
+                {t.titolo}
               </h3>
               <p className="text-xs md:text-sm font-bold leading-snug">
-                Utilizziamo i cookie per far funzionare il sito e capire quante badilate di visite riceviamo (tramite Google Analytics). 
-                Puoi scegliere se accettarli o rifiutarli!
+                {t.testo}
               </p>
             </div>
 
@@ -75,13 +109,13 @@ export default function CookieBanner() {
                 onClick={() => handleConsent(true)}
                 className="flex-1 bg-black text-white hover:bg-white hover:text-black border-2 border-black py-2.5 text-xs font-black uppercase tracking-widest shadow-[3px_3px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-center"
               >
-                ACCETTA TUTTO
+                {t.accetta}
               </button>
               <button
                 onClick={() => handleConsent(false)}
                 className="flex-1 bg-white text-black hover:bg-red-600 hover:text-white border-2 border-black py-2.5 text-xs font-black uppercase tracking-widest shadow-[3px_3px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-center"
               >
-                RIFIUTA
+                {t.rifiuta}
               </button>
             </div>
 
@@ -91,7 +125,7 @@ export default function CookieBanner() {
                 href="/cookie-policy" 
                 className="text-[10px] font-black uppercase tracking-widest text-black/50 hover:text-black underline transition-colors"
               >
-                Scopri di più nelle note legali
+                {t.note}
               </Link>
             </div>
 

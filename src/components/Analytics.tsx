@@ -45,9 +45,16 @@ export default function Analytics() {
       if (!anchor) return;
       const conversione = CONVERSIONI.find((c) => c.test(anchor.href));
       if (!conversione) return;
+      // Un link puo' dichiarare dove sta con data-ga-posizione="hero". Serve a
+      // distinguere in GA4 il tasto in cima da quello in fondo: senza, i click
+      // arrivano tutti mescolati sotto lo stesso evento. Il parametro va
+      // registrato in GA4 come dimensione personalizzata ("posizione"), se no
+      // si vede solo in DebugView.
+      const posizione = anchor.dataset.gaPosizione;
       window.gtag?.('event', conversione.event, {
         event_category: 'Engagement',
         event_label: conversione.label,
+        ...(posizione ? { posizione } : {}),
       });
     };
 

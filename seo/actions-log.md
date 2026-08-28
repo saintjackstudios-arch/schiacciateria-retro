@@ -4,49 +4,483 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
-## 2026-08-27 (12) — 🟢 PUBBLICATA la correzione dello spritz. E GA4 finalmente parla
+## 2026-08-28 (17) — 🟢 PUBBLICATA la landing inglese `/en`
 
-Marco: *«pubblica la correzione dello spritz e prenditi l'accesso per la
-schiacciateria»*, con lo screenshot del selettore GA4.
+Marco: *«Elimina le scritte in italiano che erano di revisione e pubblica.»*
 
-### Online
+### Cancellato lo strumento di revisione
 
-Ramo `correzione-spritz`, merge `--no-ff`, commit `3a384be`. Deploy Vercel
-`success` in ~1 minuto. **Verificato in produzione:**
+`src/app/en/traduzioneIT.ts` (183 voci) e `src/components/TraduzioneSotto.tsx`
+sono **spariti dal codice**, insieme al montaggio in fondo a `EnClient.tsx`,
+all'import di `next/dynamic` che serviva solo a loro, e ai 5 attributi
+`data-traduci` sparsi nei riquadri rossi e nelle pronunce.
 
-- titolo: «Spritz a Trieste: cosa ti arriva se ordini uno spritz» (53 caratteri)
-- «never orange» e «non è arancione»: **spariti da tutte e tre le pagine**
-- «spruzzato»: presente
-- H1 visibile allineato al titolo
+Non entravano nel pacchetto di produzione nemmeno prima (erano dietro
+`process.env.NODE_ENV !== 'production'`), ma restavano nel codice: da oggi non
+esistono più. **Effetto collaterale voluto: in locale la pagina inglese non
+mostra più la traduzione italiana sotto ogni blocco.** Chi dovrà rileggerla in
+futuro parte dal file dei contenuti, `src/app/en/enContenuti.ts`, che è
+l'unico posto dove le frasi stanno tutte insieme.
 
-### GA4: la risposta alla domanda di Marco è **7**
+Verificato sull'HTML generato: zero occorrenze di `data-traduci`,
+`TraduzioneSotto`, `TRADUZIONE` in `.next/server` e `.next/static`.
 
-Proprietà **`547590126`** (Schiacciateria Retrò Trieste, account SaintJack
-Studios `399948947`). Ora tutti e cinque i siti hanno il numero in `siti.json`.
+### Verifiche prima del push
 
-**`directions_click` = 7. `phone_click` = 2.** Dal 01/07/2026, tutti ad agosto.
+- `next build` pulito, 45 pagine, TypeScript senza errori.
+- `/en` prerenderizzata statica (`○`), 100.698 byte di HTML.
+- `<title>`, canonical `…/en`, hreflang reciproco `it-IT` / `en` / `x-default`
+  presenti su **entrambe** le pagine (home e `/en`).
+- Le 11 immagini della pagina rispondono tutte 200 da `/_next/image`
+  (1 logo, 1 hero, 9 piatti). Nessuna rotta.
+- Nessun errore in console servendo la build vera con `next start`.
+- Il banner cookie e la barra mobile parlano inglese su `/en`: verificato a
+  schermo, dice «WE HAVE COOKIES! / ACCEPT ALL / REJECT».
 
-| dettaglio | |
+### Una correzione presa per strada
+
+`lastmod` di `/en` in sitemap era rimasto al **27/08**, cioè al giorno in cui
+la pagina è stata costruita, non a quello in cui è stata pubblicata. Portato al
+**28/08**. È l'unica data che Google guarda per decidere se vale la pena
+ripassare: sbagliarla significa farsi ignorare il primo passaggio.
+
+### Cosa resta aperto su questa pagina
+
+1. `<html lang="it">` vale anche su `/en`. Mitigato dal `<main lang="en">`
+   servito dal server e dall'hreflang corretto. La soluzione vera sono i route
+   group di Next: **da fare prima della terza lingua**, non adesso.
+2. `whatsapp_click` non è ancora un evento chiave in GA4 perché non è mai
+   arrivato: **da stellare appena il primo click sul tasto «Book a table» lo fa
+   comparire** in "Eventi recenti".
+3. La foto della Porca Zozza mostra un piatto diverso. **Decisione di Marco del
+   28/08: si tiene**, per non divergere dal menu italiano. Si risolve davvero
+   con una fotografia giusta in `menuData.ts`, che aggiorna tutte le lingue.
+
+---
+
+## 2026-08-28 (16) — 🔍 AUDIT SEO della landing `/en` prima di pubblicarla
+
+Fatto sull'HTML davvero generato dalla build, non sul codice sorgente.
+
+### ⛔ Il difetto grave: `/en` era una pagina orfana
+
+**Zero pagine del sito contenevano un link a `/en`.** Non una.
+
+Il motivo: il selettore di lingua nel menu in alto rende i link **solo dopo il
+clic** (`{aperto && …}`), e il cassetto del telefono è dentro `AnimatePresence`,
+quindi montato solo quando si apre. Un motore di ricerca non clicca e non apre
+cassetti: vedeva un `<button>` e basta.
+
+Conseguenza: Google avrebbe trovato `/en` solo dalla sitemap. Una pagina che
+nessuno linka riceve pochissima autorità interna, viene scansionata di rado e
+non eredita niente dalla home — cioè il contrario di quello che serve a una
+lingua nuova che parte da zero.
+
+**Corretto:** il menu delle lingue adesso sta **sempre nell'HTML** e da chiuso si
+nasconde con `hidden` (che toglie anche il fuoco da tastiera, quindi si naviga
+esattamente come prima e non cambia niente a vedersi). Verificato dopo la
+ricompilazione: **39 pagine** ora contengono
+`<a hrefLang="en" lang="en" href="/en">English</a>`. Il `display` passa da `none`
+a `block` al clic, come prima.
+
+⚠️ **Vale per tutte le lingue future**: appena aggiungiamo tedesco e sloveno,
+entrano da qui e sono subito linkate da tutto il sito.
+
+### Corretto anche: i metadati non dicevano quello che dice la pagina
+
+- La descrizione diceva **«16 minutes from the station»**, la pagina dice 15
+  (misurati su Maps). Allineati.
+- Descrizione, `og:description` e `twitter:description` promettevano
+  **«Triestine buffet»** come cosa che serviamo. Dopo la correzione del titolare
+  sui taglieri, non è vero: siamo una schiacciateria. Sostituito con
+  «small plates». La parola *buffet* resta nel titolo e nel corpo della pagina,
+  dove viene spiegata come falso amico — lì è informazione, non una promessa.
+
+### Cosa è risultato a posto
+
+| controllo | esito |
 |---|---|
-| da quale pagina | **home 5**, `/contatti` 2 |
-| da quale canale | Direct 3, Organic Search 2, **Organic Social 2** |
-| lingua del browser | italiano 4, **tedesco 2**, spagnolo 1 |
-| in che giorni | 14, 16, 17, 19, 20 agosto — **poi più niente** |
+| `<title>` | 54 caratteri, senza suffisso del marchio ✅ |
+| `description` | 154 caratteri ✅ |
+| canonical | `https://schiacciateriaretrotrieste.com/en` ✅ |
+| robots | `index, follow` ✅ |
+| hreflang | reciproco su `/` e `/en`, con `x-default` ✅ |
+| sitemap | `/en` presente ✅ |
+| titoli | un solo H1, 12 H2 in ordine logico ✅ |
+| dati strutturati | `Restaurant` + `FAQPage`, tutti e due validi ✅ |
+| Open Graph / Twitter | completi, con immagine 1200×669 ✅ |
+| immagini | 2, tutte con `alt` descrittivo ✅ |
+| immagine principale | 77 KB ✅ |
+| testo | ~2.725 parole ✅ |
+| resa | nessuno sfondamento a 1280 né a 375 ✅ |
+| generazione | prerenderizzata statica ✅ |
 
-⚠️ **È un minimo, non il totale:** il tag GA4 non parte finché la persona non
-accetta i cookie. GSC conta 241 clic da ricerca, GA4 ne vede 94 di sessione
-organica: **stiamo misurando circa il 40% delle persone.**
+### 🖼️ Messe le foto dei piatti (era il punto 3 dell'audit)
 
-### E il resto di GA4 dice cose che GSC non poteva dire
+**Tutte e nove le foto.** Vengono da `menuData.ts`, le stesse che usa il menu
+italiano: se una viene sostituita, si aggiorna in tutte le lingue insieme. Nuovo
+accesso `fotoDiMenu()` in `src/lib/prezziMenu.ts`, con la stessa regola dei
+prezzi — nome sbagliato = build che fallisce.
 
-- **`/menu` è la pagina più vista: 198 visualizzazioni contro 177 della home.**
-- **Il blog fa 13 visualizzazioni su 391 in totale.** In GSC risulta il 38% delle
-  impressioni; nella realtà **è il 3% di quello che la gente guarda**.
-- Utenti: luglio 15 → **agosto 114**.
-- Canali: Organic Search 94 sessioni, Direct 56, **Organic Social 24**, e
-  **2 sessioni da «AI Assistant»**.
-- Stranieri: **35 utenti su 129**, cioè il 27% — molto più del 7,8% che si vedeva
-  dalle impressioni in GSC.
+L'`alt` non e' il nome del piatto ma il ripieno in inglese
+(«Top de Gamma — mortadella, stracciatella cheese and chopped pistachio, on
+Roman focaccia»): e' l'unica cosa che un motore legge di un'immagine, ed e'
+la porta per la ricerca immagini in inglese. Sui taglieri il suffisso «on Roman
+focaccia» non c'e', perche' li' sarebbe ridondante.
+
+Tutte e otto in `lazy`, sono sotto la piega. L'immagine grande in cima resta
+l'unica caricata subito.
+
+### ⚠️ La foto della Porca Zozza mostra un altro piatto — tenuta comunque, per decisione del titolare
+
+`menuData.ts` le associa `porco_tartufato.webp`. **Guardata:** dentro c'e' un
+salume arrotolato, rucola, una crema bianca a puntini neri e **un tartufo nero
+appoggiato sul tagliere**. La Porca Zozza e' porchetta, crema cacio e pepe,
+cipolla croccante e grana — niente tartufo, niente rucola, e la cipolla
+croccante non si vede. E' la foto di un piatto vecchio rimasta attaccata al nome
+nuovo.
+
+L'avevo tolta. **Marco ha deciso il 28/08 di tenerla**, per non far divergere la
+pagina inglese dal menu italiano che gia' la mostra in produzione. Argomento a
+favore: **le immagini del sito sono dichiarate illustrative e generate con l'IA**
+(nota in fondo a ogni pagina), quindi nessuna delle nove e' la fotografia del
+piatto reale, e la coerenza fra le lingue vale piu' della differenza.
+
+La ragione e' scritta nel commento accanto alla voce in `enContenuti.ts`, con
+l'avvertenza di **non "correggerla" togliendo la foto**: e' una scelta, non una
+svista. La soluzione vera resta una fotografia giusta in `menuData.ts`, che
+aggiorna italiano e inglese insieme.
+
+⚠️ Nota al contrario: `estiva_per_davvero.webp`, associata a **Fit**, ha un nome
+altrettanto vecchio ma la foto e' **giusta** (pomodorini, zucchine grigliate,
+rucola, stracchino). Il nome del file non dimostra niente in nessuna delle due
+direzioni: vanno guardate una per una.
+
+### ⚙️ Next 16: `priority` era deprecato
+
+Le istruzioni del progetto dicono di leggere le guide in
+`node_modules/next/dist/docs/` prima di scrivere codice, e avevano ragione:
+**da Next 16 `priority` e' deprecato** in favore di `preload`, e la guida
+consiglia `loading="eager"` con `fetchPriority="high"` nella maggior parte dei
+casi. L'immagine grande di `/en` usava `priority`: sostituito. Verificato che
+nell'HTML generato non compaia piu'.
+
+Sempre da Next 16, le qualita' ammesse di default sono solo `[75]`: tutte le
+immagini della pagina usano quella.
+
+### 🌐 Il selettore di lingua adesso dice «Language»
+
+Prima mostrava il mappamondo e la sigla della lingua **corrente** — «IT» sulle
+pagine italiane. Sbagliato in due modi: a chi non parla italiano non diceva
+niente, e sembrava un'etichetta di stato invece che un comando. Chi arrivava
+sul sito in inglese non aveva modo di capire che da li' si cambiava lingua.
+
+Adesso: **mappamondo + «Language» + freccia** che ruota all'apertura. La parola
+e' la stessa che usano tutti e la riconosce anche chi non parla ne' italiano ne'
+inglese. Dentro, i nomi restano scritti nella lingua propria (Italiano ·
+English), come da regola gia' scritta nel file.
+
+Verificato che la barra non sfondi: a **1280** il bottone finisce a 1232 px e a
+**1024** a 976, in tutti e due i casi dentro il margine. La barra resta su una
+riga sola.
+
+**Il menu resta in italiano anche su `/en`, per decisione del titolare.**
+
+### Rimane aperto — decisioni del titolare
+
+1. **`<html lang="it">` anche su `/en`.** Il layout radice è uno solo per tutto
+   il sito. **Attenuato**: `<main lang="en">` c'è già nell'HTML servito, quindi i
+   lettori di schermo leggono il contenuto in inglese, e l'hreflang è corretto.
+   Google dichiara di ignorare `lang` per capire la lingua. Sistemarlo davvero
+   vuol dire spostare il sito nei route group di Next: **da fare prima della
+   terza lingua, non adesso.**
+2. **La barra in alto resta in italiano su `/en`** (HOME, MENU, BUFFET
+   TRIESTINO, BLOG, CHI SIAMO, CONTATTI). Chi legge la pagina in inglese trova
+   un menu che non capisce.
+3. **Zero foto dei piatti.** `menuData.ts` ne ha **48** già pronte e `/en` non
+   ne usa nemmeno una. È la mancanza più grossa: su una pagina di cibo le foto
+   sono metà del lavoro, e sono anche l'unico modo di entrare in ricerca
+   immagini.
+4. **`Restaurant` su `/en` è in italiano** (`description`, e `servesCuisine` con
+   «Cucina Triestina» e «Buffet Triestino»). È lo schema unico di tutto il sito.
+5. **Manca ancora la foto del dehor.**
+6. ~~Il titolo dice «Buffet Food».~~ **DECISO il 28/08: resta così.** Avevo
+   fatto notare che in inglese *buffet food* significa self-service, cioè
+   proprio il falso amico che la pagina spiega, e che il titolo è quasi sempre
+   l'unica cosa che si legge nei risultati. Marco ha scelto di tenere la parola
+   nel titolo e di tenere la sezione che la spiega. **Non riproporlo.**
+
+---
+
+## 2026-08-27 (15) — ✏️ CORRETTA la landing `/en` sulle osservazioni di Marco (ancora non pubblicata)
+
+Marco ha riletto la traduzione italiana affiancata e ha trovato **un errore di
+fatto mio**, più una serie di righe da cambiare.
+
+### L'errore: Duo Retrò, Muleria Retrò e Tavolata Ignorante NON sono buffet
+
+Nel menu stanno sotto `SFIZI_ALTRI` con l'etichetta «Giro Ignorante», e li avevo
+letti come piatti da buffet. **Sono schiacciate tagliate a pezzi per dividerle**:
+Duo = 1 schiacciata, 1 gusto, 4 pezzi. Muleria = 2 schiacciate, 2 gusti, 8 pezzi.
+Tavolata = 3 schiacciate, 3 gusti, 12 pezzi.
+
+Conseguenze già applicate: la sezione «From the buffet» è diventata «Il Giro
+Ignorante» e sta sotto le schiacciate; è sparita ogni menzione di un «banco
+buffet», che non esiste; la sezione che spiega cos'è un buffet triestino resta
+(serve al turista: è un falso amico) ma adesso chiude dicendo che **noi siamo una
+schiacciateria, non un buffet**.
+
+### Il servizio ai tavoli esiste
+
+Scrivevo «there is no waiter». Falso: ci sono più camerieri. Corretto.
+
+### Le linee dei bus, misurate su Google Maps il 27/08
+
+Prima la pagina diceva «non c'è un autobus che valga la pena»: inventato.
+
+| da | linea | fermata di discesa | totale |
+|---|---|---|---|
+| Molo dei Bersaglieri (crociere) | **9** da riva del Mandracchio (hotel Excelsior) | Via Battisti (Galleria Fenice) | **15 min** (a piedi 24) |
+| Trieste Centrale | **22** dir. Cattinara, anche 6 e 36 | Portici di Chiozza | **11 min** (a piedi 15) |
+
+**Fermata più vicina a noi: Via Battisti (Galleria Fenice), 150 m.** Ci passano
+le linee **3, 6, 9, 22, 35, 36, 57, 58, B**. Sui bus urbani di Trieste si paga
+appoggiando una carta contactless al lettore (verificato su triestetrasporti.it).
+
+### Sezione nuova: «How to avoid a tourist trap in Trieste»
+
+Marco ha chiesto di **tenere** l'intuizione dei dieci minuti verso l'interno (che
+avevo segnato da togliere) e di darle una forma che Google possa vedere. È
+diventata una sezione con H2 proprio, che punta a «tourist trap Trieste» e
+«where do locals eat in Trieste». **Le parole sono mie: da far rileggere.**
+
+### Due tasti nel hero + misura in GA4
+
+`Book a table` (WhatsApp) e `Get directions` (Maps). Non è servito codice nuovo:
+il listener delegato in `Analytics.tsx` riconosce già i due link e manda
+`whatsapp_click` e `directions_click`. Ho aggiunto l'attributo
+`data-ga-posizione`, che il listener rispedisce come parametro `posizione`:
+serve a separare in rapporto i click in cima da quelli in fondo.
+⚠️ **Per vederlo nei rapporti GA4 va registrata la dimensione personalizzata
+`posizione`** (Amministrazione → Definizioni personalizzate). Senza, si vede
+solo in DebugView.
+
+### Altre correzioni
+
+- FAQ «devo prenotare?»: da «no» a **«non è obbligatorio ma è consigliato»**,
+  in pagina e nei dati strutturati.
+- Glossario «in b»: adesso ripete le espressioni intere, «un nero in b» e
+  «un capo in b».
+- Tolti dal fondo pagina «niente attesa» e «nessun codice di abbigliamento»:
+  non li ha detti nessuno.
+- Battute aggiunte, dettate da Marco: «non siamo mica francesi 💓» sullo spritz,
+  e sul conto da 50 € «hai comprato tanta birra e probabilmente anche degli
+  amici nuovi».
+
+### Corretto subito dopo, su segnalazione di Marco
+
+- **Dal Viale il mare NON si vede.** Avevo scritto «puoi ancora vedere il mare dal
+  fondo della via, devi solo girarti»: falso. Adesso dice che quello a cui
+  rinunci è la vista sul mare, e che il mare c'è ancora dopo pranzo.
+- **I cartellini rossi non avevano traduzione italiana.** Sono `<span>`, e lo
+  strumento di revisione salta gli span di proposito (spezzerebbe a metà le
+  frasi che ne contengono uno). Ho aggiunto l'attributo `data-traduci` ai
+  cartellini e alle pronunce del glossario: adesso hanno il riquadro anche loro.
+  Riquadri totali: **171**.
+
+### ✅ GA4: dimensione `posizione` registrata — e come si entra
+
+Registrata il 28/08 in **SaintJack Studios › Schiacciateria Retrò Trieste**:
+dimensione personalizzata **«Posizione del link»**, ambito **Evento**,
+parametro `posizione`. Da adesso in rapporto si separano i click su `hero`,
+`come-arrivare`, `orari` e `footer`. Non è retroattiva.
+
+⚠️ **Il modo di entrare, che mi è costato mezz'ora.** Le proprietà dei clienti
+NON si vedono dall'account Google predefinito: quello apre *villa marittimi*, e
+ogni clic sul selettore in alto apre il riquadro bloccante «My email
+communications», che si chiude solo scrivendo le preferenze email dell'account.
+**Le proprietà dei clienti stanno su `saintjackstudios@gmail.com`, che è
+`authuser=1`.** Si entra diretti, senza toccare il selettore:
+
+```
+https://analytics.google.com/analytics/web/?authuser=1#/a399948947p547590126/admin/customdefinitions/hub
+```
+
+`a399948947` = account SaintJack Studios · `p547590126` = Schiacciateria Retrò
+Trieste. Con `authuser=1` il riquadro delle email non compare.
+
+### ⚠️ `whatsapp_click` non è un evento chiave, e non lo si può ancora rendere tale
+
+Controllato lo stesso giorno. Eventi chiave attivi: `directions_click` ⭐ e
+`phone_click` ⭐. Negli eventi ricevuti negli ultimi 28 giorni ce ne sono otto —
+`click`, `directions_click`, `first_visit`, `page_view`, `phone_click`,
+`scroll`, `session_start`, `user_engagement` — e **`whatsapp_click` non c'è:
+nessuno ha mai cliccato un link WhatsApp sul sito.** GA4 non permette di
+stellare un evento che non ha mai ricevuto (verificato: sotto «Custom
+configurations» ci sono solo *Custom events* e *Modifications*, nessuna
+creazione per nome).
+
+Conta perché **il tasto nuovo «Book a table» del hero porta proprio su
+WhatsApp**: al primo clic vero l'evento comparirà nell'elenco e da quel momento
+si potrà mettere la stella. **Da ricontrollare dopo la pubblicazione.**
+
+### Confermato dal titolare il 28/08
+
+- **I tavoli dentro ci sono**, ma si usano soprattutto d'inverno: d'estate si sta
+  tutti fuori. Non è più una mia deduzione, ed è finito in pagina con la
+  stagione, che a un turista serve saperla prima di venire a luglio.
+- **I posti di carico/scarico dopo le 20:** Marco sa che si liberano, ma non
+  vuole prendersi una responsabilità che non ci compete. **Non è stato scritto.**
+  La pagina continua a dire solo di leggere il cartello dei posti blu.
+
+### Confermato il 28/08 — le note delle birre
+
+Marco ha confermato le cinque righe di descrizione delle birre (*quella facile ·
+secca e amara · forte, stile belga · torbida apposta · se vuoi un consiglio è
+questa*). Le avevo dedotte dallo stile scritto sul menu senza averle assaggiate,
+ed erano segnate come mie: adesso non lo sono più.
+
+Restano da verificare due cose che dipendono dal locale e non dal menu:
+**«cinque alla spina più una che ruota»** è ancora vero? La forbice di prezzo si
+aggiorna da sola da `menuData.ts` e non va toccata.
+
+### ⚠️ Due «spie» della sezione trappole erano autogol — sostituite
+
+Marco le ha viste subito, e aveva ragione tutte e due le volte.
+
+| tolta | perché | messa al suo posto |
+|---|---|---|
+| «un menu stampato in sei lingue…» | **le sei lingue le stiamo facendo noi**: la pagina che il turista sta leggendo è una di quelle | «una cucina sola che fa pizza, sushi e paella non è brava in nessuna delle tre» |
+| «se c'è qualcuno fuori che ti invita a entrare…» | i camerieri di Retrò **lavorano nel dehor tutto il giorno**. Che non abbordino nessuno lo sa il titolare; il turista che arriva sul Viale vede solo gente in piedi davanti a un locale | «se sul menu non ci sono i prezzi, il prezzo lo decidono dopo averti visto» |
+
+La terza — la sala piena di gente che parla la lingua del posto alle quattro del
+pomeriggio — Marco l'ha approvata e resta.
+
+**Le due nuove sono state verificate contro il menu vero:** `menuData.ts` non
+contiene né pizza né sushi né paella (zero occorrenze), e **tutti e 27 i piatti
+hanno un prezzo**. Descrivono l'opposto di questo locale, quindi la lista adesso
+è una vanteria mascherata invece di un autogol.
+
+**Regola che ne esce:** una lista di «come riconoscere un posto brutto» va
+sempre riletta come se la scrivesse un concorrente, cercando quali righe
+colpiscono il cliente stesso.
+
+### Stato
+
+Build pulita, `/en` ancora prerenderizzata statica, nessun errore in console,
+nessuno sfondamento orizzontale a 1280 né a 375. **Non pubblicata.**
+Restano 18 riquadri arancioni (righe scritte o dedotte da me) da far decidere a
+Marco; i 4 rossi non ci sono più. `traduzioneIT.ts` e `TraduzioneSotto.tsx`
+**vanno cancellati prima di pubblicare**: sono strumenti di revisione locale e
+non entrano nel pacchetto di produzione (verificato con grep sulla build).
+
+---
+
+## 2026-08-27 (14) — 🔨 COSTRUITA in locale la landing inglese `/en` (non pubblicata)
+
+Marco: *«all'interno della landing page di lingua diversa si mettono tutte le
+informazioni… non possiamo sapere come arrivano. Comincia dall'inglese»*.
+
+Contenuti **dettati da lui** (schiacciata, buffet, cosa bere, prezzi, come si
+arriva, disclaimer, risposte FAQ). Io ho scritto in inglese e costruito.
+
+### Le distanze: misurate, non stimate
+
+Il sito **non diceva da nessuna parte** quanti minuti siamo da qualcosa. Adesso
+sì, misurate su Google Maps il 27/08 (percorso a piedi):
+
+| da | tempo | distanza |
+|---|---|---|
+| Molo dei Bersaglieri (crociere) | **24 min** | 1,7 km |
+| Trieste Centrale | **16 min** | 1,0 km |
+| Piazza Unità d'Italia | **16 min** | 1,1 km |
+| Aeroporto TRS → Centrale (treno) | **29-32 min** | + i 16 a piedi |
+| Geparkom (parcheggio) | **< 1 min** | è accanto |
+
+⚠️ Il parcheggio si chiama **Geparkom Trieste XX Settembre**, Via Spiro Tipaldo
+Xydias 6. L'articolo italiano `dove-parcheggiare-trieste-sera.md` lo chiama
+«GePark»: **nome sbagliato, da correggere.**
+
+### Struttura tecnica (è questa che vale, non la singola pagina)
+
+- `/en` — indirizzo suo, pagina statica, **non** traduzione automatica
+- **hreflang reciproco** `it-IT` / `en` / `x-default` su `/` e su `/en`
+  — è esattamente l'errore a senso unico trovato su Villa Marittimi
+- selettore di lingua in `SelettoreLingua.tsx`, in testata e nel cassetto mobile
+- `src/lib/prezziMenu.ts`: **i prezzi restano solo in `menuData.ts`.** Le pagine
+  in lingua chiedono il prezzo per nome del piatto. Se un nome sparisce **la
+  build fallisce** invece di mettere online un prezzo inventato
+- FAQ in `FAQPage` JSON-LD, generate dalla stessa lista del testo visibile
+- `/en` in sitemap
+- banner cookie e barra mobile ora parlano inglese su `/en`: **GA4 non parte
+  senza consenso**, e un turista che non capisce il banner non lo clicca — cioè
+  perdiamo proprio la visita che questa pagina serve a portare
+
+### Verifiche
+
+`npm run build` pulito, `/en` prerenderizzata statica. Nessun errore in console.
+Prezzi letti davvero da `menuData.ts` (€8.50 / €10.00 / €6.00 / €12.00 / €16.00).
+Nessuno scorrimento orizzontale a 1280 e a 375. `lang` corretto su entrambe.
+Trovato e corretto un errore di idratazione nella barra mobile (il layout radice
+è generato una volta sola e non conosce il percorso).
+
+### 🔴 Marco: «mi sembra che hai scritto delle stronzate» — aveva ragione
+
+Chiesta una traduzione italiana per poter controllare l'inglese. Costruita
+`/en/controllo`: inglese vero a sinistra, traduzione **letterale** a destra,
+piu' un'etichetta per riga — *detto da te* / *dato verificato* / **scritto da me**.
+Solo in locale: in produzione la rotta risponde **404** (verificato nel
+`.meta` della build), piu' `noindex`, fuori da sitemap, nessun link.
+
+**Le 56 righe del confronto sono state verificate una per una contro l'HTML
+davvero servito**, non contro il sorgente: se una frase non esistesse in
+pagina, il controllo fallirebbe.
+
+**11 righe mie, 4 da togliere.** Il problema non e' l'inglese: e' che avevo
+scritto cose che nessuno mi aveva detto.
+
+**Lo schema, ed e' sempre lo stesso:** tre volte in una pagina sola ho
+insinuato che i locali delle Rive e di Piazza Unita' siano cari perche' stanno
+li'. *«e' tutto qui il motivo per cui i prezzi sono questi»*, *«la maggior parte
+dei turisti non arriva mai cosi' all'interno, ed e' per questo che i prezzi
+cambiano»*, *«dieci minuti piu' dentro rispetto a dove si fermano le guide»*.
+Nessuna delle tre e' di Marco. Sono frecciate ai concorrenti su una pagina
+pubblica, e non aggiungono niente a chi legge.
+
+**Due fatti operativi inventati per deduzione:** «non c'e' un cameriere» e «ci
+sono tavoli dentro». Nessuno dei due me li ha detti nessuno.
+
+**Piu' una riga sbagliata e basta:** «non c'e' un autobus che valga la pena»
+dalla stazione. Non ho verificato nessuna linea, e chi ha una valigia
+l'autobus lo vuole.
+
+⚠️ **Regola per le prossime sette lingue.** Il rischio del multilingua non e'
+la grammatica: e' che il cliente **non puo' rileggere** quello che pubblichiamo
+a nome suo. Ogni lingua deve avere la sua pagina di controllo prima del via.
+
+---
+
+### Le tre risposte mancanti — arrivate lo stesso giorno
+
+- **vegetariani, tutti confermati**: oltre a *Fit*, anche Bruschettone Classico,
+  Patatine Fritte, Chifeletti, Schiacciata alla Nutella, Chifeletti alla
+  Nutella. L'olio condiviso non è un problema. La FAQ inglese ora li **elenca
+  per nome**. Sblocca anche le caselle Vegetarian delle 31 voci sulla scheda
+  Google, lasciate vuote proprio perché mancava questa conferma
+- **Geparkom: 8:00-20:00.** Chi viene a cena lo trova chiuso all'uscita — era
+  una trappola vera, ed è scritta in pagina prima che uno parta. Con la parte
+  utile della risposta: dalle 20 la gente torna a casa dal lavoro e i posti in
+  strada si liberano.
+  ⚠️ **Scritto più prudente di come me l'ha detto.** Marco ha nominato anche i
+  posti di carico e scarico: non li ho messi. Se un turista prende la multa, la
+  colpa la dà al locale che gliel'ha consigliato. La pagina dice di leggere il
+  cartello delle strisce blu
+- **il dehor è vero e c'è tutto l'anno**: nuova sezione *Where you sit* + FAQ.
+  🔴 **Manca la foto.** Fra le immagini del sito non ce n'è nessuna dei tavolini
+  fuori; l'unica del Viale è invernale e vuota. Non ne ho generata una: sarebbe
+  una foto finta di un posto vero, ed è quello che il turista viene a
+  controllare. Serve una fotografia col telefono
+- **il micro-glossario**: Marco si è offerto di farsi intervistare sulle parole
 
 ---
 
@@ -102,6 +536,52 @@ va fatta rileggere da chi il tedesco lo parla, prima di pubblicare.**
 **Con scadenza:** due pagine, hreflang reciproco, in navigazione, e **si rilegge
 la Search Console dopo 8 settimane**. Se il tedesco fa zero come `/en` di Villa
 Marittimi, ci si ferma avendo speso due pagine.
+
+---
+
+## 2026-08-27 (12) — 🟢 PUBBLICATA la correzione dello spritz. E GA4 finalmente parla
+
+Marco: *«pubblica la correzione dello spritz e prenditi l'accesso per la
+schiacciateria»*, con lo screenshot del selettore GA4.
+
+### Online
+
+Ramo `correzione-spritz`, merge `--no-ff`, commit `3a384be`. Deploy Vercel
+`success` in ~1 minuto. **Verificato in produzione:**
+
+- titolo: «Spritz a Trieste: cosa ti arriva se ordini uno spritz» (53 caratteri)
+- «never orange» e «non è arancione»: **spariti da tutte e tre le pagine**
+- «spruzzato»: presente
+- H1 visibile allineato al titolo
+
+### GA4: la risposta alla domanda di Marco è **7**
+
+Proprietà **`547590126`** (Schiacciateria Retrò Trieste, account SaintJack
+Studios `399948947`). Ora tutti e cinque i siti hanno il numero in `siti.json`.
+
+**`directions_click` = 7. `phone_click` = 2.** Dal 01/07/2026, tutti ad agosto.
+
+| dettaglio | |
+|---|---|
+| da quale pagina | **home 5**, `/contatti` 2 |
+| da quale canale | Direct 3, Organic Search 2, **Organic Social 2** |
+| lingua del browser | italiano 4, **tedesco 2**, spagnolo 1 |
+| in che giorni | 14, 16, 17, 19, 20 agosto — **poi più niente** |
+
+⚠️ **È un minimo, non il totale:** il tag GA4 non parte finché la persona non
+accetta i cookie. GSC conta 241 clic da ricerca, GA4 ne vede 94 di sessione
+organica: **stiamo misurando circa il 40% delle persone.**
+
+### E il resto di GA4 dice cose che GSC non poteva dire
+
+- **`/menu` è la pagina più vista: 198 visualizzazioni contro 177 della home.**
+- **Il blog fa 13 visualizzazioni su 391 in totale.** In GSC risulta il 38% delle
+  impressioni; nella realtà **è il 3% di quello che la gente guarda**.
+- Utenti: luglio 15 → **agosto 114**.
+- Canali: Organic Search 94 sessioni, Direct 56, **Organic Social 24**, e
+  **2 sessioni da «AI Assistant»**.
+- Stranieri: **35 utenti su 129**, cioè il 27% — molto più del 7,8% che si vedeva
+  dalle impressioni in GSC.
 
 ---
 

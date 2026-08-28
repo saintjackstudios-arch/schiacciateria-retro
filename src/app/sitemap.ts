@@ -24,6 +24,7 @@ const ULTIMA_MODIFICA = {
   buffetTriestino: '2026-08-26',   // correzioni ai piatti dettate dal titolare
   chiSiamo: '2026-07-21',
   contatti: '2026-08-18',
+  en: '2026-08-28',                // landing inglese, prima pubblicazione
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -46,6 +47,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: ULTIMA_MODIFICA.home,
       changeFrequency: 'weekly',
       priority: 1.0,
+    },
+    // La landing inglese. Sta in sitemap perche' nessuna pagina italiana la
+    // linka con un link normale (il selettore di lingua e' un link, ma Google
+    // ci mette meno a trovarla da qui) e perche' e' l'unica porta del sito per
+    // chi cerca in inglese.
+    {
+      url: `${baseUrl}/en`,
+      lastModified: ULTIMA_MODIFICA.en,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/menu`,
