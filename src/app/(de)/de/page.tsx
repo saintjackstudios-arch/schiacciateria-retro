@@ -1,23 +1,22 @@
 import { Metadata } from 'next';
-import EnClient from './EnClient';
-import { FAQ } from './enContenuti';
+import DeClient from './DeClient';
+import { FAQ } from './deContenuti';
 
 const URL_IT = 'https://schiacciateriaretrotrieste.com';
 const URL_EN = 'https://schiacciateriaretrotrieste.com/en';
 const URL_DE = 'https://schiacciateriaretrotrieste.com/de';
 
 export const metadata: Metadata = {
-  // `absolute` toglie il suffisso "| Schiacciateria Retrò Trieste" del layout:
-  // sono 31 caratteri su 60, e su questa pagina il nostro nome non lo cerca
-  // nessuno. Chi arriva qui cerca "where to eat in trieste", non noi.
-  title: { absolute: 'Where to Eat in Trieste: Schiacciata & Buffet Food' },
+  // Come sulla pagina inglese: `absolute` toglie il suffisso col nostro nome,
+  // che qui non cerca nessuno. Chi arriva cerca dove si mangia a Triest.
+  title: { absolute: 'Wo man in Triest isst: Schiacciata & Buffet' },
   description:
-    'What to eat in Trieste and where. Schiacciata, small plates and beer on Viale XX Settembre — 15 minutes on foot from the station, 24 from the cruise pier.',
+    'Was man in Triest isst und wo. Schiacciata, kleine Teller und Bier am Viale XX Settembre — 15 Minuten zu Fuß vom Bahnhof, 24 vom Kreuzfahrtterminal.',
   alternates: {
-    canonical: URL_EN,
-    // hreflang RECIPROCO: la pagina italiana dichiara questa e questa dichiara
-    // quella. Se il rimando va in una direzione sola Google lo ignora, ed e'
-    // esattamente l'errore che abbiamo trovato su Villa Marittimi.
+    canonical: URL_DE,
+    // hreflang RECIPROCO fra tutte e tre le lingue: ognuna dichiara le altre
+    // due e se stessa. Se una dichiarazione va in una direzione sola Google la
+    // ignora, ed e' l'errore trovato su Villa Marittimi.
     languages: {
       'it-IT': URL_IT,
       en: URL_EN,
@@ -27,26 +26,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_GB',
-    url: URL_EN,
+    locale: 'de_DE',
+    url: URL_DE,
     siteName: 'Schiacciateria Retrò Trieste',
-    title: 'Where to Eat in Trieste: Schiacciata & Buffet Food',
+    title: 'Wo man in Triest isst: Schiacciata & Buffet',
     description:
-      'Schiacciata, small plates and cold beer on Viale XX Settembre. 15 minutes on foot from Trieste Centrale, 24 from the cruise pier.',
+      'Schiacciata, kleine Teller und kaltes Bier am Viale XX Settembre. 15 Minuten zu Fuß vom Bahnhof Trieste Centrale, 24 vom Kreuzfahrtterminal.',
     images: [
       {
         url: '/images/menu_hero_schiacciata.webp',
         width: 1200,
         height: 669,
-        alt: 'A schiacciata at Schiacciateria Retrò in Trieste',
+        alt: 'Eine Schiacciata in der Schiacciateria Retrò in Triest',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Where to Eat in Trieste: Schiacciata & Buffet Food',
+    title: 'Wo man in Triest isst: Schiacciata & Buffet',
     description:
-      'Schiacciata, small plates and cold beer on Viale XX Settembre, Trieste.',
+      'Schiacciata, kleine Teller und kaltes Bier am Viale XX Settembre, Triest.',
     images: ['/images/menu_hero_schiacciata.webp'],
   },
 };
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  inLanguage: 'en',
+  inLanguage: 'de',
   mainEntity: FAQ.map((riga) => ({
     '@type': 'Question',
     name: riga.q,
@@ -65,14 +64,14 @@ const faqJsonLd = {
   })),
 };
 
-export default function EnPage() {
+export default function DePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <EnClient />
+      <DeClient />
     </>
   );
 }

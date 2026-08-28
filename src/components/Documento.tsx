@@ -25,7 +25,7 @@ export default function Documento({
   lingua,
   children,
 }: Readonly<{
-  lingua: 'it' | 'en';
+  lingua: 'it' | 'en' | 'de';
   children: React.ReactNode;
 }>) {
   return (

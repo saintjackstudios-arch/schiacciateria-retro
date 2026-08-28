@@ -111,3 +111,23 @@ export function forbiceEN(voci: MenuItem[]): { min: string; max: string } {
 export function fotoDiMenu(nome: string): string | undefined {
   return voceDiMenu(nome).image;
 }
+
+/** Prezzo formattato al tedesco: 8.5 -> "8,50 €". */
+export function prezzoDE(nome: string): string {
+  const { price } = voceDiMenu(nome);
+  if (typeof price === 'number') return `${price.toFixed(2).replace('.', ',')} €`;
+  return price;
+}
+
+/**
+ * Come forbiceEN, ma scritta al tedesco.
+ *
+ * La virgola decimale e il simbolo dopo la cifra non sono una scelta di
+ * stile: in tedesco "€8.50" si legge male come in italiano. Il prezzo e' lo
+ * stesso numero, letto da menuData.ts esattamente come per le altre lingue.
+ */
+export function forbiceDE(voci: MenuItem[]): { min: string; max: string } {
+  const { min, max } = forbiceEN(voci);
+  const alTedesco = (s: string) => `${s.replace('€', '').replace('.', ',')} €`;
+  return { min: alTedesco(min), max: alTedesco(max) };
+}

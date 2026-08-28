@@ -4,6 +4,85 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (19) — 🇩🇪 COSTRUITA la landing tedesca `/de` (non pubblicata)
+
+Marco: *«nessuno rilegge il tedesco. però in teoria non dovrebbe servire. non
+devi riscrivere i testi. non devi cambiare assolutamente nulla rispetto alla
+pagina in inglese. deve essere uguale solo tradotta»* e poi *«traduci e basta.
+adesso non è il momento di prendere iniziative»*.
+
+### Il ragionamento di Marco, che regge
+
+Le quindici correzioni che ha fatto sull'inglese erano **tutte invenzioni**: il
+cameriere che non c'era, i taglieri che venivano dal buffet, il mare che si
+vedeva dal viale, il modo di dire inglese inesistente. Nessuna era una parola
+tradotta male. Se il tedesco non aggiunge niente, **quella classe di errori non
+ha piu' il posto dove nasce**. Per questo `/de` non ha un revisore e va bene
+cosi'.
+
+📌 **REGOLA: `/de` e' `/en` tradotta, blocco per blocco.** Se un blocco va
+cambiato si cambia PRIMA in inglese e poi in tedesco. Se le due divergono,
+nessuno se ne accorge — non c'e' nessuno che rilegge il tedesco.
+
+### Cosa e' stato tradotto
+
+`src/app/(de)/de/deContenuti.ts` (6 schiacciate, 3 giri, 5 birre, 5 modi di
+arrivare, la fermata, 8 voci di glossario, 12 FAQ) e tutti i testi in pagina in
+`DeClient.tsx`: 12 H2, i due tasti dell'hero, il disclaimer, le tre spie della
+trappola per turisti, gli orari, il piede.
+
+**Quattro cose NON sono traduzioni parola per parola, e sono tutte obbligate:**
+
+1. **Le pronunce del glossario.** `skyat-CHA-ta` funziona per un inglese; un
+   tedesco legge «CHA» come /xa/. Riscritte con l'ortografia tedesca:
+   `skiatt-SCHA-ta`, `schprits BJAN-ko`, `reh-be-KIN`.
+2. **I prezzi.** `prezzoDE`/`forbiceDE` in `src/lib/prezziMenu.ts` scrivono
+   `8,50 €` invece di `€8.50`. Stesso numero, letto da `menuData.ts` come per
+   le altre lingue: cambia solo la virgola, che in tedesco e' la regola.
+3. **L'`alt` delle foto** non passa piu' da `toLowerCase()`: in tedesco i
+   sostantivi sono maiuscoli, e minuscolare scriverebbe «stracciatella-käse».
+4. **Il «du».** L'inglese dice *you* e non sceglie, il tedesco deve. Il sito
+   italiano da' del tu e l'inglese e' confidenziale: il «Sie» avrebbe reso la
+   pagina tedesca **piu' formale dell'originale**, che sarebbe una modifica.
+
+### Due frasi che vanno segnalate a Marco
+
+- La FAQ **«Spricht bei euch jemand Englisch?» → «Ja»**. E' la traduzione
+  fedele della domanda inglese. Sulla pagina tedesca dice a un austriaco che al
+  banco si parla inglese, non tedesco. **E' voluto: non sappiamo se qualcuno
+  parla tedesco, e inventarlo sarebbe la cosa peggiore.**
+- Il glossario spiega **Kren** («Kren ist Meerrettich») e lo **Spritz bianco**.
+  In Austria *Kren* e' la parola di tutti i giorni per il rafano e lo
+  *Spritzer* e' roba loro: due voci su otto spiegano a un viennese parole che
+  usa lui. **Segnalato prima di tradurre, Marco ha detto di tradurre e basta.**
+
+### Verificato sulla build
+
+- **46 pagine** (erano 45). `<html lang>`: 37 `it`, 1 `en`, **1 `de`**.
+- **Nessun residuo inglese** nel testo visibile di `/de` (controllato
+  spogliando l'HTML da script, stili e tag).
+- **hreflang reciproco a tre**: home, `/en` e `/de` dichiarano tutte e tre le
+  lingue piu' `x-default`. Nessuna dichiarazione a senso unico.
+- Canonical `…/de`, `FAQPage` con `inLanguage: de`, **12 domande nello schema e
+  12 in pagina**, 11 immagini, sitemap a 36 URL.
+- **39 pagine su 41 linkano `/de`**: entra dal selettore di lingua, come
+  previsto quando l'abbiamo reso sempre presente nell'HTML.
+- Banner cookie e barra mobile parlano tedesco su `/de` ed ereditano `lang=de`.
+- Selettore di lingua verificato a schermo: ITALIANO · ENGLISH · ✓ DEUTSCH.
+- Gli unici errori in console sono i font di Google, bloccati dal browser
+  interno: **identici sulla home italiana**, quindi non vengono da qui.
+
+### Come si controlla senza sapere il tedesco
+
+Si **ritraduce indietro** con un motore diverso da quello che l'ha scritta
+(DeepL, Google Traduttore) e si legge l'italiano che esce. Non dice se il
+tedesco e' elegante — dice se una frase ha girato di senso, che e' l'unica cosa
+che ci puo' far male.
+
+**Non pubblicata. In locale su `http://localhost:3103/de`.**
+
+---
+
 ## 2026-08-28 (18) — 🔧 Il `lang` sbagliato su `/en`, sistemato con i route group (non pubblicato)
 
 Marco: *«sistema il lang con i route group»*.

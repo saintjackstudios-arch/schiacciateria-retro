@@ -18,6 +18,7 @@ const TEL = 'tel:+393756264680';
 const TESTI = {
   it: { chiama: 'Chiama', indicazioni: 'Indicazioni', ariaChiama: 'Chiama Schiacciateria Retrò' },
   en: { chiama: 'Call us', indicazioni: 'Directions', ariaChiama: 'Call Schiacciateria Retrò' },
+  de: { chiama: 'Anrufen', indicazioni: 'Anfahrt', ariaChiama: 'Schiacciateria Retrò anrufen' },
 } as const;
 
 export default function MobileDirectionsBar() {
@@ -32,8 +33,14 @@ export default function MobileDirectionsBar() {
   const [montato, setMontato] = useState(false);
   useEffect(() => { setMontato(true); }, []);
 
-  const inglese = montato && (pathname === '/en' || pathname.startsWith('/en/'));
-  const t = inglese ? TESTI.en : TESTI.it;
+  const lingua = !montato
+    ? 'it'
+    : pathname === '/en' || pathname.startsWith('/en/')
+      ? 'en'
+      : pathname === '/de' || pathname.startsWith('/de/')
+        ? 'de'
+        : 'it';
+  const t = TESTI[lingua];
   const base =
     'flex-1 flex items-center justify-center gap-2 py-3.5 font-display font-black uppercase italic text-base tracking-tight active:opacity-80';
 
