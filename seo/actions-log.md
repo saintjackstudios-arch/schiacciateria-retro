@@ -4,6 +4,72 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (20) — 🔍 Rimesso lo strumento di revisione, questa volta sul tedesco
+
+Marco: *«mettimi una specie di sottotitolo in italiano così controllo»*.
+
+Sull'inglese l'avevamo cancellato al momento di pubblicare, ed era giusto:
+l'inglese Marco lo legge. Sul tedesco non lo legge nessuno di noi, quindi il
+riquadro italiano sotto ogni blocco **e' l'unico controllo che esiste**.
+
+### Perche' non ho riusato quello di prima
+
+`traduzioneIT.ts` non era mai finito in git — l'avevo cancellato prima di fare
+`git add`. L'ho ritrovato nella trascrizione della sessione, ma era la **prima**
+versione: dentro c'era l'inglese di prima delle correzioni di Marco («16
+minutes», «There is no waiter», «Triestine buffet and cold beer»). Riusarla
+avrebbe messo sotto il tedesco di oggi l'italiano di ieri — cioe' il contrario
+di un controllo. **Riscritta da zero sul tedesco vero.**
+
+### Come e' fatto
+
+`src/app/(de)/de/traduzioneIT.ts`: **172 righe**, chiave = il testo tedesco
+*come si legge a schermo*. Le chiavi non le ho battute a mano: le ho estratte
+dalla pagina viva con la stessa regola che usa il componente, cosi' non possono
+non combaciare. Dove il CSS scrive in maiuscolo la chiave e' in maiuscolo, e la
+`ß` diventa `SS` («zu Fuß» → «ZU FUSS»).
+
+`src/components/TraduzioneSotto.tsx`: gira sulle foglie di testo e infila un
+riquadro bianco dopo ognuna. Due regole nuove rispetto alla versione inglese:
+
+1. **Uno `<span>` dentro un titolo non lo squalifica piu' da foglia.** Prima
+   «WAS IST EINE SCHIACCIATA?» restava senza riquadro perche' conteneva una
+   parola colorata, e nemmeno lo span lo prendeva. Adesso il titolo lo prende
+   intero, ed erano quattro titoli (l'H1, le due domande, il blocco spritz).
+2. **Gli `<span>` che stanno per conto loro si prendono, quelli in mezzo a una
+   frase no.** Cosi' le targhette rosse e le pronunce del glossario hanno il
+   loro riquadro **senza dover sporcare la pagina con `data-traduci`**, che
+   sull'inglese avevo dovuto aggiungere.
+
+Aspetta 700 ms prima di disegnare: framer-motion e il banner dei cookie
+arrivano dopo il primo giro.
+
+### Verificato
+
+- **167 riquadri messi, 31 righe scoperte** — e sono tutte e 31 cose che non si
+  traducono: il menu di navigazione (gia' italiano), i nomi dei piatti, i nomi
+  delle birre, le parole del glossario (che *sono* le parole triestine),
+  «Questo sito in italiano →» e il tasto dello strumento stesso.
+- **Una riga mancava davvero**: il secondo paragrafo dello spritz. L'ha trovata
+  il contatore, non io — che e' esattamente il motivo per cui il contatore c'e'.
+- **Zero tracce in produzione**: `next build` pulito, 46 pagine, e nelle
+  cartelle `.next/static` e `.next/server` non compare ne' `TraduzioneSotto` ne'
+  una sola parola della tabella. Nel testo visibile dell'HTML di `/de`: zero.
+- Tre riquadri sono **arancioni**: sono i due punti gia' segnalati (il Kren e lo
+  Spritz spiegati a un austriaco) e la FAQ che dice che al banco si parla
+  inglese. Non sono errori: sono le cose che Marco deve vedere mentre rilegge.
+
+### ⚠️ Prima di pubblicare
+
+**Vanno cancellati `src/app/(de)/de/traduzioneIT.ts` e
+`src/components/TraduzioneSotto.tsx`**, insieme al montaggio in fondo a
+`DeClient.tsx` e all'import di `next/dynamic`. Stessa procedura dell'inglese.
+
+**Non pubblicato. Si vede col server di sviluppo su `http://localhost:3102/de`
+— in produzione i riquadri non esistono.**
+
+---
+
 ## 2026-08-28 (19) — 🇩🇪 COSTRUITA la landing tedesca `/de` (non pubblicata)
 
 Marco: *«nessuno rilegge il tedesco. però in teoria non dovrebbe servire. non

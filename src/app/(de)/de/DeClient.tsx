@@ -15,6 +15,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, Beer, Bus, CalendarCheck, Car, Clock, Footprints, MapPin,
@@ -34,6 +35,15 @@ const MAPS_URL =
   'https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste';
 
 const ICONE_ARRIVO = { cruise: Ship, train: Train, plane: Plane, car: Car, walk: Footprints } as const;
+
+// Caricato a parte e SOLO in locale: cosi' la tabella con la traduzione
+// italiana non entra nel JavaScript che il sito spedisce ai visitatori.
+// E' lo strumento di revisione del tedesco. Prima di pubblicare si cancella,
+// insieme a src/app/(de)/de/traduzioneIT.ts.
+const TraduzioneSotto =
+  process.env.NODE_ENV === 'production'
+    ? () => null
+    : dynamic(() => import('@/components/TraduzioneSotto'), { ssr: false });
 
 /**
  * La foto di un piatto dentro la scheda.
@@ -821,6 +831,11 @@ export default function DeClient() {
           </p>
         </div>
       </footer>
+
+      {/* 🔒 SOLO IN LOCALE: la traduzione italiana sotto ogni blocco, perche'
+          Marco possa rileggere quello che pubblichiamo in tedesco a nome del
+          cliente. In produzione questo blocco non viene nemmeno disegnato. */}
+      {process.env.NODE_ENV !== 'production' && <TraduzioneSotto />}
     </main>
   );
 }
