@@ -4,6 +4,7 @@ import { FAQ } from './enContenuti';
 
 const URL_IT = 'https://schiacciateriaretrotrieste.com';
 const URL_EN = 'https://schiacciateriaretrotrieste.com/en';
+const URL_DE = 'https://schiacciateriaretrotrieste.com/de';
 
 export const metadata: Metadata = {
   // `absolute` toglie il suffisso "| Schiacciateria Retrò Trieste" del layout:
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
     languages: {
       'it-IT': URL_IT,
       en: URL_EN,
+      de: URL_DE,
       'x-default': URL_IT,
     },
   },

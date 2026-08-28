@@ -35,12 +35,26 @@ const TESTI = {
     rifiuta: 'REJECT',
     note: 'More in the legal notes',
   },
+  de: {
+    badge: 'ZIEMLICH WICHTIG!',
+    titolo: 'Wir haben Cookies! 🍪',
+    testo:
+      'Wir verwenden Cookies, damit die Website funktioniert, und um zu zählen, wie viele Leute uns besuchen (über Google Analytics). Ob du sie annimmst, entscheidest ganz allein du.',
+    accetta: 'ALLE AKZEPTIEREN',
+    rifiuta: 'ABLEHNEN',
+    note: 'Mehr in den rechtlichen Hinweisen',
+  },
 } as const;
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
-  const t = pathname === '/en' || pathname.startsWith('/en/') ? TESTI.en : TESTI.it;
+  const t =
+    pathname === '/en' || pathname.startsWith('/en/')
+      ? TESTI.en
+      : pathname === '/de' || pathname.startsWith('/de/')
+        ? TESTI.de
+        : TESTI.it;
 
   useEffect(() => {
     // Check if the user has already made a choice

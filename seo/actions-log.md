@@ -4,6 +4,283 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (21) — 🟢 PUBBLICATE la pagina tedesca `/de` e la correzione del `lang`
+
+Marco: *«non metterne nessuna. la traduzione mi sembra corretta. togli la
+traduzione che abbiamo fatto per il controllo, pubblica e chiedi
+l'indicizzazione»*.
+
+### ⛔ Le foto delle birre: NON si mettono, e non e' una dimenticanza
+
+Marco aveva chiesto perche' le schede delle birre non hanno la foto. La
+risposta e' che me n'ero dimenticato — ma andandole a guardare una per una
+prima di rispondere, **tre su cinque smentiscono il testo che avrebbero
+accanto**:
+
+| Birra | La scheda dice | La foto dice |
+|---|---|---|
+| Hell König Ludwig | Kellerbier, bassa fermentazione | nel bicchiere c'e' scritto **Weissbier** |
+| Non Filtrata König Ludwig | Kellerbier non filtrata | stesso bicchiere, **Weissbier** |
+| Pater Linus Triple | Abtei-Tripel · 7,5 % | etichetta **BLOND** · ~6,5 % |
+| Rye River IPA | 5,6 % | etichetta **6.5 % ABV**, e il nome e' «RETRO IPA» |
+| Warsteiner Herb | Pilsner doppio luppolo · 4,8 % | ✅ niente che la smentisca |
+
+**La Weissbier non e' una sfumatura** — e' birra di frumento ad alta
+fermentazione, un'altra birra della stessa fabbrica. E il grado alcolico e' un
+numero: 5,6 e 6,5 non possono stare tutti e due sulla stessa scheda.
+
+📌 **E' la seconda volta dopo la Porca Zozza.** Il repertorio di immagini di
+`menuData.ts` non e' mai stato confrontato col menu voce per voce. **Da fare, e
+prima che qualcuno metta queste foto da qualche parte.** O si rifanno le foto,
+o — se le foto sono giuste — sono gli stili e i gradi del menu a essere
+sbagliati, e allora il problema e' molto piu' grosso di una pagina.
+
+### Cancellato lo strumento di revisione
+
+Marco ha riletto la pagina coi riquadri italiani e ha detto *«la traduzione mi
+sembra corretta»*. Cancellati `src/app/(de)/de/traduzioneIT.ts` e
+`src/components/TraduzioneSotto.tsx`, il montaggio in fondo a `DeClient.tsx` e
+l'import di `next/dynamic`. **Verifica secca: l'HTML di `/de` e' tornato a
+102.826 byte, cioe' esattamente quanto pesava prima che lo strumento
+esistesse.** Zero occorrenze in `.next/static` e `.next/server`.
+
+### Online
+
+Ramo `lang-route-group`, merge `--no-ff` su `main`. Vanno in produzione insieme
+tre cose costruite oggi: i due layout per lingua, la landing tedesca, e la
+sitemap aggiornata.
+
+**Corretto anche il `lastmod` della home**, che era rimasto al 26/08: la home
+oggi e' cambiata davvero, perche' il suo hreflang adesso dichiara anche `/de`.
+Le altre 33 pagine NON le ho toccate: il `lang` nell'HTML e' cambiato, ma per
+chi legge non e' cambiato niente, e spostare 36 date per far sembrare tutto
+nuovo e' il modo piu' rapido per farsi ignorare le date vere.
+
+### Chiesta l'indicizzazione
+
+Solo `/de`. Home e `/en` erano gia' state messe in coda stamattina e Google
+scrive a chiare lettere che **richiedere la stessa pagina piu' volte non cambia
+la sua posizione in coda**: rifarlo oggi sarebbe stato solo consumare quota.
+
+---
+
+## 2026-08-28 (20) — 🔍 Rimesso lo strumento di revisione, questa volta sul tedesco
+
+Marco: *«mettimi una specie di sottotitolo in italiano così controllo»*.
+
+Sull'inglese l'avevamo cancellato al momento di pubblicare, ed era giusto:
+l'inglese Marco lo legge. Sul tedesco non lo legge nessuno di noi, quindi il
+riquadro italiano sotto ogni blocco **e' l'unico controllo che esiste**.
+
+### Perche' non ho riusato quello di prima
+
+`traduzioneIT.ts` non era mai finito in git — l'avevo cancellato prima di fare
+`git add`. L'ho ritrovato nella trascrizione della sessione, ma era la **prima**
+versione: dentro c'era l'inglese di prima delle correzioni di Marco («16
+minutes», «There is no waiter», «Triestine buffet and cold beer»). Riusarla
+avrebbe messo sotto il tedesco di oggi l'italiano di ieri — cioe' il contrario
+di un controllo. **Riscritta da zero sul tedesco vero.**
+
+### Come e' fatto
+
+`src/app/(de)/de/traduzioneIT.ts`: **172 righe**, chiave = il testo tedesco
+*come si legge a schermo*. Le chiavi non le ho battute a mano: le ho estratte
+dalla pagina viva con la stessa regola che usa il componente, cosi' non possono
+non combaciare. Dove il CSS scrive in maiuscolo la chiave e' in maiuscolo, e la
+`ß` diventa `SS` («zu Fuß» → «ZU FUSS»).
+
+`src/components/TraduzioneSotto.tsx`: gira sulle foglie di testo e infila un
+riquadro bianco dopo ognuna. Due regole nuove rispetto alla versione inglese:
+
+1. **Uno `<span>` dentro un titolo non lo squalifica piu' da foglia.** Prima
+   «WAS IST EINE SCHIACCIATA?» restava senza riquadro perche' conteneva una
+   parola colorata, e nemmeno lo span lo prendeva. Adesso il titolo lo prende
+   intero, ed erano quattro titoli (l'H1, le due domande, il blocco spritz).
+2. **Gli `<span>` che stanno per conto loro si prendono, quelli in mezzo a una
+   frase no.** Cosi' le targhette rosse e le pronunce del glossario hanno il
+   loro riquadro **senza dover sporcare la pagina con `data-traduci`**, che
+   sull'inglese avevo dovuto aggiungere.
+
+Aspetta 700 ms prima di disegnare: framer-motion e il banner dei cookie
+arrivano dopo il primo giro.
+
+### Verificato
+
+- **167 riquadri messi, 31 righe scoperte** — e sono tutte e 31 cose che non si
+  traducono: il menu di navigazione (gia' italiano), i nomi dei piatti, i nomi
+  delle birre, le parole del glossario (che *sono* le parole triestine),
+  «Questo sito in italiano →» e il tasto dello strumento stesso.
+- **Una riga mancava davvero**: il secondo paragrafo dello spritz. L'ha trovata
+  il contatore, non io — che e' esattamente il motivo per cui il contatore c'e'.
+- **Zero tracce in produzione**: `next build` pulito, 46 pagine, e nelle
+  cartelle `.next/static` e `.next/server` non compare ne' `TraduzioneSotto` ne'
+  una sola parola della tabella. Nel testo visibile dell'HTML di `/de`: zero.
+- Tre riquadri sono **arancioni**: sono i due punti gia' segnalati (il Kren e lo
+  Spritz spiegati a un austriaco) e la FAQ che dice che al banco si parla
+  inglese. Non sono errori: sono le cose che Marco deve vedere mentre rilegge.
+
+### ⚠️ Prima di pubblicare
+
+**Vanno cancellati `src/app/(de)/de/traduzioneIT.ts` e
+`src/components/TraduzioneSotto.tsx`**, insieme al montaggio in fondo a
+`DeClient.tsx` e all'import di `next/dynamic`. Stessa procedura dell'inglese.
+
+**Non pubblicato. Si vede col server di sviluppo su `http://localhost:3102/de`
+— in produzione i riquadri non esistono.**
+
+---
+
+## 2026-08-28 (19) — 🇩🇪 COSTRUITA la landing tedesca `/de` (non pubblicata)
+
+Marco: *«nessuno rilegge il tedesco. però in teoria non dovrebbe servire. non
+devi riscrivere i testi. non devi cambiare assolutamente nulla rispetto alla
+pagina in inglese. deve essere uguale solo tradotta»* e poi *«traduci e basta.
+adesso non è il momento di prendere iniziative»*.
+
+### Il ragionamento di Marco, che regge
+
+Le quindici correzioni che ha fatto sull'inglese erano **tutte invenzioni**: il
+cameriere che non c'era, i taglieri che venivano dal buffet, il mare che si
+vedeva dal viale, il modo di dire inglese inesistente. Nessuna era una parola
+tradotta male. Se il tedesco non aggiunge niente, **quella classe di errori non
+ha piu' il posto dove nasce**. Per questo `/de` non ha un revisore e va bene
+cosi'.
+
+📌 **REGOLA: `/de` e' `/en` tradotta, blocco per blocco.** Se un blocco va
+cambiato si cambia PRIMA in inglese e poi in tedesco. Se le due divergono,
+nessuno se ne accorge — non c'e' nessuno che rilegge il tedesco.
+
+### Cosa e' stato tradotto
+
+`src/app/(de)/de/deContenuti.ts` (6 schiacciate, 3 giri, 5 birre, 5 modi di
+arrivare, la fermata, 8 voci di glossario, 12 FAQ) e tutti i testi in pagina in
+`DeClient.tsx`: 12 H2, i due tasti dell'hero, il disclaimer, le tre spie della
+trappola per turisti, gli orari, il piede.
+
+**Quattro cose NON sono traduzioni parola per parola, e sono tutte obbligate:**
+
+1. **Le pronunce del glossario.** `skyat-CHA-ta` funziona per un inglese; un
+   tedesco legge «CHA» come /xa/. Riscritte con l'ortografia tedesca:
+   `skiatt-SCHA-ta`, `schprits BJAN-ko`, `reh-be-KIN`.
+2. **I prezzi.** `prezzoDE`/`forbiceDE` in `src/lib/prezziMenu.ts` scrivono
+   `8,50 €` invece di `€8.50`. Stesso numero, letto da `menuData.ts` come per
+   le altre lingue: cambia solo la virgola, che in tedesco e' la regola.
+3. **L'`alt` delle foto** non passa piu' da `toLowerCase()`: in tedesco i
+   sostantivi sono maiuscoli, e minuscolare scriverebbe «stracciatella-käse».
+4. **Il «du».** L'inglese dice *you* e non sceglie, il tedesco deve. Il sito
+   italiano da' del tu e l'inglese e' confidenziale: il «Sie» avrebbe reso la
+   pagina tedesca **piu' formale dell'originale**, che sarebbe una modifica.
+
+### Due frasi che vanno segnalate a Marco
+
+- La FAQ **«Spricht bei euch jemand Englisch?» → «Ja»**. E' la traduzione
+  fedele della domanda inglese. Sulla pagina tedesca dice a un austriaco che al
+  banco si parla inglese, non tedesco. **E' voluto: non sappiamo se qualcuno
+  parla tedesco, e inventarlo sarebbe la cosa peggiore.**
+- Il glossario spiega **Kren** («Kren ist Meerrettich») e lo **Spritz bianco**.
+  In Austria *Kren* e' la parola di tutti i giorni per il rafano e lo
+  *Spritzer* e' roba loro: due voci su otto spiegano a un viennese parole che
+  usa lui. **Segnalato prima di tradurre, Marco ha detto di tradurre e basta.**
+
+### Verificato sulla build
+
+- **46 pagine** (erano 45). `<html lang>`: 37 `it`, 1 `en`, **1 `de`**.
+- **Nessun residuo inglese** nel testo visibile di `/de` (controllato
+  spogliando l'HTML da script, stili e tag).
+- **hreflang reciproco a tre**: home, `/en` e `/de` dichiarano tutte e tre le
+  lingue piu' `x-default`. Nessuna dichiarazione a senso unico.
+- Canonical `…/de`, `FAQPage` con `inLanguage: de`, **12 domande nello schema e
+  12 in pagina**, 11 immagini, sitemap a 36 URL.
+- **39 pagine su 41 linkano `/de`**: entra dal selettore di lingua, come
+  previsto quando l'abbiamo reso sempre presente nell'HTML.
+- Banner cookie e barra mobile parlano tedesco su `/de` ed ereditano `lang=de`.
+- Selettore di lingua verificato a schermo: ITALIANO · ENGLISH · ✓ DEUTSCH.
+- Gli unici errori in console sono i font di Google, bloccati dal browser
+  interno: **identici sulla home italiana**, quindi non vengono da qui.
+
+### Come si controlla senza sapere il tedesco
+
+Si **ritraduce indietro** con un motore diverso da quello che l'ha scritta
+(DeepL, Google Traduttore) e si legge l'italiano che esce. Non dice se il
+tedesco e' elegante — dice se una frase ha girato di senso, che e' l'unica cosa
+che ci puo' far male.
+
+**Non pubblicata. In locale su `http://localhost:3103/de`.**
+
+---
+
+## 2026-08-28 (18) — 🔧 Il `lang` sbagliato su `/en`, sistemato con i route group (non pubblicato)
+
+Marco: *«sistema il lang con i route group»*.
+
+### Cos'era rotto
+
+Tutte le pagine dichiaravano `<html lang="it">`, `/en` compresa. Chi la legge:
+i lettori di schermo, che da lì scelgono la pronuncia — l'inglese letto con la
+fonetica italiana è incomprensibile. **Google invece la ignora**: la lingua se
+la ricava dal testo, e a chi mostrare cosa glielo dice l'hreflang. Quindi non
+costava posizioni: era un difetto di accessibilità, non di ranking.
+
+Non era sistemabile con una riga perché in Next il tag `<html>` si scrive una
+volta sola, in `app/layout.tsx`, e quel file lo usano tutte le pagine.
+
+### Cosa ho fatto
+
+Letta prima la documentazione di **questa** versione
+(`node_modules/next/dist/docs/…/route-groups.md` e `layout.md`), come dice
+`AGENTS.md`.
+
+Le rotte sono ora in due gruppi. Le parentesi dicono a Next che la cartella
+**non entra nell'indirizzo**: `(it)/menu` resta `/menu`.
+
+```
+src/app/(it)/   layout.tsx → <Documento lingua="it">   home, menu, blog, …
+src/app/(en)/   layout.tsx → <Documento lingua="en">   /en
+```
+
+Il guscio — font, schema `Restaurant`, intestazione, banner cookie, barra
+mobile — è in `src/components/Documento.tsx`, **scritto una volta sola**: se
+l'avessi copiato nei due layout, prima o poi sarebbe cambiato solo in uno. Lo
+stesso per i metadati comuni, ora in `src/lib/metadataSito.ts`.
+
+`menuData.ts` è uscito da `app/menu/` ed è andato in `src/lib/`: è il listino,
+lo leggono tutte e due le lingue, non appartiene al gruppo italiano. **File
+identico, zero righe cambiate.**
+
+Tolta da `EnClient.tsx` la riga di JavaScript che correggeva il `lang` dopo il
+caricamento, e il `lang="en"` sul `<main>`: adesso è ridondante.
+
+### Verificato sulla build, non sul codice
+
+- **45 pagine**, la stessa identica lista di prima. TypeScript pulito.
+- `<html lang>`: **37 pagine `it`, 1 `en`.** Prima erano 38 `it`.
+- Su `/en` il banner dei cookie e la barra dei tasti — che stanno **fuori** dal
+  `<main>` e prima ereditavano l'italiano — adesso ereditano `en`. Erano
+  l'unica cosa davvero mal dichiarata dopo il cerotto.
+- I due `lang="en"` rimasti nell'HTML di `/en` sono il link «English» del
+  selettore: giusto così, un link a una pagina in un'altra lingua si dichiara.
+- **38 pagine linkano `/en`**, canonical, hreflang reciproco (3 per lato),
+  schema `Restaurant` e `FAQPage`, sitemap 35 URL, robots: tutto invariato.
+- Cambio lingua provato **nei due sensi** col selettore: `/` → `/en` arriva con
+  `lang="en"`, `/en` → `/` con `lang="it"`. Nessun errore in console.
+  ⚠️ Passare da un gruppo all'altro ricarica la pagina intera invece di
+  navigare lato client — è scritto nella documentazione ed è il prezzo dei due
+  layout radice. Su un cambio di lingua non si nota.
+- Home e menu riguardati a schermo: identici. Il menu ha ancora 99 prezzi e 50
+  immagini.
+
+### Perché adesso e non prima
+
+Col solo inglese il cerotto teneva. Col tedesco diventavano due pagine da
+ricordarsi e due righe di JavaScript. **Questo è il punto in cui il cerotto
+costa più della cucitura**, ed è anche il motivo per cui aggiungere il tedesco
+adesso non richiede più di toccare niente di tutto questo: una cartella
+`(de)`, un layout di tre righe, e il resto è contenuto.
+
+**Non pubblicato. In attesa del via di Marco.**
+
+---
+
 ## 2026-08-28 (17) — 🟢 PUBBLICATA la landing inglese `/en`
 
 Marco: *«Elimina le scritte in italiano che erano di revisione e pubblica.»*

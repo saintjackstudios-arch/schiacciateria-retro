@@ -21,6 +21,7 @@ import { Globe, Check, ChevronDown } from 'lucide-react';
 export const LINGUE = [
   { code: 'it', href: '/', nome: 'Italiano' },
   { code: 'en', href: '/en', nome: 'English' },
+  { code: 'de', href: '/de', nome: 'Deutsch' },
 ] as const;
 
 export default function SelettoreLingua({ variante = 'desktop' }: { variante?: 'desktop' | 'drawer' }) {

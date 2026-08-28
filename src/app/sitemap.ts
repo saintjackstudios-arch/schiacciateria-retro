@@ -19,12 +19,13 @@ const baseUrl = 'https://schiacciateriaretrotrieste.com';
  * data dal frontmatter (`dateModified`, e se manca `date`).
  */
 const ULTIMA_MODIFICA = {
-  home: '2026-08-26',              // menu orario + qualita immagini
+  home: '2026-08-28',              // hreflang: adesso dichiara anche /en e /de
   menu: '2026-08-26',              // entrambi i menu nell'HTML + hero
   buffetTriestino: '2026-08-26',   // correzioni ai piatti dettate dal titolare
   chiSiamo: '2026-07-21',
   contatti: '2026-08-18',
   en: '2026-08-28',                // landing inglese, prima pubblicazione
+  de: '2026-08-28',                // landing tedesca, traduzione dell'inglese
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -55,6 +56,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/en`,
       lastModified: ULTIMA_MODIFICA.en,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    // La landing tedesca: stessa pagina dell'inglese, tradotta. Sta in sitemap
+    // per lo stesso motivo, ed e' l'unica porta del sito per chi cerca in
+    // tedesco — cioe' per gli austriaci, che a Triest sono i primi stranieri.
+    {
+      url: `${baseUrl}/de`,
+      lastModified: ULTIMA_MODIFICA.de,
       changeFrequency: 'monthly',
       priority: 0.9,
     },

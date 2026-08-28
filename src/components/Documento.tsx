@@ -1,70 +1,35 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import SiteHeader from "@/components/SiteHeader";
-import CookieBanner from "@/components/CookieBanner";
-import Analytics from "@/components/Analytics";
-import MobileDirectionsBar from "@/components/MobileDirectionsBar";
+import '@/app/globals.css';
+import SiteHeader from '@/components/SiteHeader';
+import CookieBanner from '@/components/CookieBanner';
+import Analytics from '@/components/Analytics';
+import MobileDirectionsBar from '@/components/MobileDirectionsBar';
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://schiacciateriaretrotrieste.com'),
-  title: {
-    default: "Schiacciateria Retrò Trieste | Viale XX Settembre",
-    template: "%s | Schiacciateria Retrò Trieste",
-  },
-  description: "Schiacciateria Retrò è il riferimento a Trieste, in Viale XX Settembre 16. Schiacciata artigianale, birre selezionate e il vero street food triestino. Vieni a trovarci!",
-  keywords: ["bar Trieste", "schiacciateria Trieste", "street food Trieste", "Viale XX Settembre Trieste", "aperitivo Trieste", "schiacciata romana Trieste"],
-  verification: {
-    google: "VVCypvtM6nG-altOznc0SginVUV0yZhynG47rdqC02Y",
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'it_IT',
-    url: 'https://schiacciateriaretrotrieste.com',
-    siteName: 'Schiacciateria Retrò Trieste',
-    title: "Schiacciateria Retrò Trieste | Viale XX Settembre",
-    description: "La schiacciateria artigianale nel cuore di Trieste. Schiacciata, birra e l'autentico street food triestino in Viale XX Settembre 16.",
-    images: [
-      {
-        url: '/hero_aggressive.jpg',
-        width: 1200,
-        height: 669,
-        alt: 'Schiacciata artigianale Schiacciateria Retrò Trieste',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Schiacciateria Retrò Trieste | Viale XX Settembre",
-    description: "La schiacciateria artigianale nel cuore di Trieste. Schiacciata, birra e l'autentico street food triestino.",
-    images: ['/hero_aggressive.jpg'],
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' }
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-    },
-  },
-};
-
-export default function RootLayout({
+/**
+ * Il guscio del sito: il tag <html>, la testa e il corpo.
+ *
+ * Perche' non sta piu' dentro `app/layout.tsx`. Next scrive quel file UNA
+ * VOLTA SOLA per tutte le pagine, e li dentro c'e' `<html lang="...">`: un
+ * layout solo vuol dire una lingua sola per tutto il sito. Finche' il sito era
+ * solo italiano andava bene; con la pagina inglese la dichiarazione diventava
+ * falsa proprio dove il testo cambia lingua.
+ *
+ * Adesso i layout sono due, uno per gruppo di rotte, e passano qui la loro
+ * lingua. Tutto il resto — i font, lo schema del locale, l'intestazione, il
+ * banner dei cookie — resta scritto una volta sola: se lo copiassimo nei due
+ * layout, prima o poi cambierebbe solo in uno.
+ *
+ * `lingua` finisce nell'HTML statico, non aggiunta dal JavaScript: e' quello
+ * che legge un lettore di schermo per scegliere la pronuncia.
+ */
+export default function Documento({
+  lingua,
   children,
 }: Readonly<{
+  lingua: 'it' | 'en' | 'de';
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className="h-full antialiased scroll-smooth">
+    <html lang={lingua} className="h-full antialiased scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

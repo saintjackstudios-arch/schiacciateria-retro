@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     languages: {
       'it-IT': "https://schiacciateriaretrotrieste.com",
       'en': "https://schiacciateriaretrotrieste.com/en",
+      'de': "https://schiacciateriaretrotrieste.com/de",
       'x-default': "https://schiacciateriaretrotrieste.com",
     },
   }

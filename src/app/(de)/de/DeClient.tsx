@@ -1,6 +1,18 @@
 'use client';
 
-import React, { useEffect } from 'react';
+/**
+ * La pagina tedesca. E' la pagina inglese tradotta, blocco per blocco: stessa
+ * struttura, stesse sezioni, stesse foto, stessi tasti. Marco il 28/08/2026:
+ * *«traduci e basta»*. Se un blocco va cambiato, si cambia PRIMA in
+ * `src/app/(en)/en/EnClient.tsx` e poi qui, se no le due pagine divergono e
+ * nessuno se ne accorge.
+ *
+ * Unica differenza non testuale: l'`alt` delle foto non passa piu' da
+ * `toLowerCase()`. In tedesco i sostantivi sono maiuscoli, e minuscolarli
+ * scriverebbe "stracciatella-käse" al posto di "Stracciatella-Käse".
+ */
+
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,12 +20,12 @@ import {
   ArrowRight, Beer, Bus, CalendarCheck, Car, Clock, Footprints, MapPin,
   MessageSquare, Phone, Plane, Ship, Train, Trees, Utensils, Wallet,
 } from 'lucide-react';
-import { BEVANDE_BIRRE } from '@/app/menu/menuData';
-import { fotoDiMenu, forbiceEN, prezzoEN } from '@/lib/prezziMenu';
+import { BEVANDE_BIRRE } from '@/lib/menuData';
+import { fotoDiMenu, forbiceDE, prezzoDE } from '@/lib/prezziMenu';
 import {
   BIRRE_IN_VETRINA, COME_ARRIVARE, FAQ, FERMATA_VICINA,
   GIRO_IGNORANTE, GLOSSARIO, SCHIACCIATE_IN_VETRINA,
-} from './enContenuti';
+} from './deContenuti';
 
 const TEL = '+393756264680';
 const TEL_DISPLAY = '+39 375 626 4680';
@@ -22,6 +34,7 @@ const MAPS_URL =
   'https://www.google.com/maps/dir/?api=1&destination=Retr%C3%B3+XX+settembre+-+Schiacciateria+Triestina%2C+Viale+XX+Settembre+16%2C+34125+Trieste';
 
 const ICONE_ARRIVO = { cruise: Ship, train: Train, plane: Plane, car: Car, walk: Footprints } as const;
+
 
 /**
  * La foto di un piatto dentro la scheda.
@@ -44,7 +57,7 @@ function FotoPiatto({
       {src ? (
         <Image
           src={src}
-          alt={`${nome} — ${descrizione.toLowerCase()}${suffisso}`}
+          alt={`${nome} — ${descrizione}${suffisso}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 340px"
           quality={75}
@@ -59,30 +72,17 @@ function FotoPiatto({
   );
 }
 
-const ORARI_EN = [
-  { giorni: 'Mon – Thu', ore: '8:00 — 01:00' },
-  { giorni: 'Fri – Sat', ore: '8:00 — 02:00' },
-  { giorni: 'Sunday', ore: '17:00 — 23:30' },
+const ORARI_DE = [
+  { giorni: 'Mo – Do', ore: '8:00 — 01:00' },
+  { giorni: 'Fr – Sa', ore: '8:00 — 02:00' },
+  { giorni: 'Sonntag', ore: '17:00 — 23:30' },
 ];
 
-export default function EnClient() {
-  // Il layout radice dichiara <html lang="it"> per tutto il sito. Su questa
-  // pagina il contenuto e' inglese, quindi lo correggiamo: serve ai lettori di
-  // schermo, che altrimenti leggono l'inglese con la pronuncia italiana.
-  // Il <div lang="en"> qui sotto fa lo stesso lavoro anche senza JavaScript.
-  // Quando le lingue saranno otto varra' la pena spostare tutto il sito nei
-  // route group di Next, cosi da avere il lang giusto gia' nell'HTML statico.
-  useEffect(() => {
-    const precedente = document.documentElement.lang;
-    document.documentElement.lang = 'en';
-    return () => { document.documentElement.lang = precedente; };
-  }, []);
-
-  const birre = forbiceEN(BEVANDE_BIRRE);
+export default function DeClient() {
+  const birre = forbiceDE(BEVANDE_BIRRE);
 
   return (
     <main
-      lang="en"
       className="min-h-screen bg-[#fdfaf3] selection:bg-yellow-400 selection:text-black font-sans pt-16 md:pt-20"
     >
       {/* ── HERO ───────────────────────────────────────────── */}
@@ -90,7 +90,7 @@ export default function EnClient() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/menu_hero_schiacciata.webp"
-            alt="A schiacciata being filled at the counter of Schiacciateria Retrò in Trieste"
+            alt="Eine Schiacciata wird an der Theke der Schiacciateria Retrò in Triest gefüllt"
             fill
             sizes="100vw"
             loading="eager"
@@ -107,7 +107,7 @@ export default function EnClient() {
             animate={{ rotate: -3, scale: 1, opacity: 1 }}
             className="pointer-events-auto bg-red-600 text-white text-[10px] md:text-base font-black uppercase tracking-widest px-4 py-1.5 md:px-6 md:py-2 border-4 border-black shadow-[5px_5px_0px_#facc15]"
           >
-            Viale XX Settembre 16 · Trieste
+            Viale XX Settembre 16 · Triest
           </motion.span>
 
           <motion.h1
@@ -115,9 +115,9 @@ export default function EnClient() {
             animate={{ scale: 1, opacity: 1, rotate: -2 }}
             className="pointer-events-auto bg-yellow-400 text-black text-center px-5 py-3 md:px-12 md:py-6 font-display font-black uppercase italic text-3xl md:text-7xl leading-none border-4 md:border-8 border-black shadow-[10px_10px_0px_#000] md:shadow-[18px_18px_0px_#000]"
           >
-            Where to eat
+            Wo man isst
             <br />
-            <span className="text-2xl md:text-5xl">in Trieste</span>
+            <span className="text-2xl md:text-5xl">in Triest</span>
           </motion.h1>
 
           <motion.p
@@ -126,9 +126,9 @@ export default function EnClient() {
             transition={{ delay: 0.3 }}
             className="pointer-events-auto max-w-2xl text-center text-white font-bold text-sm md:text-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]"
           >
-            Schiacciata, small plates and cold beer.
+            Schiacciata, kleine Teller und kaltes Bier.
             <br className="hidden md:block" />{' '}
-            15 minutes on foot from the station, 24 from the cruise pier.
+            15 Minuten zu Fuß vom Bahnhof, 24 vom Kreuzfahrtterminal.
           </motion.p>
 
           {/* I due tasti chiesti da Marco. Non serve scrivere codice di
@@ -150,7 +150,7 @@ export default function EnClient() {
               data-ga-posizione="hero"
               className="inline-flex items-center gap-2 border-4 border-black bg-yellow-400 text-black px-5 py-3 md:px-7 md:py-4 font-display font-black uppercase italic text-sm md:text-lg shadow-[5px_5px_0px_#000] hover:bg-white transition-colors"
             >
-              <CalendarCheck className="w-5 h-5" /> Book a table
+              <CalendarCheck className="w-5 h-5" /> Tisch reservieren
             </a>
             <a
               href={MAPS_URL}
@@ -159,7 +159,7 @@ export default function EnClient() {
               data-ga-posizione="hero"
               className="inline-flex items-center gap-2 border-4 border-black bg-red-600 text-white px-5 py-3 md:px-7 md:py-4 font-display font-black uppercase italic text-sm md:text-lg shadow-[5px_5px_0px_#000] hover:bg-white hover:text-black transition-colors"
             >
-              <MapPin className="w-5 h-5" /> Get directions
+              <MapPin className="w-5 h-5" /> Route planen
             </a>
           </motion.div>
         </div>
@@ -168,10 +168,11 @@ export default function EnClient() {
       {/* ── DISCLAIMER ─────────────────────────────────────── */}
       <div className="bg-black border-b-8 border-black px-5 py-5">
         <p className="max-w-3xl mx-auto text-center text-yellow-400 font-bold text-sm md:text-base leading-snug">
-          We are good at food. We are very good at beer. We are{' '}
-          <span className="italic">not</span> good at English — this page was written
-          by people who cook for a living. If a word looks wrong, it probably is.
-          We promise to be much better at feeding you than at writing to you.
+          Im Essen sind wir gut. Im Bier sind wir sehr gut. Im Deutschen sind wir{' '}
+          <span className="italic">nicht</span> gut — diese Seite haben Leute
+          geschrieben, die vom Kochen leben. Wenn ein Wort falsch aussieht, ist es das
+          wahrscheinlich auch. Satt machen können wir dich viel besser, als wir dir
+          schreiben können.
         </p>
       </div>
 
@@ -179,43 +180,43 @@ export default function EnClient() {
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <div className="flex flex-wrap items-center gap-4 mb-8 border-b-[6px] border-black pb-4">
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter">
-            What is a <span className="text-yellow-400">schiacciata</span>?
+            Was ist eine <span className="text-yellow-400">Schiacciata</span>?
           </h2>
           <span className="bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 border-2 border-black -rotate-2 shrink-0">
-            It looks like a sandwich. It is not.
+            Sieht aus wie ein Sandwich. Ist keins.
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2 space-y-5 text-lg md:text-xl font-bold text-zinc-800 leading-relaxed">
             <p>
-              A schiacciata is made from <strong>focaccia dough</strong>, not bread
-              dough. It comes out of the oven tall, soft in the middle and crunchy
-              on the outside. We cut it in half lengthways in front of you and fill
-              it there and then.
+              Eine Schiacciata wird aus <strong>Focaccia-Teig</strong> gemacht, nicht
+              aus Brotteig. Sie kommt hoch aus dem Ofen, innen weich, außen knusprig.
+              Wir schneiden sie vor deinen Augen längs auf und füllen sie auf der
+              Stelle.
             </p>
             <p>
-              Inside go Italian products, and where we can, products from around
-              here: mortadella, stracciatella, prosciutto crudo, porchetta, truffle
-              cream, grilled vegetables, fresh horseradish.
+              Hinein kommen italienische Produkte und, wo es geht, Produkte von
+              hier: Mortadella, Stracciatella, Prosciutto crudo, Porchetta,
+              Trüffelcreme, gegrilltes Gemüse, frischer Meerrettich.
             </p>
             <p>
-              You eat it with your hands, standing up or sitting down. It is{' '}
-              <strong>not pizza</strong>, and it is <strong>not a panino</strong> —
-              a panino is bread. This is focaccia, and that changes everything about
-              how it tastes.
+              Gegessen wird mit den Händen, im Stehen oder im Sitzen. Es ist{' '}
+              <strong>keine Pizza</strong> und <strong>kein Panino</strong> — ein
+              Panino ist Brot. Das hier ist Focaccia, und das ändert alles am
+              Geschmack.
             </p>
           </div>
 
           <div className="bg-yellow-400 border-4 border-black p-6 shadow-[8px_8px_0px_#000] -rotate-1 self-start">
             <Utensils className="w-8 h-8 mb-3" />
             <h3 className="font-display font-black uppercase italic text-xl mb-2">
-              How ordering works
+              So wird bestellt
             </h3>
             <p className="text-black/80 font-bold text-sm leading-snug">
-              You order at the counter and you pay at the counter, then take it with
-              you or sit down. If you sit down, someone will look after you — there
-              is more than one of us working the tables.
+              Bestellt und bezahlt wird an der Theke, dann nimmst du es mit oder
+              setzt dich hin. Wenn du dich hinsetzt, kümmert sich jemand um dich —
+              wir sind mehr als einer im Service.
             </p>
           </div>
         </div>
@@ -226,52 +227,53 @@ export default function EnClient() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter text-yellow-400">
-              What is a Triestine <span className="text-white">buffet</span>?
+              Was ist ein Triestiner <span className="text-white">Buffet</span>?
             </h2>
             <span className="bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 border-2 border-black rotate-2 shrink-0">
-              Careful — false friend
+              Achtung — falscher Freund
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div className="space-y-5 text-lg md:text-xl font-bold text-zinc-300 leading-relaxed">
               <p>
-                Everywhere else in the world, a &quot;buffet&quot; is a long table
-                covered in food that you help yourself to.{' '}
+                Überall sonst auf der Welt ist ein &quot;Buffet&quot; ein langer
+                Tisch voller Speisen, von dem man sich selbst nimmt.{' '}
                 <strong className="text-yellow-400">
-                  In Trieste the word means something completely different.
+                  In Triest bedeutet das Wort etwas völlig anderes.
                 </strong>
               </p>
               <p>
-                A Triestine buffet is a set of very small plates. Tartine — little
-                open sandwiches with dozens of different fillings. Vegetables fried
-                a dozen different ways. Meatballs: with horseradish, spicy ones,
-                fried ones, mozzarella ones, all sorts.
+                Ein Triestiner Buffet ist eine Reihe sehr kleiner Teller. Tartine —
+                kleine belegte Brötchen in Dutzenden Varianten. Gemüse, auf ein
+                Dutzend Arten frittiert. Fleischbällchen: mit Kren, scharfe,
+                frittierte, welche mit Mozzarella, alles Mögliche.
               </p>
               <p>
-                Each piece costs very little. So instead of choosing one dish, you
-                try many. For the price of a plate of pasta somewhere else, you will
-                have tasted a dozen different things and you will be full.
+                Jedes Stück kostet wenig. Statt sich für ein Gericht zu entscheiden,
+                probiert man viele. Für den Preis eines Tellers Pasta woanders hast
+                du ein Dutzend verschiedene Dinge probiert und bist satt.
               </p>
             </div>
 
             <div className="bg-yellow-400 border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#fff] rotate-1 self-start">
               <h3 className="font-display font-black uppercase italic text-2xl mb-4 leading-tight">
-                It works best with company
+                Am besten in Gesellschaft
               </h3>
               <p className="text-black/80 font-bold leading-snug mb-4">
-                Order a lot of different pieces, order something to drink, and while
-                you talk you all eat from one big tray in the middle of the table.
+                Bestellt viele verschiedene Stücke, bestellt etwas zu trinken, und
+                während ihr redet, esst ihr alle von einem großen Tablett in der
+                Mitte des Tisches.
               </p>
               <p className="text-black/80 font-bold leading-snug mb-4">
-                It is finger food — no cutlery. If you would rather not use your
-                hands, ask at the counter for the long toothpicks and pick things up
-                with those.
+                Das ist Fingerfood — kein Besteck. Wer lieber nicht mit den Händen
+                isst, fragt an der Theke nach den langen Zahnstochern und spießt
+                damit auf.
               </p>
               <p className="text-black/80 font-bold leading-snug border-t-2 border-black/20 pt-4">
-                We are a schiacciateria, not a buffet. But the habit is the same one,
-                and we have our own way of doing it: it is called the Giro Ignorante,
-                and it is further down this page.
+                Wir sind eine Schiacciateria, kein Buffet. Aber die Gewohnheit ist
+                dieselbe, und wir haben unsere eigene Art davon: Sie heißt Giro
+                Ignorante und steht weiter unten auf dieser Seite.
               </p>
             </div>
           </div>
@@ -282,12 +284,12 @@ export default function EnClient() {
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <div className="flex flex-wrap items-center gap-4 mb-4 border-b-[6px] border-black pb-4">
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter">
-            What to order
+            Was du bestellen solltest
           </h2>
         </div>
         <p className="text-base md:text-lg font-bold text-zinc-600 mb-10 max-w-3xl leading-snug">
-          The names stay in Italian on purpose — say them at the counter exactly as
-          they are written here and you will get the right thing.
+          Die Namen bleiben mit Absicht auf Italienisch — sag sie an der Theke genau
+          so, wie sie hier stehen, dann bekommst du das Richtige.
         </p>
 
         <h3 className="font-display font-black uppercase italic text-2xl md:text-3xl mb-6 flex items-center gap-3">
@@ -303,19 +305,19 @@ export default function EnClient() {
             >
               <FotoPiatto
                 nome={piatto.name}
-                descrizione={piatto.en}
-                suffisso=", on Roman focaccia"
+                descrizione={piatto.de}
+                suffisso=", auf römischer Focaccia"
               />
               <div className="flex items-start justify-between gap-3">
                 <h4 className="font-display font-black uppercase italic text-2xl leading-tight">
                   {piatto.name}
                 </h4>
                 <span className="bg-yellow-400 text-black text-sm font-black px-2 py-0.5 border-2 border-black shrink-0">
-                  {prezzoEN(piatto.name)}
+                  {prezzoDE(piatto.name)}
                 </span>
               </div>
               <p className="text-black/75 font-bold leading-snug text-sm md:text-base">
-                {piatto.en}
+                {piatto.de}
               </p>
               <p className="text-xs font-bold text-zinc-500 uppercase tracking-wide mt-auto pt-2 border-t-2 border-black/10">
                 {piatto.note}
@@ -328,9 +330,10 @@ export default function EnClient() {
           <span className="bg-black text-yellow-400 px-3 py-1 rotate-1">Il Giro Ignorante</span>
         </h3>
         <p className="text-base md:text-lg font-bold text-zinc-600 mb-8 max-w-3xl leading-snug">
-          Same schiacciate, cut into pieces so that a table can share them. Two or
-          three different fillings arrive together and everyone tries everything —
-          which is the only sensible way to find out which one is your favourite.
+          Dieselben Schiacciate, in Stücke geschnitten, damit ein ganzer Tisch teilen
+          kann. Zwei oder drei verschiedene Füllungen kommen zusammen und alle
+          probieren alles — die einzige vernünftige Art herauszufinden, welche deine
+          liebste ist.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {GIRO_IGNORANTE.map((piatto, i) => (
@@ -338,16 +341,16 @@ export default function EnClient() {
               key={piatto.name}
               className={`bg-yellow-400 border-4 border-black p-5 flex flex-col gap-3 shadow-[6px_6px_0px_#000] ${i % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}
             >
-              <FotoPiatto nome={piatto.name} descrizione={piatto.en} />
+              <FotoPiatto nome={piatto.name} descrizione={piatto.de} />
               <div className="flex items-start justify-between gap-3">
                 <h4 className="font-display font-black uppercase italic text-xl leading-tight">
                   {piatto.name}
                 </h4>
                 <span className="bg-black text-yellow-400 text-sm font-black px-2 py-0.5 border-2 border-black shrink-0">
-                  {prezzoEN(piatto.name)}
+                  {prezzoDE(piatto.name)}
                 </span>
               </div>
-              <p className="text-black/75 font-bold leading-snug text-sm">{piatto.en}</p>
+              <p className="text-black/75 font-bold leading-snug text-sm">{piatto.de}</p>
               <p className="text-xs font-bold text-black/50 uppercase tracking-wide mt-auto pt-2 border-t-2 border-black/15">
                 {piatto.note}
               </p>
@@ -357,12 +360,12 @@ export default function EnClient() {
 
         <div className="mt-10">
           <Link href="/menu" className="btn-western inline-flex items-center gap-3 px-8 py-4 text-lg md:text-xl group">
-            THE FULL MENU
+            DIE GANZE KARTE
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
           </Link>
           <p className="text-xs font-bold text-zinc-500 mt-3 uppercase tracking-wide">
-            The full menu is in Italian — but the dish names and the prices are the
-            same, and photographs need no translation.
+            Die vollständige Karte ist auf Italienisch — aber die Namen der Gerichte
+            und die Preise sind dieselben, und Fotos muss man nicht übersetzen.
           </p>
         </div>
       </section>
@@ -371,37 +374,37 @@ export default function EnClient() {
       <section className="bg-black py-16 md:py-24 px-5 border-y-8 border-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter text-yellow-400 mb-10">
-            What to drink
+            Was du trinken solltest
           </h2>
 
           <div className="bg-white border-4 border-black p-6 md:p-10 shadow-[12px_12px_0px_#facc15] -rotate-1 mb-14">
             <h3 className="font-display font-black uppercase italic text-2xl md:text-4xl leading-tight mb-5">
-              If you say &quot;a spritz&quot; here,
+              Wenn du hier &quot;einen Spritz&quot; sagst,
               <br />
-              <span className="text-red-600">you will get a white one.</span>
+              <span className="text-red-600">bekommst du einen weißen.</span>
             </h3>
             <div className="space-y-4 text-lg md:text-xl font-bold text-zinc-800 leading-relaxed">
               <p>
-                Friulian white wine, sparkling water, ice, a slice of lemon. No
-                bitter, nothing orange. That is not a mistake and it is not us being
-                difficult — in Trieste that is simply what the word means. Nine times
-                out of ten, that is what a local is asking for.
+                Friulanischer Weißwein, Sprudelwasser, Eis, eine Scheibe Zitrone.
+                Kein Bitter, nichts Oranges. Das ist kein Fehler und keine Schikane
+                von uns — in Triest bedeutet das Wort schlicht das. In neun von zehn
+                Fällen ist es das, was ein Einheimischer bestellt.
               </p>
               <p>
-                <strong>The orange one exists too.</strong> Aperol, Campari, and
-                whatever else you had in mind: say the name and it arrives. Nobody
-                here will be offended, and nobody will correct you — we are not the
-                French about it. <span aria-hidden="true">💓</span>
+                <strong>Den orangen gibt es auch.</strong> Aperol, Campari und was
+                dir sonst vorschwebt: Sag den Namen, und er kommt. Hier nimmt es
+                niemand übel, und niemand verbessert dich — wir sind ja nicht die
+                Franzosen. <span aria-hidden="true">💓</span>
               </p>
             </div>
           </div>
 
           <h3 className="font-display font-black uppercase italic text-2xl md:text-3xl text-yellow-400 mb-3 flex items-center gap-3">
-            <Beer className="w-7 h-7" /> The beer is the other serious thing
+            <Beer className="w-7 h-7" /> Das Bier ist die andere ernste Sache
           </h3>
           <p className="text-zinc-400 font-bold mb-8">
-            Five on tap and one that rotates — ask at the counter what is on today.
-            Depending on the beer and the size, {birre.min} to {birre.max}.
+            Fünf vom Fass und eines, das wechselt — frag an der Theke, was heute
+            läuft. Je nach Bier und Größe {birre.min} bis {birre.max}.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {BIRRE_IN_VETRINA.map((birra, i) => (
@@ -413,7 +416,7 @@ export default function EnClient() {
                   {birra.name}
                 </h4>
                 <p className="text-xs font-black uppercase tracking-wider text-red-600 mb-2">
-                  {birra.en}
+                  {birra.de}
                 </p>
                 <p className="text-sm font-bold text-zinc-600 leading-snug">{birra.note}</p>
               </div>
@@ -427,31 +430,32 @@ export default function EnClient() {
         <div className="flex flex-wrap items-center gap-4 mb-8 border-b-[6px] border-black pb-4">
           <Wallet className="w-9 h-9" />
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter">
-            How much does it cost?
+            Was kostet das?
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2 space-y-5 text-lg md:text-xl font-bold text-zinc-800 leading-relaxed">
             <p>
-              A light lunch comes in <strong>under €10</strong>. A full meal — a big
-              schiacciata, something to share, beers with friends — is{' '}
-              <strong>€15 to €20 a head</strong>.
+              Ein leichtes Mittagessen bleibt <strong>unter 10 €</strong>. Eine ganze
+              Mahlzeit — eine große Schiacciata, etwas zum Teilen, Bier mit Freunden —
+              liegt bei{' '}
+              <strong>15 bis 20 € pro Person</strong>.
             </p>
             <p>
-              Walking out of here with a €50 bill each is very hard to do. If you
-              manage it, you bought a lot of beer — and probably some new friends
-              as well.
+              Mit einer Rechnung von 50 € pro Kopf hier hinauszugehen ist ziemlich
+              schwer. Wenn du es schaffst, hast du viel Bier gekauft — und
+              wahrscheinlich auch ein paar neue Freunde.
             </p>
           </div>
 
           <div className="bg-red-600 text-white border-4 border-black p-6 shadow-[8px_8px_0px_#000] rotate-1 self-start">
             <h3 className="font-display font-black uppercase italic text-xl mb-3">
-              Cards are fine
+              Karte geht
             </h3>
             <p className="font-bold text-sm leading-snug">
-              We take cards. You can also take the food away — handy if you are
-              walking back to a ship or a train.
+              Wir nehmen Karten. Du kannst das Essen auch mitnehmen — praktisch,
+              wenn du zurück zum Schiff oder zum Zug gehst.
             </p>
           </div>
         </div>
@@ -465,50 +469,51 @@ export default function EnClient() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter text-yellow-400">
-              How to avoid a tourist trap in Trieste
+              Wie man in Triest die Touristenfallen umgeht
             </h2>
             <span className="bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 border-2 border-black -rotate-2 shrink-0">
-              Where the locals eat
+              Wo die Einheimischen essen
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div className="space-y-5 text-lg md:text-xl font-bold text-zinc-300 leading-relaxed">
               <p>
-                The rule is the same in every port city on this coast:{' '}
+                Die Regel ist in jeder Hafenstadt an dieser Küste dieselbe:{' '}
                 <strong className="text-yellow-400">
-                  the closer you eat to the sea view, the more of the bill is the
-                  view.
+                  Je näher am Meerblick du isst, desto mehr von der Rechnung ist der
+                  Blick.
                 </strong>
               </p>
               <p>
-                Ten minutes further inland the view tax stops. Viale XX Settembre is
-                where Trieste does its own shopping, its own walking and its own
-                evenings, and the prices on this street are the ones the city pays
-                every day of the year.
+                Zehn Minuten weiter landeinwärts hört die Aussichtssteuer auf. Auf
+                dem Viale XX Settembre kauft Triest ein, geht spazieren und verbringt
+                seine Abende, und die Preise in dieser Straße sind die, die die Stadt
+                das ganze Jahr über zahlt.
               </p>
               <p>
-                It costs you a flat, easy walk with no hills in it. What you give up
-                is the sea view — and the sea will still be there after lunch.
+                Es kostet dich einen ebenen, bequemen Spaziergang ohne eine einzige
+                Steigung. Aufgeben musst du den Blick aufs Meer — und das Meer ist
+                nach dem Essen immer noch da.
               </p>
             </div>
 
             <div className="bg-yellow-400 border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#fff] rotate-1 self-start">
               <h3 className="font-display font-black uppercase italic text-2xl mb-4 leading-tight">
-                How to tell, anywhere in Italy
+                Woran du sie erkennst, überall in Italien
               </h3>
               <ul className="space-y-3 text-black/80 font-bold leading-snug">
                 <li>
-                  One kitchen offering pizza, sushi and paella is not good at any of
-                  them.
+                  Eine Küche, die Pizza, Sushi und Paella anbietet, kann nichts davon
+                  richtig.
                 </li>
                 <li>
-                  If the menu has no prices on it, the price gets decided after they
-                  have seen you.
+                  Steht auf der Karte kein Preis, wird der Preis festgelegt, nachdem
+                  man dich gesehen hat.
                 </li>
                 <li>
-                  If the room is full of people speaking the local language at four
-                  in the afternoon, you have found it.
+                  Ist der Raum um vier Uhr nachmittags voll mit Leuten, die die
+                  Sprache des Ortes sprechen, hast du ihn gefunden.
                 </li>
               </ul>
             </div>
@@ -520,12 +525,12 @@ export default function EnClient() {
       <section className="bg-yellow-400 border-y-8 border-black py-16 md:py-24 px-5">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter mb-4">
-            How to get here
+            So findest du uns
           </h2>
           <p className="text-base md:text-lg font-bold text-black/70 mb-10 max-w-3xl leading-snug">
-            Viale XX Settembre 16, Trieste. Whichever way you arrived in this city,
-            the answer is below — Trieste is small and flat, and almost all of it is
-            a walk.
+            Viale XX Settembre 16, Triest. Wie auch immer du in diese Stadt gekommen
+            bist, die Antwort steht unten — Triest ist klein und flach, fast alles
+            ist zu Fuß machbar.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -577,12 +582,12 @@ export default function EnClient() {
             <div className="flex items-center gap-3 mb-4">
               <Bus className="w-7 h-7 text-yellow-400 shrink-0" />
               <h3 className="font-display font-black uppercase italic text-xl md:text-2xl leading-tight text-yellow-400">
-                The nearest bus stop
+                Die nächste Bushaltestelle
               </h3>
             </div>
             <p className="font-bold leading-snug text-base md:text-lg mb-3">
               <strong className="text-yellow-400">{FERMATA_VICINA.nome}</strong> —{' '}
-              {FERMATA_VICINA.distanza}. Lines {FERMATA_VICINA.linee} all call there.
+              {FERMATA_VICINA.distanza}. Dort halten die Linien {FERMATA_VICINA.linee}.
             </p>
             <p className="font-bold text-zinc-400 leading-snug text-sm md:text-base">
               {FERMATA_VICINA.biglietto}
@@ -596,7 +601,7 @@ export default function EnClient() {
             data-ga-posizione="come-arrivare"
             className="mt-10 inline-flex items-center justify-center gap-3 border-4 border-black bg-black text-yellow-400 px-8 py-4 font-display font-black uppercase italic text-lg md:text-xl shadow-[6px_6px_0px_#000] hover:bg-white hover:text-black transition-colors"
           >
-            <MapPin className="w-6 h-6" /> Open in Google Maps
+            <MapPin className="w-6 h-6" /> In Google Maps öffnen
           </a>
         </div>
       </section>
@@ -612,35 +617,35 @@ export default function EnClient() {
           <div>
             <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter mb-6 border-b-[6px] border-black pb-4 flex items-center gap-4">
               <Trees className="w-10 h-10 shrink-0" />
-              Where you sit
+              Wo du sitzt
             </h2>
             <div className="space-y-5 text-lg md:text-xl font-bold text-zinc-800 leading-relaxed">
               <p>
-                Our tables are outside, on the boulevard itself,{' '}
-                <strong>under the plane trees</strong>. Viale XX Settembre is
-                closed to traffic, so what is in front of you is a wide walking
-                avenue, not a road.
+                Unsere Tische stehen draußen, direkt auf der Allee,{' '}
+                <strong>unter den Platanen</strong>. Der Viale XX Settembre ist für
+                den Verkehr gesperrt: Vor dir liegt also eine breite Fußgängerallee,
+                keine Straße.
               </p>
               <p>
-                They are there <strong>all year round</strong>. There are tables
-                inside as well, and in winter that is where most people sit — but
-                in summer almost everyone stays out under the trees, so if you are
-                coming in July, come for the outside.
+                Sie stehen <strong>das ganze Jahr über</strong> da. Drinnen gibt es
+                auch Tische, und im Winter sitzen dort die meisten — im Sommer
+                bleiben aber fast alle draußen unter den Bäumen. Wenn du im Juli
+                kommst, komm wegen draußen.
               </p>
             </div>
           </div>
 
           <div className="bg-red-600 text-white border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] rotate-1 self-center">
             <h3 className="font-display font-black uppercase italic text-2xl mb-3 leading-tight">
-              This is the local street
+              Das ist die Straße der Einheimischen
             </h3>
             <p className="font-bold leading-snug mb-4">
-              Not the harbour front, not the postcard square. The Viale is where
-              Trieste does its walking, its shopping and its evenings.
+              Nicht die Hafenpromenade, nicht der Postkartenplatz. Auf dem Viale geht
+              Triest spazieren, kauft ein und verbringt seine Abende.
             </p>
             <p className="font-bold leading-snug border-t-2 border-white/30 pt-4">
-              If you hear someone speaking English at the next table, there is a
-              fair chance it is one of us, having a go.
+              Wenn du am Nebentisch jemanden Deutsch sprechen hörst, ist die Chance
+              gut, dass es einer von uns ist, der es versucht.
             </p>
           </div>
         </div>
@@ -649,7 +654,7 @@ export default function EnClient() {
       {/* ── ORARI ──────────────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl tracking-tighter leading-none mb-10">
-          When we are open
+          Wann wir geöffnet haben
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -657,11 +662,11 @@ export default function EnClient() {
             <div className="flex items-center gap-3 mb-6">
               <Clock className="w-6 h-6" />
               <h3 className="font-display font-black uppercase italic text-xl md:text-2xl tracking-tight">
-                Opening hours
+                Öffnungszeiten
               </h3>
             </div>
             <div className="flex flex-col gap-3">
-              {ORARI_EN.map((r) => (
+              {ORARI_DE.map((r) => (
                 <div key={r.giorni} className="flex justify-between items-baseline gap-4 border-b-2 border-black/10 pb-2">
                   <span className="text-sm md:text-base font-bold uppercase tracking-wider text-zinc-600">
                     {r.giorni}
@@ -671,7 +676,7 @@ export default function EnClient() {
               ))}
             </div>
             <p className="mt-5 text-xs font-bold uppercase tracking-widest text-zinc-500">
-              Open every day · Sunday afternoons and evenings only
+              Jeden Tag geöffnet · Sonntag nur nachmittags und abends
             </p>
           </div>
 
@@ -680,12 +685,12 @@ export default function EnClient() {
               <MapPin className="w-6 h-6 shrink-0 mt-1" />
               <div>
                 <h3 className="font-display font-black uppercase italic text-xl md:text-2xl tracking-tight mb-1">
-                  Booking is a good idea
+                  Reservieren ist eine gute Idee
                 </h3>
                 <p className="text-sm md:text-base font-bold text-zinc-600 leading-snug">
-                  You can always walk in and order at the counter. But if you want to
-                  be sure of a table — in the evening, or outside, or for a group —
-                  call us or send a message first.
+                  Du kannst jederzeit hereinkommen und an der Theke bestellen. Wenn
+                  du aber sicher einen Tisch willst — abends, draußen oder für eine
+                  Gruppe — ruf uns vorher an oder schreib uns.
                 </p>
               </div>
             </div>
@@ -705,7 +710,7 @@ export default function EnClient() {
                 data-ga-posizione="orari"
                 className="flex items-center justify-center gap-2 border-4 border-black bg-white py-3 font-display font-black uppercase italic text-sm md:text-base tracking-tight shadow-[4px_4px_0px_#000] hover:bg-black hover:text-white transition-colors"
               >
-                <MessageSquare className="w-4 h-4" /> Message us on WhatsApp
+                <MessageSquare className="w-4 h-4" /> Schreib uns auf WhatsApp
               </a>
             </div>
           </div>
@@ -716,11 +721,12 @@ export default function EnClient() {
       <section className="bg-black py-16 md:py-24 px-5 border-y-8 border-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl leading-none tracking-tighter text-yellow-400 mb-4">
-            A few words you will hear
+            Ein paar Wörter, die du hören wirst
           </h2>
           <p className="text-zinc-400 font-bold mb-10 max-w-3xl leading-snug">
-            Trieste has its own vocabulary, and half of it is not Italian. Use one of
-            these at the counter and watch what happens.
+            Triest hat seinen eigenen Wortschatz, und die Hälfte davon ist nicht
+            Italienisch. Benutz eines dieser Wörter an der Theke und schau, was
+            passiert.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -749,7 +755,7 @@ export default function EnClient() {
       {/* ── FAQ ────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-5 py-16 md:py-24">
         <h2 className="font-display font-black uppercase italic text-3xl md:text-5xl tracking-tighter leading-none mb-10 border-b-[6px] border-black pb-4">
-          Questions people ask us
+          Fragen, die uns gestellt werden
         </h2>
 
         <div className="flex flex-col gap-5">
@@ -769,11 +775,12 @@ export default function EnClient() {
       {/* ── FOOTER CTA ─────────────────────────────────────── */}
       <footer className="bg-yellow-400 py-16 px-5 border-t-8 border-black text-center">
         <h2 className="font-display font-black uppercase italic text-4xl md:text-6xl tracking-tighter leading-none mb-4">
-          Come and eat
+          Komm essen
         </h2>
         <p className="text-base md:text-xl font-bold text-black/70 mb-8 max-w-2xl mx-auto">
-          Viale XX Settembre 16, Trieste. Order at the counter, or book a table and
-          let us look after you. Either way, just say the name of the thing you want.
+          Viale XX Settembre 16, Triest. Bestell an der Theke oder reservier einen
+          Tisch und lass dich bedienen. So oder so: Sag einfach den Namen von dem,
+          was du willst.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <a
@@ -783,10 +790,10 @@ export default function EnClient() {
             data-ga-posizione="footer"
             className="btn-western inline-flex items-center gap-3 px-8 py-4 text-lg md:text-2xl group"
           >
-            <MapPin className="w-6 h-6" /> DIRECTIONS
+            <MapPin className="w-6 h-6" /> ANFAHRT
           </a>
           <Link href="/menu" className="btn-western inline-flex items-center gap-3 px-8 py-4 text-lg md:text-2xl group bg-red-600">
-            MENU
+            KARTE
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
           </Link>
         </div>
@@ -799,21 +806,23 @@ export default function EnClient() {
             Questo sito in italiano →
           </Link>
           <p className="text-[10px] md:text-xs font-bold text-black/50 uppercase tracking-widest">
-            © {new Date().getFullYear()} Barretrò. All rights reserved.
+            © {new Date().getFullYear()} Barretrò. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-4 text-[10px] md:text-xs font-black uppercase tracking-widest text-black/60 flex-wrap justify-center">
-            <Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-black transition-colors">Datenschutz</Link>
             <span>•</span>
-            <Link href="/cookie-policy" className="hover:text-black transition-colors">Cookie Policy</Link>
+            <Link href="/cookie-policy" className="hover:text-black transition-colors">Cookie-Richtlinie</Link>
             <span>•</span>
-            <Link href="/termini-e-condizioni" className="hover:text-black transition-colors">Terms</Link>
+            <Link href="/termini-e-condizioni" className="hover:text-black transition-colors">Nutzungsbedingungen</Link>
           </div>
           <p className="text-[9px] text-black/40 uppercase tracking-wider mt-1 max-w-xl leading-normal text-center">
-            Transparency note (EU AI Act): some images on this site are illustrative
-            and were generated or optimised with artificial intelligence.
+            Transparenzhinweis (EU-KI-Verordnung): Einige Bilder auf dieser Website
+            sind illustrativ und wurden mit künstlicher Intelligenz erzeugt oder
+            bearbeitet.
           </p>
         </div>
       </footer>
+
     </main>
   );
 }
