@@ -44,6 +44,43 @@ la pagina è stata costruita, non a quello in cui è stata pubblicata. Portato a
 **28/08**. È l'unica data che Google guarda per decidere se vale la pena
 ripassare: sbagliarla significa farsi ignorare il primo passaggio.
 
+### Chiesta l'indicizzazione a Google
+
+Marco: *«dopo chiedi a google l'indicizzazione di questa pagina tramite il
+google search console dell'account saintjackstudios»*.
+
+Fatto dall'interfaccia di Search Console, proprietà **dominio**
+`sc-domain:schiacciateriaretrotrieste.com`, account `saintjackstudios`
+(`u/1`). Il pulsante «Richiedi indicizzazione» esiste **solo lì**: il token che
+abbiamo in mano è in sola lettura e l'Indexing API di Google accetta soltanto
+offerte di lavoro ed eventi in diretta, non le pagine normali.
+
+Due URL messi in coda prioritaria:
+
+| URL | Stato prima | Azione |
+|---|---|---|
+| `…/en` | *URL sconosciuto a Google* | ✅ indicizzazione richiesta |
+| `…/` (home italiana) | *già indicizzata* | ✅ indicizzazione richiesta |
+
+**Perché anche la home**, che era già dentro: l'hreflang funziona solo se le due
+pagine si nominano a vicenda, e il rimando verso `/en` sulla home l'abbiamo
+aggiunto oggi. Finché Google non ripassa dalla home, vede una dichiarazione in
+una direzione sola — e quelle le ignora. Chiedere l'indicizzazione della pagina
+nuova senza chiedere quella della pagina che la dichiara è un lavoro a metà.
+
+Sitemap: inviata il 21/07, **riletta oggi 28/08, esito Success, 34 pagine
+scoperte**. Non l'ho reinviata: reinviare lo stesso indirizzo non accelera
+niente, Google la rilegge da sé, e l'avviso di Google dice a chiare lettere che
+richiedere più volte la stessa pagina non cambia la sua posizione in coda.
+
+Nell'ispezione, `/en` risultava *«Nessuna sitemap di riferimento rilevata»*: è
+normale, la sitemap è stata letta prima che la pagina fosse online. Si
+sistemerà alla lettura successiva.
+
+**Da qui in poi non dipende più da noi.** La coda prioritaria non è una
+promessa: Google ci mette da qualche ora a qualche giorno, e può anche decidere
+di non indicizzare. Si ricontrolla fra qualche giorno con la stessa ispezione.
+
 ### Cosa resta aperto su questa pagina
 
 1. `<html lang="it">` vale anche su `/en`. Mitigato dal `<main lang="en">`
