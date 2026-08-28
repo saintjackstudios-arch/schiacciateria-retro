@@ -56,11 +56,32 @@ Le altre 33 pagine NON le ho toccate: il `lang` nell'HTML e' cambiato, ma per
 chi legge non e' cambiato niente, e spostare 36 date per far sembrare tutto
 nuovo e' il modo piu' rapido per farsi ignorare le date vere.
 
+### Verificato in produzione
+
+- `/de` risponde 200 e pesa **102.826 byte, identici alla build locale**.
+- `<html lang>`: `it` sulla home, `en` su `/en`, **`de` su `/de`**.
+- hreflang reciproco a tre su tutte e tre le pagine, canonical giusto,
+  `index, follow`, sitemap a 36 URL con `/de` dentro.
+- Dello strumento di revisione: **zero occorrenze**.
+
 ### Chiesta l'indicizzazione
 
-Solo `/de`. Home e `/en` erano gia' state messe in coda stamattina e Google
-scrive a chiare lettere che **richiedere la stessa pagina piu' volte non cambia
-la sua posizione in coda**: rifarlo oggi sarebbe stato solo consumare quota.
+`/de` messa in coda prioritaria. Home e `/en` erano gia' state messe in coda
+stamattina e Google scrive a chiare lettere che **richiedere la stessa pagina
+piu' volte non cambia la sua posizione in coda**: rifarlo sarebbe stato solo
+consumare quota.
+
+### 🟢 E l'inglese e' gia' dentro
+
+Ispezionata `/en` per curiosita': **«URL is on Google — Page is indexed»**.
+Stamattina, cinque ore prima, la stessa ispezione diceva *«URL is unknown to
+Google»*. Cioe' Google l'ha trovata, scansionata e indicizzata **in mezza
+giornata**.
+
+📌 Vale la pena ricordarselo quando si legge la storia di Villa Marittimi:
+li' la pagina `/en` esiste da dodici mesi con zero impressioni, ma **non era in
+sitemap con un hreflang reciproco e non era linkata da tutto il sito**. La
+differenza fra le due non e' la lingua: e' come sono state pubblicate.
 
 ---
 
