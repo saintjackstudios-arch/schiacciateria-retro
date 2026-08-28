@@ -4,6 +4,78 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (18) — 🔧 Il `lang` sbagliato su `/en`, sistemato con i route group (non pubblicato)
+
+Marco: *«sistema il lang con i route group»*.
+
+### Cos'era rotto
+
+Tutte le pagine dichiaravano `<html lang="it">`, `/en` compresa. Chi la legge:
+i lettori di schermo, che da lì scelgono la pronuncia — l'inglese letto con la
+fonetica italiana è incomprensibile. **Google invece la ignora**: la lingua se
+la ricava dal testo, e a chi mostrare cosa glielo dice l'hreflang. Quindi non
+costava posizioni: era un difetto di accessibilità, non di ranking.
+
+Non era sistemabile con una riga perché in Next il tag `<html>` si scrive una
+volta sola, in `app/layout.tsx`, e quel file lo usano tutte le pagine.
+
+### Cosa ho fatto
+
+Letta prima la documentazione di **questa** versione
+(`node_modules/next/dist/docs/…/route-groups.md` e `layout.md`), come dice
+`AGENTS.md`.
+
+Le rotte sono ora in due gruppi. Le parentesi dicono a Next che la cartella
+**non entra nell'indirizzo**: `(it)/menu` resta `/menu`.
+
+```
+src/app/(it)/   layout.tsx → <Documento lingua="it">   home, menu, blog, …
+src/app/(en)/   layout.tsx → <Documento lingua="en">   /en
+```
+
+Il guscio — font, schema `Restaurant`, intestazione, banner cookie, barra
+mobile — è in `src/components/Documento.tsx`, **scritto una volta sola**: se
+l'avessi copiato nei due layout, prima o poi sarebbe cambiato solo in uno. Lo
+stesso per i metadati comuni, ora in `src/lib/metadataSito.ts`.
+
+`menuData.ts` è uscito da `app/menu/` ed è andato in `src/lib/`: è il listino,
+lo leggono tutte e due le lingue, non appartiene al gruppo italiano. **File
+identico, zero righe cambiate.**
+
+Tolta da `EnClient.tsx` la riga di JavaScript che correggeva il `lang` dopo il
+caricamento, e il `lang="en"` sul `<main>`: adesso è ridondante.
+
+### Verificato sulla build, non sul codice
+
+- **45 pagine**, la stessa identica lista di prima. TypeScript pulito.
+- `<html lang>`: **37 pagine `it`, 1 `en`.** Prima erano 38 `it`.
+- Su `/en` il banner dei cookie e la barra dei tasti — che stanno **fuori** dal
+  `<main>` e prima ereditavano l'italiano — adesso ereditano `en`. Erano
+  l'unica cosa davvero mal dichiarata dopo il cerotto.
+- I due `lang="en"` rimasti nell'HTML di `/en` sono il link «English» del
+  selettore: giusto così, un link a una pagina in un'altra lingua si dichiara.
+- **38 pagine linkano `/en`**, canonical, hreflang reciproco (3 per lato),
+  schema `Restaurant` e `FAQPage`, sitemap 35 URL, robots: tutto invariato.
+- Cambio lingua provato **nei due sensi** col selettore: `/` → `/en` arriva con
+  `lang="en"`, `/en` → `/` con `lang="it"`. Nessun errore in console.
+  ⚠️ Passare da un gruppo all'altro ricarica la pagina intera invece di
+  navigare lato client — è scritto nella documentazione ed è il prezzo dei due
+  layout radice. Su un cambio di lingua non si nota.
+- Home e menu riguardati a schermo: identici. Il menu ha ancora 99 prezzi e 50
+  immagini.
+
+### Perché adesso e non prima
+
+Col solo inglese il cerotto teneva. Col tedesco diventavano due pagine da
+ricordarsi e due righe di JavaScript. **Questo è il punto in cui il cerotto
+costa più della cucitura**, ed è anche il motivo per cui aggiungere il tedesco
+adesso non richiede più di toccare niente di tutto questo: una cartella
+`(de)`, un layout di tre righe, e il resto è contenuto.
+
+**Non pubblicato. In attesa del via di Marco.**
+
+---
+
 ## 2026-08-28 (17) — 🟢 PUBBLICATA la landing inglese `/en`
 
 Marco: *«Elimina le scritte in italiano che erano di revisione e pubblica.»*

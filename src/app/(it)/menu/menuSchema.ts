@@ -3,7 +3,7 @@ import {
   PRANZO_SCHIACCIATE, PRANZO_INSALATONE, PRANZO_BRUSCHETTONI,
   CENA_SCHIACCIATE, CENA_SMASH, CENA_BRUSCHETTONI,
   SFIZI_PATATE, SFIZI_ALTRI, DOLCI, BEVANDE_BIRRE, BEVANDE_SPRITZ,
-} from './menuData';
+} from '@/lib/menuData';
 
 const SITO = 'https://schiacciateriaretrotrieste.com';
 

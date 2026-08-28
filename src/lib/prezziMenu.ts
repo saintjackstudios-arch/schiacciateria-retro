@@ -11,7 +11,7 @@ import {
   BEVANDE_BIRRE,
   BEVANDE_SPRITZ,
   type MenuItem,
-} from '@/app/menu/menuData';
+} from '@/lib/menuData';
 
 /**
  * Il prezzo si scrive UNA VOLTA SOLA, in menuData.ts.

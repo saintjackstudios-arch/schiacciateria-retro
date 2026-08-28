@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,7 +8,7 @@ import {
   ArrowRight, Beer, Bus, CalendarCheck, Car, Clock, Footprints, MapPin,
   MessageSquare, Phone, Plane, Ship, Train, Trees, Utensils, Wallet,
 } from 'lucide-react';
-import { BEVANDE_BIRRE } from '@/app/menu/menuData';
+import { BEVANDE_BIRRE } from '@/lib/menuData';
 import { fotoDiMenu, forbiceEN, prezzoEN } from '@/lib/prezziMenu';
 import {
   BIRRE_IN_VETRINA, COME_ARRIVARE, FAQ, FERMATA_VICINA,
@@ -66,23 +66,10 @@ const ORARI_EN = [
 ];
 
 export default function EnClient() {
-  // Il layout radice dichiara <html lang="it"> per tutto il sito. Su questa
-  // pagina il contenuto e' inglese, quindi lo correggiamo: serve ai lettori di
-  // schermo, che altrimenti leggono l'inglese con la pronuncia italiana.
-  // Il <div lang="en"> qui sotto fa lo stesso lavoro anche senza JavaScript.
-  // Quando le lingue saranno otto varra' la pena spostare tutto il sito nei
-  // route group di Next, cosi da avere il lang giusto gia' nell'HTML statico.
-  useEffect(() => {
-    const precedente = document.documentElement.lang;
-    document.documentElement.lang = 'en';
-    return () => { document.documentElement.lang = precedente; };
-  }, []);
-
   const birre = forbiceEN(BEVANDE_BIRRE);
 
   return (
     <main
-      lang="en"
       className="min-h-screen bg-[#fdfaf3] selection:bg-yellow-400 selection:text-black font-sans pt-16 md:pt-20"
     >
       {/* ── HERO ───────────────────────────────────────────── */}
