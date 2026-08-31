@@ -4,6 +4,75 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (24) — 📌 Le ricerche non di marca: diagnosticate il 27/08, MAI affrontate
+
+Marco: *«non ricordo più cosa avevamo fatto per posizionarci meglio… avevamo
+parlato di come risolvere questo problema enorme oppure dobbiamo ancora
+prenderlo in mano?»*.
+
+**Risposta onesta: l'abbiamo diagnosticato e non l'abbiamo mai affrontato.** Il
+27/08 e' nato `seo/ricerche-non-brand.md`; da allora il lavoro e' andato tutto
+su inglese, tedesco, i due layout per lingua e l'audit. **Un piano non c'e' mai
+stato.**
+
+### ⚠️ «Siamo diciottesimi» e' la lettura sbagliata di meta' dei numeri
+
+Ci sono **due problemi opposti**, e confonderli porta alla cura sbagliata.
+
+**Gruppo A — siamo primi e non ci clicca nessuno.**
+
+| ricerca | posizione | impressioni | clic |
+|---|---|---|---|
+| bar viale 20 settembre trieste | **1,2** | 24 | **0** |
+| paninoteca trieste | 2,7 | 69 | **0** |
+| bar trieste | 3,5 | 50 | **0** |
+| bar vicino a me | 3,2 | 22 | **0** |
+
+La posizione e' gia' perfetta. **Migliorarla non cambierebbe niente**: sopra il
+link blu c'e' il riquadro delle mappe. Si vincono con la scheda, non col sito.
+
+**Gruppo B — siamo decimi-diciottesimi e ci cliccano lo stesso.**
+
+| ricerca | posizione | clic |
+|---|---|---|
+| cosa mangiare a trieste street food | 10,8 | 1 |
+| mangiare a trieste spendendo poco | 12,8 | 1 |
+| movida trieste | 15,4 | 1 |
+| dove mangiare a trieste spendendo poco | **17,9** | **1** |
+
+**Da posizione 18 abbiamo preso un clic lo stesso.** Quando ci vedono, ci
+aprono.
+
+📌 **Il ribaltone: le ricerche dove siamo primi sono quelle perse, quelle dove
+siamo diciottesimi sono quelle vincibili.** Dipende dall'intenzione: «bar
+trieste» e' uno per strada che vuole una mappa; «dove mangiare spendendo poco»
+e' uno che legge per decidere.
+
+### 🔴 Perche' siamo a pagina due: non e' la SEO tecnica
+
+Letti oggi due articoli del blog per intero. Sono scritti bene, in italiano
+corretto, e **non contengono una sola cosa che sappia solo Retro**. Il
+rebechin, i sardoni in savor, la porzina, il kren: sta tutto su Wikipedia.
+
+⛔ **E `street-food-trieste-guida` consiglia per nome «il mitico Buffet da Pepi
+o il Buffet Clai»** — due concorrenti — in una pagina che dovrebbe portarci
+clienti. (127 impressioni, **0 clic**, posizione 9,2.)
+
+**28 articoli, ~400 parole l'uno, 1.950 impressioni e 26 clic.** Google li mette
+a meta' pagina perche' sono competenti e intercambiabili. **Non e' un problema
+di title tag.**
+
+### Il primo passo, quando si riparte
+
+Ho guardato **20 ricerche su 384**. Prima di decidere qualsiasi cosa: tirarle
+fuori tutte con posizione e impressioni e **isolare la fascia 5-20**, dove una
+pagina che gia' esiste ha bisogno di molto meno di una pagina da creare. Poi, su
+quelle poche, si riscrive con quello che sa solo Davide.
+
+**Nessun lavoro fatto: questa e' la fotografia prima di ripartire.**
+
+---
+
 ## 2026-08-28 (23) — 🔍 AUDIT: sito, Search Console e GA4
 
 → `seo/audits/audit-28-08-2026.md`
