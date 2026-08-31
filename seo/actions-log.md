@@ -31,8 +31,24 @@ Search Console comincia il 19/07: sono **sei settimane in tutto**.
 > MOSTRATO, l'ispezione URL dice quale ha SCELTO. Avevo risposto alla seconda
 > domanda con la prima.**
 >
-> ⚠️ **Il difetto vero e' l'altro:** `www` risponde **307**, temporaneo, e i
-> temporanei Google non li consolida. Si puo' forzare da `next.config.ts`.
+> ⚠️ ~~**Il difetto vero e' l'altro:** `www` risponde **307**.~~ **SBAGLIATO
+> ANCHE QUESTO.** Marco aveva detto di sistemarlo; prima di scrivere codice ho
+> verificato due cose:
+>
+> **① Una regola in `next.config.ts` non funzionerebbe.** Alla risposta del
+> `www` manca `x-matched-path`, che c'e' su ogni pagina servita
+> dall'applicazione: **il 307 parte dal bordo di Vercel e al nostro codice la
+> richiesta non arriva mai.** Sarebbe stato codice morto. La leva e' una tendina
+> in Settings → Domains su Vercel.
+>
+> **② E non serve comunque:** l'ispezione di `https://www…/` dice **«URL is not
+> on Google — Page is not indexed: Page with redirect»**, scansionato il 30/08.
+> Il rischio teorico del 307 e' che Google tenga indicizzata la partenza: **qui
+> non la tiene.** Costo misurato: zero.
+>
+> 📌 **La lezione della giornata: prima si misura se una cosa fa danno, poi la
+> si sistema. Oggi ho proposto due interventi — i due indirizzi della home e il
+> `www` — e andando a guardare la fonte giusta nessuno dei due era un problema.**
 
 
 | | clic | impressioni |
