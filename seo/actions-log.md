@@ -4,6 +4,79 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (28) — 📸 79 post su 227, e i fatti estratti
+
+→ `seo/materiale-clienti/instagram/post-instagram-tutti.md` (le didascalie)
+→ `seo/materiale-clienti/instagram/fatti-estratti.md` (la sintesi, 502 righe)
+
+Marco: *«usa gallery-dl, ti do il consenso al portachiavi»*.
+
+### Come sono andate le cose
+
+`gallery-dl --cookies-from-browser chrome` ha estratto 1.168 cookie: **il
+portachiavi ha funzionato al primo colpo**, una volta sola. Poi:
+
+| tentativo | risultato |
+|---|---|
+| primo, pause da 1,5 s | **73 post**, dal 16/03 al 29/08 |
+| secondo, pause da 6 s | **0** |
+| terzo, dopo una pausa | **0** |
+
+**Instagram lascia passare una settantina di post e poi chiude**, e non si
+riapre a breve. Piu' 6 caroselli che gallery-dl salta e che avevo gia' preso a
+mano: **79 su 227**.
+
+⛔ **Non insisto oltre. Per gli altri 148 la strada e' l'esportazione ufficiale**
+dell'account (*Centro gestione account → Le tue informazioni e autorizzazioni →
+Scarica le tue informazioni*): archivio completo, per email in un paio d'ore,
+dati dell'account chiesti dalla porta principale.
+
+### L'estrazione dei fatti
+
+Un agente ha letto tutti e 79 i post e ha prodotto `fatti-estratti.md`: nove
+sezioni, **ogni fatto con la data e il link**, e le deduzioni marcate come tali.
+Ha anche corretto un mio errore di conteggio nell'intestazione del file sorgente
+(diceva 73 e 154, sono 79 e 148).
+
+### 🔴 Le cose che il sito non dice da nessuna parte
+
+- **Le sei salse delle patatine**, una per una (27/07): cacio e pepe, cheddar,
+  tzatziki, maionese affumicata, tartufo, salsa burger. **Il sito dice solo
+  «croccanti e dorate».**
+- **Davide** — «mente, cuore e mani dietro ogni schiacciata», le sveglie presto,
+  le prove. **Il sito non nomina un solo essere umano.**
+- **Loris Virdis e Luca Bitti detto «Meme»**, in 11 post: la squadra ha dei
+  volti.
+- **Il baracchino nuovo, aperto l'8 luglio 2026**, e la firma **«Retrò Express —
+  Street Buffet»** comparsa il 26/08.
+- **Man vs Schiacciata**: 1,2 kg, 40 € se perdi, **maglietta ufficiale** e
+  **Hall of Fame** — due pezzi di marchio che il sito ignora.
+- **Il catering** (compleanni, lauree, feste) e gli **eventi fuori sede** col
+  loro indirizzo.
+- **Le tartine** e il **Campari**, unico marchio di bevanda mai nominato.
+- La lingua vera: *bella muli*, *ve spetemo*, *badilade*, *birron*, *muleria*, e
+  il modulo **«che ___ ara»** (bon, smash, riflessi, coppia, bravi, sogno).
+- **Il post-dizionario CIACOLANDO** (14/05): un formato editoriale gia'
+  collaudato e riusabile sul blog.
+- **La croccantezza e' una scelta dichiarata**, non un aggettivo: il 27/03 il
+  locale contrappone «TEAM CROCCANTE o TEAM SUPER FARCITA».
+
+### ⚠️ Da confermare col titolare prima di scrivere
+
+**I gusti del Giro Ignorante.** Instagram (20/04) dice **Mortazza, Crudo,
+C.S.H., Vegeta**; il sito dice Top de Gamma, Variante TS, Porca Zozza, Bona ma
+Leggera, Fit, Piaza Granda. **I formati coincidono al pezzo (4/1, 8/2, 12/3), i
+nomi no.** Nessun elemento per scegliere: potrebbero essere soprannomi da banco
+o un elenco superato. **Non si scrive niente finche' Davide non risponde.**
+
+Altro da chiarire: se il baracchino ha aperto davvero, se salse e tartine sono
+ancora in carta, e cos'e' il secondo account `@retroxxsettembre`.
+
+**Manca del tutto**, perche' sta nei 148 post non letti: anno di apertura,
+orari, birre alla spina, prezzi, fornitori, impasto e forno.
+
+---
+
 ## 2026-08-31 (27) — 📸 Instagram: presi 48 post su 227, poi Instagram ha chiuso
 
 → `seo/materiale-clienti/instagram/post-2026-04_2026-08.md`
