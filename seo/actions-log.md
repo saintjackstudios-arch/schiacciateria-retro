@@ -4,6 +4,82 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (30) — 🎤 Marco ha dettato kren, birre e scontrino. E le patatine non si fanno
+
+→ `seo/materiale-clienti/voce-di-davide.md`
+
+### ⛔ Prima: le patatine erano una mia proposta sbagliata
+
+Avevo proposto di partire dalle patatine perche' avevo tanto materiale. Marco:
+*«non sono sicuro che guadagneremmo traffico»*. **Controllato: nelle 384
+ricerche non c'e' una sola parola su patatine, fritti, burger o smash. Zero.**
+
+📌 **L'errore, che e' lo stesso che ha prodotto il blog attuale: avevo confuso
+«abbiamo materiale» con «c'e' una ricerca da vincere».** Il materiale e' il
+ripieno, non il motivo per cui la pagina esiste. **Prima si sceglie la ricerca,
+poi si prende il materiale che la riempie.** Mai il contrario.
+
+➡️ Le sei salse non diventano una pagina: **diventano il ripieno della pagina
+sui pub**, dove ci sono ~60 ricerche e siamo intorno alla nona posizione.
+
+### 🔑 Il kren — il materiale migliore di tutta la sessione
+
+Marco: *«Prendiamo noi le radici di rafano e lo teniamo in acqua, cosi' rimane
+vivo. Poi diamo una sbucciata alla parte nuova da grattugiare, e lo grattiamo
+sul momento.»*
+
+E la cosa che nessuna IA poteva scrivere:
+
+> **«Metto kren?» — «A piangere.»** E' un'unita' di misura: mettine cosi' tanto
+> che mentre lo mangio mi verra' da piangere. **E non sei solo, perche' chi lo
+> gratta piange insieme a te mentre gratta.**
+
+⚠️ **«A piangere» e' un modo di dire di Trieste, non di Retro** — Marco dice «e'
+famosissima». Va raccontato come una cosa della citta' a cui il locale
+partecipa. **La parte nostra e' l'ultima: chi gratta piange col cliente.**
+
+### 🔑 Le birre — le ha scelte una persona, coi clienti
+
+Marco: *«Le ha scelte Davide dopo settimane di "lunghe degustazioni" in
+compagnia di dipendenti e clienti che hanno assunto il ruolo di degustatori. In
+pratica si ubriacavano, e quella che gli piaceva di piu' la mettevano in menu.
+E queste degustazioni sono ancora in corso.»*
+
+📌 Marco: *«Sta parte delle lunghe degustazioni tienila perche' fa ridere.»**
+Le virgolette sono sue e sono la battuta.
+
+➡️ **E spiega la «Birra a Rotazione»**, che oggi sul sito e' una riga con
+scritto «Chiedi al banco»: non e' un riempitivo, **e' il posto dove finisce la
+degustazione in corso.**
+
+### 🔑 Lo scontrino — il numero regge il controllo
+
+Marco: *«Una schiacciata, una porzione di patatine e una birretta. Meno di 20
+euro per una cena fuori il sabato sera.»*
+
+**Verificato sui prezzi veri di `menuData.ts`:**
+
+| combinazione | totale |
+|---|---|
+| schiacciata 8,50 + patatine 4,50 + birra 0,2 l | **16,00 €** |
+| schiacciata 8,50 + patatine + birra 0,4 l | **18,00 €** |
+| schiacciata 10 + patatine + birra 0,4 l | **19,50 €** |
+| schiacciata 10 + patatine + birra 0,5 l | **20,00 €** |
+
+✅ **«Meno di 20 euro» e' esatto**: per arrivare a venti serve la schiacciata
+piu' cara *e* la birra piu' grande. E combacia con quello che la pagina inglese
+gia' dichiara (*«€15 to €20 a head»*).
+
+E il caso in compagnia: Tavolata Ignorante 16,00 € divisa in quattro fa **4 € a
+testa**, piu' una birra media **9 € a testa**. Ma Marco avverte: *«dipende da
+quanto uno beve, puo' essere una birra a testa o dieci se sono
+professionisti»*. ➡️ **Il cibo e' prevedibile, la birra no. Il conto non lo
+decide il menu, lo decide quanto restate seduti.**
+
+**Ancora niente scritto. Il materiale e' archiviato.**
+
+---
+
 ## 2026-08-31 (29) — ✅ Il Giro Ignorante non era una contraddizione. E la raccolta resta ferma a 79
 
 Marco: *«il formato è rimasto lo stesso, quello di sempre. I gusti cambiano con

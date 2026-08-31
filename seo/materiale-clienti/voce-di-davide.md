@@ -1,186 +1,155 @@
 # La voce di Davide — le informazioni di prima mano
 
-> **A cosa serve questo file.** Le pagine del blog oggi sono scritte dall'IA:
-> corrette, leggibili e **senza una sola cosa che sappia solo Retrò**. Il
-> rebechin, il kren, i sardoni in savor stanno su Wikipedia. È il motivo per cui
-> 28 articoli fanno 2.190 impressioni e **31 clic**, e stanno a metà pagina.
+> **A cosa serve.** Le pagine del blog sono scritte da un'IA: corrette e senza
+> una sola cosa che sappia solo Retrò. Qui dentro c'è quello che si sa solo
+> stando dietro il banco. **Se una risposta non c'è, la frase non si scrive.**
+
+**Raccolto da Marco il 31/08/2026.** Le parole sono sue; dove ho fatto un conto
+o una verifica lo dico.
+
+---
+
+## 1. IL KREN 🔑
+**Query:** `kren trieste` — 29 impressioni, posizione 8,0 · `rebechin` — 13, 7,8
+
+### Come lo trattano, parola di Marco
+
+> «Prendiamo noi le radici di rafano e **lo teniamo in acqua, così rimane vivo**.
+> Poi diamo una sbucciata alla parte nuova da grattugiare, e **lo grattiamo sul
+> momento**.»
+
+Tre fatti, tutti verificabili da chi entra:
+1. **Radici intere, non barattoli.**
+2. **Tenute in acqua per tenerle vive.**
+3. **Si sbuccia solo la parte che serve, e si gratta al momento dell'ordine.**
+
+### ⭐ «Metto kren?» — «A piangere»
+
+> «È famosissima la frase **"Metto kren?"**. La risposta leggendaria è **"A
+> piangere"**. È una specie di **unità di misura**: come dire, mettine così
+> tanto che mentre lo mangio mi verrà da piangere, perché è incredibilmente
+> balsamico e ti fa lacrimare.
 >
-> Qui dentro va **quello che si sa solo stando dietro il banco**. Le risposte le
-> raccoglie Marco da Davide; io non le invento e non le arrotondo. Ogni pagina
-> nuova nasce da qui.
+> E comunque **non sei solo, perché chi lo gratta piange insieme a te mentre
+> gratta**.»
+
+⚠️ **Attenzione a come si scrive.** «A piangere» è un modo di dire **di
+Trieste**, non un'invenzione di Retrò: Marco dice «è famosissima». Nel testo va
+raccontato come una cosa della città a cui il locale partecipa — **mai come
+qualcosa che abbiamo inventato noi**. La parte che è solo nostra è l'ultima:
+**chi gratta piange insieme al cliente.** Quella è prima mano.
+
+---
+
+## 2. LE BIRRE 🔑
+**Query:** `pub trieste` 25 · `pub trieste centro` 13 · `pub vicino a me` 9 ·
+`pub a trieste` 4 · `birreria trieste` 10 — **circa 60 ricerche, siamo intorno
+alla nona posizione**
+
+### Chi le ha scelte, parola di Marco
+
+> «Le birre le ha scelte Davide dopo settimane di **"lunghe degustazioni"** in
+> compagnia di dipendenti e clienti che hanno assunto il ruolo di **degustatori**.
 >
-> **Regola: se una risposta non c'è, la frase non si scrive.** Meglio una pagina
-> più corta che una frase inventata.
+> In pratica si ubriacavano, e quella che gli piaceva di più la mettevano in
+> menù.
+>
+> E **queste degustazioni sono ancora in corso**, per tenere sempre aggiornato il
+> menù delle birre.»
 
-**Come si compila:** rispondi sotto la domanda, in qualunque forma — anche
-appunti sconnessi, anche a voce trascritta. Non serve che sia scritto bene: le
-parole le sistemo io, i fatti li metti tu.
+📌 **Marco: «Sta parte delle lunghe degustazioni tienila perché fa ridere.»** Le
+virgolette intorno a *lunghe degustazioni* sono sue e sono il senso della
+battuta: si tengono.
 
-Legenda: 🔑 = senza questa la pagina non si scrive · ➕ = la rende migliore
+Tre cose che nessun concorrente scrive:
+1. **Le ha scelte una persona**, con un nome, non un fornitore.
+2. **Le hanno scelte insieme ai clienti**, promossi degustatori.
+3. **Il processo non è finito**: la carta si aggiorna così, ancora adesso.
 
----
-
-## 1. IL KREN
-**Query bersaglio:** `kren trieste` (29 impressioni, posizione 8,0) ·
-`rebechin` (13, 7,8) · `tradizioni triestine`
-**Assorbe:** `tradizioni-triestine-kren-caffe-capo-in-b` (0 clic su 40) ·
-`rebechin-come-si-fa-trieste` (1 clic su 50)
-
-🔑 Il kren lo comprate già grattugiato o lo grattugiate voi? Se lo grattugiate:
-ogni quanto, e chi lo fa?
-
-🔑 Da dove arriva? Un fornitore, un mercato, un contadino?
-
-🔑 Su cosa lo mettete, e su cosa **non** lo mettereste mai? Perché?
-
-🔑 Quanto ne va via in una settimana?
-
-➕ Chi lo chiede: triestini o gente da fuori? E come lo chiedono al banco?
-
-➕ Cosa succede quando uno di fuori lo assaggia per la prima volta?
-
-➕ La **Variante TS** (cotto, melanzana, senape, kren): chi l'ha messa insieme, e
-perché proprio quella combinazione?
-
-➕ C'è chi lo chiede a parte, in aggiunta?
-
-### Risposte
-
+➡️ **E questo spiega la "Birra a Rotazione" del menu**, che oggi sul sito è solo
+una riga con scritto «Chiedi al banco». Non è un riempitivo: **è il posto dove
+finisce la degustazione in corso.**
 
 ---
 
-## 2. LA BIRRA
-**Query bersaglio:** `pub trieste` (25, 9,1) · `pub trieste centro` (13, 11,0) ·
-`birreria trieste` (10) · `birra artigianale trieste`
-**Assorbe:** `migliori-pub-trieste-centro` (1 clic su 106, pos 16,8) ·
-`bar-trieste-studenti-universitari` (0 su 34)
+## 3. QUANTO SI SPENDE 🔑
+**Query:** `mangiare a trieste spendendo poco` 9 impressioni, posizione 12,8 ·
+`dove mangiare a trieste spendendo poco` 8, 17,9 — **e tutte e due hanno già
+preso un clic da lì sotto**
 
-> ⚠️ **Perché questo argomento c'è.** L'unico inglese che ha scritto una frase
-> intera in una recensione ha scritto: *«One of the few places in Trieste with
-> some craft beers and IPAs.»* **L'ha capito da solo. Il sito non lo dice da
-> nessuna parte.**
+### Le due situazioni, parola di Marco
 
-🔑 Le cinque alla spina: **chi le ha scelte e con che criterio?** Perché quelle e
-non altre?
+> «Una persona media spende poco per il buffet, e poi spende tanto in birra
+> perché è in compagnia. Ma lì dipende da quanto uno beve: **può letteralmente
+> essere una birra a testa, o dieci se i clienti sono dei "professionisti"**.
+>
+> Se invece cenano, considera che prendono di media **una schiacciata, una
+> porzione di patatine e una birretta**. Meno di 20 euro per una cena fuori il
+> sabato sera. Non è eccessivo dai.»
 
-🔑 La **birra a rotazione**: ogni quanto cambia, chi la sceglie, da chi la
-prendete? Quali sono state le ultime tre?
+### Il conto, fatto sui prezzi veri di `menuData.ts`
 
-🔑 Qual è la più venduta? E qual è quella che vendete meno ma tenete lo stesso —
-e perché la tenete?
+*(calcolato da me il 31/08/2026, non dettato)*
 
-➕ Quante ne escono in una sera di venerdì?
+| | |
+|---|---|
+| Schiacciata | **8,50 €** (Top de Gamma, Variante TS) o **10,00 €** (le altre) |
+| Porzione di patatine | **4,50 €** |
+| Birra 0,2 l | **3,00 €** · 0,4 l **5,00 €** · 0,5 l **5,50 €** |
 
-➕ 0,2 / 0,4 / 0,5: quale prende un triestino, quale prende uno di fuori?
+| combinazione | totale |
+|---|---|
+| schiacciata da 8,50 + patatine + birra piccola | **16,00 €** |
+| schiacciata da 8,50 + patatine + birra media | **18,00 €** |
+| schiacciata da 10 + patatine + birra media | **19,50 €** |
+| schiacciata da 10 + patatine + birra grande | **20,00 €** |
 
-➕ Vi capita di consigliarne un'altra a chi ne ordina una? Quale, e in che caso?
+✅ **«Meno di 20 euro» è esatto**: la cena tipo sta **fra 16 e 19,50 €**, e per
+arrivare a venti bisogna prendere la schiacciata più cara *e* la birra più
+grande. **Si può scrivere il numero, perché regge il controllo.**
 
-➕ C'è un abbinamento con qualcosa del menu che consigliate davvero?
+### E il caso del tavolo in compagnia
 
-### Risposte
+Giro Ignorante a prezzi di listino: Duo Retrò **6,00 €** · Muleria Retrò
+**12,00 €** · Tavolata Ignorante **16,00 €**.
 
+Un tavolo di quattro con una Tavolata (16,00, cioè **4 € a testa**) più una
+birra media a testa (5,00) sta a **9 € a testa**.
 
----
-
-## 3. LO SPRITZ
-**Query bersaglio:** `spritz triestino` (24, 10,2) · `spritz bianco trieste`
-(29, 4,6 — **già un clic**) · `spritz trieste` (7, 10,1) · `aperitivo trieste`
-**Assorbe:** `dove-bere-miglior-spritz-trieste` (6 clic su 126) ·
-`dove-fare-aperitivo-trieste-centro` (3 su 248) ·
-`quale-locale-scegliere-aperitivo-trieste` (0 su 85)
-**Pagina che resta:** `spritz-aperitivo-trieste` — 7 clic su 480, posizione 5,1,
-**la pagina migliore del sito dopo la home e il menu**
-
-🔑 Con che vino bianco lo fate? Quale, di dove?
-
-🔑 Le proporzioni vere: quanto vino, quanta acqua, ghiaccio, limone o no?
-
-🔑 In una sera: quanti bianchi e quanti aranci?
-
-➕ Cosa succede quando uno di fuori ordina «uno spritz» e gli arriva bianco?
-C'è chi lo rimanda indietro?
-
-➕ A che ora comincia l'ora dello spritz e a che ora finisce?
-
-➕ Arriva qualcosa insieme? Cosa?
-
-### Risposte
-
+📌 **Il punto vero da scrivere, ed è di Marco: il cibo è prevedibile, la birra
+no.** Il conto non lo decide il menu, lo decide quanto restate seduti.
 
 ---
 
-## 4. QUANTO SI SPENDE
-**Query bersaglio:** `mangiare a trieste spendendo poco` (9, 12,8 — un clic) ·
-`dove mangiare a trieste spendendo poco` (8, 17,9 — un clic)
-**Assorbe:** `dove-mangiare-trieste-spendendo-poco` (0 clic su 70) e
-`dove-mangiare-bene-trieste-spendendo-poco` (2 su 34) — **due articoli sullo
-stesso identico intento**
+## 4. LO SPRITZ
+**Query:** `spritz bianco trieste` 29 (già un clic, posizione 4,6) ·
+`spritz triestino` 24 · `spritz trieste` 7
 
-> 📌 **Il dato che abbiamo già:** su 100 recensioni lette, **55 dichiarano
-> quanto hanno speso**: 27 dicono 10-20 €, 24 dicono 1-10 €. **Non è scritto da
-> nessuna parte sul sito, in nessuna lingua.**
-
-🔑 Lo **scontrino medio**: quanto è a pranzo e quanto a cena?
-
-🔑 Cosa ordina, esattamente, uno che spende **10 euro**? E uno che ne spende
-**20**?
-
-🔑 Qual è la combinazione più ordinata in assoluto, e quanto viene?
-
-➕ La cosa più economica del menu che però sazia davvero?
-
-➕ Un tavolo di quattro con una Tavolata Ignorante e le birre: quanto spende?
-
-➕ C'è un giorno o un'ora in cui si spende meno?
-
-### Risposte
-
+**Materiale già disponibile**, dalla pagina inglese e dai post: vino bianco,
+acqua frizzante, ghiaccio, limone; niente bitter, niente arancione; è quello che
+arriva se dici solo «uno spritz». **Manca: quale vino, di dove, e quanti bianchi
+contro quanti aranci in una sera.**
 
 ---
 
 ## 5. COSA MANGIARE
-**Query bersaglio:** `cosa mangiare a trieste street food` (31, 10,8) ·
-`cosa mangiare a trieste` (12, 11,6) · `street food trieste` (4, 18,0) ·
-`cosa si mangia a trieste` (6, 2,2)
-**Assorbe:** `street-food-trieste-guida` (**0 clic su 140** — il peggiore del
-sito) · `cosa-mangiare-trieste-tipico` (2 su 71) ·
-`cosa-mangiare-trieste-pausa-pranzo` (0 su 42) ·
-`pasto-veloce-1-ora-trieste-centro` (0 su 16)
+**Query:** `cosa mangiare a trieste street food` 31, posizione 10,8 ·
+`cosa mangiare a trieste` 12, 11,6
 
-> ⛔ **Da correggere comunque:** `street-food-trieste-guida` oggi consiglia per
-> nome *«il mitico Buffet da Pepi o il Buffet Clai»*. Due concorrenti, dentro
-> una pagina nostra.
+**Materiale già disponibile** da Instagram: le **sei salse delle patatine**
+(cacio e pepe, cheddar, tzatziki, maionese affumicata, tartufo, salsa burger,
+post del 27/07), gli **smash**, la **schiacciata alla Nutella**, le **tartine**,
+i **chifeletti**. E il post del 27/03 che contrappone **«TEAM CROCCANTE o TEAM
+SUPER FARCITA»**: la croccantezza è una posizione, non un aggettivo.
 
-🔑 Le **tre cose più ordinate**, in ordine.
-
-🔑 Cosa ordina un triestino che viene la prima volta, e cosa ordina uno di
-fuori? Sono diverse?
-
-🔑 **L'impasto**: chi lo fa, a che ora, quanto lievita?
-
-➕ Quante schiacciate escono in un giorno normale? E il venerdì?
-
-➕ C'è un piatto che ordinano quasi solo quelli del posto?
-
-➕ I **chifeletti**: da dove viene la ricetta?
-
-➕ Cosa vi chiedono che non avete — e cosa rispondete?
-
-### Risposte
-
+**Manca: l'impasto** — chi lo fa, a che ora, quanto lievita.
 
 ---
 
-## Domande che valgono per tutte le pagine
+## ⛔ Regola che vale per tutte le pagine
 
-➕ Da quanto è aperto il locale, e cosa c'era prima in quel posto?
-
-➕ Chi c'è dietro il banco in un giorno normale? Quante persone lavorano?
-
-➕ C'è una cosa che i clienti dicono sempre e che vi fa piacere sentire?
-
-➕ E una che vi chiedono sempre e a cui siete stanchi di rispondere? *(quella,
-di solito, è una pagina intera)*
-
-### Risposte
-
+**Nessuna pagina elenca i gusti delle schiacciate.** I gusti girano a ogni
+cambio di menu; il **formato** del Giro Ignorante (4 pezzi/1 gusto, 8/2, 12/3)
+non cambia mai. Le pagine nominano il formato e per i gusti mandano a `/menu`,
+che si genera da solo dal listino ed è sempre aggiornato in tutte e tre le
+lingue.
