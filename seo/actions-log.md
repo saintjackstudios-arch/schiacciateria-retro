@@ -4,6 +4,63 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (25) — 📋 Estratte tutte le ricerche e tutte le pagine
+
+→ `seo/query-complete-31-08-2026.md`
+
+Marco: *«estrai tutte e 384 e portami la lista completa… però identifica le
+query esatte»*.
+
+**39 pagine** e **152 ricerche con almeno 2 impressioni** (la coda restante sono
+~230 ricerche da 1 impressione e 0 clic: non e' pigrizia, e' che una impressione
+sola non e' un'informazione). Finestra: tutta la vita del sito, 19/07 → 29/08.
+
+### Le tre fasce
+
+| | ricerche | clic | cosa farne |
+|---|---|---|---|
+| di marca | 25 | 105 | niente, funziona |
+| **A — posizione ≤5, zero clic** | **62** | 3 | **lasciar perdere: sopra c'e' la mappa** |
+| **B — posizione 6-20** | **47** | 6 | **e' qui che si lavora** |
+| C — oltre la 20 | 18 | 0 | non in questo giro |
+
+### 🔴 La diagnosi vera: 28 articoli per 9 argomenti
+
+Non e' che gli articoli siano mal ottimizzati: **si mangiano a vicenda.**
+Quattro sull'aperitivo, cinque sulla sera, quattro su cosa mangiare, **due
+identici su «spendere poco»**, tre sul buffet, due sul Viale.
+
+Dei 28 articoli: **11 hanno preso almeno un clic (31 in tutto), 17 sono a zero
+clic su 598 impressioni.**
+
+➡️ **Quindi non «cancellare i perdenti e scriverne di nuovi»: FONDERE.** Nove
+pagine forti al posto di ventotto deboli, con un 301 da ogni articolo assorbito.
+Cosi' non si butta via una sola impressione.
+
+### Le 8 query scelte
+
+`kren trieste` (29 impr, pos 8,0) · `cosa mangiare a trieste street food` (31,
+10,8) · `pub trieste` + `pub trieste centro` (38, 9-11) · `spritz triestino` +
+`spritz trieste` (31, ~10) · `rebechin` (13, 7,8) · `cosa mangiare a trieste`
+(12, 11,6) · `mangiare a trieste spendendo poco` ×2 (17, 12-18) · `movida
+trieste` ×2 (21, 6-15).
+
+Criterio: impressioni vere + posizione recuperabile + **un argomento su cui
+Davide sa qualcosa che nessun altro puo' scrivere.**
+
+### Due cose trovate per strada
+
+⛔ **`/gestione-menu`: 16 impressioni e risponde 404.** Pagina cancellata che
+Google mostra ancora e che manda la gente su un errore. **Va reindirizzata a
+`/menu`**, come gia' si fa con `/bevande`.
+
+⚠️ **`/contatti` e' la seconda pagina del sito per impressioni: 371, con 1
+clic.** Nessuno l'aveva mai guardata.
+
+**Nessuna modifica al sito. Questa e' la lista su cui decidere.**
+
+---
+
 ## 2026-08-31 (24) — 📌 Le ricerche non di marca: diagnosticate il 27/08, MAI affrontate
 
 Marco: *«non ricordo più cosa avevamo fatto per posizionarci meglio… avevamo
