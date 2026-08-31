@@ -4,6 +4,90 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (23) — 🔍 AUDIT: sito, Search Console e GA4
+
+→ `seo/audits/audit-28-08-2026.md`
+
+Marco: *«facciamo un audit sia del sito che di google search console che di
+ga4? per capire come stanno andando i dati?»*. E ha segnato il **23 ottobre**:
+creato un promemoria automatico che parte quel giorno alle 9:00 con dentro il
+contesto, i due account e il metro di paragone.
+
+⚠️ Marco pensava fossero passate una o due settimane: **`/en` e `/de` sono
+online da oggi**, quindi su quelle due non c'e' ancora un dato. E lo storico di
+Search Console comincia il 19/07: sono **sei settimane in tutto**.
+
+### 🔴 La home e' indicizzata come DUE indirizzi
+
+| | clic | impressioni |
+|---|---|---|
+| **`http://`** …trieste.com/ | **143** | **3.482** |
+| `https://` …trieste.com/ | 76 | 1.493 |
+
+**Due terzi del traffico della home arrivano da `http://`**, e negli ultimi 7
+giorni e' ancora cosi' (26/675 contro 12/340): **e' vivo adesso, non e' storia.**
+
+**I nostri segnali sono tutti puliti**, verificati oggi uno per uno: 308
+permanente da http a https, canonical https su tutte e 36 le pagine, sitemap
+tutta https, robots https, **zero riferimenti http nel codice e nell'HTML
+servito**. ➡️ **La causa e' fuori: un profilo esterno che punta ancora a
+`http://`.** Da cercare su scheda Google, Facebook, TripAdvisor, directory.
+
+Trovato anche: **`www` → non-`www` risponde 307**, temporaneo. Google i 307 non
+li consolida. Sta nella configurazione del dominio, non nel codice.
+
+### 🟠 Il 92% dei clic nominabili e' il nostro nome
+
+Su 379 ricerche, i 114 clic che Google nomina sono **105 di marca e 9 no**.
+
+E le non-brand con volume vero prendono **zero**: «paninoteca trieste» **69
+impressioni, posizione 2,9, zero clic**; «bar trieste» 52 a 3,9, zero; «bar
+vicino a me» 23 a 3,1, zero.
+
+📌 Il modello: «posizione 3» non e' «terzi sullo schermo». Sopra i link blu c'e'
+il riquadro delle mappe. **Su queste ricerche non si vince col sito, si vince
+con la scheda.**
+
+### 🟡 GA4 e GSC non tornano, ed e' giusto
+
+269 clic in Search Console contro 123 utenti in GA4. **GA4 parte solo col
+consenso ai cookie.** Sui volumi il numero vero e' quello di Search Console.
+
+### ✅ Cosa funziona
+
+- **`/menu` tiene 1m19s, la home 17 secondi.** Il menu e' il prodotto.
+- **12 azioni di contatto su 123 utenti: il 10%** (9 indicazioni, 3 telefonate).
+- **118 utenti su 123 sono alla prima visita**: nessuno torna, ed e' normale.
+- **TripAdvisor manda 4 sessioni in 7 giorni** e non ci ha mai messo mano
+  nessuno. Instagram 5.
+- Esiste il canale **«AI Assistant» con `chatgpt.com` dentro**.
+- **Solo 11 utenti su 31 sono a Trieste**: Milano 4, Roma 2, Bologna 2, Scalea
+  2, Padova 1. **Un terzo del pubblico sono italiani da altre citta'**, e non
+  abbiamo mai scritto una riga per loro.
+
+### 🔧 Il sito e' sano
+
+36/36 pagine 200, tutte fra 0,40 e 0,74 s. Un H1 per pagina, canonical ovunque,
+alt su tutte le immagini, og:image ovunque, zero titoli duplicati, schema su
+tutte. Tre nei piccoli (un titolo corto, due description lunghe, `/contatti` a
+237 parole).
+
+**`q=90` solo sulla home, due immagini: 326 KB invece di 179. Sono 147 KB su
+ogni singola visita.**
+
+I 5 «non indicizzati» non sono un allarme: 3 sono reindirizzamenti, e le 2
+«escluse da noindex» (`/privacy`, `/termini-e-condizioni`) hanno **ultima
+scansione 20 luglio**, mentre oggi dichiarano `index, follow`. Il rapporto e'
+vecchio.
+
+### Un falso allarme fermato prima di scriverlo
+
+GA4 registra 10 viste su `/bevande`, che non esiste. Sembrava un 404: **non lo
+e'**, c'e' un 308 permanente verso `/menu` dichiarato in `next.config.ts`.
+Controllato prima di segnalarlo.
+
+---
+
 ## 2026-08-28 (22) — 📊 Riconfrontati i dati del turismo: quali lingue mancano
 
 → `seo/lingue-quali-mancano.md`
