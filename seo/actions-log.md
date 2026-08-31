@@ -4,6 +4,64 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (26) — 🔧 Sistemata la 404, e aperto il file delle domande a Davide
+
+Marco: *«sistemiamo la 404… fondiamo gli articoli… scegli 5 query e
+interrogami»*.
+
+### ✅ `/gestione-menu` non è più un 404 (non pubblicato)
+
+Aggiunto in `next.config.ts` accanto a quello di `/bevande`:
+`/gestione-menu` → `/menu`, **308 permanente**. Verificato in locale sulla build
+di produzione. In produzione risponde ancora 404 finché non si pubblica.
+
+### La fusione: sì, ma prima il materiale
+
+Marco ha chiesto se sono sicuro. **Sì sulla fusione, con due precisazioni:**
+
+1. **La fusione da sola non sposta le posizioni.** Consolida il segnale diviso
+   fra copie, e non butta via impressioni se ogni vecchio indirizzo fa 301. Ma
+   quello che porta una pagina dalla decima alla terza è **meritare il clic**.
+   Fondere quattro articoli scritti dall'IA dà un articolo scritto dall'IA più
+   lungo, alla decima posizione, con meno pagine da mantenere.
+2. **⚠️ Il rischio va detto prima:** fondere pagine che oggi Google mostra
+   separatamente può far perdere quelle che rendevano.
+   `dove-fare-aperitivo-trieste-centro` ha **248 impressioni**: se la pagina
+   fusa non risponde bene a quell'intenzione, quelle 248 spariscono. Si mitiga
+   coprendo davvero ogni intenzione assorbita, e col 301 da ogni vecchio
+   indirizzo.
+
+➡️ **Quindi l'ordine è: materiale → fusione → pubblicazione.** Non il contrario.
+
+### I 5 argomenti scelti
+
+Assorbono **14 dei 28 articoli**. Criterio: impressioni vere, posizione
+recuperabile, **e qualcosa che sa solo Davide.**
+
+| # | argomento | query | assorbe |
+|---|---|---|---|
+| 1 | **Il kren** | `kren trieste` 29 · `rebechin` 13 | 2 articoli |
+| 2 | **La birra** | `pub trieste` 25 · `pub trieste centro` 13 | 2 |
+| 3 | **Lo spritz** | `spritz triestino` 24 · `spritz bianco trieste` 29 | 4 |
+| 4 | **Quanto si spende** | le due «spendendo poco», 17 | 2 |
+| 5 | **Cosa mangiare** | `…street food` 31 · `cosa mangiare a trieste` 12 | 4 |
+
+Restano fuori da questo giro: la sera/movida (5 articoli), il Viale (2), il
+buffet (2) e i 5 singoli. **Da 28 articoli si arriva a 12.**
+
+### 📓 Aperto `seo/materiale-clienti/voce-di-davide.md`
+
+Stessa procedura di Saint Jack: Marco raccoglie le informazioni di prima mano,
+io le archivio e ci scrivo sopra. **40 domande** divise per argomento, segnate
+🔑 (senza questa la pagina non si scrive) e ➕ (la rende migliore).
+
+📌 **Regola scritta in testa al file: se una risposta non c'è, la frase non si
+scrive.** Meglio una pagina più corta che una frase inventata.
+
+**Nessun contenuto scritto. Si aspettano le risposte.**
+
+---
+
 ## 2026-08-31 (25) — 📋 Estratte tutte le ricerche e tutte le pagine
 
 → `seo/query-complete-31-08-2026.md`

@@ -52,6 +52,14 @@ const nextConfig: NextConfig = {
         destination: '/menu',
         permanent: true,
       },
+      // Pagina cancellata che Google mostra ancora: 16 impressioni in tre mesi
+      // e un 404 in faccia a chi ci clicca (trovato in Search Console il
+      // 31/08/2026). Il contenuto era il menu, quindi si manda li'.
+      {
+        source: '/gestione-menu',
+        destination: '/menu',
+        permanent: true,
+      },
     ];
   },
   async headers() {
