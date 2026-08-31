@@ -4,6 +4,62 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-28 (22) — 📊 Riconfrontati i dati del turismo: quali lingue mancano
+
+→ `seo/lingue-quali-mancano.md`
+
+Marco: *«riconfronta i dati del turismo a Trieste e capiamo quali lingue
+mancano»*.
+
+### Cosa e' cambiato rispetto al 27/08
+
+1. **Austria e Germania insieme fanno il 55% dell'incoming regionale** (Austria
+   quasi una presenza straniera su tre, Germania 23%). Il tedesco pubblicato
+   oggi copre il mercato piu' grosso che c'era.
+2. **Nel 2025 a Trieste gli statunitensi calano**, e crescono **ungheresi,
+   croati e slovacchi**. La **Polonia** e' la nazionalita' cresciuta di piu' in
+   assoluto (+600% dal 2008, +50% nei primi cinque mesi del 2025).
+3. **Mein Schiff 4 scala a Trieste ogni domenica**, al Molo dei Bersaglieri:
+   ~4.600 persone di lingua tedesca, un quinto delle quali dorme in citta' e
+   paga almeno un pasto.
+
+### ⚠️ La cosa piu' urgente non e' una lingua: e' la domenica
+
+Retro la domenica **apre alle 17:00**, e la nave tedesca fissa e' proprio di
+domenica. Chi sbarca gira per la citta' dalla mattina. **Da chiedere a Davide**,
+e vale piu' di qualsiasi traduzione. Gli orari esatti della nave non li so e non
+li invento: e' da verificare.
+
+### I nostri numeri (sei settimane, tutto lo storico)
+
+5.810 impressioni, 269 clic. Estero **463 impressioni (8,0%) e 29 clic**.
+Croazia 110, Slovenia 88 (**6 clic, il CTR estero migliore dopo A e D**),
+Austria 36, **USA 35 con ZERO clic**, Germania 28, Ungheria 10, Polonia 10 con
+zero clic, Cechia 7, Slovacchia 3.
+
+📌 Il limite resta quello su cui Marco mi ha corretto: **misurano la domanda su
+un sito che quelle lingue non le parla.** La classifica si fa coi dati della
+citta'; i nostri servono a confermare.
+
+### L'ordine
+
+1. **Sloveno** — miglior CTR estero, confine a venti minuti, e **a Trieste e'
+   lingua di una comunita' residente**: e' l'unica con un pubblico non
+   stagionale.
+2. **Ungherese** — quarti in citta' e in crescita nel 2025.
+3. **Croato** — primo per volume ma **CTR 3,6%, il piu' basso di tutti**.
+4. Poi polacco, ceco, slovacco. **No** a spagnolo, russo, olandese e cinese.
+
+### ⏱️ Ma adesso non si aggiunge niente
+
+Le **8 settimane** del piano cominciano oggi, perche' oggi le due pagine sono
+andate online. **Si guarda il 23 ottobre 2026.** Aggiungere lo sloveno adesso
+non e' sbagliato perche' non serve: e' sbagliato perche' a novembre non sapremmo
+piu' quale ha funzionato e perche'. E ogni lingua e' un costo che non finisce:
+oggi ogni prezzo che cambia va cambiato in tre posti.
+
+---
+
 ## 2026-08-28 (21) — 🟢 PUBBLICATE la pagina tedesca `/de` e la correzione del `lang`
 
 Marco: *«non metterne nessuna. la traduzione mi sembra corretta. togli la
