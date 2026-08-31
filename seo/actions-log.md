@@ -17,7 +17,23 @@ contesto, i due account e il metro di paragone.
 online da oggi**, quindi su quelle due non c'e' ancora un dato. E lo storico di
 Search Console comincia il 19/07: sono **sei settimane in tutto**.
 
-### 🔴 La home e' indicizzata come DUE indirizzi
+### 🟠 I due indirizzi della home — RIDIMENSIONATO dopo il controllo
+
+> ⚠️ **Correzione dello stesso giorno.** L'avevo scritto come «il problema
+> grosso». **L'ispezione URL dice di no:** il canonical scelto da Google per la
+> home e' proprio `https://`, quello che dichiariamo noi, e `http://` compare
+> solo come *pagina che rimanda*. Il rapporto HTTPS dice 9 pagine https e 0
+> non-https. **Google ha gia' consolidato: non perdiamo posizioni.** Resta un
+> problema di rendicontazione piu' un salto di reindirizzamento per chi arriva
+> da un link vecchio.
+>
+> 📌 **La lezione: il rapporto Rendimento dice quale indirizzo Google ha
+> MOSTRATO, l'ispezione URL dice quale ha SCELTO. Avevo risposto alla seconda
+> domanda con la prima.**
+>
+> ⚠️ **Il difetto vero e' l'altro:** `www` risponde **307**, temporaneo, e i
+> temporanei Google non li consolida. Si puo' forzare da `next.config.ts`.
+
 
 | | clic | impressioni |
 |---|---|---|
