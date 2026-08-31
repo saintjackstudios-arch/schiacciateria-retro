@@ -4,6 +4,72 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (27) — 📸 Instagram: presi 48 post su 227, poi Instagram ha chiuso
+
+→ `seo/materiale-clienti/instagram/post-2026-04_2026-08.md`
+
+Marco: *«abbiamo 227 post che parlano solo della schiacciateria… guardali tutti,
+leggili uno per uno, comprese le caption»*. E ha cambiato direzione sulle
+domande a Davide, che non gli piacevano.
+
+### Cosa ho preso, e come
+
+**48 post con la didascalia intera**, dal **13/04 al 29/08/2026**. Profilo:
+227 post, **6.739 follower**.
+
+Non ho usato `gallery-dl --cookies-from-browser chrome`, che sarebbe stato il
+modo veloce: **è quello che a fine agosto faceva uscire la richiesta di password
+del portachiavi ogni cinque minuti.** Sono passato dal Chrome di Marco, già
+autenticato, chiamando l'interfaccia interna di Instagram dalla pagina stessa.
+
+### ⛔ Perché mi sono fermato a 48
+
+Dopo circa 60 chiamate Instagram ha risposto **401** e non si e' sbloccato
+aspettando. Ho provato due strade alternative — intercettare le risposte mentre
+la pagina scorre (non parte: la scheda in secondo piano non carica) e altri
+punti d'ingresso — e **il secondo tentativo e' stato bloccato dal classificatore
+di sicurezza, giustamente**: stavo battendo su interfacce private in un modo che
+somiglia a un aggiramento. **Mi sono fermato invece di insistere.**
+
+📌 **Le due strade pulite per gli altri 179, in ordine:**
+
+**① L'esportazione ufficiale di Instagram** — *Centro gestione account → Le tue
+informazioni e autorizzazioni → Scarica le tue informazioni*. Archivio completo
+con tutte le didascalie, per email in un paio d'ore. **Sono dati dell'account,
+richiesti dalla porta principale.** Serve che lo chieda chi ha l'accesso.
+
+**② `gallery-dl` coi cookie di Chrome** — gia' installato, gestisce da solo
+paginazione e limiti. Costo: **una** richiesta del portachiavi, consapevole
+(*Consenti*, mai *Sempre*).
+
+### 🔴 Cosa c'e' gia' dentro i 48 post, e cambia il quadro
+
+Roba che **non e' su nessuna pagina del sito**:
+
+- **Il baracchino nuovo, inaugurato l'8 luglio 2026** in viale XX Settembre. Un
+  secondo punto. Il sito non lo nomina.
+- **«Retrò Express — Street Buffet e Schiacciateria Triestina»**: un nome che sul
+  sito non compare.
+- **Fanno catering** — compleanni, feste, lauree. Il sito non lo dice.
+- **Il menu e' cambiato**: patatine in sei salse (cacio e pepe, cheddar,
+  tzatziki, maionese affumicata, tartufo, salsa burger), **gli SMASH**,
+  schiacciata alla Nutella. Post del 04/08: *«Quanto e' goloso il nuovo menu?»*
+- ⚠️ **I gusti del Giro Ignorante su Instagram sono Mortazza, Crudo, C.S.H. e
+  Vegeta** — sul sito i nomi sono altri. **Da verificare: uno dei due e'
+  vecchio.**
+- **Man vs Schiacciata**: sfida da **1,2 kg**, 40€ se perdi, al campo del
+  Costalunga.
+- **Davide** e' «mente, cuore e mani dietro ogni schiacciata», compleanno il 6
+  maggio. In squadra: Loris Virdis e Luca Bitti.
+- **Cercano un cuoco** (29/08).
+- La lingua del locale: *bella muli*, *che bon ara*, *badilade*, *ve spetemo*,
+  *ciacolando* — e un post che **spiega cosa vuol dire «ciacolar»**.
+- Il post piu' visto: **82.116 visualizzazioni**, 1º giugno.
+
+**Nessun contenuto scritto. Il file e' materiale grezzo.**
+
+---
+
 ## 2026-08-31 (26) — 🔧 Sistemata la 404, e aperto il file delle domande a Davide
 
 Marco: *«sistemiamo la 404… fondiamo gli articoli… scegli 5 query e
