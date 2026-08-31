@@ -4,6 +4,57 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-08-31 (29) — ✅ Il Giro Ignorante non era una contraddizione. E la raccolta resta ferma a 79
+
+Marco: *«il formato è rimasto lo stesso, quello di sempre. I gusti cambiano con
+il menù, naturalmente. Quello che ti ho dato io era molto più recente: usa
+quello.»*
+
+### La regola vera, che vale oltre questo caso
+
+| | |
+|---|---|
+| **Il formato** — Duo 4 pezzi/1 gusto · Muleria 8/2 · Tavolata 12/3 | **fisso, e' sempre stato cosi'** |
+| **I gusti** | **girano a ogni cambio di menu** |
+| Quali valgono | quelli del sito, cioe' di `menuData.ts` |
+| Mortazza / Crudo / C.S.H. / Vegeta (Instagram, 20/04) | **menu superato. Non si citano** |
+
+📌 **Due conseguenze, e la seconda e' la piu' importante.**
+
+**① E' una cosa da scrivere, non solo da archiviare.** «Il formato e' sempre
+quello, i gusti cambiano col menu» e' esattamente il genere di informazione che
+un cliente cerca e che nessun concorrente scrive.
+
+**② ⛔ Nessuna pagina del blog deve elencare i gusti.** Se li elenca, il giorno
+che il menu cambia la pagina diventa falsa **e nessuno se ne accorge**. Le
+pagine nominano **il formato**, che non cambia, e per i gusti mandano a `/menu`,
+che si genera da solo da `menuData.ts` ed e' sempre aggiornato in tutte e tre le
+lingue. **E' la stessa regola che ci ha gia' salvato sui prezzi.**
+
+### La raccolta resta a 79 su 227
+
+⛔ **Marco non ha l'accesso all'account Instagram**, quindi l'esportazione
+ufficiale — che era la strada giusta — per ora non si puo' fare. Resta solo
+aspettare che il limite di frequenza si sblocchi e riprovare.
+
+→ Scritto `seo/materiale-clienti/instagram/COME-RIPRENDERE.md`: il comando
+esatto, l'avvertenza sul portachiavi, il modo di unire i nuovi post senza
+duplicare, e il promemoria che `gallery-dl` salta alcuni caroselli (al primo
+giro ne ha persi sei, fra cui proprio quello del Giro Ignorante).
+
+⚠️ **E quando arriveranno gli altri 148, vanno rilette anche le conclusioni:**
+i fatti di oggi sono ricavati da 79 post.
+
+### Cosa si puo' gia' fare senza aspettare
+
+Il materiale per **almeno due delle cinque pagine c'e' gia'**: le sei salse
+delle patatine (fatto pubblicato dal locale, con data), Davide e la squadra, il
+catering, le tartine, la lingua del locale. **Manca per «quanto si spende» (i
+prezzi non sono mai su Instagram) e per la birra (le birre alla spina non
+compaiono in nessuno dei 79 post).**
+
+---
+
 ## 2026-08-31 (28) — 📸 79 post su 227, e i fatti estratti
 
 → `seo/materiale-clienti/instagram/post-instagram-tutti.md` (le didascalie)

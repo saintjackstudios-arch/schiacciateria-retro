@@ -132,7 +132,7 @@ Le quattro occasioni sono nominate una per una: **compleanni, feste, lauree, eve
 | **Muleria Retrò** | 8 | 2 |
 | **Tavolata Ignorante** | 12 | 3 |
 
-Gusti elencati: **Mortazza · Crudo · C.S.H. · Vegeta** → ⚠️ **vedi §9, questi nomi non esistono sul sito.**
+Gusti elencati: **Mortazza · Crudo · C.S.H. · Vegeta** → ✅ **RISOLTO, vedi §9: e' un menu vecchio. I gusti girano, il formato no.**
 
 Occasioni d'uso dichiarate dal locale, testuali: «Perfette per un pranzo veloce, un aperitivo serio o una serata tra amici dove la fame non scherza.»
 
@@ -417,31 +417,31 @@ Quello che c'è:
 
 ## 9. ⚠️ Contraddizioni e cose da verificare
 
-### ⚠️⚠️ 1. I gusti del Giro Ignorante non corrispondono al sito — SERVE UNA CONFERMA DEL TITOLARE
+### ✅ 1. I gusti del Giro Ignorante — RISOLTO da Marco il 31/08/2026
 
-Questo è il punto più grave: se il blog usa i nomi sbagliati, mandiamo i lettori a chiedere al banco qualcosa che non esiste.
+Il post del **20/04/2026** elenca come gusti **Mortazza · Crudo · C.S.H. ·
+Vegeta**, che sul sito non esistono. Sembrava una contraddizione. **Non lo era.**
 
-**Instagram, 20/04/2026** (tre post identici: https://instagram.com/p/DXXAevHDBZE/ · https://instagram.com/p/DXXAe2GjDS8/ · https://instagram.com/p/DXXAm41DG_h/) elenca i gusti scegliibili così:
+**Marco, 31/08/2026:** *«il formato è rimasto lo stesso, quello di sempre. I
+gusti cambiano con il menù, naturalmente. Quello che ti ho dato io era molto più
+recente: usa quello.»*
 
-> ✨ **Mortazza** ✨ **Crudo** ✨ **C.S.H.** ✨ **Vegeta**
+| | |
+|---|---|
+| **Il formato** — Duo Retrò 4 pezzi/1 gusto · Muleria Retrò 8/2 · Tavolata Ignorante 12/3 | **fisso, e' sempre stato cosi'** |
+| **I gusti** | **girano a ogni cambio di menu** |
+| Quali valgono oggi | quelli di `menuData.ts`, cioe' del sito |
+| Mortazza / Crudo / C.S.H. / Vegeta | **un menu superato**. Non si citano |
 
-**Il sito** (`src/lib/menuData.ts`) non contiene nessuno di questi quattro nomi. Le schiacciate del sito si chiamano:
+📌 **E questa e' un'informazione da scrivere, non solo da archiviare.** «Il
+formato e' sempre quello, i gusti cambiano col menu» e' esattamente il genere di
+cosa che un cliente vuole sapere e che nessun concorrente scrive.
 
-> Top de Gamma · Bona ma Leggera · Fit · Piaza Granda · Scrigno · Tre Volte Bon · La Barcolana · L'Italiana · La Proteica · Variante TS · Porca Zozza · J-Ax
-
-| | Instagram 20/04/2026 | Sito |
-|---|---|---|
-| Nomi dei gusti | Mortazza, Crudo, C.S.H., Vegeta | Top de Gamma, Bona ma Leggera, Fit, Piaza Granda, Variante TS, Porca Zozza, … |
-| Formati Giro Ignorante | Duo Retrò 4/1 · Muleria Retrò 8/2 · Tavolata Ignorante 12/3 | **identici** |
-| Prezzi Giro Ignorante | non pubblicati | 6,00 € · 12,00 € · 16,00 € |
-
-**I formati coincidono al pezzo. I nomi dei gusti no.** Le ipotesi possibili sono almeno tre e **non ho elementi per scegliere**:
-
-- i quattro nomi Instagram sono **soprannomi da banco** degli stessi gusti (es. «Mortazza» = mortadella, «Crudo» = prosciutto crudo);
-- il Giro Ignorante ha **un suo elenco separato** di quattro gusti, diverso dalle schiacciate a menu;
-- uno dei due elenchi è **superato**.
-
-**Da chiedere a Davide, testualmente:** «Nel Giro Ignorante, quali sono oggi i gusti selezionabili, e con quale nome li chiama il cliente al banco?» Finché non c'è risposta, **il blog non deve nominare né i quattro nomi Instagram né mappare l'uno sull'altro.**
+⛔ **Conseguenza pratica sul modo di scrivere le pagine: nessuna pagina del blog
+deve elencare i gusti.** Se li elenca, il giorno che il menu cambia la pagina
+diventa falsa e nessuno se ne accorge. Le pagine nominano **il formato** — che
+non cambia — e per i gusti mandano a `/menu`, che si genera da solo da
+`menuData.ts` ed e' sempre aggiornato in tutte e tre le lingue.
 
 ### 2. «Il nuovo baracchino» dell'8 luglio — mai raccontato dopo
 
