@@ -6,7 +6,7 @@ category: "TRADIZIONI"
 excerpt: "Il kren è radice di rafano grattugiata al momento. A Trieste si chiede «a piangere»: cosa vuol dire, come la teniamo viva e su cosa ci sta davvero bene."
 ---
 
-Il kren è la radice del rafano, grattugiata fresca. Punge nel naso più che in bocca, e chi conosce il wasabi trova subito il paragone. A Trieste non è una salsa fra le altre: è quello che si mette sul prosciutto cotto e sui bolliti, e lo si fa da sempre.
+Il kren è la radice del rafano, grattugiata fresca. Punge nel naso più che in bocca, e chi conosce il wasabi trova subito il paragone. **Non è una salsa**: non si versa da un vasetto, si gratta al momento — ed è tutta la differenza. A Trieste è quello che si mette sul prosciutto cotto e sui bolliti, e lo si fa da sempre.
 
 Fin qui lo dice qualsiasi enciclopedia. Le tre cose che vengono adesso si sanno solo stando dietro un banco.
 
@@ -25,7 +25,7 @@ L'unica parte che possiamo rivendicare è quella che viene dopo. **Chi gratta il
 
 Il kren già pronto nel vasetto esiste, ed è comodo. Solo che il rafano perde forza in fretta appena è grattugiato: quello che pizzica non regge il tempo.
 
-Da noi funziona così:
+In Viale XX Settembre funziona così:
 
 - **Le radici arrivano intere.** Non un vasetto: la radice.
 - **Stanno in acqua**, perché così restano vive.
