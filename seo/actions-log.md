@@ -4,6 +4,93 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-09-01 (32) — 🍺 Seconda pagina di prima mano: la birra
+
+→ `src/content/blog/birra-trieste.md` · **non ancora pubblicata**, in attesa del via
+
+### La ricerca che si punta
+
+Due famiglie di ricerche, con due situazioni molto diverse:
+
+| famiglia | impressioni | posizione | lettura |
+|---|---|---|---|
+| `pub trieste`, `pub trieste centro`, `pub vicino a me`, `pub`, `pub a trieste`… | **65** | fra 4,5 e 11 | **si puo' vincere**: ci siamo gia' dentro |
+| `birreria trieste`, `birrerie trieste`, `birre trieste`… | **19** | fra 25 e 36 | Google **non ci considera una birreria**: qui si parte da lontano |
+
+Totale **84 impressioni**, il doppio del kren.
+
+### La fusione
+
+Cancellato `migliori-pub-trieste-centro`: **1 clic su 106 impressioni**, posizione
+16,8 — il numero di impressioni piu' alto di tutto il blog, e quasi nessun clic.
+Mandato con **308** su `/blog/birra-trieste`.
+
+Il motivo del fallimento e' leggibile dal titolo: prometteva **una classifica di
+pub**, cioe' dei concorrenti. Google lo mostrava per «pub trieste», la gente
+leggeva «i migliori pub» e andava a cliccare una classifica vera. Un locale non
+puo' vincere scrivendo la guida ai locali: puo' vincere solo essendo il locale.
+
+### 🔴 Terzo articolo su tre con piatti inventati
+
+Verificato contro `menuData.ts`: l'articolo prometteva un **«Tagliere A
+BADILADE»**, **polpette di carne** e **patate in tecia fritte**. Nessuna delle
+tre esiste in menu (di «patate in tecia» esiste solo la crema, dentro una
+schiacciata).
+
+Contando anche la voce (31): **tre articoli aperti, tre con roba non ordinabile.**
+Non e' piu' un sospetto, e' un difetto sistematico del blog.
+
+### Scelte fatte, e perche'
+
+- **Nessun nome di birra nel testo.** La carta cambia *per progetto* — le
+  degustazioni sono ancora in corso, l'ha detto Marco. Quindi la pagina racconta
+  **gli stili** (una filtrata e una no della stessa casa bavarese, una pilsner a
+  doppio luppolo, una tripel d'abbazia, una IPA, piu' la rotazione) e manda al
+  menu per i nomi. Cosi' non invecchia.
+- **Non e' scritto che la carta e' "artigianale".** Konig Ludwig e Warsteiner
+  sono case grandi: dirlo sarebbe falso. L'articolo vecchio scriveva *«quando si
+  parla di birra artigianale alla spina non temiamo rivali»*. La pagina nuova
+  dice la verita', che e' una storia migliore: **una carta scelta bevendo**, dove
+  stanno insieme case grandi fatte bene e roba di nicchia.
+- **Tolta la nazionalita' della IPA.** L'articolo vecchio diceva «pluripremiata
+  brasserie irlandese»: nei dati del menu non c'e' scritto, quindi non si scrive.
+  **Da chiedere a Davide** — se e' vero, si rimette.
+- **«Cinque spine e una che cambia»** viene dalla pagina inglese, che Marco ha
+  gia' riletto e approvato: *«Five on tap and one that rotates»*. Le due pagine
+  non si contraddicono.
+- **`bar-trieste-studenti-universitari` NON e' stato fuso qui** (0 clic su 34):
+  parla di prezzi per studenti, quindi il suo posto e' la pagina **«quanto si
+  spende»**, non questa.
+
+### Il cuore della pagina
+
+La riga morta del menu — *«Birra a Rotazione — chiedi al banco»* — diventa il
+punto piu' forte: **e' la spina dove finisce la degustazione in corso.** Cambia
+perche' il gruppo di assaggio non ha smesso. Da segnaposto a motivo per tornare.
+
+### 📸 Foto: di nuovo nessuna
+
+Le sei foto delle birre in `public/images/` sono generate dall'IA e mostrano **un
+pub in pietra con luce bassa e lucine**, cioe' l'opposto del locale — che e'
+chiaro e in cui si mangia seduti. Usarle contraddirebbe la prima riga del testo.
+
+**Serve una foto delle spine**, o del banco. Una, col telefono.
+
+### Verificato in locale
+
+- Build passa, 45 pagine. `/blog/birra-trieste` risponde 200, il 308 funziona.
+- Sitemap: 35 URL, contiene `birra-trieste`, non contiene piu' `migliori-pub`.
+- Aggiunto il link interno dalla pagina `/buffet-triestino`.
+
+### Da fare
+
+- Via di Marco → pubblicare, poi chiedere l'indicizzazione (nuova pagina + slug
+  vecchio, come per il kren).
+- Chiedere a Davide: la IPA e' irlandese? Le birre sono tutte alla spina?
+- Prossima pagina col materiale gia' pronto: **quanto si spende**.
+
+---
+
 ## 2026-09-01 (31) — ✍️ Prima pagina scritta con materiale di prima mano: il kren
 
 → https://schiacciateriaretrotrieste.com/blog/kren-trieste · **pubblicata il 01/09/2026**

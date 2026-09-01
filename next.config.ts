@@ -74,6 +74,15 @@ const nextConfig: NextConfig = {
         destination: '/blog/kren-trieste',
         permanent: true,
       },
+      // Articolo IA sui "migliori pub in centro": 1 clic su 106 impressioni,
+      // posizione 16,8. Prometteva una classifica di locali e citava un
+      // "Tagliere A BADILADE" che in menu non esiste. Il contenuto vero sulla
+      // birra sta ora in /blog/birra-trieste.
+      {
+        source: '/blog/migliori-pub-trieste-centro',
+        destination: '/blog/birra-trieste',
+        permanent: true,
+      },
     ];
   },
   async headers() {

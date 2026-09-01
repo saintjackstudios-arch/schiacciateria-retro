@@ -232,6 +232,11 @@ export default function BuffetClient() {
               desc: 'La radice tenuta viva in acqua, grattugiata al momento, e la risposta \u00aba piangere\u00bb.',
             },
             {
+              href: '/blog/birra-trieste',
+              title: 'La birra: cinque spine e una che cambia',
+              desc: 'Chi ha scelto la carta, come, e perch\u00e9 una spina cambia di continuo.',
+            },
+            {
               href: '/blog/cosa-mangiare-trieste-tipico',
               title: 'Cosa mangiare di tipico a Trieste',
               desc: 'Buffet, caldaia e street food: la mappa del gusto triestino.',
