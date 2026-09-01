@@ -4,6 +4,10 @@ date: "2026-09-01"
 author: "Davide"
 category: "TRADIZIONI"
 excerpt: "Il kren è radice di rafano grattugiata al momento. A Trieste si chiede «a piangere»: cosa vuol dire, come la teniamo viva e su cosa ci sta davvero bene."
+hero_image: "/blog-images/kren-radici.webp"
+hero_alt: "Radici di kren intere, non sbucciate, come si presentano prima di essere grattugiate"
+hero_credit: "Radici di kren al mercato di Vienna. Foto di Anna reg, Wikimedia Commons, ridimensionata — licenza CC BY-SA 3.0"
+hero_credit_url: "https://commons.wikimedia.org/wiki/File:Kren_Verkauf.jpg"
 ---
 
 Il kren è la radice del rafano, grattugiata fresca. Punge nel naso più che in bocca, e chi conosce il wasabi trova subito il paragone. **Non è una salsa**: non si versa da un vasetto, si gratta al momento — ed è tutta la differenza. A Trieste è quello che si mette sul prosciutto cotto e sui bolliti, e lo si fa da sempre.

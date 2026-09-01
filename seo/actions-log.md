@@ -70,6 +70,54 @@ sono gli unici due casi.
 - I due 308 rispondono; `/blog/kren-trieste` risponde 200.
 - Sitemap: 35 URL, contiene `kren-trieste`, non contiene piu' i due slug vecchi.
 
+
+### 📸 La foto: com'e' andata a finire
+
+Marco aveva trovato su Pexels una foto di radici e me l'ha fatta controllare.
+**Erano barbabietole da zucchero** — Pexels stessa etichetta quello scatto
+`freshly harvested sugar beets in a field`. Il rafano e' una radice **sottile e
+allungata**, non una massa carnosa e conica.
+
+Verificato che Pexels e Unsplash **non sono affidabili per identificare un
+ortaggio**: le didascalie sono generate in automatico e nella stessa pagina di
+ricerca per *horseradish* comparivano pastinache, sedano rapa, ravanelli e
+manioca. E' esattamente cosi' che nasce l'errore.
+
+**Fonte usata: Wikimedia Commons**, categoria `Armoracia rusticana (roots)`, dove
+le foto sono classificate per specie e la licenza e' dichiarata. Confrontate sei
+candidate guardandole una per una:
+
+| File | Licenza | Verdetto |
+|---|---|---|
+| `Horseradish A/B.jpg` | CC0 | Rafano vero, ma foto da erbario su sfondo bianco |
+| `Horseradish root.jpg` | CC0 | Scaffale di un supermercato americano, cartello «Product of USA» |
+| `Hren (Horseradish)` (Lubiana) | CC BY-SA 2.0 | Banco di mercato, cartello a mano «HREN 4 €/kg» |
+| **`Kren Verkauf.jpg`** (Vienna) | **CC BY-SA 3.0** | **Scelta.** Radici in una cesta al Naschmarkt |
+
+**Scelta la foto di Vienna** perche' e' l'unica bella *e* inequivocabile: si
+capisce al primo sguardo che forma ha la radice, che e' il motivo per cui la
+foto sta li'.
+
+⚠️ **CC BY-SA obbliga a firmare l'autore.** Non e' un problema, ma e' un vincolo
+che resta: se un giorno si tolgono le firme, quella foto va tolta con loro.
+L'alternativa senza obblighi era una delle CC0, brutte.
+
+### Modifiche al codice per poterla mettere
+
+- `blog.ts` e `[slug]/page.tsx`: tre campi nuovi nel frontmatter — `hero_alt`
+  (descrizione vera, prima l'`alt` era «Copertina per: titolo» per tutti),
+  `hero_credit` e `hero_credit_url` (la firma, stampata solo se c'e').
+- **La copertina passa da `<img>` a `next/image`.** Prima le foto degli articoli
+  erano servite intere, senza ridimensionamento: ora passano da `/_next/image`.
+  **Vale per tutti e 27 gli articoli**, non solo per questo. Verificato: le
+  copertine di spritz, movida, street food e «cosa fare la sera» passano tutte
+  dall'ottimizzatore.
+- Immagine convertita in WebP a 1600 px: **1,95 MB → 129 KB** prima ancora che
+  Next ci metta mano.
+
+**Resta valido:** una foto vera delle radici nel secchio e della grattugiata
+vale piu' di questa, e la sostituirebbe.
+
 ### Da fare
 
 - **Aspettare il via di Marco** e pubblicare.

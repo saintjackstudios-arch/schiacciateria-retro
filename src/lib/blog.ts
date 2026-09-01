@@ -13,6 +13,11 @@ export interface PostData {
   category: string;
   excerpt: string;
   hero_image?: string;
+  // Descrizione della foto e firma dell'autore: servono quando l'immagine
+  // arriva da fuori con una licenza che chiede il credito (Creative Commons).
+  hero_alt?: string;
+  hero_credit?: string;
+  hero_credit_url?: string;
   content: string;
 }
 
@@ -39,7 +44,7 @@ export function getSortedPostsData(): Omit<PostData, 'content'>[] {
       // Combine the data with the slug
       return {
         slug,
-        ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string }),
+        ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
       };
     });
 
@@ -69,6 +74,6 @@ export async function getPostData(slug: string): Promise<PostData | null> {
   return {
     slug,
     content,
-    ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string }),
+    ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
   };
 }

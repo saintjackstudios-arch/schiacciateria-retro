@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Share2 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { getPostData, getSortedPostsData } from '@/lib/blog';
@@ -98,13 +99,38 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
           {/* Hero Image */}
           {article.hero_image && (
-            <div className="w-full border-[6px] border-black shadow-[8px_8px_0px_#000] overflow-hidden bg-yellow-400">
-              <img 
-                src={article.hero_image} 
-                alt={`Copertina per: ${article.title}`}
-                className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            <figure className="w-full">
+              {/* next/image al posto del tag <img>: ridimensiona e riconverte da
+                  solo, quindi la stessa foto pesa una frazione su telefono. */}
+              <div className="relative aspect-video w-full border-[6px] border-black shadow-[8px_8px_0px_#000] overflow-hidden bg-yellow-400">
+                <Image
+                  src={article.hero_image}
+                  alt={article.hero_alt || `Copertina per: ${article.title}`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              {/* Firma dell'autore: obbligatoria quando la foto arriva da fuori
+                  con licenza Creative Commons. Se manca il campo, non si stampa. */}
+              {article.hero_credit && (
+                <figcaption className="mt-3 text-xs font-semibold text-zinc-500">
+                  {article.hero_credit_url ? (
+                    <a
+                      href={article.hero_credit_url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="underline underline-offset-2 decoration-zinc-300 hover:text-black"
+                    >
+                      {article.hero_credit}
+                    </a>
+                  ) : (
+                    article.hero_credit
+                  )}
+                </figcaption>
+              )}
+            </figure>
           )}
         </header>
 
