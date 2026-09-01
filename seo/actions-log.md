@@ -68,13 +68,40 @@ La riga morta del menu — *«Birra a Rotazione — chiedi al banco»* — diven
 punto piu' forte: **e' la spina dove finisce la degustazione in corso.** Cambia
 perche' il gruppo di assaggio non ha smesso. Da segnaposto a motivo per tornare.
 
-### 📸 Foto: di nuovo nessuna
+### 📸 Foto
 
-Le sei foto delle birre in `public/images/` sono generate dall'IA e mostrano **un
-pub in pietra con luce bassa e lucine**, cioe' l'opposto del locale — che e'
-chiaro e in cui si mangia seduti. Usarle contraddirebbe la prima riga del testo.
+Le sei foto delle birre in `public/images/` sono generate dall'IA e mostrano un
+pub in pietra con luce bassa. Non usate.
 
-**Serve una foto delle spine**, o del banco. Una, col telefono.
+Cercata su Pexels (licenza senza obbligo di firma). Marco ha chiesto luppoli in
+una mano; poi ha preferito **la birra che scende dalla spina**. Scelta
+`birra-spine.webp`: colonna in ottone con quattro spine, boccale, avambracci
+tatuati. 76 KB.
+
+Marco ha chiesto di togliere lo smartwatch dal polso. **Non si puo':** non ho uno
+strumento di ritocco, e tagliarlo porterebbe via anche il tatuaggio, che sta
+attaccato. Verificato provando il taglio. Marco ha scelto di tenerlo.
+
+**Resta valido:** una foto vera delle spine del locale batte questa.
+
+### ✍️ Riscrittura dopo la lettura di Marco
+
+Prima versione bocciata su due punti:
+
+1. *«la sala e' chiara»* — non dice niente. Sostituito col fatto che ha dato lui:
+   **i tavoli sono fuori, sotto i platani, e d'estate dentro non ci sta quasi
+   nessuno.** Combacia con la pagina inglese gia' approvata.
+2. **Tono da robot.** *«abbiamo fatto un sito scherzoso e tu parli come un
+   robot»*. Riscritta tutta con frasi corte.
+
+E soprattutto: dentro c'era **la costruzione che Marco mi ha gia' vietato** —
+frase compiuta, lineetta, congiunzione, rafforzativo (*«E non e' finita li' —
+questa e' la parte che conta davvero»*). Era gia' la prima voce della lista delle
+costruzioni vietate in memoria, e l'ho rifatta lo stesso.
+
+Ora il testo passa un controllo automatico su `,\s+(e|ma|pero|ed)\s`, sulle
+antitesi coi due punti e sulle terzine fra lineette. **Il controllo va fatto
+prima di consegnare, non dopo la correzione di Marco.**
 
 ### Verificato in locale
 
