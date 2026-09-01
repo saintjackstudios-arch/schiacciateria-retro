@@ -1,7 +1,8 @@
 ---
 title: "Il kren a Trieste: cos'è e come si chiede"
 date: "2026-09-01"
-author: "Davide"
+author: "Davide Virdis"
+author_role: "Titolare di Schiacciateria Retrò, Viale XX Settembre, Trieste."
 category: "TRADIZIONI"
 excerpt: "Il kren è radice di rafano grattugiata al momento. A Trieste si chiede «a piangere»: cosa vuol dire, come la teniamo viva e su cosa ci sta davvero bene."
 hero_image: "/blog-images/kren-radici.webp"

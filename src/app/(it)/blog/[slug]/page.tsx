@@ -93,9 +93,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <div className="h-[6px] bg-black w-24 mb-6" />
 
           {/* Autore */}
-          <p className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-12">
-            Di {article.author}
-          </p>
+          <div className="mb-12">
+            <p className="text-xs font-black uppercase tracking-widest text-zinc-400">
+              Di {article.author}
+            </p>
+            {article.author_role && (
+              <p className="mt-1 text-xs font-semibold text-zinc-500">
+                {article.author_role}
+              </p>
+            )}
+          </div>
 
           {/* Hero Image */}
           {article.hero_image && (
@@ -186,6 +193,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               "author": {
                 "@type": "Person",
                 "name": article.author,
+                ...(article.author_role ? { "description": article.author_role } : {}),
               },
               "datePublished": article.date,
               "dateModified": article.dateModified || article.date,

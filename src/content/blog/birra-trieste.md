@@ -1,7 +1,8 @@
 ---
 title: "Birra a Trieste: cinque spine e una che cambia"
 date: "2026-09-01"
-author: "Davide"
+author: "Davide Virdis"
+author_role: "Titolare di Schiacciateria Retrò. Le birre alla spina le ha scelte lui."
 category: "DRINKS"
 excerpt: "Cinque birre alla spina e una che cambia. Le ha scelte Davide dopo settimane di «lunghe degustazioni» con dipendenti e clienti. Non sono ancora finite."
 hero_image: "/blog-images/birra-spine.webp"

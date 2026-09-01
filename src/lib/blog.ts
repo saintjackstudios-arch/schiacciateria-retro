@@ -10,6 +10,9 @@ export interface PostData {
   date: string;
   dateModified?: string;
   author: string;
+  // Chi e' l'autore, in una riga. Serve ai motori per capire che dietro
+  // l'articolo c'e' una persona con esperienza diretta, non una firma vuota.
+  author_role?: string;
   category: string;
   excerpt: string;
   hero_image?: string;
@@ -44,7 +47,7 @@ export function getSortedPostsData(): Omit<PostData, 'content'>[] {
       // Combine the data with the slug
       return {
         slug,
-        ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
+        ...(data as { title: string; date: string; dateModified?: string; author: string; author_role?: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
       };
     });
 
@@ -74,6 +77,6 @@ export async function getPostData(slug: string): Promise<PostData | null> {
   return {
     slug,
     content,
-    ...(data as { title: string; date: string; dateModified?: string; author: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
+    ...(data as { title: string; date: string; dateModified?: string; author: string; author_role?: string; category: string; excerpt: string; hero_image?: string; hero_alt?: string; hero_credit?: string; hero_credit_url?: string }),
   };
 }
