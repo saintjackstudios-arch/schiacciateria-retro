@@ -227,14 +227,9 @@ export default function BuffetClient() {
               desc: 'Tradizione storica o l’alternativa contemporanea? Confronto onesto.',
             },
             {
-              href: '/blog/rebechin-come-si-fa-trieste',
-              title: 'Il rebechin: come si fa a Trieste',
-              desc: 'La pausa da banco tra tradizione portuale e vita triestina di oggi.',
-            },
-            {
-              href: '/blog/tradizioni-triestine-kren-caffe-capo-in-b',
-              title: 'Kren, caffè capo in b e altre tradizioni triestine',
-              desc: 'I piccoli riti che raccontano Trieste, dal banco alla tazzina.',
+              href: '/blog/kren-trieste',
+              title: 'Il kren a Trieste: cos\u2019\u00e8 e come si chiede',
+              desc: 'La radice tenuta viva in acqua, grattugiata al momento, e la risposta \u00aba piangere\u00bb.',
             },
             {
               href: '/blog/cosa-mangiare-trieste-tipico',

@@ -60,6 +60,20 @@ const nextConfig: NextConfig = {
         destination: '/menu',
         permanent: true,
       },
+      // Fusione dei due articoli sul kren, scritti dall'IA e senza un solo
+      // fatto che sapesse solo Retro': zero clic su 40 impressioni e uno su
+      // 50. Il contenuto vero sta ora in /blog/kren-trieste, quindi la
+      // posizione gia' guadagnata (ottava e settima) si porta li' dentro.
+      {
+        source: '/blog/tradizioni-triestine-kren-caffe-capo-in-b',
+        destination: '/blog/kren-trieste',
+        permanent: true,
+      },
+      {
+        source: '/blog/rebechin-come-si-fa-trieste',
+        destination: '/blog/kren-trieste',
+        permanent: true,
+      },
     ];
   },
   async headers() {

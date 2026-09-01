@@ -4,7 +4,7 @@
 > una sola cosa che sappia solo Retrò. Qui dentro c'è quello che si sa solo
 > stando dietro il banco. **Se una risposta non c'è, la frase non si scrive.**
 
-**Raccolto da Marco il 31/08/2026.** Le parole sono sue; dove ho fatto un conto
+**Raccolto da Marco il 31/08 e il 01/09/2026.** Le parole sono sue; dove ho fatto un conto
 o una verifica lo dico.
 
 ---
@@ -38,6 +38,35 @@ Trieste**, non un'invenzione di Retrò: Marco dice «è famosissima». Nel testo
 raccontato come una cosa della città a cui il locale partecipa — **mai come
 qualcosa che abbiamo inventato noi**. La parte che è solo nostra è l'ultima:
 **chi gratta piange insieme al cliente.** Quella è prima mano.
+
+### ⭐ Su cosa si mette — «la morte sua»
+
+> «Il kren **si può chiedere e te lo aggiungono**, però non sta proprio bene su
+> tutto. Diciamo che **"la morte sua"** — come si dice qui, che sarebbe a dire la
+> cosa con la quale è perfetto — **è il cotto**. Sul resto bisogna provare.
+>
+> Ma **se il cliente fa una scelta azzardata il cameriere lo avverte prima**, che
+> potrebbe avere un gusto "inaspettato". Poi **è il cliente che sceglie** se
+> provare o no.»
+
+Questo trasforma «Metto kren?» da aneddoto a **istruzione per chi entra**:
+
+1. **Si può chiedere su qualsiasi cosa**, non è legato a una schiacciata sola.
+2. **Con il cotto è perfetto** — è il punto di partenza per chi non l'ha mai preso.
+3. **Sul resto si prova**, e chi è dietro il banco ti avvisa prima se la
+   combinazione è azzardata. **Nessuno ti lascia sbagliare in silenzio.**
+
+📌 **«La morte sua» è un'espressione di qui**, e Marco la spiega mentre la usa:
+nel testo va usata così, con la spiegazione accanto, perché la pagina la legge
+anche chi a Trieste non ci abita.
+
+⚠️ **Il punto 3 è il vero materiale.** Il cameriere che avverte prima e lascia
+scegliere è una cosa che si sa solo lavorandoci, e dice come si viene trattati
+in sala meglio di qualunque frase sull'accoglienza. Nessun concorrente lo
+scrive perché nessuno ci pensa.
+
+⚠️ **Da non scrivere:** nessun elenco di gusti oltre il cotto. Il cotto è un
+ingrediente, i gusti ruotano col menù — vale la regola di sempre.
 
 ---
 

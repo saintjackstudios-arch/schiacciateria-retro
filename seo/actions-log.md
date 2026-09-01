@@ -4,6 +4,82 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ---
 
+## 2026-09-01 (31) — ✍️ Prima pagina scritta con materiale di prima mano: il kren
+
+→ `src/content/blog/kren-trieste.md` · **non ancora pubblicata**, in attesa del via di Marco
+
+### Cosa e' successo
+
+Marco ha completato il materiale rispondendo all'ultima domanda: **il kren si puo'
+chiedere su tutto, ma «la morte sua» e' il prosciutto cotto**; se la scelta e'
+azzardata **chi e' al banco avverte prima**, poi decide il cliente. Aggiunto a
+`voce-di-davide.md`, sezione 1.
+
+Quel dettaglio ha cambiato la pagina: da aneddoto («A piangere») a **istruzione
+per chi entra**. La parte sul cameriere che avverte prima e lascia scegliere e'
+la cosa che nessun concorrente scrive, perche' nessuno ci pensa.
+
+### La fusione
+
+Due articoli cancellati, tutti e due scritti dall'IA e senza un fatto che sapesse
+solo Retro':
+
+| Slug cancellato | Clic | Impressioni | Posizione |
+|---|---|---|---|
+| `tradizioni-triestine-kren-caffe-capo-in-b` | **0** | 40 | 7,5 |
+| `rebechin-come-si-fa-trieste` | **1** | 50 | 6,7 |
+
+Tutti e due mandati con **308** su `/blog/kren-trieste` (in `next.config.ts`).
+Query bersaglio: `kren trieste` 29 impressioni pos. 8,0 · `rebechin` 13, pos. 7,8.
+
+**Corretti anche i due link interni** in `BuffetClient.tsx`, che puntavano agli
+slug vecchi: un link interno non deve passare per un redirect.
+
+### 🔴 Scoperta: i vecchi articoli citavano piatti che non esistono
+
+Verificato contro `menuData.ts`:
+
+- «la schiacciata **Bela Trieste**» → **non esiste in menu.**
+- «la formula **Tartine e Tapas**, a soli **2,50€** a tartina» → **non esiste in menu.**
+
+Non e' un dettaglio: erano due pagine pubbliche che promettevano cose non
+ordinabili. **Da controllare negli altri 25 articoli** — molto probabilmente non
+sono gli unici due casi.
+
+### Scelte fatte, e perche'
+
+- **Nessun nome di piatto nel testo.** La pagina dice *«il bruschettone col
+  prosciutto cotto»* e *«una delle schiacciate, col cotto e la senape»* e manda
+  al [menu](/menu). Cosi' non invecchia quando il menu cambia — che e' esattamente
+  l'errore appena trovato sopra.
+- **Nessun prezzo.** Stesso motivo.
+- **Nessuna foto.** L'unica disponibile (`bruschettone_cotto_kren.webp`) e'
+  generata dall'IA: su una pagina il cui unico argomento e' *«questo e' vero, lo
+  facciamo davvero»*, una foto finta lavora contro il testo. **Serve una foto
+  vera: la radice nell'acqua e la grattugiata al momento.**
+- **Tolto il glossario del caffe'** («nero», «capo in b»): nelle 384 query non
+  c'e' una sola ricerca sul caffe'. Era il secondo argomento appiccicato al primo,
+  cioe' il motivo per cui quella pagina non ha mai preso un clic.
+- **«A piangere» e «la morte sua» sono raccontate come espressioni di Trieste**,
+  non come invenzioni del locale. La parte solo nostra e' una: chi gratta piange
+  insieme al cliente.
+
+### Verificato in locale
+
+- `npm run build` passa, 45 pagine statiche.
+- I due 308 rispondono; `/blog/kren-trieste` risponde 200.
+- Sitemap: 35 URL, contiene `kren-trieste`, non contiene piu' i due slug vecchi.
+
+### Da fare
+
+- **Aspettare il via di Marco** e pubblicare.
+- Dopo la pubblicazione: chiedere l'indicizzazione di `/blog/kren-trieste`.
+- Foto vera del kren (radice in acqua + grattugiata).
+- Prossime pagine con materiale gia' pronto: **birra/pub** (~60 ricerche, nona
+  posizione) e **quanto si spende**.
+
+---
+
 ## 2026-08-31 (30) — 🎤 Marco ha dettato kren, birre e scontrino. E le patatine non si fanno
 
 → `seo/materiale-clienti/voce-di-davide.md`
