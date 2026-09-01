@@ -4,6 +4,8 @@ date: "2026-09-01"
 author: "Davide"
 category: "DRINKS"
 excerpt: "Cinque birre alla spina e una che cambia. Le ha scelte Davide insieme a dipendenti e clienti dopo settimane di «lunghe degustazioni», e non ha ancora finito."
+hero_image: "/blog-images/birra-luppoli.webp"
+hero_alt: "Due mani piene di coni di luppolo verde appena raccolti"
 ---
 
 A Trieste la parola pub fa pensare al legno scuro e alla luce bassa. Qui è un'altra cosa: la sala è chiara, si mangia seduti come in un locale normale, e la birra è la faccenda che prendiamo più sul serio.
