@@ -6,7 +6,7 @@ Log cronologico di ogni azione correttiva intrapresa per la SEO del sito. Ordine
 
 ## 2026-09-01 (31) — ✍️ Prima pagina scritta con materiale di prima mano: il kren
 
-→ `src/content/blog/kren-trieste.md` · **non ancora pubblicata**, in attesa del via di Marco
+→ https://schiacciateriaretrotrieste.com/blog/kren-trieste · **pubblicata il 01/09/2026**
 
 ### Cosa e' successo
 
@@ -118,13 +118,36 @@ L'alternativa senza obblighi era una delle CC0, brutte.
 **Resta valido:** una foto vera delle radici nel secchio e della grattugiata
 vale piu' di questa, e la sostituirebbe.
 
+### ✅ Pubblicata (01/09/2026)
+
+Marco ha dato il via. `git push origin main` → deploy Vercel **online in circa
+60 secondi**. Verificato in produzione: titolo, canonical, `alt` vero, firma
+della foto, «Non e' una salsa», «In Viale XX Settembre», immagine servita
+dall'ottimizzatore (78 KB a 1080 px). Sitemap: 35 URL, contiene `kren-trieste`,
+non contiene piu' i due slug vecchi. I due **308 rispondono in produzione**.
+
+**Tre richieste di indicizzazione inviate** (Search Console, `authuser=1`,
+proprieta' `sc-domain:schiacciateriaretrotrieste.com`):
+
+| URL | Stato prima della richiesta |
+|---|---|
+| `/blog/kren-trieste` | «URL is unknown to Google» — nuova |
+| `/blog/rebechin-come-si-fa-trieste` | ancora **indicizzata**: Google non ha visto il 308 |
+| `/blog/tradizioni-triestine-kren-caffe-capo-in-b` | ancora **indicizzata**: idem |
+
+Le ultime due sono state chieste apposta: la riscansione e' il modo per far
+trovare il redirect subito invece di aspettare il giro naturale del crawler.
+
 ### Da fare
 
-- **Aspettare il via di Marco** e pubblicare.
-- Dopo la pubblicazione: chiedere l'indicizzazione di `/blog/kren-trieste`.
-- Foto vera del kren (radice in acqua + grattugiata).
+- **Controllare fra 7-10 giorni**: `/blog/kren-trieste` indicizzata, e i due
+  vecchi passati a «Pagina con reindirizzamento».
+- Foto vera del kren (radice in acqua + grattugiata): sostituisce quella di
+  Vienna **e fa sparire l'obbligo della firma**.
 - Prossime pagine con materiale gia' pronto: **birra/pub** (~60 ricerche, nona
   posizione) e **quanto si spende**.
+- 👀 Notato in Search Console: `/blog/spritz-aperitivo-trieste` ha preso
+  **+495% di impressioni**. Da guardare quando si passa allo spritz.
 
 ---
 
